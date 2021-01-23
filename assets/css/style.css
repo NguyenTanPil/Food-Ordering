@@ -1,0 +1,67 @@
+/*// X-Small devices (portrait phones, less than 576px)*/
+/*// No media query for `xs` since this is the default in Bootstrap*/
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { ... }
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { ... }
+
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { ... }
+
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) { ... }
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+a {
+	text-decoration: none;
+}
+/*topbar starts*/
+.topbar {
+	font-size: 12px;
+	padding: .75rem 0;
+	background: rgb(243, 243, 243);
+}
+.topbar a {
+	color: #AAAAAA;
+}
+.topbar a:hover {
+	color: black;
+}
+.topbar-left > div, .topbar-right > div {
+	padding: .1rem 0;
+}
+.menu .navbar-brand {
+	padding-left: 1rem !important;
+}
+.menu .btn-hidden {
+	box-shadow: none !important;
+	padding: 0 !important;
+	font-size: inherit;
+	margin-right: 1.25rem !important;
+}
+.menu .btn-hidden:focus {
+	border: 2px solid orange;
+}
+.menu .navbar-brand {
+		padding-top: 0px !important;
+}
+.menu .section-hidden {
+	padding-left: 1rem !important;
+}
+.menu .btn-search {
+	margin-right: 1rem !important;
+}
+.menu .active {
+	color: orange !important;
+}
+/*topbar ends*/
