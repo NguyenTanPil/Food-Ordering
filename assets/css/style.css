@@ -1,20 +1,86 @@
-/*// X-Small devices (portrait phones, less than 576px)*/
-/*// No media query for `xs` since this is the default in Bootstrap*/
-
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-
+	/*menu starts*/
+	.menu .btn-become-partner {
+		text-decoration: none;
+		color: #ffffff;
+		background: rgba(255,165,0,1);
+		padding: .2rem 1.3rem;
+		font-size: 90%;
+		border: none;
+	}
+	.menu .btn-hidden {
+		margin-right: 0.3rem !important;
+	}
+	.menu .btn-become-partner,
+	.menu .nofication,
+	.menu .search-menu,
+	.menu .btn-hidden {
+		margin-left: 1rem;
+	}
+	/*menu ends*/
+	/*review starts*/
+	.block-review .left-review {
+	color: #ffffff;
+	padding: 101px 0px 93px;
+	}
+	.block-review .left-review .title {
+		font-size: 139%;
+		margin-bottom: 1.4rem;
+	}
+	.block-review .left-review .exception {
+		font-size: 105%;
+	}
+	.block-review .left-review .time-services {
+		margin-bottom: 1.5rem;
+	}
+	.block-review .right-review {
+		padding: 0 1rem 0 0;
+	}
+	/*review ends*/
 }
-
 /*// Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) { ... }
-
+@media (min-width: 768px) {
+	/*review starts*/
+	.block-review .left-review {
+	padding: 97px 20px 93px;
+	}
+	.block-review .left-review .title {
+		font-size: 142%;
+		margin-bottom: 1.5rem;
+	}
+	.block-review .left-review .exception {
+		font-size: 115%;
+	}
+	.block-review .right-review {
+		padding: 0 1rem;
+	}
+	/*review ends*/
+}
 /*// Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) { ... }
-
+@media (min-width: 992px) {
+	/*review starts*/
+	.block-review .left-review {
+		padding-top: 90px;
+	}
+	.block-review .left-review .title {
+		font-size: 250%;
+		margin-bottom: 1.9rem;
+	}
+	/*review ends*/
+}
 /*// X-Large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) { ... }
-
+@media (min-width: 1200px) {
+	/*review starts*/
+	.block-review .left-review {
+	padding: 80px 20px 93px;
+	}
+	.block-review .left-review .title {
+		font-size: 300%;
+		margin-bottom: 2rem;
+	}
+	/*review ends*/
+}
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) { ... }
 * {
@@ -47,7 +113,7 @@ a {
 	box-shadow: none !important;
 	padding: 0 !important;
 	font-size: inherit;
-	margin-right: 1.25rem !important;
+	margin-right: 1.25rem;
 }
 .menu .btn-hidden:focus {
 	border: 2px solid orange;
@@ -124,18 +190,4 @@ a {
 	background: rgba(255,165,0,.85);
 }
 
-.block-review .left-review {
-	color: #ffffff;
-	padding: 80px 20px 93px;
-}
-.block-review .left-review .title {
-	font-size: 300%;
-	margin-bottom: 2rem;
-}
-.block-review .left-review .exception {
-	font-size: 115%;
-}
-.block-review .left-review .time-services {
-	margin-bottom: 1.5rem;
-}
 /*review ends*/
