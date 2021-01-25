@@ -1,24 +1,5 @@
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-	/*menu starts*/
-	.menu .btn-become-partner {
-		text-decoration: none;
-		color: #ffffff;
-		background: rgba(255,165,0,1);
-		padding: .2rem 1.3rem;
-		font-size: 90%;
-		border: none;
-	}
-	.menu .btn-hidden {
-		margin-right: 0.3rem !important;
-	}
-	.menu .btn-become-partner,
-	.menu .nofication,
-	.menu .search-menu,
-	.menu .btn-hidden {
-		margin-left: 1rem;
-	}
-	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
 	color: #ffffff;
@@ -41,6 +22,14 @@
 }
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
+	/*menu starts*/
+	.menu .logo {
+		padding-left: 1rem !important;
+	}
+	.menu .section-hidden {
+		padding-left: 1rem !important;
+	}
+	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
 	padding: 97px 20px 93px;
@@ -59,6 +48,23 @@
 }
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+	/*menu starts*/
+	.menu .btn-become-partner {
+		padding-left: 0px;
+	}
+	.menu .section-hidden {
+		padding-left: 0 !important;
+		width: initial;
+	}
+	.menu .container {
+		flex-direction: row-reverse;
+		justify-content: flex-start !important;
+	}
+	.menu .logo {
+		position: absolute;
+		left: 20px;
+	}
+	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
 		padding-top: 90px;
@@ -106,8 +112,8 @@ a {
 .topbar-left > div, .topbar-right > div {
 	padding: .1rem 0;
 }
-.menu .navbar-brand {
-	padding-left: 1rem !important;
+.menu .container {
+	position: relative;
 }
 .menu .btn-hidden {
 	box-shadow: none !important;
@@ -119,10 +125,11 @@ a {
 	border: 2px solid orange;
 }
 .menu .navbar-brand {
-		padding-top: 0px !important;
+	padding-top: 0px !important;
 }
 .menu .section-hidden {
-	padding-left: 1rem !important;
+	padding-left: 0rem;
+	font-size: 90%;
 }
 .menu .btn-search {
 	margin-right: 1rem !important;
@@ -133,6 +140,40 @@ a {
 .menu .navbar-nav .nav-item a:hover {
 	color: orange;
 }
+.menu .menu-sab {
+	color: grey;
+}
+.menu .menu-sab:focus {
+	color: orange;
+}
+.menu .logo {
+	padding-left: 0px;
+}
+/*menu starts*/
+.menu .btn-become-partner {
+	text-decoration: none;
+	color: #ffffff;
+	background: rgba(255,165,0,1);
+	padding: .2rem 1.3rem;
+	font-size: 90%;
+	border: none;
+	margin-right: 0.16rem;
+}
+.menu .btn-hidden {
+	margin-right: 0.1rem !important;
+}
+.menu .btn-become-partner,
+.menu .nofication,
+.menu .search-menu,
+.menu .btn-hidden {
+	margin-left: 1rem;
+}
+/*.menu .menu-right {
+	position: absolute;
+	right: 0;
+	top: 0;
+} */
+/*menu ends*/
 /*topbar ends*/
 /*review starts*/
 .block-review .cover-banner {
