@@ -1,9 +1,16 @@
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
+	/*topbar starts*/
+	.topbar .topbar-right-child {
+		display: flex;
+		justify-content: space-around;
+		flex-grow: 1;
+	}
+	/*topbar ends*/
 	/*review starts*/
 	.block-review .left-review {
-	color: #ffffff;
-	padding: 101px 0px 93px;
+		color: #ffffff;
+		padding: 101px 0px 93px;
 	}
 	.block-review .left-review .title {
 		font-size: 139%;
@@ -49,6 +56,18 @@
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
 	/*menu starts*/
+	.topbar-left {
+		margin-bottom: 0 !important;
+	}
+	.topbar-right {
+		justify-content: flex-end !important;
+	}
+	.topbar-right .topbar-right-child > div {
+		margin-left: 1.25rem !important;
+	}
+	.topbar .topbar-right-child {
+		flex-grow: initial;
+	}
 	.menu .btn-become-partner {
 		padding-left: 0px;
 	}
@@ -99,7 +118,7 @@ a {
 }
 /*topbar starts*/
 .topbar {
-	font-size: 12px;
+	font-size: 13px;
 	padding: .75rem 0;
 	background: rgb(243, 243, 243);
 }
@@ -111,6 +130,17 @@ a {
 }
 .topbar-left > div, .topbar-right > div {
 	padding: .1rem 0;
+}
+.topbar-left {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-bottom: 0.5rem;
+}
+.topbar-right {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
 .menu .container {
 	position: relative;
