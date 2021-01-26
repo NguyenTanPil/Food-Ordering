@@ -260,5 +260,38 @@ a {
 .block-review .btn-search-in-review:hover {
 	background: rgba(255,165,0,.85);
 }
-
 /*review ends*/
+/*browse places starts*/
+.browse-places .active {
+	display: flex;
+	justify-content: space-evenly;
+
+}
+.browse-places .places {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+.browse-places .places .places-icon {
+	padding-bottom: .3rem;
+}
+.browse-places .places .places-icon:hover {
+	animation-name: circular;
+	animation-duration: .7s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+@keyframes circular {
+	100% {
+		transform: rotate3d(0,1,0,360deg);
+	}
+}
+.browse-places .places .places-text {
+	color: gray;
+	font-size: 14px;
+}
+.browse-places .places .places-text:hover {
+	color: orange;
+}
+/*browse places ends*/
