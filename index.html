@@ -3,10 +3,13 @@
 <head>
 	<title>Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="assets/images/brand.ico" type="image/x-icon" />
 	<!-- Connect my bootstrap 5 cdn -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<!-- Connect font awesome -->
-	<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Connect splide -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 	<!-- Connect my css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -179,381 +182,87 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
-					  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Near by
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Cafes & More
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Drinks & Nightkise
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Desserts & Bakes
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Upcoming Events
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Newly Opened
-					      		</div>
-					      	</a>
-					      </div>
-					    </div>
-					    <div class="carousel-item ">
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Cafes & More
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Drinks & Nightkise
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Desserts & Bakes
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Upcoming Events
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Newly Opened
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Near by
-					      		</div>
-					      	</a>
-					      </div>
-					    </div>
-					    <div class="carousel-item">
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Drinks & Nightkise
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Desserts & Bakes
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Upcoming Events
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Newly Opened
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Near by
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Cafes & More
-					      		</div>
-					      	</a>
-					      </div>
-					    </div>
-					    <div class="carousel-item">
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Desserts & Bakes
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Upcoming Events
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Newly Opened
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Near by
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Cafes & More
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Drinks & Nightkise
-					      		</div>
-					      	</a>
-					      </div>
-					    </div>
-					    <div class="carousel-item">
-					    	<div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Upcoming Events
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Newly Opened
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Near by
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Cafes & More
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Drinks & Nightkise
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Desserts & Bakes
-					      		</div>
-					      	</a>
-					      </div>
-					    </div>
-					    <div class="carousel-item">
-					    	<div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Newly Opened
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Near by
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Cafes & More
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-md-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Drinks & Nightkise
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Desserts & Bakes
-					      		</div>
-					      	</a>
-					      </div>
-					      <div class="places d-none d-lg-block">
-					      	<a href="#">
-					      		<div class="places-icon">
-					      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
-					      		</div>
-					      		<div class="places-text">
-					      			Upcoming Events
-					      		</div>
-					      	</a>
-					      </div>
-					    </div>
-					  </div>
+					<div class="col-12">
+						<div class="list-places">
+							<div class="splide">
+								<div class="splide__track">
+									<ul class="splide__list">
+										<li class="splide__slide">
+											<div class="places">
+								      	<a href="#">
+								      		<div class="places-icon">
+								      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
+								      		</div>
+								      		<div class="places-text">
+								      			Near by
+								      		</div>
+								      	</a>
+								      </div>
+										</li>
+										<li class="splide__slide">
+											<div class="places">
+								      	<a href="#">
+								      		<div class="places-icon">
+								      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
+								      		</div>
+								      		<div class="places-text">
+								      			Cafes & More
+								      		</div>
+								      	</a>
+								      </div>
+										</li>
+										<li class="splide__slide">
+											<div class="places">
+								      	<a href="#">
+								      		<div class="places-icon">
+								      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
+								      		</div>
+								      		<div class="places-text">
+								      			Drinks & Nightkise
+								      		</div>
+								      	</a>
+								      </div>
+										</li>
+										<li class="splide__slide">
+											<div class="places">
+								      	<a href="#">
+								      		<div class="places-icon">
+								      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
+								      		</div>
+								      		<div class="places-text">
+								      			Desserts & Bakes
+								      		</div>
+								      	</a>
+								      </div>
+										</li>
+										<li class="splide__slide">
+											<div class="places">
+								      	<a href="#">
+								      		<div class="places-icon">
+								      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
+								      		</div>
+								      		<div class="places-text">
+								      			Upcoming Events
+								      		</div>
+								      	</a>
+								      </div>
+										</li>
+										<li class="splide__slide">
+											<div class="places">
+								      	<a href="#">
+								      		<div class="places-icon">
+								      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
+								      		</div>
+								      		<div class="places-text">
+								      			Newly Opened
+								      		</div>
+								      	</a>
+								      </div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -601,17 +310,58 @@
 								<p>Donec et tellus sed lorem condimentum maximus. Sed tempor, leo tempus condimentum.</p>
 							</div>
 						</div>
-					</div>
-					
+					</div>	
 				</div>
 			</div>
 		</section>
 		<!-- step working ends -->
+		<!-- list restaurants starts -->
+		<section class="restaurant">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="heading">
+							<h1> Discover New Restaurants & Book Now </h1>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="list-restaurants">
+							<div class="splide">
+								<div class="splide__track">
+									<ul class="splide__list">
+										<li class="splide__slide">
+											<img src="assets/images/rest-1.jpg" alt="">
+										</li>
+										<li class="splide__slide">
+											<img src="assets/images/rest-2.jpg" alt="">
+										</li>
+										<li class="splide__slide">
+											<img src="assets/images/rest-3.jpg" alt="">
+										</li>
+										<li class="splide__slide">
+											<img src="assets/images/rest-4.jpg" alt="">
+										</li>
+										<li class="splide__slide">
+											<img src="assets/images/rest-5.jpg" alt="">
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- list restaurants ends -->
 	<!-- Connect Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Connect bootstrap and popper -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+	<!-- Connect spider -->
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 	<!-- Connect my js -->
 	<script src="assets/js/main.js"></script>
 </body>
