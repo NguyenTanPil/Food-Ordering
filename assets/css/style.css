@@ -369,7 +369,7 @@ a {
 /*restaurants ends*/
 /*order food online starts*/
 .order-online {
-	padding: 4.5rem 0;
+	padding-top: 4.5rem;
 	text-align: center;
 }
 .order-online .heading h2 {
@@ -521,6 +521,48 @@ a {
 }
 /*all meals in order food online ends */
 /*order food online ends*/
+/*offer bannar starts*/
+.offer-banner {
+	margin: 3rem 0 4rem;
+	color: #fff;
+}
+.offer-banner .banner {
+	position: relative;
+	margin-top: 2rem;
+	padding: 1.25rem;
+}
+.offer-banner .ads-banner-1 {
+	background-image: url(../images/banner-1.jpg);
+}
+.offer-banner .ads-banner-2 {
+	background-image: url(../images/banner-2.jpg);
+}
+.offer-banner .ads-banner-1,
+.offer-banner .ads-banner-2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.offer-banner .banner-text h2 {
+	font-size: 1.5rem;
+}
+.offer-banner .banner-text p {
+	font-size: 0.875rem;
+}
+.offer-banner .banner-btn a {
+	font-size: 0.75rem;
+	padding: 0.5rem 1rem;
+}
+.offer-banner .long-arrow i {
+	color: orange;
+}
+/*offer bannar ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -551,7 +593,8 @@ a {
 	}
 	/*review ends*/
 	/*order online starts */
-	.order-online .row-meal {
+	.order-online .row-meal,
+	.offer-banner .row {
 		padding: 0 4rem;
 	}
 	/*order online ends */
@@ -605,7 +648,8 @@ a {
 	}
 	/*step woking end*/
 	/*order online starts */
-	.order-online .row-meal {
+	.order-online .row-meal,
+	.offer-banner .row {
 		padding: 0;
 	}
 	.order-online .heading h4 {
@@ -697,7 +741,8 @@ a {
 		padding-top: 1rem;
 	}
 	/*step woking end*/
-	.order-online .row-meal {
+	.order-online .row-meal,
+	.offer-banner .row {
 		padding: 0 4rem;
 	}
 }
