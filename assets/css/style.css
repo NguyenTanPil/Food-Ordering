@@ -11,6 +11,21 @@
 a {
 	text-decoration: none;
 }
+/*common starts*/
+.my-btn {
+	text-decoration: none;
+	color: #ffffff;
+	background: rgba(255,165,0,1);
+	padding: .65rem 1.5rem;
+}
+.my-btn:focus {
+	box-shadow: none;
+}
+.my-btn:hover {
+	background: rgba(255,165,0,.85);
+	color: #fff;
+}
+/*common ends*/
 /*topbar starts*/
 .topbar {
 	font-size: 13px;
@@ -93,11 +108,6 @@ a {
 .menu .btn-hidden {
 	margin-left: 1rem;
 }
-/*.menu .menu-right {
-	position: absolute;
-	right: 0;
-	top: 0;
-} */
 /*menu ends*/
 /*topbar ends*/
 /*review starts*/
@@ -127,20 +137,23 @@ a {
 	border-radius: 3px;
 	outline: none;
 }
-.block-review .form-box .input-group-text {
+.block-review .form-box .input-group-text,
+.order-online .input-group-text {
 	background: white;
 	border-color: orange;
 	border-right: none !important;
 	border-radius: 3px;
 }
-.block-review .form-box .form-control {
+.block-review .form-box .form-control,
+.order-online .form-control {
 	padding: .75rem .5rem;
 	border-radius: 0 3px 3px 0 !important;
 	font-size: 13px;
 	border: 1px solid orange;
 	border-left: none;
 }
-.block-review .form-box .form-control:focus {
+.block-review .form-box .form-control:focus,
+.order-online .form-control:focus {
 	box-shadow: none;
 }
 .block-review .btn-search-in-review {
@@ -179,7 +192,8 @@ a {
 .browse-places .places .places-icon {
 	padding-bottom: .3rem;
 }
-.browse-places .places .places-icon:hover {
+.browse-places .places .places-icon:hover,
+.step-working .img-item img:hover {
 	animation-name: circular;
 	animation-duration: .7s;
 	animation-timing-function: linear;
@@ -251,6 +265,10 @@ a {
 }
 .list-restaurants .splide__slide img {
 	width: 90%;
+	filter: grayscale(100%);
+}
+.list-restaurants .splide__slide img:hover {
+	filter: grayscale(0%);
 }
 .list-restaurants .splide__arrow--prev {
 	left: -3em;
@@ -259,6 +277,163 @@ a {
 	right: -3em;
 }
 /*restaurants ends*/
+/*order food online starts*/
+.order-online {
+	padding: 4.5rem 0;
+	text-align: center;
+}
+.order-online .heading h2 {
+	font-size: 1.5rem;
+}
+.order-online .your-location {
+	font-size: 0.875rem;
+	margin-top: 1.5rem;
+}
+.order-online .your-location p {
+	color: #847577;
+	margin-bottom: 0;
+}
+.order-online .your-location span {
+	color: orange;
+	margin-right: 0.625rem;
+	cursor: pointer;
+}
+.order-online .search-location {
+	padding: 1.875rem 0.9375rem 1.25rem;
+}
+.order-online .input-search-location {
+	border: 1px solid orange;
+	border-right: 0px;
+	border-radius: 3px 0 0 3px !important;
+}
+.order-online .search-location .input-group:focus-within {
+	box-shadow: 0 0 0 1px rgba(255,165,0, 1);
+	border-radius: 3px;
+	outline: none;
+}
+.order-online .search-location button {
+	border: 1px solid orange;
+	border-left: 0;
+	background: orange;
+	color: #fff;
+	text-decoration: none;
+	box-shadow: none;
+}
+.order-online .search-location button:hover {
+	opacity: 0.8;
+}
+/*all meals in order food online starts */
+.order-online .row-meal {
+	padding: 0 4rem;
+}
+.order-online .meal-item {
+	padding: 0 1rem;
+	margin-top: 2rem;
+}
+.order-online .card-img-top img {
+	width: 100%;
+}
+.order-online .card-img-top .theme {
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(transparent, black 90%);
+	opacity: .5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.order-online .card-img-top .theme:hover {
+	opacity: 0;
+}
+.order-online .top-text {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: -2rem;
+	width: 100%;
+	padding: 0 1.5rem;
+}
+.order-online .top-text .text {
+	width: 50.2%;
+}
+.order-online .logo-img img {
+	width: 4rem;
+	border: 1px solid #fff;
+	border-radius: .5rem;
+	margin-right: .5rem;
+}
+.order-online .heading h4 {
+	font-size: 1.4rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #fff;
+	width: 100%;
+}
+.order-online .sub-heading {
+	padding-top: .1rem;
+}
+.order-online h5 > a {
+	font-size: 1rem;
+}
+.order-online .top-text p {
+	color: orange;
+	align-self: flex-end;
+	margin-bottom: 0.4rem;
+	font-size: 0.875rem;
+	font-weight: bold;
+}
+.order-online .bottom-text {
+	margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0 1.5rem;
+	color: rgba(0,0,0,.6);
+}
+.order-online .delivery {
+	margin-top: .3rem;
+}
+.order-online .delivery i, 
+.order-online .time i {
+	width: 1rem;
+	margin-right: 0.125rem;
+}
+.order-online .feed-back {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+	padding-top: 0.6rem;
+	margin-bottom: 1rem;
+}
+.order-online .feed-back .stars {
+	color: #ffa803;
+}
+.order-online .feed-back span {
+	background: #ffa803;
+	color: #fff;
+	font-size: 0.75rem;
+	padding: 0.1rem 0.5rem;
+	border-radius: 42%;
+}
+.order-online .commnents a {
+	 color: rgba(0,0,0,.6);
+	 font-size: 0.875rem;
+	 font-weight: bold;
+}
+.order-online .commnents a:hover {
+	color: orange;
+}
+.order-online .commnents a i {
+	font-size: 1rem;
+	margin-right: 0.125rem;
+}
+.order-online .meal-btn {
+	margin-top: 4rem;
+}
+/*all meals in order food online ends */
+/*order food online ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -288,6 +463,11 @@ a {
 		padding: 0 1rem 0 0;
 	}
 	/*review ends*/
+	/*order online starts */
+	.order-online .row-meal {
+		padding: 0;
+	}
+	/*order online ends */
 }
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
@@ -337,6 +517,20 @@ a {
 		padding-top: 0.5rem;
 	}
 	/*step woking end*/
+	/*feed back starts*/
+	.order-online .heading h4 {
+		font-size: 1.125rem;
+	}
+	.order-online h5 > a {
+		font-size: 0.875rem;
+	}
+	.order-online .top-text p {
+		font-size: 0.875rem;
+	}
+	.order-online .sub-heading {
+		padding-top: .25rem;
+	}
+	/*feed back ends*/
 }
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
@@ -413,4 +607,7 @@ a {
 		padding-top: 1rem;
 	}
 	/*step woking end*/
+	.order-online .row-meal {
+		padding: 0 4rem;
+	}
 }

@@ -124,10 +124,6 @@
 			          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Browse Places</a>
 			        </li>
 			      </ul>
-			      <!-- <form class="d-flex">
-			        <input class="form-control me-2 input-search" type="search" placeholder="Search" aria-label="Search">
-			        <button class="btn btn-outline-success btn-search" type="submit">Search</button>
-			      </form> -->
 			    </div>
 			  </div>
 			</nav>
@@ -145,7 +141,7 @@
 							<h1 class="title">Choose, Order and Checkout</h1>
 							<h6 class="exception">Specify your address to suggest you the fast delivery</h6>
 							<p class="time-services">Get our services from 24 hours.</p>
-							<a href="#" class="btn btn-search-in-review" role="button" data-bs-toggle="button">Go To Meal</a>
+							<a href="#" class="btn my-btn" role="button" data-bs-toggle="button">Go To Meal</a>
 						</div>
 					</div>
 					<div class="col-12 col-sm-5 col-lg-4 right-review">
@@ -163,7 +159,7 @@
 								  </span>
 								  <input type="text" class="form-control" placeholder="Choose restaurant" aria-label="Username" aria-describedby="addon-wrapping">
 								</div>
-								<button type="button" class="btn btn-link btn-search-in-review">Find Food</button>
+								<button type="button" class="btn btn-link my-btn">Find Food</button>
 							</div>
 						</form>
 					</div>
@@ -332,19 +328,29 @@
 								<div class="splide__track">
 									<ul class="splide__list">
 										<li class="splide__slide">
-											<img src="assets/images/rest-1.jpg" alt="">
+											<a href="#">
+												<img src="assets/images/rest-1.jpg" alt="">
+											</a>
 										</li>
 										<li class="splide__slide">
-											<img src="assets/images/rest-2.jpg" alt="">
+											<a href="#">
+												<img src="assets/images/rest-2.jpg" alt="">
+											</a>
 										</li>
 										<li class="splide__slide">
-											<img src="assets/images/rest-3.jpg" alt="">
+											<a href="#">
+												<img src="assets/images/rest-3.jpg" alt="">
+											</a>
 										</li>
 										<li class="splide__slide">
-											<img src="assets/images/rest-4.jpg" alt="">
+											<a href="#">
+												<img src="assets/images/rest-4.jpg" alt="">
+											</a>
 										</li>
 										<li class="splide__slide">
-											<img src="assets/images/rest-5.jpg" alt="">
+											<a href="#">
+												<img src="assets/images/rest-5.jpg" alt="">
+											</a>
 										</li>
 									</ul>
 								</div>
@@ -355,6 +361,45 @@
 			</div>
 		</section>
 		<!-- list restaurants ends -->
+		<!-- order food online starts -->
+		<section class="order-online">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="heading">
+							<h2> Order Food Online In Your Area </h2>
+						</div>
+						<div class="your-location">
+							<p>
+								<span>
+									<i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 0.2rem;"></i>
+									New York
+								</span>
+								Change Location
+							</p>
+						</div>
+						<div class="search-location col-12 col-md-6 col-lg-4 mx-auto">
+							<div class="input-group">
+							  <input type="text" class="form-control input-search-location" placeholder="Enter your location" aria-describedby="button-addon2">
+							  <span class="input-group-text" id="basic-addon1">
+							  	<i class="fa fa-crosshairs" aria-hidden="true" style="color: rgba(0,0,0,.5);"></i>
+							  </span>
+							  <button class="btn btn-link" type="button" id="button-addon2">Search</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row row-meal app">
+					<div class="col-12 col-md-6 col-lg-4 col-xxl-3 meal-item" v-for="i in listFood">
+						<food-items v-bind:obj="i" v-bind:key="i.id"></food-items>
+					</div>
+				</div>
+				<div class="meal-btn">
+					<button type="button" class="btn btn-link my-btn">Show all</button>
+				</div>
+			</div>
+		</section>
+		<!-- order food online ends -->
 	<!-- Connect Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Connect bootstrap and popper -->
@@ -362,6 +407,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 	<!-- Connect spider -->
 	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+	<!-- Connect vue js -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 	<!-- Connect my js -->
 	<script src="assets/js/main.js"></script>
 </body>
