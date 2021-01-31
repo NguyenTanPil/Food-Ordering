@@ -1,3 +1,8 @@
+// loading starts
+window.onload = function() {
+	document.querySelector('.loading').style.display = 'none';
+}
+// loading ends
 // places starts
 new Splide( '.browse-places .splide', {
 	type: 'loop',
