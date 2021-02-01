@@ -345,7 +345,7 @@ a {
 }
 .restaurant .heading h1 {
 	font-size: 1.5rem;
-	text-align: center;
+	text-align: cente r;
 	font-weight: bold;
 }
 .list-restaurants {
@@ -354,10 +354,9 @@ a {
 	padding: 1rem 2rem;
 	margin-top: 2.5rem;
 }
-.list-restaurants .splide__slide {
-}
 .list-restaurants .splide__slide a {
-	/*padding: 0 .5rem;*/
+	display: flex;
+	justify-content: center;
 }
 .list-restaurants .splide__slide img {
 	filter: grayscale(100%);
@@ -586,6 +585,80 @@ a {
 	height: 30px !important;
 }
 /*quick searches ends*/
+/*featured restaurants starts*/
+.featured-restaurants {
+	margin-bottom: 2rem;
+}
+.featured-restaurants .row-features > div {
+	margin-top: 3rem;
+}
+.featured-restaurants .heading h2 {
+	font-size: 1.4rem;
+	font-weight: bold;
+	text-align: center;
+}
+.featured-restaurants .list-features,
+.featured-restaurants .list-treading {
+	margin-top: 3rem;
+}
+.featured-restaurants .feature-item,
+.featured-restaurants .treading-item {
+	padding: 1rem;
+	border: 1px solid rgba(0,0,0,.1);
+	border-bottom: 0;
+}
+.featured-restaurants .feature-item:last-child,
+.featured-restaurants .treading-item:last-child {
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.featured-restaurants .img-item {
+	display: flex;
+}
+.featured-restaurants .info-img h4 {
+	font-size: 1rem;
+	margin-bottom: 0.25rem;
+}
+.featured-restaurants .info-img p {
+	font-size: 0.875rem;
+	margin-bottom: 0;
+	color: rgba(0,0,0,.6);
+}
+.featured-restaurants .location-item {
+	padding: 0.5rem 0 1rem;
+	text-align: left;
+}
+.featured-restaurants .location-item .icon {
+	color: orange;
+	font-weight: bold;
+	margin-right: 0.2rem;
+}
+.featured-restaurants .location-item .text {
+	font-size: 0.875rem;
+	color: rgba(0,0,0,.6);
+}
+.featured-restaurants .img-item, 
+.featured-restaurants .btn-item {
+	display: flex;
+	justify-content: center;
+}
+.featured-restaurants .list-features .my-btn {
+	width: 60%;
+}
+.featured-restaurants .img-item .info-img {
+	margin-left: .5rem;
+	width: 100%;
+}
+.featured-restaurants .img-item .info-img h4,
+.featured-restaurants .img-item .info-img p {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.featured-restaurants .my-btn {
+	font-size: 0.875rem;
+	border-radius: 0;
+}
+/*featured restaurants ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -615,6 +688,11 @@ a {
 		padding: 0 1rem 0 0;
 	}
 	/*review ends*/
+	/*list restaurant starts*/
+	.list-restaurants .splide__slide img {
+		width: 90%;
+	}
+	/*list restaurant ends*/
 	/*order online starts */
 	.order-online .row-meal,
 	.offer-banner .row {
@@ -674,10 +752,14 @@ a {
 	.restaurant .row-restaurant {
 		padding: unset;
 	}
+	.list-restaurants .splide__slide img {
+		width: unset;
+	}
 	/*restaurant ends*/
 	/*order online starts */
 	.order-online .row-meal,
-	.offer-banner .row {
+	.offer-banner .row,
+	.featured-restaurants .row-features {
 		padding: 0;
 	}
 	.order-online .heading h4 {
@@ -693,6 +775,19 @@ a {
 		padding-top: .25rem;
 	}
 	/*order online ends */
+	/*featured restaurants starts*/
+	.featured-restaurants .img-item {
+		justify-content: unset;
+	}
+	.featured-restaurants .btn-item {
+		justify-content: flex-end;
+		align-items: center;
+		height: 100%;
+	}
+	.featured-restaurants .list-features .my-btn {
+		width: unset;
+	}
+	/*featured restaurants ends*/
 }
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
@@ -736,6 +831,11 @@ a {
 		flex-basis: inherit;
 	}
 	/*places ends*/
+	/*features restaurants starts*/
+	.featured-restaurants .my-btn span {
+		display: none;
+	}
+	/*features restaurants ends*/
 }
 /*// X-Large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
@@ -748,6 +848,11 @@ a {
 		margin-bottom: 2rem;
 	}
 	/*review ends*/
+	/*features restaurants starts*/
+	.featured-restaurants .my-btn span {
+		display: unset;
+	}
+	/*features restaurants ends*/
 }
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
@@ -767,7 +872,8 @@ a {
 	}
 	/*step woking end*/
 	.order-online .row-meal,
-	.offer-banner .row {
+	.offer-banner .row,
+	.featured-restaurants .row-features {
 		padding: 0 4rem;
 	}
 }

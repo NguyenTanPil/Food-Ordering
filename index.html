@@ -15,14 +15,14 @@
 </head>
 <body cz-shortcut-listen="true">
 	<!-- loading starts -->
-	<div class="loading">
+	<!-- <div class="loading">
 		<div class="loading-items">
 			<img class="animation-loading-1 loading-item" src="assets/images/loading.gif" alt="Loading">
 			<img class="animation-loading-2 loading-item" src="assets/images/loading.gif" alt="Loading">
 			<img class="animation-loading-3 loading-item" src="assets/images/loading.gif" alt="Loading">
 			<img class="animation-loading-4 loading-item" src="assets/images/loading.gif" alt="Loading">
 		</div>
-	</div>
+	</div> -->
 	<!-- loading ends -->
 	<!-- header starts -->
 	<header id="header">
@@ -414,6 +414,34 @@
 			</div>
 		</section>
 		<!-- quick searches ends -->
+		<!-- featured restaurants starts -->
+		<section class="featured-restaurants">
+			<div class="container">
+				<div class="row row-features">
+					<div class="col-12 col-lg-8" >
+						<div class="heading">
+							<h2> Featured Restaurants </h2>
+						</div>
+						<div class="list-features app-4">
+							<div class="feature-item" v-for="i in listFeature">
+								<feature-item v-bind:obj="i" v-bind:key="i.id"></feature-item>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-4">
+						<div class="heading">
+							<h2> Treading This Week Sellers </h2>
+						</div>
+						<div class="list-treading app-5">
+							<div class="treading-item" v-for="i in listTreading">
+								<treading-item v-bind:obj="i" v-bind:key="i.id"></treading-item>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- featured restaurants ends -->
 	<!-- Connect Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Connect bootstrap and popper -->
