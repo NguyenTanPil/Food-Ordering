@@ -192,78 +192,9 @@
 						<div class="list-places">
 							<div class="splide">
 								<div class="splide__track">
-									<ul class="splide__list">
-										<li class="splide__slide">
-											<div class="places">
-								      	<a href="#">
-								      		<div class="places-icon">
-								      			<img src="assets/images/01.svg" class="d-block mx-auto" alt="places logo">
-								      		</div>
-								      		<div class="places-text">
-								      			Near by
-								      		</div>
-								      	</a>
-								      </div>
-										</li>
-										<li class="splide__slide">
-											<div class="places">
-								      	<a href="#">
-								      		<div class="places-icon">
-								      			<img src="assets/images/02.svg" class="d-block mx-auto" alt="places logo">
-								      		</div>
-								      		<div class="places-text">
-								      			Cafes & More
-								      		</div>
-								      	</a>
-								      </div>
-										</li>
-										<li class="splide__slide">
-											<div class="places">
-								      	<a href="#">
-								      		<div class="places-icon">
-								      			<img src="assets/images/03.svg" class="d-block mx-auto" alt="places logo">
-								      		</div>
-								      		<div class="places-text">
-								      			Drinks & Nightkise
-								      		</div>
-								      	</a>
-								      </div>
-										</li>
-										<li class="splide__slide">
-											<div class="places">
-								      	<a href="#">
-								      		<div class="places-icon">
-								      			<img src="assets/images/04.svg" class="d-block mx-auto" alt="places logo">
-								      		</div>
-								      		<div class="places-text">
-								      			Desserts & Bakes
-								      		</div>
-								      	</a>
-								      </div>
-										</li>
-										<li class="splide__slide">
-											<div class="places">
-								      	<a href="#">
-								      		<div class="places-icon">
-								      			<img src="assets/images/05.svg" class="d-block mx-auto" alt="places logo">
-								      		</div>
-								      		<div class="places-text">
-								      			Upcoming Events
-								      		</div>
-								      	</a>
-								      </div>
-										</li>
-										<li class="splide__slide">
-											<div class="places">
-								      	<a href="#">
-								      		<div class="places-icon">
-								      			<img src="assets/images/06.svg" class="d-block mx-auto" alt="places logo">
-								      		</div>
-								      		<div class="places-text">
-								      			Newly Opened
-								      		</div>
-								      	</a>
-								      </div>
+									<ul class="splide__list app-1">
+										<li class="splide__slide" v-for="i in listPlaces">
+											<items v-bind:obj="i" v-bind:key="i.id"></items>
 										</li>
 									</ul>
 								</div>
@@ -331,7 +262,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row row-restaurant">
 					<div class="col-12">
 						<div class="list-restaurants">
 							<div class="splide">
@@ -452,15 +383,47 @@
 			</div>
 		</section>
 		<!-- offer banner ends -->
+		<!-- quick searches starts -->
+		<section class="quick-searches">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="heading">
+							<h2> Quick Searches </h2>
+						</div>
+						<div class="sub-heading">
+							Discover Restauranrs By Type of Meal
+						</div>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-8">
+						<div class="list-meal">
+							<div class="splide">
+								<div class="splide__track">
+									<ul class="splide__list app-2">
+										<li class="splide__slide" v-for="i in listMeals">
+											<items v-bind:obj="i" v-bind:key="i.id"></items>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- quick searches ends -->
 	<!-- Connect Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Connect bootstrap and popper -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-	<!-- Connect spider -->
-	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 	<!-- Connect vue js -->
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<script src="assets/js/components.js"></script>
+	<!-- Connect spider -->
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 	<!-- Connect my js -->
 	<script src="assets/js/main.js"></script>
 </body>

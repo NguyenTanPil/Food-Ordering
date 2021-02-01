@@ -260,10 +260,6 @@ a {
 }
 /*review ends*/
 /*browse places starts*/
-.browse-places .active {
-	display: flex;
-	justify-content: space-evenly;
-}
 .browse-places {
 	padding: 1.785rem;
 	background: rgb(243,243,243);
@@ -271,7 +267,8 @@ a {
 .browse-places .browse-header h6 {
 	font-size: 1.5rem;
 }
-.browse-places .places {
+.browse-places .places,
+.quick-searches .places {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -283,6 +280,7 @@ a {
 	padding-bottom: .3rem;
 }
 .browse-places .places .places-icon:hover,
+.quick-searches .places .places-icon:hover,
 .step-working .img-item img:hover {
 	animation-name: circular;
 	animation-duration: .7s;
@@ -294,16 +292,20 @@ a {
 		transform: rotate3d(0,1,0,360deg);
 	}
 }
-.browse-places .places .places-text {
+.browse-places .places .places-text,
+.quick-searches .places .places-text {
 	color: gray;
 	font-size: 14px;
 }
-.browse-places .places .places-text:hover {
+.browse-places .places .places-text:hover,
+.quick-searches .places .places-text:hover {
 	color: orange;
 }
 .browse-places .splide__arrows,
 .browse-places .splide__pagination,
-.list-restaurants .splide__pagination {
+.list-restaurants .splide__pagination,
+.quick-searches .splide__arrows,
+.quick-searches .splide__pagination {
 	display: none;
 }
 /*browse places ends*/
@@ -338,6 +340,9 @@ a {
 }
 /*step working ends*/
 /*restaurants starts*/
+.restaurant .row-restaurant {
+	padding: 0 1rem;
+}
 .restaurant .heading h1 {
 	font-size: 1.5rem;
 	text-align: center;
@@ -350,11 +355,11 @@ a {
 	margin-top: 2.5rem;
 }
 .list-restaurants .splide__slide {
-	display: flex;
-	justify-content: space-around;
+}
+.list-restaurants .splide__slide a {
+	/*padding: 0 .5rem;*/
 }
 .list-restaurants .splide__slide img {
-	width: 90%;
 	filter: grayscale(100%);
 }
 .list-restaurants .splide__slide img:hover {
@@ -563,6 +568,24 @@ a {
 	color: orange;
 }
 /*offer bannar ends*/
+/*quick searches starts*/
+.quick-searches {
+	margin-bottom: 2rem;
+}
+.quick-searches .col-12 {
+	text-align: center;
+}
+.quick-searches .sub-heading {
+	margin: 1rem 0 3rem;
+}
+.quick-searches .list-meal {
+	padding: 1.8rem 0 1.5rem;
+	border: 1px solid rgba(0,0,0,.4);
+}
+.quick-searches .places-icon img {
+	height: 30px !important;
+}
+/*quick searches ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -647,6 +670,11 @@ a {
 		padding-top: 0.5rem;
 	}
 	/*step woking end*/
+	/*restaurant starts*/
+	.restaurant .row-restaurant {
+		padding: unset;
+	}
+	/*restaurant ends*/
 	/*order online starts */
 	.order-online .row-meal,
 	.offer-banner .row {
@@ -680,9 +708,6 @@ a {
 	}
 	.topbar .topbar-right-child {
 		flex-grow: initial;
-	}
-	.menu .btn-become-partner {
-		padding-left: 0px;
 	}
 	.menu .section-hidden {
 		padding-left: 0 !important;
