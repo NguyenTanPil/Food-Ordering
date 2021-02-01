@@ -235,7 +235,8 @@ a {
 	border-radius: 3px;
 }
 .block-review .form-box .form-control,
-.order-online .form-control {
+.order-online .form-control,
+.pocket-block-preview .form-control {
 	padding: .75rem .5rem;
 	border-radius: 0 3px 3px 0 !important;
 	font-size: 13px;
@@ -243,7 +244,8 @@ a {
 	border-left: none;
 }
 .block-review .form-box .form-control:focus,
-.order-online .form-control:focus {
+.order-online .form-control:focus,
+.pocket-block-preview .form-control:focus {
 	box-shadow: none;
 }
 .block-review .btn-search-in-review {
@@ -395,17 +397,21 @@ a {
 .order-online .search-location {
 	padding: 1.875rem 0.9375rem 1.25rem;
 }
-.order-online .input-search-location {
+.order-online .input-search-location,
+.pocket-block-preview .input-sent {
 	border: 1px solid orange;
 	border-right: 0px;
 	border-radius: 3px 0 0 3px !important;
+	padding-left: 1.5rem;
 }
-.order-online .search-location .input-group:focus-within {
+.order-online .search-location .input-group:focus-within,
+.pocket-block-preview .search-form .input-group:focus-within {
 	box-shadow: 0 0 0 1px rgba(255,165,0, 1);
 	border-radius: 3px;
 	outline: none;
 }
-.order-online .search-location button {
+.order-online .search-location button,
+.pocket-block-preview .search-form button {
 	border: 1px solid orange;
 	border-left: 0;
 	background: orange;
@@ -413,7 +419,8 @@ a {
 	text-decoration: none;
 	box-shadow: none;
 }
-.order-online .search-location button:hover {
+.order-online .search-location button:hover,
+.pocket-block-preview .search-form button:hover {
 	opacity: 0.8;
 }
 /*all meals in order food online starts */
@@ -698,6 +705,61 @@ a {
 	margin-bottom: 0;
 }
 /*explore recipes ends*/
+/*pocket block preview starts*/
+.pocket-block-preview {
+	margin-top: 6rem;
+	background-image: url(../images/bottom-banner.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+}
+.pocket-block-preview .pocket-left {
+	padding-top: 6.25rem;
+}
+.pocket-block-preview .pocket-left h2 {
+	font-size: 1.5rem;
+	margin-bottom: 0;
+}
+.pocket-block-preview .pocket-left .line {
+	padding: 1.125rem 0;
+}
+.pocket-block-preview .pocket-left p,
+.pocket-block-preview .pocket-left .search-form {
+	padding-top: 1.75rem;
+	margin-bottom: 0;
+}
+.pocket-block-preview .pocket-left .search-form {
+	width: 80%;
+}
+.pocket-block-preview .search-form .input-group:focus-within {
+	box-shadow: 0 0 0 1px #000;
+}
+.pocket-block-preview .input-sent {
+	border: 1px solid #000;
+}
+.pocket-block-preview .search-form .btn {
+	padding: 0.9rem 1.25rem;
+	font-size: 0.875rem;
+	background: #000;
+	border: 1px solid #000;
+}
+.pocket-block-preview .download-btns {
+	padding-top: 3.125rem;
+}
+.pocket-block-preview .download-btns a {
+	padding-right: 0.625rem;
+	width: 90%;
+}
+.pocket-block-preview .pocket-right {
+	padding-top: 5rem;
+}
+/*pocket block preview ends*/
+/*footer starts */
+.footer {
+	
+}
+/*footer ends */
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -878,6 +940,7 @@ a {
 		width: 100%;
 	}
 	/*features restaurants ends*/
+
 }
 /*// X-Large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
@@ -916,7 +979,8 @@ a {
 	.order-online .row-meal,
 	.offer-banner .row,
 	.featured-restaurants .row-features,
-	.explore-recipes .row-recipes {
+	.explore-recipes .row-recipes,
+	.pocket-block-preview .row-pocket {
 		padding: 0 4rem;
 	}
 }
