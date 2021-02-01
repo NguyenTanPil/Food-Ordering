@@ -520,7 +520,8 @@ a {
 	font-size: 1rem;
 	margin-right: 0.125rem;
 }
-.order-online .meal-btn {
+.order-online .meal-btn,
+.explore-recipes .recipe-btn {
 	margin-top: 4rem;
 }
 /*all meals in order food online ends */
@@ -586,9 +587,6 @@ a {
 }
 /*quick searches ends*/
 /*featured restaurants starts*/
-.featured-restaurants {
-	margin-bottom: 2rem;
-}
 .featured-restaurants .row-features > div {
 	margin-top: 3rem;
 }
@@ -641,12 +639,14 @@ a {
 	display: flex;
 	justify-content: center;
 }
+.featured-restaurants .list-treading .img-item {
+	justify-content: unset;
+}
 .featured-restaurants .list-features .my-btn {
 	width: 60%;
 }
 .featured-restaurants .img-item .info-img {
 	margin-left: .5rem;
-	width: 100%;
 }
 .featured-restaurants .img-item .info-img h4,
 .featured-restaurants .img-item .info-img p {
@@ -659,6 +659,45 @@ a {
 	border-radius: 0;
 }
 /*featured restaurants ends*/
+/*explore recipes starts*/
+.explore-recipes {
+	margin-top: 5rem;
+	box-sizing: border-box;
+}
+.explore-recipes h2 {
+	font-size: 1.5rem;
+	text-align: center;
+}
+.explore-recipes .recipe-item {
+	position: relative;
+	margin-top: 2rem;
+}
+.explore-recipes .recipe-item img {
+	width: 100%;
+}
+.explore-recipes .overlay {
+	color: #fff;
+	background: rgba(0,0,0,.6);
+	opacity: 0.7;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 6.25% 0;
+	text-align: center;
+}
+.explore-recipes .recipe-item:hover .overlay {
+	opacity: 0.9;
+}
+.explore-recipes .overlay h6 {
+	font-size: 1.125rem;
+}
+.explore-recipes .overlay p {
+	font-size: 0.75rem;
+	margin-bottom: 0;
+}
+/*explore recipes ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -835,6 +874,9 @@ a {
 	.featured-restaurants .my-btn span {
 		display: none;
 	}
+	.featured-restaurants .img-item .info-img {
+		width: 100%;
+	}
 	/*features restaurants ends*/
 }
 /*// X-Large devices (large desktops, 1200px and up)*/
@@ -873,7 +915,14 @@ a {
 	/*step woking end*/
 	.order-online .row-meal,
 	.offer-banner .row,
-	.featured-restaurants .row-features {
+	.featured-restaurants .row-features,
+	.explore-recipes .row-recipes {
 		padding: 0 4rem;
+	}
+}
+
+@media (max-width: 375px) {
+	.list-treading .my-btn span {
+		display: none;
 	}
 }

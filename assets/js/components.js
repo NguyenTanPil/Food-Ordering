@@ -385,7 +385,7 @@ Vue.component('treading-item', {
 			</div>
 		</div>
 	`
-})
+});
 var vue5 = new Vue({
 	el: '.app-5',
 	data: {
@@ -419,3 +419,62 @@ var vue5 = new Vue({
 	}
 })
 // featured restaurants ends
+// explore recipes starts
+Vue.component('recipe-item', {
+	props: ['obj'],
+	template: `
+		<a href="#">
+			<div class="recipe-item">
+				<img :src="obj.img" alt="">
+				<div class="overlay">
+					<h6>{{obj.recipe}}</h6>
+					<p>{{obj.video}} Videos</p>
+				</div>
+			</div>
+		</a>
+	`
+});
+var vue6 = new Vue({
+	el: '.app-6',
+	data: {
+		listRecipe: [
+		{
+			id: 1,
+			img: 'assets/images/recipe_01.jpg',
+			recipe: 'North Indian',
+			video: '75'
+		},
+		{
+			id: 2,
+			img: 'assets/images/recipe_02.jpg',
+			recipe: 'Fast Food',
+			video: '105'
+		},
+		{
+			id: 3,
+			img: 'assets/images/recipe_03.jpg',
+			recipe: 'Italian Food',
+			video: '35'
+		},
+		{
+			id: 4,
+			img: 'assets/images/recipe_04.jpg',
+			recipe: 'Chinese Food',
+			video: '60'
+		},
+		{
+			id: 5,
+			img: 'assets/images/recipe_05.jpg',
+			recipe: 'Street Food',
+			video: '45'
+		},
+		{
+			id: 6,
+			img: 'assets/images/recipe_06.jpg',
+			recipe: 'Bakery',
+			video: '20'
+		},
+		]
+	}
+})
+// explore recipes ends

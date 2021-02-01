@@ -15,14 +15,14 @@
 </head>
 <body cz-shortcut-listen="true">
 	<!-- loading starts -->
-	<!-- <div class="loading">
+	<div class="loading">
 		<div class="loading-items">
 			<img class="animation-loading-1 loading-item" src="assets/images/loading.gif" alt="Loading">
 			<img class="animation-loading-2 loading-item" src="assets/images/loading.gif" alt="Loading">
 			<img class="animation-loading-3 loading-item" src="assets/images/loading.gif" alt="Loading">
 			<img class="animation-loading-4 loading-item" src="assets/images/loading.gif" alt="Loading">
 		</div>
-	</div> -->
+	</div>
 	<!-- loading ends -->
 	<!-- header starts -->
 	<header id="header">
@@ -442,6 +442,25 @@
 			</div>
 		</section>
 		<!-- featured restaurants ends -->
+		<!-- explore recipes starts  -->
+		<section class="explore-recipes">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2> Explore Your Favorite Recipes </h2>
+					</div>
+				</div>
+				<div class="row row-recipes app-6">
+					<div class="col-12 col-md-6 col-lg-4" v-for="i in listRecipe">
+						<recipe-item v-bind:obj="i" v-bind:key="i.id"></recipe-item>
+					</div>
+				</div>
+				<div class="recipe-btn text-center">
+					<a href="#" class="my-btn btn-link">Show All</a>
+				</div>
+			</div>
+		</section>
+		<!-- explore recipes ends  -->
 	<!-- Connect Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Connect bootstrap and popper -->
