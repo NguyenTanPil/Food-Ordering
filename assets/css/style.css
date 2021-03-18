@@ -118,7 +118,7 @@ a {
 /*Loading ends*/
 /*topbar starts*/
 .topbar {
-	font-size: 13px;
+	font-size: 0.813rem;
 	padding: .75rem 0;
 	background: rgb(243, 243, 243);
 }
@@ -152,7 +152,7 @@ a {
 	margin-right: 1.25rem;
 }
 .menu .btn-hidden:focus {
-	border: 2px solid orange;
+	border: 0.125rem solid orange;
 }
 .menu .navbar-brand {
 	padding-top: 0px !important;
@@ -203,7 +203,7 @@ a {
 /*review starts*/
 .block-review .cover-banner {
 	background-image: url('../images/banner.jpg');
-	height: 385px;
+	height: 24.063rem;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -216,7 +216,7 @@ a {
 	left: 0;
 }
 .block-review .form-box {
-	padding: 92px 20px 93px;
+	padding: 5.75rem 1.5rem 5.813rem;
 	background: rgb(255 255 255 / 10%);
 }
 .block-review .form-box .input-group {
@@ -224,7 +224,7 @@ a {
 }
 .block-review .form-box .input-group:focus-within {
 	box-shadow: 0 0 0 0.15rem rgba(255,165,0, 1);
-	border-radius: 3px;
+	border-radius: 0.188rem;
 	outline: none;
 }
 .block-review .form-box .input-group-text,
@@ -232,16 +232,16 @@ a {
 	background: white;
 	border-color: orange;
 	border-right: none !important;
-	border-radius: 3px;
+	border-radius: 0.188rem;
 }
 .block-review .form-box .form-control,
 .order-online .form-control,
 .pocket-block-preview .form-control,
 .footer .form-control {
 	padding: .75rem .5rem;
-	border-radius: 0 3px 3px 0 !important;
-	font-size: 13px;
-	border: 1px solid orange;
+	border-radius: 0 0.188rem 0.188rem 0 !important;
+	font-size: 0.813rem;
+	border: 0.063rem solid orange;
 	border-left: none;
 }
 .block-review .form-box .form-control:focus,
@@ -286,10 +286,8 @@ a {
 .browse-places .places .places-icon:hover,
 .quick-searches .places .places-icon:hover,
 .step-working .img-item img:hover {
-	animation-name: circular;
-	animation-duration: .7s;
-	animation-timing-function: linear;
-	animation-fill-mode: forwards;
+	-webkit-animation: circular .7s linear forwards;
+	animation: circular .7s linear forwards;
 }
 @keyframes circular {
 	100% {
@@ -299,7 +297,7 @@ a {
 .browse-places .places .places-text,
 .quick-searches .places .places-text {
 	color: gray;
-	font-size: 14px;
+	font-size: 0.875rem;
 }
 .browse-places .places .places-text:hover,
 .quick-searches .places .places-text:hover {
@@ -315,7 +313,7 @@ a {
 /*browse places ends*/
 /*step working starts*/
 .step-working {
-	padding: 50px 0 70px;
+	padding: 3.125rem 0 4.375rem;
 }
 .step-working .working-item {
 	display: flex;
@@ -327,16 +325,16 @@ a {
 	margin-right: 1.785rem;
 	height: 4.375rem;
 	box-sizing: border-box;
-	border: 1px solid rgba(0,0,0,.2);
+	border: 0.063rem solid rgba(0,0,0,.2);
 	text-align: center;
 	flex-basis: 8.75rem;
 }
 .step-working .img-item img {
-	height: 50px;
+	height: 3.125rem;
 	padding-top: 1rem;
 }
 .step-working .content-heading-item {
-	font-size: 18px;
+	font-size: 1.125rem;
 }
 .step-working .content-item p {
 	margin-top: 1.125rem;
@@ -353,7 +351,7 @@ a {
 	font-weight: bold;
 }
 .list-restaurants {
-	border: 1px solid rgba(0,0,0,.2);
+	border: 0.063rem solid rgba(0,0,0,.2);
 	margin-bottom: 2rem;
 	padding: 1rem 2rem;
 	margin-top: 2.5rem;
@@ -402,22 +400,22 @@ a {
 .order-online .input-search-location,
 .pocket-block-preview .input-sent,
 .footer .input-subcribe {
-	border: 1px solid orange;
+	border: 0.063rem solid orange;
 	border-right: 0px;
-	border-radius: 3px 0 0 3px !important;
+	border-radius: 0.188rem 0 0 0.188rem !important;
 	padding-left: 1.5rem;
 }
 .order-online .search-location .input-group:focus-within,
 .pocket-block-preview .search-form .input-group:focus-within,
 .footer .subcribe-form .input-group:focus-within {
-	box-shadow: 0 0 0 1px rgba(255,165,0, 1);
-	border-radius: 3px;
+	box-shadow: 0 0 0 0.063rem rgba(255,165,0, 1);
+	border-radius: 0.188rem;
 	outline: none;
 }
 .order-online .search-location button,
 .pocket-block-preview .search-form button,
 .footer .subcribe-form button {
-	border: 1px solid orange;
+	border: 0.063rem solid orange;
 	border-left: 0;
 	background: orange;
 	color: #fff;
@@ -462,7 +460,7 @@ a {
 }
 .order-online .logo-img img {
 	width: 4rem;
-	border: 1px solid #fff;
+	border: 0.063rem solid #fff;
 	border-radius: .5rem;
 	margin-right: .5rem;
 }
@@ -593,10 +591,10 @@ a {
 }
 .quick-searches .list-meal {
 	padding: 1.8rem 0 1.5rem;
-	border: 1px solid rgba(0,0,0,.4);
+	border: 0.063rem solid rgba(0,0,0,.4);
 }
 .quick-searches .places-icon img {
-	height: 30px !important;
+	height: 1.875rem !important;
 }
 /*quick searches ends*/
 /*featured restaurants starts*/
@@ -615,12 +613,12 @@ a {
 .featured-restaurants .feature-item,
 .featured-restaurants .treading-item {
 	padding: 1rem;
-	border: 1px solid rgba(0,0,0,.1);
+	border: 0.063rem solid rgba(0,0,0,.1);
 	border-bottom: 0;
 }
 .featured-restaurants .feature-item:last-child,
 .featured-restaurants .treading-item:last-child {
-	border-bottom: 1px solid rgba(0,0,0,.1);
+	border-bottom: 0.063rem solid rgba(0,0,0,.1);
 }
 .featured-restaurants .img-item {
 	display: flex;
@@ -739,16 +737,16 @@ a {
 	width: 80%;
 }
 .pocket-block-preview .search-form .input-group:focus-within {
-	box-shadow: 0 0 0 1px #000;
+	box-shadow: 0 0 0 0.063rem #000;
 }
 .pocket-block-preview .input-sent {
-	border: 1px solid #000;
+	border: 0.063rem solid #000;
 }
 .pocket-block-preview .search-form .btn {
 	padding: 0.9rem 1.25rem;
 	font-size: 0.875rem;
 	background: #000;
-	border: 1px solid #000;
+	border: 0.063rem solid #000;
 }
 .pocket-block-preview .download-btns {
 	padding: 3.125rem 0;
@@ -767,7 +765,7 @@ a {
 	color: #fff;
 }
 .footer .subscribe-now {
-	border-bottom: 1px solid rgba(255,255,255,.2);
+	border-bottom: 0.063rem solid rgba(255,255,255,.2);
 }
 .footer .subscribe-newletter {
 	padding: 1.785rem 0;
@@ -778,8 +776,8 @@ a {
 }
 .footer .language {
 	background: #1e1e1e;
-	border: 1px solid #2c2c2c;
-	border-radius: 3px;
+	border: 0.063rem solid #2c2c2c;
+	border-radius: 0.188rem;
 	margin-bottom: 2rem;
 }
 .footer .language a,
@@ -841,8 +839,8 @@ a {
 }
 .footer .privacy-cards {
 	padding: 1rem 0;
-	border-top: 1px solid rgba(255,255,255,.2);
-	border-bottom: 1px solid rgba(255,255,255,.2);
+	border-top: 0.063rem solid rgba(255,255,255,.2);
+	border-bottom: 0.063rem solid rgba(255,255,255,.2);
 	margin-top: 2.5rem;
 }
 .footer .privacy-cards .row-cards div {
@@ -882,7 +880,7 @@ a {
 	/*review starts*/
 	.block-review .left-review {
 		color: #ffffff;
-		padding: 101px 0px 93px;
+		padding: 6.313rem 0px 5.813rem;
 	}
 	.block-review .left-review .title {
 		font-size: 139%;
@@ -922,7 +920,7 @@ a {
 	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
-	padding: 97px 20px 93px;
+		padding: 6.063rem 1.25rem 5.813rem;
 	}
 	.block-review .left-review .title {
 		font-size: 142%;
@@ -954,7 +952,7 @@ a {
 		height: 3rem;
 	}
 	.step-working .img-item img {
-		height: 40px;
+		height: 2.5rem;
 		padding-top: 0.5rem;
 	}
 	/*step woking end*/
@@ -1036,12 +1034,12 @@ a {
 	}
 	.menu .logo {
 		position: absolute;
-		left: 20px;
+		left: 1.25rem;
 	}
 	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
-		padding-top: 90px;
+		padding-top: 5.625rem;
 	}
 	.block-review .left-review .title {
 		font-size: 250%;
@@ -1070,9 +1068,15 @@ a {
 }
 /*// X-Large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
+	/*menu starts*/
+	.menu .collapse .nav-link {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
-	padding: 80px 20px 93px;
+	padding: 5rem 1.25rem 5.813rem;
 	}
 	.block-review .left-review .title {
 		font-size: 300%;
@@ -1098,7 +1102,7 @@ a {
 		height: 4.385rem;
 	}
 	.step-working .img-item img {
-		height: 50px;
+		height: 3.125rem;
 		padding-top: 1rem;
 	}
 	/*step woking end*/

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Orders</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="assets/images/brand.ico" type="image/x-icon" />
 	<!-- Connect my bootstrap 5 cdn -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<!-- Connect font awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- Connect splide -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 	<!-- Connect my css -->
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/orders.css">
 </head>
 <body cz-shortcut-listen="true">
 	<!-- loading starts -->
@@ -141,366 +139,168 @@
 		<!-- menu ends -->
 	</header>
 	<!-- header ends -->
-	<!-- review starts -->
-		<section class="block-review position-relative">
-			<div class="cover-banner"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-sm-7 col-lg-8 d-none d-sm-block">
-						<div class="left-review">
-							<h1 class="title">Choose, Order and Checkout</h1>
-							<h6 class="exception">Specify your address to suggest you the fast delivery</h6>
-							<p class="time-services">Get our services from 24 hours.</p>
-							<a href="#" class="btn my-btn" role="button" data-bs-toggle="button">Go To Meal</a>
-						</div>
+	<!-- title bar starts -->
+	<section class="title-bar">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="left-title-text">
+						<h3>How to orders</h3>
 					</div>
-					<div class="col-12 col-sm-5 col-lg-4 right-review">
-						<form action="#" method="post">
-							<div class="form-box px-3">
-								<div class="input-group flex-nowrap">
-								  <span class="input-group-text" id="addon-wrapping">
-								  	<i class="fa fa-map-marker" aria-hidden="true" style="width: 12.58px;"></i>
-								  </span>
-								  <input type="text" class="form-control" placeholder="Choose your location" aria-label="Username" aria-describedby="addon-wrapping">
-								</div>
-								<div class="input-group flex-nowrap">
-								  <span class="input-group-text" id="addon-wrapping">
-								  	<i class="fa fa-cutlery" aria-hidden="true"></i>
-								  </span>
-								  <input type="text" class="form-control" placeholder="Choose restaurant" aria-label="Username" aria-describedby="addon-wrapping">
-								</div>
-								<button type="button" class="btn btn-link my-btn">Find Food</button>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="right-title-text">
+						<div class="breadcrumb">
+							<div class="breadcrumb-item">
+								<a href="index.html">Home</a>
 							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- review ends -->
-		<!-- browse places starts -->
-		<section class="browse-places">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 py-4">
-						<div class="browse-header text-center">
-							<h6>Browse Places</h6>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<div class="list-places">
-							<div class="splide">
-								<div class="splide__track">
-									<ul class="splide__list app-1">
-										<li class="splide__slide" v-for="i in listPlaces">
-											<items v-bind:obj="i" v-bind:key="i.id"></items>
-										</li>
-									</ul>
-								</div>
+							<div class="breadcrumb-item active">
+								How to orders
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- browse places ends -->
-		<!-- step working starts -->
-		<section class="step-working">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-4">
-						<div class="working-item">
-							<div class="img-item">
-								<img src="assets/images/working-1.svg" alt="images">
-							</div>
-							<div class="content-item">
-								<h6 class="content-heading-item">
-									Choose Your Area Restaurant
-								</h6>
-								<p>Donec et tellus sed lorem condimentum maximus. Sed tempor, leo tempus condimentum.</p>
-							</div>
-						</div>
+		</div>
+	</section>
+	<!-- title bar ends -->
+	<!-- how to orders starts -->
+	<section class="how-to-orders">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="heading">
+						<h1>How to orders</h1>
 					</div>
-					<div class="col-12 col-md-4">
-						<div class="working-item">
-							<div class="img-item">
-								<img src="assets/images/working-2.svg" alt="images">
-							</div>
-							<div class="content-item">
-								<h6 class="content-heading-item">
-									Choose Food
-								</h6>
-								<p>Donec et tellus sed lorem condimentum maximus. Sed tempor, leo tempus condimentum.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="working-item">
-							<div class="img-item">
-								<img src="assets/images/working-3.svg" alt="images">
-							</div>
-							<div class="content-item">
-								<h6 class="content-heading-item">
-									Delivery
-								</h6>
-								<p>Donec et tellus sed lorem condimentum maximus. Sed tempor, leo tempus condimentum.</p>
-							</div>
-						</div>
-					</div>	
 				</div>
 			</div>
-		</section>
-		<!-- step working ends -->
-		<!-- list restaurants starts -->
-		<section class="restaurant">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="heading">
-							<h1> Discover New Restaurants & Book Now </h1>
-						</div>
+			<div class="row justify-content-center">
+				<div class="col-12 col-lg-6">
+					<div class="text-about">
+						<p>Quisque gravida maximus elit et facilisis. Aenean tellus ligula, pellentesque sit amet luctus eget, posuere eget sapien. Proin ultricies vestibulum sem non lobortis. </p>
 					</div>
 				</div>
-				<div class="row row-restaurant">
-					<div class="col-12">
-						<div class="list-restaurants">
-							<div class="splide">
-								<div class="splide__track">
-									<ul class="splide__list">
-										<li class="splide__slide">
-											<a href="#">
-												<img src="assets/images/rest-1.jpg" alt="">
-											</a>
-										</li>
-										<li class="splide__slide">
-											<a href="#">
-												<img src="assets/images/rest-2.jpg" alt="">
-											</a>
-										</li>
-										<li class="splide__slide">
-											<a href="#">
-												<img src="assets/images/rest-3.jpg" alt="">
-											</a>
-										</li>
-										<li class="splide__slide">
-											<a href="#">
-												<img src="assets/images/rest-4.jpg" alt="">
-											</a>
-										</li>
-										<li class="splide__slide">
-											<a href="#">
-												<img src="assets/images/rest-5.jpg" alt="">
-											</a>
-										</li>
-									</ul>
-								</div>
+			</div>
+			<div class="order-steps">
+				<div class="row justify-content-md-center">
+					<div class="col-xs-12 col-md-3">
+						<div class="order-img">
+							<div class="icon">
+								<img src="assets/images/order-1.svg" alt="order">
 							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-7">
+						<div class="order-text">
+							<span>step 1</span>
+							<h4>Choose Your Area Restaurant</h4>
+							<p>Aenean at tortor nec lacus feugiat rhoncus id eu erat. Etiam ut enim et nulla tincidunt convallis eget sed quam. Morbi facilisis ante eu interdum euismod. Sed sodales nisl massa. Proin pharetra tincidunt leo vel consequat</p>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-3">
+						<div class="order-img">
+							<div class="icon">
+								<img src="assets/images/order-2.svg" alt="order">
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-7">
+						<div class="order-text">
+							<span>step 2</span>
+							<h4>Choose Food</h4>
+							<p>Aenean at tortor nec lacus feugiat rhoncus id eu erat. Etiam ut enim et nulla tincidunt convallis eget sed quam. Morbi facilisis ante eu interdum euismod. Sed sodales nisl massa. Proin pharetra tincidunt leo vel consequat</p>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-3">
+						<div class="order-img">
+							<div class="icon">
+								<img src="assets/images/order-3.svg" alt="order">
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-7">
+						<div class="order-text">
+							<span>step 3</span>
+							<h4>Pay Online or Cash</h4>
+							<p>Aenean at tortor nec lacus feugiat rhoncus id eu erat. Etiam ut enim et nulla tincidunt convallis eget sed quam. Morbi facilisis ante eu interdum euismod. Sed sodales nisl massa. Proin pharetra tincidunt leo vel consequat</p>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-3">
+						<div class="order-img">
+							<div class="icon">
+								<img src="assets/images/order-4.svg" alt="order">
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-7">
+						<div class="order-text">
+							<span>step 4</span>
+							<h4>Delivery or Pickup</h4>
+							<p>Aenean at tortor nec lacus feugiat rhoncus id eu erat. Etiam ut enim et nulla tincidunt convallis eget sed quam. Morbi facilisis ante eu interdum euismod. Sed sodales nisl massa. Proin pharetra tincidunt leo vel consequat</p>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-3">
+						<div class="order-img">
+							<div class="icon">
+								<img src="assets/images/order-5.svg" alt="order">
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-7">
+						<div class="order-text">
+							<span>step 5</span>
+							<h4>Enjoy</h4>
+							<p>Aenean at tortor nec lacus feugiat rhoncus id eu erat. Etiam ut enim et nulla tincidunt convallis eget sed quam. Morbi facilisis ante eu interdum euismod. Sed sodales nisl massa. Proin pharetra tincidunt leo vel consequat</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- list restaurants ends -->
-		<!-- order food online starts -->
-		<section class="order-online">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="heading">
-							<h2> Order Food Online In Your Area </h2>
-						</div>
-						<div class="your-location">
-							<p>
-								<span>
-									<i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 0.2rem;"></i>
-									New York
-								</span>
-								Change Location
-							</p>
-						</div>
-						<div class="search-location col-12 col-md-6 col-lg-4 mx-auto">
-							<form action="#" method="post">
-								<div class="input-group">
-								  <input type="text" class="form-control input-search-location" placeholder="Enter your location" aria-describedby="button-addon2">
-								  <span class="input-group-text" id="basic-addon1">
-								  	<i class="fa fa-crosshairs" aria-hidden="true" style="color: rgba(0,0,0,.5);"></i>
-								  </span>
-								  <button class="btn btn-link" type="button" id="button-addon2">Search</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="row row-meal app">
-					<div class="col-12 col-md-6 col-lg-4 col-xxl-3 meal-item" v-for="i in listFood">
-						<food-items v-bind:obj="i" v-bind:key="i.id"></food-items>
-					</div>
-				</div>
-				<div class="meal-btn">
-					<button type="button" class="btn btn-link my-btn">Show all</button>
-				</div>
-			</div>
-		</section>
-		<!-- order food online ends -->
-		<!-- offer banner starts -->
-		<section class="offer-banner">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-6">
-						<div class="banner">
-							<div class="ads-banner-1"></div>
-							<div class="banner-items">
-								<div class="banner-text">
-									<h2>Order Food Online</h2>
-									<p>Use code to get 50% off upto $5 <br>on your next order.</p>
-								</div>
-								<div class="banner-btn">
-									<a href="#" class="btn btn-light my-btn">Order Now</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="banner">
-							<div class="ads-banner-2"></div>
-							<div class="banner-items">
-								<div class="banner-text">
-									<h2>
-										Membership
-										<span class="long-arrow">
-											<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-										</span>
-										Open Now
-									</h2>
-									<p>Memberships are now open for <br> purchases.</p>
-								</div>
-								<div class="banner-btn">
-									<a href="#" class="btn btn-light my-btn">Sign up Now</a>
-								</div>
-							</div>
-						</div>
+		</div>
+	</section>
+	<!-- how to orders ends -->
+	<!-- partner withus starts -->
+	<section class="partner-with-us">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="heading">
+						<h1> Partner With Us </h1>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- offer banner ends -->
-		<!-- quick searches starts -->
-		<section class="quick-searches">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="heading">
-							<h2> Quick Searches </h2>
-						</div>
-						<div class="sub-heading">
-							Discover Restauranrs By Type of Meal
-						</div>
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-md-8">
-						<div class="list-meal">
-							<div class="splide">
-								<div class="splide__track">
-									<ul class="splide__list app-2">
-										<li class="splide__slide" v-for="i in listMeals">
-											<items v-bind:obj="i" v-bind:key="i.id"></items>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+			<div class="row justify-content-md-center">
+				<div class="col-12 col-md-6">
+					<div class="text-about">
+						<p> Quisque gravida maximus elit et facilisis. Aenean tellus ligula, pellentesque sit amet luctus eget, posuere eget sapien. </p>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- quick searches ends -->
-		<!-- featured restaurants starts -->
-		<section class="featured-restaurants">
-			<div class="container">
-				<div class="row row-features">
-					<div class="col-12 col-lg-8" >
-						<div class="heading">
-							<h2> Featured Restaurants </h2>
-						</div>
-						<div class="list-features app-4">
-							<div class="feature-item" v-for="i in listFeature">
-								<feature-item v-bind:obj="i" v-bind:key="i.id"></feature-item>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-4">
-						<div class="heading">
-							<h2> Treading This Week Sellers </h2>
-						</div>
-						<div class="list-treading app-5">
-							<div class="treading-item" v-for="i in listTreading">
-								<treading-item v-bind:obj="i" v-bind:key="i.id"></treading-item>
-							</div>
-						</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="partner-btns">
+							<a href="#">For a Restaurants</a>
+							<a href="#">For a Drivers</a>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- featured restaurants ends -->
-		<!-- explore recipes starts  -->
-		<section class="explore-recipes">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<h2> Explore Your Favorite Recipes </h2>
-					</div>
+		</div>
+	</section>
+	<section class="over-restaurants">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-9">
+					<h2>Choose From Over 15,000 Restaurants</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam augue justo, euismod at purus quis, dictum iaculis lorem. Sed dictum, dolor sit amet feugiat posuere, ante arcu iaculis tortor</p>
 				</div>
-				<div class="row row-recipes app-6">
-					<div class="col-12 col-md-6 col-lg-4" v-for="i in listRecipe">
-						<recipe-item v-bind:obj="i" v-bind:key="i.id"></recipe-item>
-					</div>
-				</div>
-				<div class="recipe-btn text-center">
-					<a href="#" class="my-btn btn-link">Show All</a>
-				</div>
-			</div>
-		</section>
-		<!-- explore recipes ends  -->
-		<!-- pocket block preview starts -->
-		<section class="pocket-block-preview">
-			<div class="container">
-				<div class="row row-pocket">
-					<div class="col-12 col-md-7 pocket-left">
-						<div class="heading">
-							<h2>Natto in Your Pocket</h2>
-						</div>
-						<div class="line">
-							<img src="assets/images/line.svg" alt="">
-						</div>
-						<p>We’ll send you a link, open it on your phone to download the app.</p>
-						<div class="search-form">
-							<form action="#" method="post">
-								<div class="input-group">
-								  <input type="text" class="form-control input-sent" placeholder="Enter your email address" aria-describedby="button-addon2">
-								  <button class="btn btn-link" type="submit" id="button-addon2">Sent Link</button>
-								</div>
-							</form>
-						</div>
-						<div class="download-btns">
-							<a href="#">
-								<img src="assets/images/app-store.png" alt="">
-							</a>
-							<a href="#">
-								<img src="assets/images/play-store.png" alt="">
-							</a>
-						</div>
-					</div>
-					<div class="col-md-5 d-none d-md-block pocket-right">
-						<div class="mobile-img d-flex justify-content-center">
-							<img src="assets/images/mobile.png" alt="">
-						</div>
+				<div class="col-12 col-lg-3">
+					<div class="view-restaurants">
+						<a href="#">View Restaurants</a>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- pocket block preview ends -->
+		</div>
+	</section>
+	<!-- partner with us ends -->
 		<!-- footer starts  -->
 		<div class="footer">
 			<div class="subscribe-now">
@@ -649,13 +449,13 @@
 	<!-- Connect bootstrap and popper -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-	<!-- Connect vue js -->
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-	<script src="assets/js/components.js"></script>
-	<!-- Connect spider -->
-	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 	<!-- Connect my js -->
-	<script src="assets/js/main.js"></script>
+	<script>
+		// loading starts
+		window.onload = function() {
+			document.querySelector('.loading').style.display = 'none';
+		}
+	</script>
 </body>
 </html>
 <!-- Add footer -->
