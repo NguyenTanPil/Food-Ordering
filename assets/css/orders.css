@@ -188,11 +188,15 @@ a {
 .menu .btn-become-partner {
 	text-decoration: none;
 	color: #ffffff;
-	background: rgba(255,165,0,1);
+	background: rgb(255, 168, 3);
 	padding: .2rem 1.3rem;
 	font-size: 90%;
 	border: none;
 	margin-right: 0.16rem;
+	transition: all 0.3s ease;
+}
+.menu .btn-become-partner:hover {
+	background-color:  #e38802;
 }
 .menu .btn-hidden {
 	margin-right: 0.1rem !important;
@@ -202,6 +206,55 @@ a {
 .menu .search-menu,
 .menu .btn-hidden {
 	margin-left: 1rem;
+}
+.menu .menu-sab:last-child {
+	position: relative;
+}
+.menu .menu-sab:last-child form {
+	position: absolute;
+	right: 100%;
+	top: 200%;
+	display: flex;
+	visibility: hidden;
+	transition: transform 1s ease;
+	transform: scaleX(0);
+	transform-origin: top left;
+}
+.menu .menu-sab:last-child form.active {
+	transform: scaleX(1);
+	transform-origin: top right;
+	visibility: visible;
+}
+.menu .hidden-menu,
+.menu .search-menu {
+	width: 15px;
+	height: 16px;
+}
+.menu .hidden-menu {
+	display: none;
+	margin-left: 1rem;
+}
+.menu form #search-food {
+	padding: .5rem 1rem;
+	outline: none;
+	border-radius: 0.5rem 0 0 0.5rem;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+.menu form #search-food:focus {
+	border: 1px solid rgb(255, 168, 3);
+}
+.menu form .btn-sb-food {
+	padding: .5rem 1rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	outline: none;
+	background-color: rgb(255, 168, 3);
+	transition: all 0.3s ease;
+}
+.menu .btn-sb-food i {
+	color: white;
+}
+.menu form .btn-sb-food:hover {
+	background-color: #e38802;
 }
 /*menu ends*/
 /*topbar ends*/
@@ -381,6 +434,7 @@ a {
 	color: #fff;
 	text-decoration: none;
 	box-shadow: none;
+	transition: all 0.3s ease;
 }
 /*footer starts */
 .footer {
@@ -459,6 +513,7 @@ a {
 	height: 2.5rem;
 	text-align: center;
 	line-height: 1.5rem;
+	transition: all 0.3s ease;
 }
 .footer .social-btn:hover {
 	background: rgb(202, 132, 0);
