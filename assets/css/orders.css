@@ -285,7 +285,7 @@ a {
 /*title bar ends*/
 /*how to orders starts*/
 .how-to-orders {
-	padding-bottom: 5rem;
+	padding: 3rem 0 5rem 0;
 	transition: all 0.3s ease;
 }
 .how-to-orders .heading h1 {
