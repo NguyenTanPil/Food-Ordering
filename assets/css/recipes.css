@@ -1,0 +1,708 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+*::selection {
+	background: rgba(255,255,255,.3);
+	color: black;
+}
+body {
+
+}
+a {
+	text-decoration: none;
+}
+/*common starts*/
+.my-btn {
+	text-decoration: none;
+	color: #ffffff;
+	background: rgba(255,165,0,1);
+	padding: .65rem 1.5rem;
+}
+.my-btn:focus {
+	box-shadow: none;
+	outline: none;
+}
+.my-btn:hover {
+	background: rgba(255,165,0,.85);
+	color: #fff;
+	transition: all 0.3s ease;
+}
+/*common ends*/
+/*Loading starts*/
+.loading {
+	position: fixed;
+	z-index: 99;
+	background: rgba(23, 21, 25,.9);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.loading img {
+	width: 6rem;
+}
+.loading .loading-items {
+	position: relative;
+}
+.loading .loading-item {
+	position: absolute;
+	right: 0;
+	left: 0;
+	transform: translateX(-50%);
+}
+.loading .animation-loading-1,
+.loading .animation-loading-2,
+.loading .animation-loading-3,
+.loading .animation-loading-4 {
+	animation-duration: 3s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+.loading .animation-loading-1 {
+	animation-name: loading-name-one;
+}
+.loading .animation-loading-2 {
+	animation-name: loading-name-two;
+}
+.loading .animation-loading-3 {
+	animation-name: loading-name-three;
+}
+.loading .animation-loading-4 {
+	animation-name: loading-name-four;
+}
+@keyframes loading-name-one {
+	0% {
+		top: 0rem;
+	}
+	50% {
+		top: -52rem;
+	}
+	100% {
+		top: 0rem;
+	}
+}
+@keyframes loading-name-two {
+	0% {
+		left: 0rem;
+	}
+	50% {
+		left: 52rem;
+	}
+	100% {
+		left: 0rem;
+	}
+}
+@keyframes loading-name-three {
+	0% {
+		top: 0rem;
+	}
+	50% {
+		top: 52rem;
+	}
+	100% {
+		top: 0rem;
+	}
+}
+@keyframes loading-name-four {
+	0% {
+		left: 0rem;
+	}
+	50% {
+		left: -52rem;
+	}
+	100% {
+		left: 0rem;
+	}
+}
+
+/*Loading ends*/
+/*topbar starts*/
+.topbar {
+	font-size: 0.813rem;
+	padding: .75rem 0;
+	background: rgb(243, 243, 243);
+}
+.topbar a {
+	color: #AAAAAA;
+}
+.topbar a:hover {
+	color: black;
+}
+.topbar-left > div, .topbar-right > div {
+	padding: .1rem 0;
+}
+.topbar-left {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-bottom: 0.5rem;
+}
+.topbar-right {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.menu .container {
+	position: relative;
+}
+.menu .btn-hidden {
+	box-shadow: none !important;
+	padding: 0 !important;
+	font-size: inherit;
+	margin-right: 1.25rem;
+}
+.menu .btn-hidden:focus {
+	border: 0.125rem solid orange;
+}
+.menu .navbar-brand {
+	padding-top: 0px !important;
+}
+.menu .section-hidden {
+	padding-left: 0rem;
+	font-size: 90%;
+}
+.menu .btn-search {
+	margin-right: 1rem !important;
+}
+.menu .active,
+.breadcrumb-item.active {
+	color: orange !important;
+}
+.menu .navbar-nav .nav-item a:hover {
+	color: orange;
+}
+.menu .menu-sab {
+	color: grey;
+}
+.menu .menu-sab:focus {
+	color: orange;
+}
+.menu .logo {
+	padding-left: 0px;
+}
+/*menu starts*/
+.menu .btn-become-partner {
+	text-decoration: none;
+	color: #ffffff;
+	background: rgb(255, 168, 3);
+	padding: .2rem 1.3rem;
+	font-size: 90%;
+	border: none;
+	margin-right: 0.16rem;
+	transition: all 0.3s ease;
+}
+.menu .btn-become-partner:hover {
+	background-color:  #e38802;
+}
+.menu .btn-hidden {
+	margin-right: 0.1rem !important;
+}
+.menu .btn-become-partner,
+.menu .nofication,
+.menu .search-menu,
+.menu .btn-hidden {
+	margin-left: 1rem;
+}
+.menu .menu-sab:last-child {
+	position: relative;
+}
+.menu .menu-sab:last-child form {
+	position: absolute;
+	right: 100%;
+	top: 200%;
+	display: flex;
+	visibility: hidden;
+	transition: transform 1s ease;
+	transform: scaleX(0);
+	transform-origin: top left;
+}
+.menu .menu-sab:last-child form.active {
+	transform: scaleX(1);
+	transform-origin: top right;
+	visibility: visible;
+}
+.menu .hidden-menu,
+.menu .search-menu {
+	width: 15px;
+	height: 16px;
+}
+.menu .hidden-menu {
+	display: none;
+	margin-left: 1rem;
+}
+.menu form #search-food {
+	padding: .5rem 1rem;
+	outline: none;
+	border-radius: 0.5rem 0 0 0.5rem;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+.menu form #search-food:focus {
+	border: 1px solid rgb(255, 168, 3);
+}
+.menu form .btn-sb-food {
+	padding: .5rem 1rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	outline: none;
+	background-color: rgb(255, 168, 3);
+	transition: all 0.3s ease;
+}
+.menu .btn-sb-food i {
+	color: white;
+}
+.menu form .btn-sb-food:hover {
+	background-color: #e38802;
+}
+/*menu ends*/
+/*topbar ends*/
+/*title bar starts*/
+.title-bar {
+	background-color: rgb(243, 243, 243);
+}
+.title-bar .left-title-text,
+.title-bar .right-title-text {
+	display: flex;
+	justify-content: center;
+}
+.title-bar .left-title-text {
+	padding: 1rem 0.16rem 0.5rem 1rem;
+}
+.title-bar .right-title-text {
+	padding: .5rem 0.16rem 1rem 1rem;
+}
+.title-bar .right-title-text a {
+	color: black;
+}
+.title-bar .left-title-text h3 {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+}
+/*title bar ends*/
+/*find recipes starts*/
+.recipe-block-preview {
+	background-image: url(../images/banner-recipes.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	padding: 5rem 0;
+	color: white;
+}
+.recipe-block-preview .title-recipes {
+	text-align: center;
+	font-size: 1.5rem;
+}
+.recipe-block-preview .row p {
+	font-size: 0.875rem;
+	padding: 1.5rem 0;
+	text-align: center;
+}
+.recipe-block-preview form {
+	display: grid;
+	grid-template-columns: 1fr auto;
+}
+.recipe-block-preview form #find {
+	padding: 0.5rem 1rem;
+	outline: none;
+}
+.recipe-block-preview .or {
+	text-align: center;
+}
+.recipe-block-preview .or span {
+	padding: 1.5rem 0;
+	display: block;
+}
+.recipe-block-preview .upload {
+	display: flex;
+	justify-content: center;
+}
+/*find recipes ends*/
+/*category recipes starts*/
+.category-recipes .recipe-item {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin: 3rem 0;
+}
+.category-recipes .recipe-item:hover .overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.category-recipes .recipe-item .overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	padding-top: 1rem;
+	background-color: rgba(0, 0, 0, 0.4);
+	transition: 0.2s ease;
+	width: 85.5%;
+	color: white;
+}
+/*category recipes ends*/
+/*main video starts*/
+.main-video .video {
+	position: relative;
+}
+.main-video .bg-gradient {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 2px;
+	opacity: 0.5;
+	background-image: linear-gradient(transparent, black 90%);
+	z-index: 1;
+}
+.main-video .top-items {
+	position: absolute;
+	top: 2rem;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0 3rem;
+}
+.main-video .top-items .views,
+.main-video .top-items .video-time {
+	background-image: linear-gradient(90deg, rgb(0,0,0) 0%, rgb(0,0,0,0.5) 0%);
+	padding: 0.4rem 1rem;
+	border-radius: 1rem;
+}
+.main-video .top-items .views p,
+.main-video .top-items .video-time p {
+	margin-bottom: 0;
+	font-size: 0.875rem;
+}
+.main-video .bottom-items {
+	position: absolute;
+	bottom: 2rem;
+	color: white;
+	width: 100%;
+	padding: 0 3rem;
+}
+.main-video .video-title a {
+	color: white;
+	font-size: 1.5rem;
+}
+.main-video .bottom-items .bottom-star {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.4rem 0;
+}
+.main-video .bottom-items p {
+	margin-bottom: 0;
+}
+.main-video .rating i {
+	color: rgb(255, 168, 3);
+}
+.main-video .rating span {
+	padding: 0.2rem 0.5rem;
+	background-color: rgb(255, 168, 3);
+	color: white;
+	border-radius: 1rem;
+	font-size: 0.75rem;
+	margin-left: 0.3rem;
+}
+/*main video ends*/
+/*over-restaurants starts*/
+.over-restaurants {
+	background-color: rgb(255, 168, 3);
+	color: white;
+	padding: 3rem 0;
+	transition: all 0.3s ease;
+}
+.over-restaurants h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.over-restaurants p {
+	font-size: 0.875rem;
+	padding-top: 1.25rem;
+}
+.over-restaurants .view-restaurants {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+	padding-top: 1rem;
+}
+.over-restaurants .view-restaurants a {
+ 	padding: 0.938rem 1.75rem;
+	background-color: rgb(255, 168, 3);
+	color: rgb(255, 255, 255);
+	font-size: 0.875rem;
+	border-radius: 0.25rem;
+	background-color: transparent;
+	border: 1px solid rgb(255, 255, 255);
+	transition: all 0.3s ease;
+ }
+.over-restaurants .view-restaurants a:hover {
+ 	color: rgb(255, 168, 3);
+ 	background-color: white;
+ }
+/*over-restaurants ends*/
+/*footer starts*/
+.footer .input-subcribe {
+	border: 0.063rem solid orange;
+	border-right: 0px;
+	border-radius: 0.188rem 0 0 0.188rem !important;
+	padding-left: 1.5rem;
+}
+.footer .subcribe-form .input-group:focus-within {
+	box-shadow: 0 0 0 0.063rem rgba(255,165,0, 1);
+	border-radius: 0.188rem;
+	outline: none;
+}
+.footer .subcribe-form button {
+	border: 0.063rem solid orange;
+	border-left: 0;
+	background: orange;
+	color: #fff;
+	text-decoration: none;
+	box-shadow: none;
+	transition: all 0.3s ease;
+}
+/*footer starts */
+.footer {
+	background: #000;
+	color: #fff;
+}
+.footer .subscribe-now {
+	border-bottom: 0.063rem solid rgba(255,255,255,.2);
+}
+.footer .subscribe-newletter {
+	padding: 1.785rem 0;
+}
+.footer .sub-text {
+	padding-bottom: 1rem;
+	font-size: 0.875rem;
+}
+.footer .language {
+	background: #1e1e1e;
+	border: 0.063rem solid #2c2c2c;
+	border-radius: 0.188rem;
+	margin-bottom: 2rem;
+}
+.footer .language a,
+.footer .link-title a,
+.footer .privacy-terms a {
+	font-size: 0.875rem;
+	color: #fff;
+}
+.footer .subcribe-form button:hover {
+	opacity: 0.8;
+}
+.footer .language i {
+	padding-right: 0.3rem;
+}
+.footer .language ul {
+	top: 0.5rem !important;
+	border-radius: 0 !important;
+}
+.footer .language ul li a {
+	color: #847577;
+}
+.footer .footer-main .img-logo {
+	padding: 3.125rem 0 1.375rem;
+}
+.footer .footer-main p {
+	font-size: 0.875rem;
+}
+.footer .link-title {
+	padding: 3.5rem 0 0rem;
+}
+.footer .link-title h4 {
+	font-size: 1.125rem;
+	padding-bottom: 1.125rem;
+	margin-bottom: 0;
+}
+.footer .link-title ul,
+.footer .privacy-terms ul {
+	padding: unset;
+	list-style-type: none;
+	margin-bottom: 0;
+}
+.footer .link-title ul a:hover {
+	color: orange;
+}
+.footer .social-btns {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+	width: 60%;
+}
+.footer .social-btn {
+	padding: 0.5rem;
+	border-radius: 50%;
+	background: rgb(23, 24, 25);
+	width: 2.5rem;
+	height: 2.5rem;
+	text-align: center;
+	line-height: 1.5rem;
+	transition: all 0.3s ease;
+}
+.footer .social-btn:hover {
+	background: rgb(202, 132, 0);
+}
+.footer .privacy-cards {
+	padding: 1rem 0;
+	border-top: 0.063rem solid rgba(255,255,255,.2);
+	border-bottom: 0.063rem solid rgba(255,255,255,.2);
+	margin-top: 2.5rem;
+}
+.footer .privacy-cards .row-cards div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.footer .privacy-cards .row-cards div:first-child {
+	padding-bottom: 0.5rem;
+}
+.footer .privacy-terms ul {
+	display: flex;
+}
+.footer .privacy-terms li {
+	padding-right: 1rem;
+}
+.footer .privacy-terms li:last-child {
+	padding-right: 0;
+}
+.footer .copyright-text {
+	text-align: center;
+	font-size: 0.875rem;
+	color: rgb(168 160 149);
+	padding: 1.875rem 0;
+}
+/*footer ends */
+/*---------------------------------------------------------------------------------*/
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	/*topbar starts*/
+	.topbar .topbar-right-child {
+		display: flex;
+		justify-content: space-around;
+		flex-grow: 1;
+	}
+	/*topbar ends*/
+}
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	/*menu starts*/
+	.menu .logo {
+		padding-left: 1rem !important;
+	}
+	.menu .section-hidden {
+		padding-left: 1rem !important;
+	}
+	/*menu ends*/
+	/*title bar starts*/
+	.title-bar .left-title-text,
+	.title-bar .right-title-text {
+		padding: 1.5rem 0.16rem 1.5rem 1rem;
+	}
+	.title-bar .left-title-text {
+		justify-content: flex-start;
+	}
+	.title-bar .right-title-text {
+		justify-content: flex-end;
+	}
+	/*title bar ends*/
+	/*footer starts*/
+	.footer .language {
+		margin-bottom: 0;
+	}
+	.footer .privacy-cards .row-cards div:first-child {
+		padding-bottom: 0;
+		justify-content: flex-start;
+	}
+	.footer .privacy-cards .row-cards div:last-child {
+		justify-content: flex-end;
+	}
+	/*footer ends*/
+}
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+	/*menu starts*/
+	.topbar-left {
+		margin-bottom: 0 !important;
+	}
+	.topbar-right {
+		justify-content: flex-end !important;
+	}
+	.topbar-right .topbar-right-child > div {
+		margin-left: 1.25rem !important;
+	}
+	.topbar .topbar-right-child {
+		flex-grow: initial;
+	}
+	.menu .section-hidden {
+		padding-left: 0 !important;
+		width: initial;
+	}
+	.menu .container {
+		flex-direction: row-reverse;
+		justify-content: flex-start !important;
+	}
+	.menu .logo {
+		position: absolute;
+		left: 1.25rem;
+	}
+	/*menu ends*/
+	/*title bar starts*/
+	.title-bar .left-title-text h3 {
+		padding-left: 0.5rem;
+	}
+	/*title bar ends*/
+	/*partner with us starts*/
+	.over-restaurants .view-restaurants {
+		justify-content: center;
+		padding-top: 2rem;
+	}
+	/*partner with us ends*/
+	/*footer starts*/
+	.footer .social-btns {
+		width: unset;
+	}
+	/*footer ends*/
+}
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	/*menu starts*/
+	.menu .collapse .nav-link {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+	/*menu ends*/
+}
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+	/*block review*/
+	.recipe-block-preview .find-recipes {
+		padding: 0 4rem;
+	}
+	/*main video*/
+	.main-video .row {
+		padding: 0 2rem;
+	}
+	/*footer*/
+	.footer .row-subcribe,
+	.footer .row-main,
+	.footer .row-cards,
+	.over-restaurants .row {
+		padding: 0 4rem;
+	}
+}
+
+@media (max-width: 375px) {
+	.footer .social-btns {
+		width: 100%;
+	}
+}
