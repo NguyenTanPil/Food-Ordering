@@ -1,6 +1,11 @@
 // loading page
 window.onload = function() {
 	document.querySelector('.loading').style.display = 'none';
+	let imgRecipes = document.querySelector('.img-recipes');
+	let overlays = document.querySelectorAll('.overlay');
+	overlays.forEach((overlay) => {
+		overlay.style.width = `${imgRecipes.offsetWidth}px`;
+	});
 }
 // recipes starts
 const listRecipes = [
