@@ -134,7 +134,7 @@ a {
 }
 .topbar-left {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	flex-wrap: wrap;
 	margin-bottom: 0.5rem;
 }
@@ -188,7 +188,6 @@ a {
 	padding: .2rem 1.3rem;
 	font-size: 90%;
 	border: none;
-	margin-right: 0.16rem;
 	transition: transform 0.3s ease;
 }
 .menu .btn-become-partner:hover {
@@ -402,7 +401,7 @@ a {
 }
 .restaurant .heading h1 {
 	font-size: 1.5rem;
-	text-align: cente r;
+	text-align: center;
 	font-weight: bold;
 }
 .list-restaurants {
@@ -968,16 +967,13 @@ a {
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
 	/*menu starts*/
-	.menu .logo {
-		padding-left: 1rem !important;
-	}
 	.menu .section-hidden {
 		padding-left: 1rem !important;
 	}
 	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
-		padding: 6.063rem 1.25rem 5.813rem;
+		padding: 6.063rem 0 5.813rem;
 	}
 	.block-review .left-review .title {
 		font-size: 142%;
@@ -987,7 +983,7 @@ a {
 		font-size: 115%;
 	}
 	.block-review .right-review {
-		padding: 0 1rem;
+		padding: 0 0.75rem;
 	}
 	/*review ends*/
 	/*places starts*/
@@ -1069,6 +1065,9 @@ a {
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
 	/*menu starts*/
+	.menu .logo {
+		padding-left: 0.75rem !important;
+	}
 	.topbar-left {
 		margin-bottom: 0 !important;
 	}
@@ -1091,7 +1090,7 @@ a {
 	}
 	.menu .logo {
 		position: absolute;
-		left: 1.25rem;
+		left: 0;
 	}
 	/*menu ends*/
 	/*review starts*/
@@ -1133,7 +1132,7 @@ a {
 	/*menu ends*/
 	/*review starts*/
 	.block-review .left-review {
-	padding: 5rem 1.25rem 5.813rem;
+	padding: 5rem 0 5.813rem;
 	}
 	.block-review .left-review .title {
 		font-size: 300%;
@@ -1148,6 +1147,9 @@ a {
 }
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
+	.menu-right {
+		padding-right: 0;
+	}
 	/*step woking starts*/
 	.step-working .working-item {
 		flex-wrap: nowrap;
@@ -1163,15 +1165,14 @@ a {
 		padding-top: 1rem;
 	}
 	/*step woking end*/
-	.order-online .row-meal,
-	.offer-banner .row,
-	.featured-restaurants .row-features,
-	.explore-recipes .row-recipes,
-	.pocket-block-preview .row-pocket,
-	.footer .row-subcribe,
-	.footer .row-main,
-	.footer .row-cards {
-		padding: 0 4rem;
+	.container .row {
+		padding: 0 2rem;
+	}
+	.menu .container  {
+		padding: 0 calc(2rem + 0.75rem);
+	}
+	.menu .logo {
+		left: calc(2rem);
 	}
 }
 

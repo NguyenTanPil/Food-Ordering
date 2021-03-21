@@ -139,7 +139,7 @@ a {
 }
 .topbar-left {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	flex-wrap: wrap;
 	margin-bottom: 0.5rem;
 }
@@ -194,7 +194,6 @@ a {
 	padding: .2rem 1.3rem;
 	font-size: 90%;
 	border: none;
-	margin-right: 0.16rem;
 	transition: all 0.3s ease;
 }
 .menu .btn-become-partner:hover {
@@ -350,7 +349,7 @@ a {
 .main-video .video {
 	position: relative;
 }
-.main-video .bg-gradient {
+.main-video .my-bg-gradient {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -358,7 +357,6 @@ a {
 	bottom: 2px;
 	opacity: 0.5;
 	background-image: linear-gradient(transparent, black 90%);
-	z-index: 1;
 }
 .main-video .top-items {
 	position: absolute;
@@ -596,9 +594,6 @@ a {
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
 	/*menu starts*/
-	.menu .logo {
-		padding-left: 1rem !important;
-	}
 	.menu .section-hidden {
 		padding-left: 1rem !important;
 	}
@@ -606,7 +601,7 @@ a {
 	/*title bar starts*/
 	.title-bar .left-title-text,
 	.title-bar .right-title-text {
-		padding: 1.5rem 0.16rem 1.5rem 1rem;
+		padding: 1.5rem 0.16rem 1.5rem 0rem;
 	}
 	.title-bar .left-title-text {
 		justify-content: flex-start;
@@ -631,6 +626,9 @@ a {
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
 	/*menu starts*/
+	.menu .logo {
+		padding-left: 0.75rem !important;
+	}
 	.topbar-left {
 		margin-bottom: 0 !important;
 	}
@@ -653,14 +651,9 @@ a {
 	}
 	.menu .logo {
 		position: absolute;
-		left: 1.25rem;
+		left: 0;
 	}
 	/*menu ends*/
-	/*title bar starts*/
-	.title-bar .left-title-text h3 {
-		padding-left: 0.5rem;
-	}
-	/*title bar ends*/
 	/*partner with us starts*/
 	.over-restaurants .view-restaurants {
 		justify-content: center;
@@ -688,16 +681,14 @@ a {
 	.recipe-block-preview .find-recipes {
 		padding: 0 4rem;
 	}
-	/*main video*/
-	.main-video .row {
+	.container .row {
 		padding: 0 2rem;
 	}
-	/*footer*/
-	.footer .row-subcribe,
-	.footer .row-main,
-	.footer .row-cards,
-	.over-restaurants .row {
-		padding: 0 4rem;
+	.menu .container  {
+		padding: 0 calc(2rem + 0.75rem);
+	}
+	.menu .logo {
+		left: calc(2rem);
 	}
 }
 
