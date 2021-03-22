@@ -212,7 +212,7 @@ a {
 }
 .menu .menu-sab:last-child form {
 	position: absolute;
-	right: 100%;
+	right: -100%;
 	top: 200%;
 	display: flex;
 	visibility: hidden;
@@ -551,6 +551,10 @@ a {
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
+	/*menu starts */
+	.menu .menu-sab:last-child form {
+		right: 100%;
+	}
 	/*topbar starts*/
 	.topbar .topbar-right-child {
 		display: flex;
