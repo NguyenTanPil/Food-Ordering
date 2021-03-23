@@ -4,12 +4,12 @@
 	<title>Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="assets/images/brand.ico" type="image/x-icon" />
-	<!-- Connect my bootstrap 5 cdn -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<!-- Connect font awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Connect splide -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+	<!-- Connect template -->
+	<link rel="stylesheet" href="assets/css/template.css">
 	<!-- Connect my css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -26,136 +26,145 @@
 	<!-- loading ends -->
 	<!-- header starts -->
 	<header id="header">
-		<!-- topbar starts -->
-		<div class="topbar">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-lg-4">
-						<!-- topbar-left starts -->
-						<div class="topbar-left text-center">
-							<a href="contact.html">Contact</a>
-							<a href="about_us.html">About Us</a>
-							<a href="blog.html">Blog</a>
-							<a href="partner_with_us.html">Partner</a>
+			<!-- topbar starts -->
+			<div class="topbar">
+				<div class="container">
+					<div class="row">
+						<div class="col col-12 col-lg-4">
+							<!-- topbar-left starts -->
+							<div class="topbar-left text-center">
+								<a href="contact.html">Contact</a>
+								<a href="about_us.html">About Us</a>
+								<a href="blog.html">Blog</a>
+								<a href="partner_with_us.html">Partner</a>
+							</div>
+							<!-- topbar-left ends -->
 						</div>
-						<!-- topbar-left ends -->
-					</div>
-					<div class="col-12 col-lg-8">
-						<!-- topbar-right starts -->
-						<div class="topbar-right">
-							<div class="topbar-right-child">
+						<div class="col col-12 col-lg-8">
+							<!-- topbar-right starts -->
+							<div class="topbar-right">
 								<div class="topbar-item">
 									<a href="#">
-									<i class="fa fa-calendar" aria-hidden="true"></i>
-									Table Bookingds
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+										Table Bookingds
 									</a>
 								</div>
 								<div class="topbar-item">
-								<a href="#">
-									<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-									Bookmark
-									<span class="badge bg-warning" style="border-radius: 50%;">2</span>
-								</a>
-								</div>
-							</div>
-							<div class="topbar-right-child">
-								<div class="topbar-item">
-								<a href="#">
-									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-									Food Orders
-									<span class="badge bg-warning" style="border-radius: 50%;">3</span>
-								</a>
-								</div>
-								<div class="topbar-item">
-									<div class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle p-0" data-bs-toggle="dropdown" role="button" aria-expanded="false">
-										<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-										Trung Hien
+									<a href="#">
+										<i class="fa fa-bookmark-o" aria-hidden="true"></i>
+										Bookmark
+										<span class="number-topbar">2</span>
 									</a>
-									<ul class="dropdown-menu">
-							      <li><a class="dropdown-item" href="#">My Profile</a></li>
-							      <li><a class="dropdown-item" href="#">Bookmarks</a></li>
-							      <li><a class="dropdown-item" href="#">Bookingds Tables</a></li>
-							      <li><a class="dropdown-item" href="#">Find Friends</a></li>
-							      <li><a class="dropdown-item" href="#">Settings</a></li>
-							      <li><a class="dropdown-item" href="#">Logout</a></li>
-							    </ul>
+								</div>
+								<div class="topbar-item">
+									<a href="#">
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										Food Orders
+										<span class="number-topbar">3</span>
+									</a>
+								</div>
+								<div class="topbar-item">
+									<div class="dropdown">
+										<a href="#">
+											<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+											Trung Hien
+											<i class="fa fa-sort-desc" aria-hidden="true"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a class="dropdown-item" href="#">My Profile</a></li>
+											<li><a class="dropdown-item" href="#">Bookmarks</a></li>
+											<li><a class="dropdown-item" href="#">Bookingds Tables</a></li>
+											<li><a class="dropdown-item" href="#">Find Friends</a></li>
+											<li><a class="dropdown-item" href="#">Settings</a></li>
+											<li><a class="dropdown-item" href="#">Logout</a></li>
+										</ul>
 									</div>
 								</div>
 							</div>
+							<!-- topbar-right ends -->
 						</div>
-						<!-- topbar-right ends -->
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- topbar ends -->
-		<!-- ------------------------------------------------------ -->
-		<!-- menu starts -->
-		<div class="menu">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			  <div class="container">
-			    <a class="navbar-brand logo" href="index.html">
-					  <img src="assets/images/logo.svg" alt="Logo">
-					</a>
-					<div class="d-flex flex-row-reverse menu-right">
-						<button type="button" class="btn btn-link btn-become-partner d-none d-sm-block">Become a Partner</button>
-				    <button class="navbar-toggler btn-hidden" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						  <span class="navbar-toggler-icon"></span>
-						</button>
-						<a href="#" class="menu-sab align-self-center"><i class="fa fa-bell nofication" aria-hidden="true"></i></a>
-						<a href="#" class="menu-sab align-self-center">
-							<i class="fa fa-search search-menu" aria-hidden="true"></i>
-							<i class="fa fa-times hidden-menu" aria-hidden="true"></i>
-							<form action="#" method="get">
-								<input type="search" name="search-food" id="search-food" placeholder="e.g eggs">
-								<button type="button" class="btn-sb-food">
-									<i class="fa fa-search" aria-hidden="true"></i>
-								</button>
-							</form>
-						</a>
+			<!-- topbar ends -->
+			<!-- menu starts -->
+			<div class="menu">
+				<nav class="navbar">
+					<div class="container">
+						<div class="row my-row">
+							<div class="col col-3 col-lg-3">
+								<div class="nav-bar-start">
+									<a class="navbar-brand" href="index.html">
+										<img src="assets/images/logo.svg" alt="Logo">
+									</a>
+								</div>
+							</div>
+							<div class="col col-9 col-lg-9 my-col">
+								<div class="container-navbar-center">
+									<ul class="navbar-center">
+										<li class="nav-item">
+											<a class="nav-link active" href="index.html">Home</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="orders.html">How To Orders?</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="recipes.html">Recipes</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Partners</a>
+										</li>
+										<li class="nav-item">
+											<div class="dropdown">
+												<a href="#" class="nav-link">
+													Pages
+													<i class="fa fa-sort-desc" aria-hidden="true"></i>
+												</a>
+												<ul class="dropdown-menu">
+													<li><a class="dropdown-item" href="#">Page 1</a></li>
+													<li><a class="dropdown-item" href="#">Page 2</a></li>
+													<li><a class="dropdown-item" href="#">Page 3</a></li>
+												</ul>
+											</div>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Browse Places</a>
+										</li>
+									</ul>
+								</div>
+								<div class="navbar-end">
+									<a href="#" class="btn-partner">Become a Partner</a>
+									<a href="#" class="nav-link btn-bars">
+										<i class="fa fa-bars" aria-hidden="true"></i>
+									</a>
+									<a href="#" class="nav-link">
+										<i class="fa fa-bell nofication" aria-hidden="true"></i>
+									</a>
+									<a href="#" class="nav-link">
+										<i class="fa fa-search search-menu" aria-hidden="true"></i>
+										<i class="fa fa-times hidden-menu" aria-hidden="true"></i>
+										<form action="#" method="get">
+											<input type="search" name="search-food" id="search-food" placeholder="e.g eggs">
+											<button type="button" class="btn-sb-food">
+											<i class="fa fa-search" aria-hidden="true"></i>
+											</button>
+										</form>
+									</a>
+								</div>
+							</div>
+						</div>
 					</div>
-			    <div class="collapse navbar-collapse section-hidden " id="navbarSupportedContent">
-			      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			        <li class="nav-item">
-			          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="orders.html">How To Orders?</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="recipes.html">Recipes</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">Partners</a>
-			        </li>
-			        <li class="nav-item dropdown">
-			          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			            Pages
-			          </a>
-			          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-			            <li><a class="dropdown-item" href="#">Page 1</a></li>
-			            <li><a class="dropdown-item" href="#">Page 2</a></li>
-			            <li><a class="dropdown-item" href="#">Page 3</a></li>
-			          </ul>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Browse Places</a>
-			        </li>
-			      </ul>
-			    </div>
-			  </div>
-			</nav>
-		</div>
-		<!-- menu ends -->
-	</header>
+				</nav>
+			</div>
+			<!-- menu ends -->
+		</header>
 	<!-- header ends -->
 	<!-- review starts -->
-		<section class="block-review position-relative">
+		<section class="block-review">
 			<div class="cover-banner"></div>
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-sm-7 col-lg-8 d-none d-sm-block">
+					<div class="col col-12 col-sm-7 col-lg-8">
 						<div class="left-review">
 							<h1 class="title">Choose, Order and Checkout</h1>
 							<h6 class="exception">Specify your address to suggest you the fast delivery</h6>
@@ -163,22 +172,18 @@
 							<a href="#" class="btn my-btn" role="button" data-bs-toggle="button">Go To Meal</a>
 						</div>
 					</div>
-					<div class="col-12 col-sm-5 col-lg-4 right-review">
+					<div class="col col-12 col-sm-5 col-lg-4 right-review">
 						<form action="#" method="post">
-							<div class="form-box px-3">
-								<div class="input-group flex-nowrap">
-								  <span class="input-group-text" id="addon-wrapping">
-								  	<i class="fa fa-map-marker" aria-hidden="true" style="width: 12.58px;"></i>
-								  </span>
-								  <input type="text" class="form-control" placeholder="Choose your location" aria-label="Username" aria-describedby="addon-wrapping">
+							<div class="form-box">
+								<div class="input-group">
+								  <i class="fa fa-map-marker" aria-hidden="true" style="width: 12.58px;"></i>
+								  <input type="text" class="my-input input-review" placeholder="Choose your location">
 								</div>
-								<div class="input-group flex-nowrap">
-								  <span class="input-group-text" id="addon-wrapping">
-								  	<i class="fa fa-cutlery" aria-hidden="true"></i>
-								  </span>
-								  <input type="text" class="form-control" placeholder="Choose restaurant" aria-label="Username" aria-describedby="addon-wrapping">
+								<div class="input-group">
+								  <i class="fa fa-cutlery" aria-hidden="true"></i>
+								  <input type="text" class="my-input input-review" placeholder="Choose restaurant">
 								</div>
-								<button type="button" class="btn btn-link my-btn">Find Food</button>
+								<button type="button" class="my-btn">Find Food</button>
 							</div>
 						</form>
 					</div>
@@ -190,14 +195,14 @@
 		<section class="browse-places">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 py-4">
-						<div class="browse-header text-center">
+					<div class="col col-12">
+						<div class="browse-header">
 							<h6>Browse Places</h6>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-12">
+					<div class="col col-12">
 						<div class="list-places">
 							<div class="splide">
 								<div class="splide__track">
@@ -218,7 +223,7 @@
 		<section class="step-working">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-md-4">
+					<div class="col col-12 col-md-4">
 						<div class="working-item">
 							<div class="img-item">
 								<img src="assets/images/working-1.svg" alt="images">
@@ -231,7 +236,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-4">
+					<div class="col col-12 col-md-4">
 						<div class="working-item">
 							<div class="img-item">
 								<img src="assets/images/working-2.svg" alt="images">
@@ -244,7 +249,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-4">
+					<div class="col col-12 col-md-4">
 						<div class="working-item">
 							<div class="img-item">
 								<img src="assets/images/working-3.svg" alt="images">
@@ -265,14 +270,14 @@
 		<section class="restaurant">
 			<div class="container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col col-12">
 						<div class="heading">
 							<h1> Discover New Restaurants & Book Now </h1>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-12">
+					<div class="col col-12">
 						<div class="list-restaurants">
 							<div class="splide">
 								<div class="splide__track">
@@ -315,7 +320,7 @@
 		<section class="order-online">
 			<div class="container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col col-12">
 						<div class="heading">
 							<h2> Order Food Online In Your Area </h2>
 						</div>
@@ -328,26 +333,26 @@
 								Change Location
 							</p>
 						</div>
-						<div class="search-location col-12 col-md-6 col-lg-4 mx-auto">
+						<div class="search-location col-12 col-md-6 col-lg-4">
 							<form action="#" method="post">
 								<div class="input-group">
-								  <input type="text" class="form-control input-search-location" placeholder="Enter your location" aria-describedby="button-addon2">
-								  <span class="input-group-text" id="basic-addon1">
-								  	<i class="fa fa-crosshairs" aria-hidden="true" style="color: rgba(0,0,0,.5);"></i>
-								  </span>
-								  <button class="btn btn-link" type="button" id="button-addon2">Search</button>
+								  <input type="text" class="my-input" placeholder="Enter your location">
+								  <i class="fa fa-crosshairs" aria-hidden="true"></i>
+								  <button class="btn" type="button">
+								  Search
+								</button>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 				<div class="row app">
-					<div class="col-12 col-md-6 col-lg-4 col-xxl-3 meal-item" v-for="i in listFood">
+					<div class="col col-12 col-md-6 col-lg-4 col-xxl-3 meal-item" v-for="i in listFood">
 						<food-items v-bind:obj="i" v-bind:key="i.id"></food-items>
 					</div>
 				</div>
 				<div class="meal-btn">
-					<button type="button" class="btn btn-link my-btn">Show all</button>
+					<button type="button" class="my-btn">Show all</button>
 				</div>
 			</div>
 		</section>
@@ -356,7 +361,7 @@
 		<section class="offer-banner">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-md-6">
+					<div class="col col-12 col-md-6">
 						<div class="banner">
 							<div class="ads-banner-1"></div>
 							<div class="banner-items">
@@ -365,12 +370,12 @@
 									<p>Use code to get 50% off upto $5 <br>on your next order.</p>
 								</div>
 								<div class="banner-btn">
-									<a href="#" class="btn btn-light my-btn">Order Now</a>
+									<a href="#" class="my-btn">Order Now</a>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-6">
+					<div class="col col-12 col-md-6">
 						<div class="banner">
 							<div class="ads-banner-2"></div>
 							<div class="banner-items">
@@ -385,7 +390,7 @@
 									<p>Memberships are now open for <br> purchases.</p>
 								</div>
 								<div class="banner-btn">
-									<a href="#" class="btn btn-light my-btn">Sign up Now</a>
+									<a href="#" class="my-btn">Sign up Now</a>
 								</div>
 							</div>
 						</div>
@@ -398,7 +403,7 @@
 		<section class="quick-searches">
 			<div class="container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col col-12">
 						<div class="heading">
 							<h2> Quick Searches </h2>
 						</div>
@@ -408,7 +413,7 @@
 					</div>
 				</div>
 				<div class="row justify-content-center">
-					<div class="col-md-8">
+					<div class="col col-md-8">
 						<div class="list-meal">
 							<div class="splide">
 								<div class="splide__track">
@@ -429,7 +434,7 @@
 		<section class="featured-restaurants">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-lg-8" >
+					<div class="col col-12 col-lg-8" >
 						<div class="heading">
 							<h2> Featured Restaurants </h2>
 						</div>
@@ -439,7 +444,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-4">
+					<div class="col col-12 col-lg-4">
 						<div class="heading">
 							<h2> Treading This Week Sellers </h2>
 						</div>
@@ -457,17 +462,17 @@
 		<section class="explore-recipes">
 			<div class="container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col col-12">
 						<h2> Explore Your Favorite Recipes </h2>
 					</div>
 				</div>
 				<div class="row app-6">
-					<div class="col-12 col-md-6 col-lg-4" v-for="i in listRecipe">
+					<div class="col col-12 col-md-6 col-lg-4" v-for="i in listRecipe">
 						<recipe-item v-bind:obj="i" v-bind:key="i.id"></recipe-item>
 					</div>
 				</div>
-				<div class="recipe-btn text-center">
-					<a href="#" class="my-btn btn-link">Show All</a>
+				<div class="recipe-btn">
+					<a href="#" class="my-btn">Show All</a>
 				</div>
 			</div>
 		</section>
@@ -476,7 +481,7 @@
 		<section class="pocket-block-preview">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-md-7 pocket-left">
+					<div class="col col-12 col-md-7 pocket-left">
 						<div class="heading">
 							<h2>Natto in Your Pocket</h2>
 						</div>
@@ -487,8 +492,8 @@
 						<div class="search-form">
 							<form action="#" method="post">
 								<div class="input-group">
-								  <input type="text" class="form-control input-sent" placeholder="Enter your email address" aria-describedby="button-addon2">
-								  <button class="btn btn-link" type="submit" id="button-addon2">Sent Link</button>
+								  <input type="text" class="my-input" placeholder="Enter your email address">
+								  <button class="btn" type="submit">Sent Link</button>
 								</div>
 							</form>
 						</div>
@@ -501,7 +506,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-md-5 d-none d-md-block pocket-right">
+					<div class="col col-md-5 pocket-right">
 						<div class="mobile-img d-flex justify-content-center">
 							<img src="assets/images/mobile.png" alt="">
 						</div>
@@ -514,8 +519,8 @@
 		<div class="footer">
 			<div class="subscribe-now">
 				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-12 col-md-6 col-lg-5">
+					<div class="row">
+						<div class="col col-12 col-md-6 col-lg-5">
 							<div class="subscribe-newletter">
 								<div class="sub-text">
 									<span>Connect with us for update and offers.</span>
@@ -523,27 +528,29 @@
 								<div class="subcribe-form">
 									<form action="#" method="post">
 										<div class="input-group">
-											 <input type="text" class="form-control input-subcribe" placeholder="Enter your email address" aria-describedby="button-addon2">
-											 <button class="btn btn-link" type="submit" id="button-addon2">Subcribe Now</button>
+											<input type="text" class="my-input" placeholder="Enter your email address">
+											<button class="btn" type="submit">Subcribe Now</button>
 										</div>
 									</form>
 								</div>
 							</div>
 						</div>
-						<div class="col-12 col-md-3 col-lg-2 align-items-center d-flex">
+						<div class="col col-12 col-md-6 col-lg-7">
 							<div class="language">
-								<form action="#" method="post" enctype="multipart/form-data"> 
-									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										<i class="fa fa-globe pr-1" aria-hidden="true"></i>
-				            English
-				          </a>
-				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item" href="#">English</a></li>
-				            <li><a class="dropdown-item" href="#">Hindi</a></li>
-				            <li><a class="dropdown-item" href="#">Spanish</a></li>
-				            <li><a class="dropdown-item" href="#">VietNam</a></li>
-				          </ul>
-								</form> 
+								<form action="#" method="post" enctype="multipart/form-data">
+									<div class="dropdown">
+										<a href="#">
+											English
+											<i class="fa fa-sort-desc" aria-hidden="true"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a class="dropdown-item" href="#">English</a></li>
+											<li><a class="dropdown-item" href="#">Hindi</a></li>
+											<li><a class="dropdown-item" href="#">Spanish</a></li>
+											<li><a class="dropdown-item" href="#">Vietnamese</a></li>
+										</ul>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -552,7 +559,7 @@
 			<div class="footer-main">
 				<div class="container">
 					<div class="row">
-						<div class="col-12 col-md-12 col-lg-3">
+						<div class="col col-12 col-md-12 col-lg-3">
 							<div class="img-logo">
 								<a href="index.html">
 									<img src="assets/images/logo-footer.svg" alt="Logo">
@@ -562,7 +569,7 @@
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum leo at finibus ornare. Aliquam gravida condimentum neque, vel ultrices purus dignissim a.
 							</p>
 						</div>
-						<div class="col-12 col-md-6 col-lg-3">
+						<div class="col col-6 col-lg-3">
 							<div class="link-title">
 								<h4>About Natto</h4>
 								<ul class="links">
@@ -575,7 +582,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-12 col-md-6 col-lg-3">
+						<div class="col col-6 col-lg-3">
 							<div class="link-title">
 								<h4>Business</h4>
 								<ul class="links">
@@ -588,7 +595,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-12 col-md-12 col-lg-3">
+						<div class="col col-12 col-sm-12 col-lg-3">
 							<div class="link-title">
 								<h4>Partner With Us</h4>
 								<ul class="links">
@@ -620,7 +627,7 @@
 			<div class="privacy-cards">
 				<div class="container">
 					<div class="row">
-						<div class="col-12 col-md-6">
+						<div class="col col-12 col-md-6">
 							<div class="privacy-terms">
 								<ul>
 									<li><a href="#">Privacy</a></li>
@@ -629,7 +636,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-12 col-md-6">
+						<div class="col col-12 col-md-6">
 							<div class="cards-img">
 								<img src="assets/images/cards.png" alt="Cards">
 							</div>
@@ -640,12 +647,12 @@
 			<div class="copyright">
 				<div class="container">
 					<div class="row">
-						<div class="col-12">
+						<div class="col col-12">
 							<div class="copyright-text">
 								<i class="fa fa-copyright" aria-hidden="true"></i>
-								Copyright 2019 
+								Copyright 2019
 								<a href="index.html" style="color: orange;">Natto</a>
-								 by Gambol. All Rights Reserved.
+								by Gambol. All Rights Reserved.
 							</div>
 						</div>
 					</div>
@@ -653,16 +660,13 @@
 			</div>
 		</div>
 		<!-- footer ends  -->
-	<!-- Connect Jquery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- Connect bootstrap and popper -->
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-	<!-- Connect vue js -->
+	<!-- Connect vue.js -->
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 	<script src="assets/js/components.js"></script>
 	<!-- Connect spider -->
 	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+	<!-- Connect my template -->
+	<script src="assets/js/template.js"></script>
 	<!-- Connect my js -->
 	<script src="assets/js/main.js"></script>
 </body>

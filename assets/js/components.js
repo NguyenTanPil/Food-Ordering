@@ -146,11 +146,11 @@ Vue.component('food-items', {
 	props: ['obj'],
 	template: `
 		<div class="card">
-			<div class="card-img-top position-relative">
+			<div class="card-img-top">
 				<img :src="obj.img" alt="meal">
 				<a href="#" class="theme"></a>
 			</div>
-			<div class="content position-relative">
+			<div class="content">
 				<div class="top-text">
 					<div class="logo-img">
 						<img :src="obj.logo" alt="logo">
@@ -379,8 +379,8 @@ Vue.component('treading-item', {
 				</div>
 			</div>
 			<div class="col-5 col-md-6">
-				<div class="btn-item d-flex justify-content-end align-items-center h-100">
-					<a href="#" class="btn my-btn" role="button" data-bs-toggle="button">View <span>Menu</span></a>
+				<div class="btn-item">
+					<a href="#" class="my-btn" role="button" data-bs-toggle="button">View <span>Menu</span></a>
 				</div>
 			</div>
 		</div>

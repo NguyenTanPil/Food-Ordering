@@ -1,28 +1,10 @@
-// loading starts
-window.onload = function() {
-	document.querySelector('.loading').style.display = 'none';
-}
-// loading ends
-const search = document.querySelector('.menu-sab:last-child');
-const formSearch = search.querySelector('form');
-const searchMenu = search.querySelector('.search-menu');
-const hiddenMenu = search.querySelector('.hidden-menu');
-searchMenu.addEventListener('click', (e) => {
-	e.target.style.display = 'none';
-	hiddenMenu.style.display = 'block';
-	formSearch.classList.add('active');
-});
-hiddenMenu.addEventListener('click', (e) => {
-	e.target.style.display = 'none';
-	searchMenu.style.display = 'block';
-	searchMenu.style.color = 'gray';
-	formSearch.classList.remove('active');
-});
 // places starts
 new Splide( '.browse-places .splide', {
 	type: 'loop',
 	perPage: 6,
 	perMove: 1,
+	pagination: false,
+	arrows: false,
 	autoplay: 'true',
 	breakpoints: {
 		576: {
@@ -42,6 +24,7 @@ new Splide( '.restaurant .splide', {
 	type: 'loop',
 	perPage: 5,
 	perMove: 1,
+	pagination: false,
 	breakpoints: {
 		576: {
 			perPage: 1,
@@ -64,6 +47,8 @@ new Splide( '.quick-searches .splide', {
 	perPage: 5,
 	perMove: 1,
 	autoplay: 'true',
+	pagination: false,
+	arrows: false,
 	breakpoints: {
 		576: {
 			perPage: 2,

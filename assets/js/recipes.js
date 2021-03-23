@@ -7,23 +7,6 @@ window.onload = function() {
 		overlay.style.width = `${imgRecipes.offsetWidth}px`;
 	});
 }
-// menu starts
-const search = document.querySelector('.menu-sab:last-child');
-const formSearch = search.querySelector('form');
-const searchMenu = search.querySelector('.search-menu');
-const hiddenMenu = search.querySelector('.hidden-menu');
-searchMenu.addEventListener('click', (e) => {
-	e.target.style.display = 'none';
-	hiddenMenu.style.display = 'block';
-	formSearch.classList.add('active');
-});
-hiddenMenu.addEventListener('click', (e) => {
-	e.target.style.display = 'none';
-	searchMenu.style.display = 'block';
-	searchMenu.style.color = 'gray';
-	formSearch.classList.remove('active');
-});
-// menu ends
 // recipes starts
 const listRecipes = [
 	{
@@ -318,7 +301,7 @@ const listUpdate = [
 ];
 function video(parent, child) {
 	const div = document.createElement('div');
-	div.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
+	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
 	div.innerHTML = `
 		<div class="recipe-video">
 			<div class="top">
