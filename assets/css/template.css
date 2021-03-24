@@ -273,6 +273,7 @@ ul {
 	transition: var(--transition);
 	top: 0;
 	left: 90%;
+	z-index: 1;
 }
 .menu .nav-link {
 	font-size: 1rem;
@@ -316,6 +317,7 @@ ul {
 	transition: transform 1s ease;
 	transform: scaleX(0);
 	transform-origin: top left;
+	z-index: 1;
 }
 .navbar-end .nav-link:last-child form.active {
 	transform: scaleX(1);
