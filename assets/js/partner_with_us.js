@@ -57,7 +57,7 @@ const listPartners = [
 		country: 'New York, United States',
 		location: '50th Street Between 3rd avenue and, Lexington Ave',
 		type: 'Cafe’s',
-		online: true,
+		online: false,
 		openClose: '11.00AM to 3.00PM (Mon-Sun)',
 		cuisine: 'Coffee cafe\'s',
 		feature: 'N/A',
@@ -99,7 +99,7 @@ const listPartners = [
 		country: 'New York, United States',
 		location: '98-18 Rockaway Blvd, Ozone Park',
 		type: 'Casual Dining',
-		online: true,
+		online: false,
 		openClose: '4.00AM to 10.00PM (Mon-Sun)',
 		cuisine: 'Drinks & Beer Restaurants',
 		feature: 'Treading',
@@ -161,7 +161,7 @@ listPartners.forEach((partner) => {
 						<li>Featured: ${partner.feature}</li>
 						<li>Discount: ${partner.discount}</li>
 						<li>Reviews:
-							<div class="review-stars">
+							<div class="stars">
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -185,7 +185,7 @@ listPartners.forEach((partner) => {
 							Call now
 						</a>
 					</li>
-					<li>
+					<li class="order-now">
 						<a href="#">
 							<i class="fa fa-cart-plus" aria-hidden="true"></i>
 							Order now
@@ -201,6 +201,8 @@ listPartners.forEach((partner) => {
 			</div>
 		</div>
 	`;
+	countStar(div, partner.review);
+	onlineOrOffline(div, partner.online)
 	partners.appendChild(div);
 });
 // list partners ends
@@ -265,6 +267,34 @@ listPopular.forEach((pop) => {
 				</div>
 		</div>
 	`;
+	countStar(li, pop.star);
 	popular.appendChild(li);
 });
 // list popular ends
+// count star
+function countStar(parent, numberStar) {
+	const stars = parent.querySelectorAll('.stars i');
+	let n = parseFloat(numberStar);
+	let star = '';
+	stars.forEach((item, index) => {
+		if(index + 1 <= n) {
+			star = 'star';
+		} else if(index + 1 > n && index < n) {
+			star = 'star-half-o';
+		} else {
+			star = 'star-o';
+		}
+		item.classList.add(`fa-${star}`);
+	});
+}
+function onlineOrOffline(parent, state) {
+	const i = parent.querySelector('.on-off');
+	const orderNow = parent.querySelector('.links .order-now a');
+	console.log(orderNow);
+	if(state) {
+		i.style.color = 'orange';
+	} else {
+		i.style.color = 'grey';
+		orderNow.classList.add('not-active');
+	}
+}

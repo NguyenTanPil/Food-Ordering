@@ -218,6 +218,7 @@ ul {
 	display: block;
 	padding: 0.25rem 1rem;
 	font-size: 0.875rem;
+	color: var(--clr-text);
 }
 .topbar-right .dropdown a i:last-child,
 .menu .dropdown a i,
