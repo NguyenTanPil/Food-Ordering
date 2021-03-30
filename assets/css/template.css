@@ -248,6 +248,7 @@ ul {
 }
 .menu .nav-item .active {
 	color: var(--clr-orange);
+	outline: none;
 }
 .menu .container-navbar-center .nav-link:hover {
 	margin-left: 0.5rem;
