@@ -293,6 +293,7 @@ ul {
 	padding: 0 1rem;
 	vertical-align: middle;
 	line-height: 1.875rem;
+	outline: none;
 }
 .menu .nav-link:hover {
 	color: var(--clr-orange);
