@@ -24,6 +24,8 @@
 }
 .title-bar .breadcrumb {
 	display: flex;
+	align-items: center;
+	height: 2rem;
 }
 .breadcrumb-item.active {
 	color: var(--clr-orange);
