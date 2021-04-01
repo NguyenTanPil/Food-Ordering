@@ -3,15 +3,26 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>template</title>
+		<title>Login</title>
 		<link rel="icon" href="assets/images/brand.ico" type="image/x-icon" />
 		<!-- Connect font awesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Connect my css -->
-		<!-- <link rel="stylesheet" href="assets/css/orders.css"> -->
 		<link rel="stylesheet" href="assets/css/template.css">
+		<link rel="stylesheet" href="assets/css/login.css">
 	</head>
-	<body>
+	<body cz-shortcut-listen="true">
+		<!-- loading starts -->
+		<div class="loading">
+			<div class="loading-items">
+				<img class="animation-loading-1 loading-item" src="assets/images/loading.gif" alt="Loading">
+				<img class="animation-loading-2 loading-item" src="assets/images/loading.gif" alt="Loading">
+				<img class="animation-loading-3 loading-item" src="assets/images/loading.gif" alt="Loading">
+				<img class="animation-loading-4 loading-item" src="assets/images/loading.gif" alt="Loading">
+			</div>
+		</div>
+		<!-- loading ends -->
+		<!-- header starts -->
 		<header id="header">
 			<!-- topbar starts -->
 			<div class="topbar">
@@ -90,7 +101,7 @@
 								<div class="container-navbar-center">
 									<ul class="navbar-center">
 										<li class="nav-item">
-											<a class="nav-link active" href="index.html">Home</a>
+											<a class="nav-link" href="index.html">Home</a>
 										</li>
 										<li class="nav-item">
 											<a class="nav-link" href="orders.html">How To Orders?</a>
@@ -103,7 +114,7 @@
 										</li>
 										<li class="nav-item">
 											<div class="dropdown">
-												<a href="#" class="nav-link">
+												<a href="#" class="nav-link active">
 													Pages
 													<i class="fa fa-sort-desc" aria-hidden="true"></i>
 												</a>
@@ -145,6 +156,88 @@
 			</div>
 			<!-- menu ends -->
 		</header>
+		<!-- header ends -->
+		<!-- title bar starts -->
+		<section class="title-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col col-12 col-md-6">
+						<div class="left-title-text">
+							<h3>Login Now</h3>
+						</div>
+					</div>
+					<div class="col col-12 col-md-6">
+						<div class="right-title-text">
+							<div class="breadcrumb">
+								<div class="breadcrumb-item">
+									<a href="index.html">Home</a>
+								</div>
+								<div class="breadcrumb-item active">Login Now
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- title bar ends -->
+		<!-- form login starts -->
+		<section class="login">
+			<div class="container">
+				<div class="row">
+					<div class="col col-12 col-lg-10">
+						<div class="login-container">
+							<div class="background-login"></div>
+							<div class="content">
+								<div class="form">
+									<form action="#" method="post">
+										<div class="logo-form">
+											<a href="index.html">
+												<img src="assets/images/logo.svg" alt="logo">
+											</a>
+										</div>
+										<div class="social-btns-login">
+											<div class="facebook-btn">
+												<a href="#">
+													<i class="fa fa-facebook" aria-hidden="true"></i>
+													Continue with facebook
+												</a>
+											</div>
+											<div class="google-btn">
+												<a href="#">
+													<i class="fa fa-google" aria-hidden="true"></i>
+													Continue with Google
+												</a>
+											</div>
+										</div>
+										<div class="or">
+											<span>Or</span>
+										</div>
+										<div class="form-group">
+											<input type="text" name="name" id="email-phoneNumber" placeholder="Enter Email or Number Phone">
+										</div>
+										<div class="form-group">
+											<input type="password" name="password" id="password" placeholder="Enter Your Password">
+										</div>
+										<button type="submit" class="my-btn">
+										Login
+										</button>
+										<div class="forgot-password-not-acccout">
+											<a href="#">Forgot Password?</a>
+											<p>
+												Don’t have an account?
+												<a href="#">Sign up</a>
+											</p>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- form login ends -->
 		<!-- footer starts  -->
 		<div class="footer">
 			<div class="subscribe-now">
