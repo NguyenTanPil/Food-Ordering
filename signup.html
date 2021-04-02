@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Login</title>
+		<title>Sign up</title>
 		<link rel="icon" href="assets/images/brand.ico" type="image/x-icon" />
 		<!-- Connect font awesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Connect my css -->
 		<link rel="stylesheet" href="assets/css/template.css">
-		<link rel="stylesheet" href="assets/css/login.css">
+		<link rel="stylesheet" href="assets/css/signup.css">
 	</head>
 	<body cz-shortcut-listen="true">
 		<!-- loading starts -->
@@ -119,8 +119,8 @@
 													<i class="fa fa-sort-desc" aria-hidden="true"></i>
 												</a>
 												<ul class="dropdown-menu">
-													<li><a class="dropdown-item active" href="login.html">Login now</a></li>
-													<li><a class="dropdown-item" href="signup.html">Sign up</a></li>
+													<li><a class="dropdown-item" href="login.html">Login now</a></li>
+													<li><a class="dropdown-item active" href="signup.html">Sign up</a></li>
 													<li><a class="dropdown-item" href="#">Page 3</a></li>
 												</ul>
 											</div>
@@ -163,7 +163,7 @@
 				<div class="row">
 					<div class="col col-12 col-md-6">
 						<div class="left-title-text">
-							<h3>Login Now</h3>
+							<h3>Sign up</h3>
 						</div>
 					</div>
 					<div class="col col-12 col-md-6">
@@ -172,7 +172,7 @@
 								<div class="breadcrumb-item">
 									<a href="index.html">Home</a>
 								</div>
-								<div class="breadcrumb-item active">Login Now
+								<div class="breadcrumb-item active">Sign up
 								</div>
 							</div>
 						</div>
@@ -182,12 +182,12 @@
 		</section>
 		<!-- title bar ends -->
 		<!-- form login starts -->
-		<section class="login">
+		<section class="signup">
 			<div class="container">
 				<div class="row">
 					<div class="col col-12 col-lg-10">
-						<div class="login-container">
-							<div class="background-login"></div>
+						<div class="signup-container">
+							<div class="background-signup"></div>
 							<div class="content">
 								<div class="form">
 									<form action="#" method="post">
@@ -196,37 +196,36 @@
 												<img src="assets/images/logo.svg" alt="logo">
 											</a>
 										</div>
-										<div class="social-btns-login">
-											<div class="facebook-btn">
-												<a href="#">
-													<i class="fa fa-facebook" aria-hidden="true"></i>
-													Continue with facebook
-												</a>
-											</div>
-											<div class="google-btn">
-												<a href="#">
-													<i class="fa fa-google" aria-hidden="true"></i>
-													Continue with Google
-												</a>
-											</div>
-										</div>
-										<div class="or">
-											<span>Or</span>
+										<div class="heading">
+											<h3>Create an account</h3>
 										</div>
 										<div class="form-group">
-											<input type="text" name="name" id="email-phoneNumber" placeholder="Enter Email or Number Phone">
+											<input type="text" name="name" id="full-name" placeholder="Enter Your Full Name">
+										</div>
+										<div class="form-group">
+											<input type="email" name="email" id="email" placeholder="Enter Your Email">
 										</div>
 										<div class="form-group">
 											<input type="password" name="password" id="password" placeholder="Enter Your Password">
 										</div>
+										<div class="form-group last-form-group">
+											<input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat Password">
+										</div>
+										<div class="agree">
+											<input type="checkbox" name="agree" id="agree">
+											<label for="agree">
+												I agree to Natto's
+												<a href="#">Terms</a> and 
+												<a href="#">Services</a>
+											</label>
+										</div>
 										<button type="submit" class="my-btn">
-										Login
+										Sign up
 										</button>
-										<div class="forgot-password-not-acccout">
-											<a href="#">Forgot Password?</a>
+										<div class="have-accout">
 											<p>
-												Don’t have an account?
-												<a href="signup.html">Sign up</a>
+												If you have an account?
+												<a href="login.html">Login</a>
 											</p>
 										</div>
 									</form>
@@ -384,5 +383,12 @@
 		</div>
 		<!-- footer ends  -->
 		<script src="assets/js/template.js"></script>
+		<script>
+			const agree = document.querySelector('.agree');
+			const checkboxAgree = document.getElementById('agree');
+			checkboxAgree.onclick = () => {
+				agree.classList.toggle('active');
+			}
+		</script>
 	</body>
 </html>
