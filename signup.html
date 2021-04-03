@@ -200,16 +200,44 @@
 											<h3>Create an account</h3>
 										</div>
 										<div class="form-group">
+											<div class="icon-check">
+												<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+												<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+											</div>
 											<input type="text" name="name" id="full-name" placeholder="Enter Your Full Name">
+											<div class="nofitication">
+												<span></span>
+											</div>
 										</div>
 										<div class="form-group">
+											<div class="icon-check">
+												<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+												<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+											</div>
 											<input type="email" name="email" id="email" placeholder="Enter Your Email">
+											<div class="nofitication">
+												<span></span>
+											</div>
 										</div>
 										<div class="form-group">
+											<div class="icon-check">
+												<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+												<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+											</div>
 											<input type="password" name="password" id="password" placeholder="Enter Your Password">
+											<div class="nofitication">
+												<span></span>
+											</div>
 										</div>
 										<div class="form-group last-form-group">
+											<div class="icon-check">
+												<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+												<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+											</div>
 											<input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat Password">
+											<div class="nofitication">
+												<span></span>
+											</div>
 										</div>
 										<div class="agree">
 											<input type="checkbox" name="agree" id="agree">
@@ -383,12 +411,6 @@
 		</div>
 		<!-- footer ends  -->
 		<script src="assets/js/template.js"></script>
-		<script>
-			const agree = document.querySelector('.agree');
-			const checkboxAgree = document.getElementById('agree');
-			checkboxAgree.onclick = () => {
-				agree.classList.toggle('active');
-			}
-		</script>
+		<script src="assets/js/signup.js"></script>
 	</body>
 </html>
