@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Recipes</title>
+		<title>Recipe details</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="assets/images/brand.ico" type="image/x-icon" />
 		<!-- Connect font awesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- Connect splide -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 		<!-- Connect my template -->
 		<link rel="stylesheet" href="assets/css/template.css">
 		<!-- Connect my css -->
-		<link rel="stylesheet" href="assets/css/recipes.css">
+		<link rel="stylesheet" href="assets/css/recipe_details.css">
 	</head>
 	<body cz-shortcut-listen="true">
 		<!-- loading starts -->
@@ -165,7 +163,7 @@
 				<div class="row">
 					<div class="col col-12 col-md-6">
 						<div class="left-title-text">
-							<h3>Recipes</h3>
+							<h3>Recipe details view</h3>
 						</div>
 					</div>
 					<div class="col col-12 col-md-6">
@@ -174,8 +172,10 @@
 								<div class="breadcrumb-item">
 									<a href="index.html">Home</a>
 								</div>
-								<div class="breadcrumb-item active">
-									Recipes
+								<div class="breadcrumb-item">
+									<a href="index.html">Recipes</a>
+								</div>
+								<div class="breadcrumb-item active">Recipe details view
 								</div>
 							</div>
 						</div>
@@ -184,181 +184,242 @@
 			</div>
 		</section>
 		<!-- title bar ends -->
-		<!-- recipe block preview starts -->
-		<section class="recipe-block-preview">
-			<div class="container">
-				<div class="find-recipes">
-					<div class="row">
-						<div class="col col-12">
-							<h1 class="title-recipes">Find Recipes</h1>
-						</div>
-					</div>
-					<div class="row justify-content-center">
-						<div class="col col-12 col-md-6">
-							<p>Aenean tellus ligula, pellentesque sit amet luctus eget, posuere eget sapien. Proin ultricies vestibulum sem non lobortis.</p>
-						</div>
-					</div>
-					<div class="row justify-content-center">
-						<div class="col col-12 col-lg-6">
-							<form action="#" method="get">
-								<div class="input-group">
-									<input type="text" name="find" class="my-input" placeholder="Find recipes">
-									<button type="button" class="btn">
-									<i class="fa fa-search" aria-hidden="true"></i> <span id="search-word">Search</span>
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col col-12">
-							<div class="or">
-								<span>or</span>
-							</div>
-							<div class="upload">
-								<a href="#" class="my-btn">Upload video</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- recipe block preview ends -->
-		<!-- category recipes starts -->
-		<section class="category-recipes">
+		<!-- video detail recipes starts -->
+		<section class="video-detail-recipes">
 			<div class="container">
 				<div class="row">
-					<div class="col col-12">
-						<div class="list-recipes">
-							<div class="splide">
-								<div class="splide__track">
-									<ul class="splide__list">
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- category recipes ends -->
-		<!-- main video starts -->
-		<section class="main-video">
-			<div class="container">
-				<div class="row">
-					<div class="col col-12 col-lg-9">
-						<div class="video">
-							<div class="my-bg-gradient"></div>
-							<img src="assets/images/main-video.jpg" alt="main-video">
-							<div class="top-items">
-								<div class="views">
-									<p>
-										<i class="fa fa-eye" aria-hidden="true"></i>
-										2m views
-									</p>
-								</div>
-								<div class="video-time">
-									<p>
-										<i class="fa fa-clock-o" aria-hidden="true"></i>
-										12.08
-									</p>
-								</div>
-							</div>
-							<div class="bottom-items">
-								<div class="video-title">
-									<a href="recipe_details.html">
-										<h4>Learn to cook easy egg gravey dishes</h4>
+					<div class="col col-12 col-lg-8">
+						<div class="profile-toolbars">
+							<div class="user-details">
+								<div class="user-img">
+									<a href="user_profile_view.html">
+										<img src="assets/images/user-2.png" alt="user img">
 									</a>
-									<div class="bottom-star">
-										<div class="rating">
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star-half-o" aria-hidden="true"></i>
-											<span>4.5</span>
+								</div>
+								<div class="name-location">
+									<a href="user_profile_view.html">
+										<h4>John Doe</h4>
+									</a>
+									<p>
+										<span>
+											<i class="fa fa-map-marker" aria-hidden="true"></i>
+										</span>
+										Sidney, Australia
+									</p>
+								</div>
+							</div>
+							<div class="right-btns">
+								<button class="my-btn">
+								<i class="fa fa-bell" aria-hidden="true"></i>
+								</button>
+								<div class="follow-btn">
+									<button class="my-btn">Follow</button>
+								</div>
+							</div>
+						</div>
+						<div class="video">
+									<iframe src="https://www.youtube.com/embed/6CFJhTKcGJ4" height="315" width="770"></iframe>
+						</div>
+						<div class="title-share">
+							<div class="title">
+								<h4>Red Sauce Pasta Recipe</h4>
+							</div>
+							<div class="share">
+								<span class="btn-share">
+									<i class="fa fa-share-alt" aria-hidden="true"></i>
+									Share
+								</span>
+								<div class="share-socials">
+									<a href="#">
+										<i class="fa fa-facebook" aria-hidden="true"></i>
+										Facabook
+									</a>
+									<a href="#">
+										<i class="fa fa-twitter" aria-hidden="true"></i>
+										Twitter
+									</a>
+									<a href="#">
+										<i class="fa fa-google" aria-hidden="true"></i>
+										Goggle
+									</a>
+									<a href="#">
+										<i class="fa fa-instagram" aria-hidden="true"></i>
+										Instagram
+									</a>
+									<a href="#">
+										<i class="fa fa-linkedin" aria-hidden="true"></i>
+										Linkedin
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="published-comments">
+							<div class="published-time">
+								<span>
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+									Published 2 days ago
+								</span>
+							</div>
+							<div class="like-comment-view">
+								<div class="heart">
+									<span>
+										<i class="fa fa-heart" aria-hidden="true"></i>
+										562
+									</span>
+								</div>
+								<div class="comments">
+									<span>
+										<i class="fa fa-envelope" aria-hidden="true"></i>
+										5
+									</span>
+								</div>
+								<div class="views">
+									<span>
+										<i class="fa fa-eye" aria-hidden="true"></i>
+										1.2k
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="all-tab">
+							<div class="nav-tab">
+								<div class="nav-item active" data-id="comments">
+									<a href="#">05 Comments</a>
+								</div>
+								<div class="nav-item" data-id="reviews">
+									<a href="#">03 Reviews</a>
+								</div>
+							</div>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane active" id="comments">
+								<div class="comment-post">
+									<div class="post-items">
+										<div class="img-user">
+											<i class="fa fa-user" aria-hidden="true"></i>
 										</div>
-										<div class="published">
-											<p><span>Published</span> 5 March 2018</p>
+										<form action="#" method="post">
+											<input type="text" class="post-input" name="postComment" placeholder="Write a comment">
+											<input type="submit" value="Post Comment" class="my-btn">
+										</form>
+									</div>
+								</div>
+								<div class="main-comments">
+									<div class="comment">
+										<div class="user-comment">
+											<a href="user_profile_view.html">
+												<img src="assets/images/user-3.png" alt="user comment">
+											</a>
+											<a href="user_profile_view.html">
+												<h4 class="name"> Rock Smith</h4>
+											</a>
+										</div>
+										<div class="reply-time">
+											<a href="#">Reply</a>
+											<p>
+												<i class="fa fa-clock-o" aria-hidden="true"></i>
+												12 hours ago
+											</p>
+										</div>
+										<div class="desciption-comment">
+											<p>Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.</p>
+										</div>
+									</div>
+									<div class="reply">
+										<div class="user-comment">
+											<a href="user_profile_view.html">
+												<img src="assets/images/user-2.png" alt="user comment">
+											</a>
+											<a href="user_profile_view.html">
+												<h4 class="name">John Doe</h4>
+											</a>
+										</div>
+										<div class="reply-time">
+											<p>
+												<i class="fa fa-clock-o" aria-hidden="true"></i>
+												12 hours ago
+											</p>
+										</div>
+										<div class="desciption-comment">
+											<p>
+												<a href="user_profile_view.html">@RockSmith</a>
+												Thank you
+											</p>
+										</div>
+									</div>
+									<div class="reply-comment">
+										<div class="post-items">
+											<div class="img-user">
+												<i class="fa fa-user" aria-hidden="true"></i>
+											</div>
+											<form action="#" method="post">
+												<input type="text" class="post-input" name="postComment" placeholder="Write a reply">
+												<input type="submit" value="Reply" class="my-btn">
+											</form>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="middle-items">
-								<a href="recipe_details.html">
-									<div class="play">
-										<i class="fa fa-play" aria-hidden="true"></i>
+							<div class="tab-pane" id="reviews">
+								<div class="comment-post">
+									<div class="post-items">
+										<div class="img-user">
+											<i class="fa fa-user" aria-hidden="true"></i>
+										</div>
+										<div class="select-rating">
+											<h4>Your Rating: </h4>
+											<div class="rating">
+												<i class="fa fa-star" aria-hidden="true" data-id="1"></i>
+												<i class="fa fa-star" aria-hidden="true" data-id="2"></i>
+												<i class="fa fa-star" aria-hidden="true" data-id="3"></i>
+												<i class="fa fa-star" aria-hidden="true" data-id="4"></i>
+												<i class="fa fa-star" aria-hidden="true" data-id="5"></i>
+											</div>
+										</div>
+										<form action="#" method="post">
+											<input type="text" class="post-input" name="postComment" placeholder="Please describe the reason for your rating to help the author">
+											<input type="submit" value="Save Review" class="my-btn">
+										</form>
 									</div>
-								</a>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col col-12 col-lg-3">
-						<div class="suggested-peoples">
-							<div class="sd-title">
-								<h3>Suggested Peoples</h3>
+					<div class="col col-12 col-lg-4">
+						<div class="right-side">
+							<div class="my-rating">
+								<div class="heading">
+									<h4>Rating</h4>
+								</div>
+								<div class="rating">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star-o" aria-hidden="true"></i>
+									<span>4.0</span>
+								</div>
 							</div>
-							<div class="suggestions-list">
+							<div class="about-recipe">
+								<h4>About Recipe</h4>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada libero ex, scelerisque suscipit orci tincidunt non. Nulla magna urna, accumsan ac turpis eget, tempor scelerisque sapien. Vivamus porttitor a enim id mattis. Duis volutpat felis sed massa dignissim luctus. Pellentesque a elit quis lacus finibus pellentesque.<span class="dots">..</span>
+									<span class="more"> Cras fringilla sollicitudin libero, eu commodo erat aliquet at. Donec euismod odio vitae venenatis blandit. Cras ut purus imperdiet massa viverra pellentesque. Curabitur feugiat luctus feugiat.
+									</span>
+								</p>
+								<span class="see">See more</span>
+							</div>
+							<div class="recommended">
+								<h4> Recomended For You </h4>
+								<div class="recommended-meal">
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- main video ends -->
-		<!-- recomended for you starts -->
-		<section class="recomended">
-			<div class="container">
-				<div class="row">
-					<div class="col col-12">
-						<div class="heading">
-							<h4>Recomended For You</h4>
-						</div>
-					</div>
-				</div>
-				<div class="row list-recomended">
-				</div>
-			</div>
-		</section>
-		<!-- recomended for you ends -->
-		<!-- uploade for you starts -->
-		<section class="update">
-			<div class="container">
-				<div class="row">
-					<div class="col col-12">
-						<div class="heading">
-							<h4> Recent Uploaded </h4>
-						</div>
-					</div>
-				</div>
-				<div class="row list-update">
-				</div>
-				<div class="row">
-					<div class="col col-12">
-						<div class="btn-upload">
-							<a href="#">Show all</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- uploade for you ends -->
-		<section class="over-restaurants">
-			<div class="container">
-				<div class="row">
-					<div class="col col-12 col-lg-9">
-						<h2>Choose From Over 15,000 Restaurants</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam augue justo, euismod at purus quis, dictum iaculis lorem. Sed dictum, dolor sit amet feugiat posuere, ante arcu iaculis tortor</p>
-					</div>
-					<div class="col col-12 col-lg-3">
-						<div class="view-restaurants">
-							<a href="#">View Restaurants</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- partner with us ends -->
+		<!-- video detail recipes ends -->
 		<!-- footer starts  -->
 		<div class="footer">
 			<div class="subscribe-now">
@@ -504,12 +565,10 @@
 			</div>
 		</div>
 		<!-- footer ends  -->
-		<!-- Connect spider -->
-		<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 		<!-- Connect my template -->
 		<script src="assets/js/template.js"></script>
 		<!-- Connect my js -->
-		<script src="assets/js/recipes.js"></script>
+		<script src="assets/js/recipe_details.js"></script>
 	</body>
 </html>
 <!-- Add footer -->

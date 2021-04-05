@@ -17,7 +17,6 @@ function positionTopbar() {
 	if(topRight.offsetHeight > topItem.offsetHeight + 2) {
 		topItemDrop.style.left = '0';
 		topItemDrop.style.right = 'auto';
-		console.log(topItem.offsetHeight);
 	}
 }
 positionTopbar();

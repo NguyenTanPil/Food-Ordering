@@ -322,7 +322,7 @@ function video(parent, child) {
 					</div>
 				</div> 
 				<div class="middle-items">
-					<a href="#">
+					<a href="recipe_details.html">
 						<div class="play">
 							<i class="fa fa-play" aria-hidden="true"></i>
 						</div>
@@ -331,7 +331,7 @@ function video(parent, child) {
 			</div> 
 			<div class="desciption">
 				<div class="video-title">
-					<a href="#">
+					<a href="recipe_details.html">
 						<h3>${child.name}</h3>
 					</a>
 					<h4>${child.des}</h4>
