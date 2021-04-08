@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Browse place</title>
+		<title>Upload Video</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="assets/images/brand.ico" type="image/x-icon" />
 		<!-- Connect font awesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- Connect my css -->
+		<!-- Connect my template -->
 		<link rel="stylesheet" href="assets/css/template.css">
-		<link rel="stylesheet" href="assets/css/browse-place.css">
+		<!-- Connect my css -->
+		<link rel="stylesheet" href="assets/css/upload_video.css">
 	</head>
-	<body>
+	<body cz-shortcut-listen="true">
 		<!-- loading starts -->
 		<div class="loading">
 			<div class="loading-items">
@@ -114,7 +114,7 @@
 										</li>
 										<li class="nav-item">
 											<div class="dropdown">
-												<a href="#" class="nav-link">
+												<a href="#" class="nav-link active">
 													Pages
 													<i class="fa fa-sort-desc" aria-hidden="true"></i>
 												</a>
@@ -127,7 +127,7 @@
 											</div>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Browse Places</a>
+											<a class="nav-link" href="browse-place.html" tabindex="-1" aria-disabled="true">Browse Places</a>
 										</li>
 									</ul>
 								</div>
@@ -164,7 +164,7 @@
 				<div class="row">
 					<div class="col col-12 col-md-6">
 						<div class="left-title-text">
-							<h3>Browse Places</h3>
+							<h3>Upload Video</h3>
 						</div>
 					</div>
 					<div class="col col-12 col-md-6">
@@ -173,7 +173,7 @@
 								<div class="breadcrumb-item">
 									<a href="index.html">Home</a>
 								</div>
-								<div class="breadcrumb-item active">Browse Places
+								<div class="breadcrumb-item active">Upload Video
 								</div>
 							</div>
 						</div>
@@ -182,28 +182,79 @@
 			</div>
 		</section>
 		<!-- title bar ends -->
-		<!-- browse place all starts -->
-		<section class="browse-places">
+		<!-- upload recipe video starts -->
+		<section class="upload-video">
 			<div class="container">
 				<div class="row">
-					<div class="col col-12 col-md-6">
+					<div class="col col-12">
 						<div class="heading">
-							<h2>Browse Places</h2>
+							<h1>Upload Video</h1>
 						</div>
 					</div>
 				</div>
+				<form action="#" method="post">
+					<div class="row">
+						<div class="col col-sm-10 col-md-8 col-lg-6">
+							<div class="form-container">
+								<div class="form-group">
+									<label for="title-video">Title</label>
+									<input class="upload-video-form" type="text" name="title-video" id="title-video" placeholder="Enter your title video">
+								</div>
+								<div class="form-group">
+									<label for="description-video">Description</label>
+									<textarea class="textarea-form" name="description-video" id="description-video" placeholder="Enter your description video"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="tags-video">Title</label>
+									<input class="upload-video-form" type="search" name="tags-video" id="tags-video" placeholder="Tags (e.g. Food, Burgur, Noodles)">
+								</div>
+								<div class="form-group">
+									<label for="upload-video">Upload Video File</label>
+									<div class="upload-video-wrap">
+										<input class="upload-file-form" type="file" name="upload-video" id="upload-video">
+										<div class="drag-text">
+											<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+											<h4>Select files to upload</h4>
+											<p>or drag and drop video files</p>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="file-video">Video Thumbnail</label>
+									<div class="box">
+										<input class="upload-file-form" type="file" id="file-video" name="file-video">
+										<label for="file-video" class="my-btn">Custom Thumbnail</label>
+										<span>No choose file</span>
+										<p>(Maximum file size is 1 mb)</p>
+									</div>
+								</div>
+								<div class="sends">
+									<input type="submit" class="my-btn" value="Upload Now">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+		<!-- upload recipe video ends -->
+		<!-- over restaurents starts -->
+		<section class="over-restaurants">
+			<div class="container">
 				<div class="row">
-					<div class="col col-12 col-md-6">
-						<div class="text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique non est semper commodo. Cras semper nibh nibh.</p>
+					<div class="col col-12 col-lg-9">
+						<h2>Choose From Over 15,000 Restaurants</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam augue justo, euismod at purus quis, dictum iaculis lorem. Sed dictum, dolor sit amet feugiat posuere, ante arcu iaculis tortor</p>
+					</div>
+					<div class="col col-12 col-lg-3">
+						<div class="view-restaurants">
+							<a href="#">View Restaurants</a>
 						</div>
 					</div>
-				</div>
-				<div class="row list-work">
 				</div>
 			</div>
 		</section>
-		<!-- browse place all ends -->
+		<!-- over restaurents ends -->
 		<!-- footer starts  -->
 		<div class="footer">
 			<div class="subscribe-now">
@@ -349,7 +400,10 @@
 			</div>
 		</div>
 		<!-- footer ends  -->
+		<!-- Connect my template -->
 		<script src="assets/js/template.js"></script>
-		<script src="assets/js/browse-place.js"></script>
+		<!-- Connect my js -->
+		<!-- <script src="assets/js/orders.js"></script> -->
 	</body>
 </html>
+<!-- Add footer -->
