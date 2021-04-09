@@ -91,7 +91,8 @@
 	background-color: var(--clr-white);
 	font-weight: 400;
 }
-.upload-video .form-group .upload-video-form:focus {
+.upload-video .form-group .upload-video-form:focus,
+.upload-video .form-group .textarea-form:focus {
 	border-color: var(--clr-orange);
 }
 .upload-video .form-group .textarea-form {
