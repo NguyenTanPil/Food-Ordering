@@ -120,15 +120,6 @@ function addActiveOrder(e) {
 	showTab.classList.add('active');
 	currentTab.classList.add('active');
 }
-// set width caption 
-function setSizeCaption() {
-	const reCmtItem = document.querySelector('.recommended-meal-item');
-	const reCmtItemWidth = reCmtItem.offsetWidth;
-	const captionEl = document.querySelectorAll('.caption');
-	captionEl.forEach((cap) => {
-		cap.style.width = `${reCmtItemWidth - 120}px`;
-	});
-}
 // form book a table
 const selectTime = document.querySelector('#select-time');
 const selectMember = document.querySelector('#select-member');
@@ -167,17 +158,6 @@ function removeAllActiveMenuItem(menu) {
 function addActiveMenuItem(item) {
 	item.classList.add('active');
 }
-// resize
-window.addEventListener('resize', () => {
-	changePositon();
-	positionTopbar();
-	setSizeCaption();
-});
-// onload
-window.onload = () => {
-	document.querySelector('.loading').style.display = 'none';
-	setSizeCaption();
-}
 // count star
 function countStar(parent, numberStar) {
 	const stars = parent.querySelectorAll('.rating i');
@@ -210,22 +190,6 @@ function yourRating(numberStar) {
 		}
 	}); 
 }
-
-// see more and see less
-const see = document.querySelector('.see');
-const seeMore = document.querySelector('.more');
-const seeLess = document.querySelector('.dots');
-see.onclick = () => {
-	if(see.innerText == 'See more') {
-		seeMore.style.display = 'inline';
-		seeLess.style.display = 'none';
-		see.innerText = 'See less';
-	} else {
-		seeMore.style.display = 'none';
-		seeLess.style.display = 'inline';
-		see.innerText = 'See more';
-	}
-};
 // all meals 
 const listBreakfastMeals = [
 	{
@@ -554,60 +518,68 @@ function createOrderOnlineMeals(typeMeal, listMeals) {
 		typeMeal.appendChild(div);
 	});
 }
-// recommended meal
-const listMeals = [
+// list popular starts
+const listPopular = [
 	{
 		id: 1,
 		img: '1',
-		name: 'Veh Haka Noodles Recipe',
-		time: '5 March 2021',
-		stars: '4.0'
+		name: 'Pane & Vino',
+		country: 'Rome, Italy',
+		star: '5.0'
 	},
 	{
 		id: 2,
 		img: '2',
-		name: 'Veg Double Tikki Burgur',
-		time: '5 March 2021',
-		stars: '4.5'
+		name: 'Spice Symphony',
+		country: 'United States',
+		star: '4.0'
 	},
 	{
 		id: 3,
 		img: '3',
-		name: 'Potato French Fries Recipe',
-		time: '5 March 2021',
-		stars: '3.0'
+		name: 'Westwood Carvery',
+		country: 'Sydney Australia',
+		star: '3.0'
 	},
 	{
 		id: 4,
 		img: '4',
-		name: 'Cheese Pizza Recipe',
-		time: '5 March 2021',
-		stars: '5.0'
-	}
+		name: 'Hot Chilli Restaurant',
+		country: 'United States',
+		star: '2.0'
+	},
+	{
+		id: 5,
+		img: '5',
+		name: 'Barbecue Restaurant',
+		country: 'New York',
+		star: '1.0'
+	},
+	
 ];
-const recommendedMeal = document.querySelector('.recommended-meal');
-listMeals.forEach(meal => {
-	const div = document.createElement('div');
-	div.className = 'recommended-meal-item';
-	div.innerHTML = `
-			<img src="assets/images/meal-recmt-${meal.img}.jpg" alt="meal item">
-			<div class="caption">
-				<a href="recipe_details.html">
-					<h4>
-						${meal.name}
-					</h4>
-				</a>
-				<p><span class="published-span">Published</span> ${meal.time}</p>
+const popular = document.querySelector('.list-pop-res');
+listPopular.forEach((pop) => {
+	const li = document.createElement('li');
+	li.innerHTML = `
+		<a href="#">
+			<img src="assets/images/partner-${pop.img}.jpg" alt="popular">
+		</a>
+		<div class="caption">
+			<a href="#">
+				<h4>${pop.name}</h4>
+			</a>
+			<p>${pop.country}</p>
 				<div class="rating">
 					<i class="fa fa-star" aria-hidden="true"></i>
 					<i class="fa fa-star" aria-hidden="true"></i>
 					<i class="fa fa-star" aria-hidden="true"></i>
 					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star-o" aria-hidden="true"></i>
-					<span>${meal.stars}</span>
+					<i class="fa fa-star" aria-hidden="true"></i>
+					<span>${pop.star}</span>
 				</div>
-			</div>
+		</div>
 	`;
-	countStar(div, meal.stars);
-	recommendedMeal.appendChild(div);
+	countStar(li, pop.star);
+	popular.appendChild(li);
 });
+// list popular ends
