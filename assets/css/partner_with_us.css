@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*::selection {
+	background: rgba(255,255,255,.3);
+	color: black;
+}
+/*title bar starts*/
+.title-bar {
+	background-color: rgb(243, 243, 243);
+}
+.title-bar .left-title-text,
+.title-bar .right-title-text {
+	display: flex;
+	justify-content: center;
+}
+.title-bar .left-title-text {
+	padding: 1rem 0.16rem 0.5rem 1rem;
+}
+.title-bar .right-title-text {
+	padding: .5rem 0.16rem 1rem 1rem;
+}
+.title-bar .right-title-text a {
+	color: black;
+}
+.title-bar .left-title-text h3 {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+}
+.title-bar .breadcrumb {
+	display: flex;
+	align-items: center;
+	height: 2rem;
+}
+.breadcrumb-item.active {
+	color: var(--clr-orange);
+}
+.title-bar .breadcrumb-item+.breadcrumb-item::before {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  color: #6c757d;
+  content: '/';
+}
+/*title bar ends*/
+/*how to orders starts*/
+.how-to-orders {
+	padding: 3rem 0 5rem 0;
+	transition: all 0.3s ease;
+}
+.how-to-orders .heading h1 {
+	font-size: 1.5rem;
+	text-align: center;
+	font-weight: bold;
+}
+.how-to-orders .text-about {
+	padding-top: 2.5rem;
+}
+.how-to-orders .text-about p {
+	text-align: center;
+	font-size: 0.875rem;
+	color: rgb(170, 170, 170);
+}
+.how-to-orders .order-steps {
+	margin-top: 1rem;
+	padding-bottom: 4rem;
+}
+.how-to-orders .for-restaurant {
+	padding: 3.125rem 1.75rem;
+	border: 1px solid var(--clr-border);
+	margin-top: 1.75rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.how-to-orders .for-restaurant img {
+	height: 3.125rem;
+	width: 3.125rem;
+}
+.how-to-orders .for-restaurant h4 {
+	font-size: 1.125rem;
+	color: var(--clr-black);
+	font-weight: 500;
+	padding-top: 1.625rem;
+	padding-bottom: 0.75rem;
+}
+.how-to-orders .for-restaurant p {
+	font-size: 0.875rem;
+	color: var(--clr-text);
+	line-height: 1.5rem;
+	margin-bottom: 2.5rem;
+}
+.how-to-orders .company-business {
+	text-align: center;
+}
+.how-to-orders .company-business h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: var(--clr-black);
+}
+.how-to-orders .company-business .video {
+	margin-top: 4rem;
+	position: relative;
+}
+.how-to-orders .company-business .video:hover .play-btn {
+	visibility: visible;
+}
+.how-to-orders .video .bg-gradient {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(transparent, black 90%);
+	opacity: 0.3;
+}
+.how-to-orders .company-business img {
+	width: 100%;
+	object-fit: cover;
+	display: block;
+}
+.how-to-orders .company-business .middle {
+ 	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+ }
+
+.how-to-orders .company-business .play-btn {
+	color: white;
+  background-color: var(--clr-orange);
+  width: 3.5rem;
+  height: 3.5rem;
+  text-align: center;
+  border-radius: 50%;
+  padding-left: 0.275rem;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  visibility: hidden;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.how-to-orders .company-business .play-btn i {
+	font-size: 1.8rem;
+	line-height: 3.5rem;
+	padding: 0 1rem;
+	border-radius: 50%;
+}
+.how-to-orders .video .modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 100;
+	background-color: rgba(73, 166, 233, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+}
+.how-to-orders .video .modal-overlay.active {
+	visibility: visible;
+}
+.how-to-orders .modal-overlay .modal-container {
+	position: relative;
+}
+/*how to orders edns*/
+/*over-restaurants starts*/
+.over-restaurants {
+	background-color: rgb(255, 168, 3);
+	color: white;
+	padding: 3rem 0;
+	transition: all 0.3s ease;
+}
+.over-restaurants h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.over-restaurants p {
+	font-size: 0.875rem;
+	padding-top: 1.25rem;
+}
+.over-restaurants .view-restaurants {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+	padding-top: 1rem;
+}
+.over-restaurants .view-restaurants a {
+ 	padding: 0.938rem 1.75rem;
+	background-color: rgb(255, 168, 3);
+	color: rgb(255, 255, 255);
+	font-size: 0.875rem;
+	border-radius: 0.25rem;
+	background-color: transparent;
+	border: 1px solid rgb(255, 255, 255);
+	transition: all 0.3s ease;
+ }
+ .over-restaurants .view-restaurants a:hover {
+ 	color: rgb(255, 168, 3);
+ 	background-color: white;
+ }
+/*over-restaurants ends*/
+/*---------------------------------------------------------------------------------*/
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	
+}
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	/*title bar starts*/
+	.title-bar .left-title-text,
+	.title-bar .right-title-text {
+		padding: 1.5rem 0.16rem 1.5rem 0;
+	}
+	.title-bar .left-title-text {
+		justify-content: flex-start;
+	}
+	.title-bar .right-title-text {
+		justify-content: flex-end;
+	}
+	/*title bar ends*/
+}
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+	/*partner with us starts*/
+	.over-restaurants .view-restaurants {
+		justify-content: center;
+		padding-top: 2rem;
+	}
+	/*partner with us ends*/
+}
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+	/*how to orders starts */
+	.how-to-orders .order-steps {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+	/*how to orders ends */
+	.container .row {
+		padding: 0 2rem;
+	}
+}
