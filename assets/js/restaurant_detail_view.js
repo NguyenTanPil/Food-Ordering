@@ -561,11 +561,11 @@ const popular = document.querySelector('.list-pop-res');
 listPopular.forEach((pop) => {
 	const li = document.createElement('li');
 	li.innerHTML = `
-		<a href="#">
+		<a href="restaurant_detail_view.html">
 			<img src="assets/images/partner-${pop.img}.jpg" alt="popular">
 		</a>
 		<div class="caption">
-			<a href="#">
+			<a href="restaurant_detail_view.html">
 				<h4>${pop.name}</h4>
 			</a>
 			<p>${pop.country}</p>

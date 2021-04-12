@@ -317,7 +317,7 @@ Vue.component('feature-item', {
 			</div>
 			<div class="col-12 col-md-4">
 				<div class="btn-item">
-					<a href="#" class="btn my-btn" role="button" data-bs-toggle="button">View Menu</a>
+					<a href="restaurant_detail_view.html" class="btn my-btn" role="button" data-bs-toggle="button">View Menu</a>
 				</div>
 			</div>
 		</div>
@@ -380,7 +380,7 @@ Vue.component('treading-item', {
 			</div>
 			<div class="col-5 col-md-6">
 				<div class="btn-item">
-					<a href="#" class="my-btn" role="button" data-bs-toggle="button">View <span>Menu</span></a>
+					<a href="restaurant_detail_view.html" class="my-btn" role="button" data-bs-toggle="button">View <span>Menu</span></a>
 				</div>
 			</div>
 		</div>
