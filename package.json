@@ -1,0 +1,35 @@
+{
+  "name": "food-ordering",
+  "version": "1.0.0",
+  "description": "food ordering network",
+  "main": "./src/index.js",
+  "scripts": {
+    "watch": "node-sass --watch src/resource/scss/ --output src/public/css/",
+    "start": "nodemon --inspect ./src/index.js 80",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenTanPil/Food-Ordering.git"
+  },
+  "keywords": [
+    "food",
+    "food",
+    "ordering"
+  ],
+  "author": "tanpil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenTanPil/Food-Ordering/issues"
+  },
+  "homepage": "https://github.com/NguyenTanPil/Food-Ordering#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "node-sass": "^5.0.0"
+  }
+}
