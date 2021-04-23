@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+*::selection {
+  background: rgba(255, 255, 255, 0.3);
+  color: black; }
+
+/*title bar starts*/
+.title-bar {
+  background-color: #f3f3f3; }
+
+.title-bar .left-title-text,
+.title-bar .right-title-text {
+  display: flex;
+  justify-content: center; }
+
+.title-bar .left-title-text {
+  padding: 1rem 0.16rem 0.5rem 1rem; }
+
+.title-bar .right-title-text {
+  padding: .5rem 0.16rem 1rem 1rem; }
+
+.title-bar .right-title-text a {
+  color: black; }
+
+.title-bar .left-title-text h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif; }
+
+.title-bar .breadcrumb {
+  display: flex;
+  align-items: center;
+  height: 2rem; }
+
+.breadcrumb-item.active {
+  color: var(--clr-orange); }
+
+.title-bar .breadcrumb-item + .breadcrumb-item::before {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  color: #6c757d;
+  content: '/'; }
+
+/*title bar ends*/
+/*how to orders starts*/
+.how-to-orders {
+  padding: 3rem 0 5rem 0;
+  transition: all 0.3s ease; }
+
+.how-to-orders .heading h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold; }
+
+.how-to-orders .text-about {
+  padding-top: 2.5rem; }
+
+.how-to-orders .text-about p {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #aaaaaa; }
+
+.how-to-orders .order-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3; }
+
+.how-to-orders .order-img,
+.how-to-orders .order-text {
+  margin-top: 1.875rem; }
+
+.how-to-orders .icon {
+  background-image: url(../images/circle.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 3.35rem 1.25rem; }
+
+.how-to-orders .order-img img {
+  width: 3.75rem;
+  height: 3.75rem; }
+
+.how-to-orders .order-text span,
+.how-to-orders .order-text p {
+  font-size: 0.875rem;
+  color: #aaaaaa; }
+
+.how-to-orders .order-text span {
+  text-transform: capitalize; }
+
+.how-to-orders .order-text h4 {
+  padding: 0.5rem 0;
+  font-size: 1.125rem; }
+
+.how-to-orders .order-text p {
+  line-height: 1.5rem; }
+
+.how-to-orders .icon img:hover {
+  animation: circular .7s linear forwards; }
+
+@keyframes circular {
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg); } }
+
+/*how to orders edns*/
+/*partner with us starts*/
+.partner-with-us {
+  padding-bottom: 4.875rem; }
+
+.partner-with-us .heading h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold; }
+
+.partner-with-us .text-about p {
+  font-size: 1rem;
+  text-align: center;
+  padding: 2.5rem 0; }
+
+.partner-with-us .partner-btns {
+  display: flex;
+  justify-content: center; }
+
+.partner-with-us .partner-btns a {
+  padding: 0.938rem 1.75rem;
+  background-color: #ffa803;
+  color: white;
+  margin: 0 0.375rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease; }
+
+.partner-with-us .partner-btns a:hover {
+  background-color: #e38802; }
+
+/*partner with us ends*/
+/*over-restaurants starts*/
+.over-restaurants {
+  background-color: #ffa803;
+  color: white;
+  padding: 3rem 0;
+  transition: all 0.3s ease; }
+
+.over-restaurants h2 {
+  font-size: 1.5rem;
+  font-weight: bold; }
+
+.over-restaurants p {
+  font-size: 0.875rem;
+  padding-top: 1.25rem; }
+
+.over-restaurants .view-restaurants {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding-top: 1rem; }
+
+.over-restaurants .view-restaurants a {
+  padding: 0.938rem 1.75rem;
+  background-color: #ffa803;
+  color: white;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  border: 1px solid white;
+  transition: all 0.3s ease; }
+
+.over-restaurants .view-restaurants a:hover {
+  color: #ffa803;
+  background-color: white; }
+
+/*over-restaurants ends*/
+/*---------------------------------------------------------------------------------*/
+/*// Small devices (landscape phones, 576px and up)*/
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  /*title bar starts*/
+  .title-bar .left-title-text,
+  .title-bar .right-title-text {
+    padding: 1.5rem 0.16rem 1.5rem 0; }
+  .title-bar .left-title-text {
+    justify-content: flex-start; }
+  .title-bar .right-title-text {
+    justify-content: flex-end; }
+  /*title bar ends*/ }
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  /*partner with us starts*/
+  .over-restaurants .view-restaurants {
+    justify-content: center;
+    padding-top: 2rem; }
+  /*partner with us ends*/ }
+
+/*// X-Large devices (large desktops, 1200px and up)*/
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+  /*how to orders starts */
+  .how-to-orders .order-steps {
+    padding-left: 4rem;
+    padding-right: 4rem; }
+  /*how to orders ends */
+  .container .row {
+    padding: 0 2rem; } }
