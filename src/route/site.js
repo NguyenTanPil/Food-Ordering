@@ -3,6 +3,8 @@ const router = express.Router();
 const siteController = require('../app/controllers/SiteController.js');
 
 // config router
+router.get('/my-profile', siteController.my_profile);
+router.get('/browse-place', siteController.browse_place);
 router.get('/upload-video', siteController.upload_video);
 router.get('/signup', siteController.signup);
 router.get('/partner-with-us', siteController.partner_with_us);

@@ -43,7 +43,8 @@ ul {
   padding: .65rem 1.5rem;
   transition: var(--transition);
   cursor: pointer;
-  text-align: center; }
+  text-align: center;
+  display: inline-block; }
 
 .my-btn:focus {
   box-shadow: none;

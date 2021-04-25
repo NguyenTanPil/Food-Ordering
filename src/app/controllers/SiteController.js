@@ -33,7 +33,14 @@ class SiteController {
 	upload_video(req, res) {
 		res.render('upload_video', { layout: 'upload_video' });
 	}
-
+// [GET] /browse_place
+	browse_place(req, res) {
+		res.render('browse_place', { layout: 'browse_place' });
+	}
+// [GET] /my_profile
+	my_profile(req, res) {
+		res.render('my_profile', { layout: 'my_profile' });
+	}
 }
 
 module.exports = new SiteController;
