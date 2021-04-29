@@ -114,6 +114,9 @@
   margin-top: 4rem;
   margin-bottom: 4rem; }
 
+.all-profile-details .side-bar {
+  margin-bottom: 2rem; }
+
 .all-profile-details .nav-item a {
   display: block;
   padding: 1rem 1.25rem;
@@ -192,12 +195,16 @@
   color: var(--clr-white);
   background-color: var(--clr-orange);
   border-radius: 1.5rem;
-  font-size: 0.875rem; }
+  font-size: 0.875rem;
+  display: none; }
 
 .all-profile-details .time-post p {
   color: var(--clr-text);
   font-size: 0.875rem;
   font-weight: 400; }
+
+.all-profile-details .time-post p span {
+  display: none; }
 
 .all-profile-details .content-comment p {
   margin-top: 0.75rem;
@@ -294,7 +301,8 @@
 .all-profile-details .reply-comment-user .post-items {
   padding: 1.25rem;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  flex-wrap: wrap; }
 
 .all-profile-details .post-items .img-user {
   height: 3.125rem;
@@ -311,22 +319,22 @@
   outline: none;
   border: 1px solid var(--clr-border);
   font-size: 1rem;
-  flex: 1 0 auto;
-  /*margin-top: 1rem;*/
-  margin-right: 1rem;
+  flex: 1 0 100%;
   color: var(--clr-text); }
 
 .all-profile-details .post-items .post-input:focus {
   border-color: var(--clr-orange); }
 
 .all-profile-details .post-items form {
-  margin-left: 1rem;
-  flex: 1 0 auto;
-  display: flex; }
+  flex: 1 0 100%;
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap; }
 
 .all-profile-details .post-items form .my-btn {
   border-radius: 0.25rem;
-  font-size: 1rem; }
+  font-size: 1rem;
+  margin-top: 1rem; }
 
 /*about*/
 .all-profile-details #about .about-heading {
@@ -371,8 +379,9 @@
 
 .all-profile-details .about-dt .social-btns {
   padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  display: flex; }
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap; }
 
 .all-profile-details .about-dt .social-btn {
   width: 3rem;
@@ -383,7 +392,8 @@
   text-align: center;
   line-height: 3rem;
   border-radius: 0.375rem;
-  margin-right: 0.75rem; }
+  margin-right: 0.75rem;
+  margin-bottom: 0.75rem; }
 
 .all-profile-details .about-dt .social-btn.btn-1 {
   background-color: #4267b2; }
@@ -486,19 +496,19 @@
 
 .all-profile-details .td-heading,
 .all-profile-details .td-content {
-  padding: 1.25rem; }
+  padding: 0.875rem; }
 
 .all-profile-details .td-heading {
   color: var(--clr-black);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.75rem;
   line-height: 1.5rem; }
 
 .all-profile-details .table-row {
   border-top: 1px solid var(--clr-border); }
 
 .all-profile-details .table-responsive .td-1 {
-  flex-basis: 45%; }
+  flex-basis: 25%; }
 
 .all-profile-details .table-responsive .td-2 {
   flex-basis: 10%; }
@@ -507,12 +517,15 @@
   flex-basis: 15%; }
 
 .all-profile-details .table-responsive .td-4 {
-  flex-basis: 30%; }
+  flex-basis: 50%; }
 
 .all-profile-details .table-row .td-content.td-1 {
   display: flex;
   align-items: center;
   color: var(--clr-text); }
+
+.all-profile-details .table-row .name-rest {
+  display: none; }
 
 .all-profile-details .table-row span {
   color: var(--clr-text);
@@ -524,8 +537,7 @@
   width: 3.125rem;
   height: 3.125rem;
   object-fit: cover;
-  border-radius: 0.25rem;
-  margin-right: 1rem; }
+  border-radius: 0.25rem; }
 
 .all-profile-details .table-row .name-rest h4 {
   color: var(--clr-black);
@@ -540,7 +552,7 @@
   margin-top: 0.25rem; }
 
 .all-profile-details .table-row .my-btn {
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.575rem;
   font-size: 0.875rem;
   margin-right: 0.25rem;
   border-radius: 0.25rem; }
@@ -565,7 +577,106 @@
 .all-profile-details #my-videos .gallery-item:hover a {
   visibility: visible; }
 
+/*orders history*/
+.all-profile-details #orders-history .action-btns {
+  display: flex;
+  flex-wrap: wrap-reverse; }
+
+.all-profile-details #orders-history .action-btns a {
+  margin-bottom: 0.25rem; }
+
+.all-profile-details #orders-history .table-responsive .td-4 {
+  padding-bottom: 0.625rem; }
+
 /*all profile details ends*/
+/*suggested peoples starts*/
+.all-profile-details .suggested-peoples {
+  margin-top: 2rem; }
+
+.all-profile-details .suggested-peoples .sd-title,
+.all-profile-details .list-photos .photos-title {
+  padding: 1.25rem 1.25rem 1.125rem;
+  text-align: center;
+  border: 1px solid var(--clr-border);
+  border-bottom-width: 0px; }
+
+.all-profile-details .sd-title h3,
+.all-profile-details .photos-title h3 {
+  font-size: 1.125rem;
+  font-weight: bold; }
+
+.all-profile-details .suggested-peoples .suggestion-usd {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 5%;
+  padding: 0.9rem 0.8rem;
+  align-items: center;
+  border: 1px solid var(--clr-border);
+  border-bottom-width: 0px; }
+
+.all-profile-details .suggested-peoples .suggestion-usd:last-child {
+  border-bottom-width: 1px; }
+
+.all-profile-details .suggestion-usd .sgt-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.all-profile-details .sgt-text a {
+  color: #000000;
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem; }
+
+.all-profile-details .sgt-text span {
+  font-size: 0.75rem; }
+
+.all-profile-details .suggestion-usd button {
+  outline: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #ffa803;
+  border: 1px solid #ffa803;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  cursor: pointer; }
+
+.all-profile-details .suggestion-usd button:hover {
+  background-color: #e38802;
+  color: white;
+  border: 1px solid #e38802; }
+
+.all-profile-details .suggestion-usd button i {
+  margin-bottom: 0.375rem;
+  margin-left: 0.1rem; }
+
+.all-profile-details .list-photos {
+  margin-top: 2rem;
+  border: 1px solid var(--clr-border); }
+
+.all-profile-details .list-photos .photos-title {
+  border-width: 0 0 1px 0; }
+
+.all-profile-details .list-photos .pf-gallery {
+  padding: 1.25rem 1.25rem 1.125rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.5rem; }
+
+.all-profile-details .pf-gallery a {
+  padding: 0.5rem; }
+
+.all-profile-details .pf-gallery img {
+  width: 4.625rem;
+  height: 4.625rem;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.25rem; }
+
+.all-profile-details .pf-gallery img:hover {
+  transition: var(--transition);
+  transform: scale3d(1.125, 1.125, 1.25); }
+
+/*suggested peoples ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
@@ -576,7 +687,32 @@
   .my-account .avt-name-local .name-location {
     margin-left: 11.5rem;
     padding: 0.875rem 0; }
-  /*my account ends*/ }
+  /*my account ends*/
+  /*all profile details starts*/
+  .all-profile-details .rating span {
+    display: inline-block; }
+  .all-profile-details .time-post p span {
+    display: inline-block; }
+  .all-profile-details .post-items form {
+    margin-top: 1rem; }
+  .all-profile-details .post-items .post-input {
+    flex-basis: auto;
+    margin-right: 1rem; }
+  .all-profile-details .post-items form .my-btn {
+    margin-top: 0; }
+  .all-profile-details .td-heading {
+    font-size: 1rem; }
+  .all-profile-details .table-row .name-rest {
+    display: block; }
+  .all-profile-details .table-responsive .td-1 {
+    flex-basis: 45%; }
+  .all-profile-details .table-responsive .td-4 {
+    flex-basis: 30%; }
+  .all-profile-details .table-row img {
+    margin-right: 1rem; }
+  .all-profile-details .table-row .my-btn {
+    padding: 0.5rem 0.75rem; }
+  /*all profile details ends*/ }
 
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
@@ -597,9 +733,28 @@
   .my-account .go-to-setting .my-btn {
     padding: 0.75rem 0.875rem;
     font-size: 1rem; }
-  /*my account ends*/ }
+  /*my account ends*/
+  /*all profile details starts*/
+  .all-profile-details .post-items .post-input {
+    flex-basis: auto; }
+  .all-profile-details .post-items form {
+    margin-top: 0;
+    margin-left: 1rem;
+    flex-basis: auto; }
+  /*all profile details ends*/ }
 
 /*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  /*all profile details starts*/
+  .all-profile-details .suggested-peoples {
+    margin-top: 0; }
+  .all-profile-details .pf-gallery img {
+    width: 5.125rem;
+    height: 5.125rem; }
+  .all-profile-details #photos .gallery-item img {
+    height: 8rem; }
+  /*all profile details ends*/ }
+
 /*// X-Large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
   /*my account starts*/
@@ -616,9 +771,19 @@
   .my-account .go-to-setting .my-btn {
     padding: 0.75rem 0.875rem;
     font-size: 1rem; }
-  /*my account ends*/ }
+  /*my account ends*/
+  /*all profile details starts*/
+  .all-profile-details .pf-gallery img {
+    width: 3.875rem;
+    height: 3.875rem; }
+  .all-profile-details #photos .gallery-item img {
+    height: 9.125rem; }
+  /*all profile details ends*/ }
 
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
   .container .row {
-    padding: 0 2rem; } }
+    padding: 0 2rem; }
+  .all-profile-details .pf-gallery img {
+    width: 4.5rem;
+    height: 4.5rem; } }
