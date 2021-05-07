@@ -1,4 +1,5 @@
 const recipeVideo = require('../models/RecipeVideo.js');
+const { mutipleMongooseToOject } = require('../../util/mongoose.js');
 
 class RecipeController {
 
@@ -6,7 +7,7 @@ class RecipeController {
 	index(req, res, next) {
 		recipeVideo.find({})
 			.then(recipeVideos => {
-				recipeVideos = recipeVideos.map(video => video.toObject());
+				recipeVideos = mutipleMongooseToOject(recipeVideos);
 				res.render('recipe', { layout: 'recipe', recipeVideos } );
 			})
 			.catch(next);
