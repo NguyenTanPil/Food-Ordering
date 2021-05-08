@@ -1,0 +1,11 @@
+$clr-orange: rgb(255, 168, 3);
+$clr-orange-hover: #e38802;
+$clr-white: rgb(255, 255, 255);
+$clr-black: rgb(0, 0, 0);
+$clr-link-hover: rgba(0, 0, 0, 0.05);
+$clr-border: rgba(0, 0, 0, 0.15);
+$clr-text: rgba(0, 0, 0, 0.55);
+$bg-title: rgb(243, 243, 243);
+@mixin transition() {
+	transition: all 0.3s ease;
+}

@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'variable';
+*::selection {
+	background: rgba(255,255,255,.3);
+	color: black;
+}
+/*title bar starts*/
+.title-bar {
+	background-color: $bg-title;
+}
+.title-bar .left-title-text,
+.title-bar .right-title-text {
+	display: flex;
+	justify-content: center;
+}
+.title-bar .left-title-text {
+	padding: 1rem 0.16rem 0.5rem 1rem;
+}
+.title-bar .right-title-text {
+	padding: .5rem 0.16rem 1rem 1rem;
+}
+.title-bar .right-title-text a {
+	color: black;
+}
+.title-bar .left-title-text h3 {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+}
+.title-bar .breadcrumb {
+	display: flex;
+	align-items: center;
+	height: 2rem;
+}
+.breadcrumb-item.active {
+	color: $clr-orange;
+}
+.title-bar .breadcrumb-item+.breadcrumb-item::before {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  color: #6c757d;
+  content: '/';
+}
+/*title bar ends*/
+/*my accout starts*/
+.my-account .profile-bg > img {
+	display: block;
+	width: 100%;
+	object-fit: cover;
+	min-height: 7.5rem;
+	background-color: #f3f3f3;
+}
+.my-account .container .row {
+	justify-content: space-between;
+	align-items: center;
+}
+.my-account .profile-top-details {
+	background-color: #f3f3f3;
+}
+.my-account .profile-top-details .avt-name-local {
+	display: flex;
+	align-items: center;
+	position: relative;
+	flex-wrap: wrap;
+	min-width: 15rem;
+	padding: 0 0.75rem;
+}
+.my-account .avt-name-local .avatar {
+	position: absolute;
+	bottom: 0;
+}
+.my-account .avatar img {
+	display: block;
+	width: 6rem;
+	height: 6rem;
+	clip-path: circle();
+}
+.my-account .avt-name-local .name-location {
+	margin-left: 7rem;
+	padding: 0.5rem 0;
+} 
+.my-account .name-location h2 {
+	font-size: 1.25rem;
+	color: $clr-black;
+	line-height: 1.25rem;
+	cursor: pointer;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+.my-account .name-location p {
+	color: $clr-text;
+	font-size: 0.75rem;
+	font-weight: 400;
+}
+.my-account .name-location p span {
+	color: $clr-orange;
+	margin-right: 0.25rem;
+	line-height: 1.5rem;
+}
+.my-account .go-to-setting {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	height: 100%;
+	padding: 0.75rem 0.75rem;
+	margin-left: auto;
+}
+.my-account .go-to-setting .my-btn {
+	padding: 0.5rem 0.75rem;
+	font-size: 0.875rem;
+}
+/*my accout ends*/
+/*all profile details starts*/
+.all-profile-details {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+.all-profile-details .side-bar {
+	margin-bottom: 2rem;
+}
+.all-profile-details .nav-item a {
+	display: block;
+	padding: 1rem 1.25rem;
+	color: $clr-text;
+	border: 1px solid $clr-border;
+	border-bottom-width: 0;
+	font-size: 0.875rem;
+	font-weight: 600;
+	@include transition();
+}
+.all-profile-details .nav-item:last-child a {
+	border-bottom-width: 1px;
+}
+.all-profile-details .nav-item a:hover {
+	background-color: #f3f3f3;
+	padding-left: 1.5rem;
+}
+.all-profile-details .tab-content .tab-pane {
+	display: none;
+	@include transition();
+}
+.all-profile-details .nav-item.active a {
+	color: $clr-orange;
+}
+.all-profile-details .tab-content .tab-pane.active {
+	display: block;
+}
+/*edit profile*/
+.all-profile-details {
+	.tab-pane-heading {
+		display: flex;
+		align-items: center;
+		margin-bottom: 1.875rem;
+		justify-content: space-between;
+		margin-top: -0.25rem;
+		h4 {
+			font-size: 1.25rem;
+			font-weight: 600;
+		}
+		a {
+			color: $clr-orange;
+			@include transition();
+		}
+		a:hover {
+			color: $clr-orange-hover;
+		}
+	}
+}
+/*Edit profile starts*/
+.profile .form-container {
+  padding: 2rem;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-white);
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.profile .form-container .form-group {
+  margin-bottom: 1.875rem; 
+}
+.profile {
+	label {
+		color: var(--clr-black);
+	  font-size: 1rem;
+	  font-weight: 500;
+	  margin-bottom: 0.875rem;
+	  display: block;
+	}
+	.avatar, .background {
+		label {
+			font-size: 1.25rem;
+			margin-bottom: 1.5rem;
+		}
+		img {
+			width: 9.375rem;
+			height: 9.375rem;
+			object-fit: cover;
+		}
+	}
+	.upload-avartar {
+		margin-top: 1.875rem;
+		label {
+			font-size: 0.875rem;
+			font-weight: 500;
+		}
+		.input-container {
+			position: relative;
+		}
+		.input-upload-avartar {
+			border: 1px solid $clr-border;
+			width: 100%;
+			padding: 0.75rem 1.25rem;
+			z-index: 999;
+			position: relative;
+			opacity: 0;
+		}
+		.copy-input {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			.my-btn {
+				height: 3.25rem;
+				font-size: 1rem;
+			}
+			.info-btn {
+				font-size: 0.875rem;
+				color: $clr-text;
+				flex: 1 0 auto;
+				padding: 0.75rem 1.25rem;
+				border: 1px solid $clr-border;
+				border-left-width: 0;
+				height: 3.25rem;
+			}
+		}
+	}
+	.sends {
+		.my-btn {
+			font-size: 1rem;
+  		padding: 1rem 1.25rem;
+		}
+	} 
+}
+.profile .edit-background {
+	.background {
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+	}
+}
+@mixin inputField {
+	width: 100%;
+	outline: none;
+	border: 1px solid $clr-border;
+	padding: 0.75rem 1.25rem;
+	font-size: 0.875rem;
+	color: var(--clr-text);
+	border-radius: 0.25rem;
+	background-color: $clr-white;
+	font-weight: 400;
+}
+.profile .form-group {
+	.field-input, .textarea-form {
+		@include inputField;
+	}
+	.field-input::placeholder {
+		font-size: 0.85rem;
+	}
+	.textarea-form {
+		font-family: 'Roboto', sans-serif;
+	  min-width: 100%;
+	  max-width: 100%;
+	  min-height: 6.25rem;
+	}
+	.field-input:focus, .textarea-form:focus {
+		border-color: $clr-orange; 
+	}
+}
+/*Edit profile ends*/
+/*Link profile starts*/
+.natto-links {
+	.link-title {
+		margin-top: -0.25rem;
+		margin-bottom: 1.875rem;
+		h4 {
+			font-size: 1.25rem;
+			font-weight: 600;
+		}
+	}
+	.link-detail {
+		padding: 1rem 1.25rem;
+		border: 1px solid $clr-border;
+		p {
+			color: $clr-text;
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+		form {
+			margin-top: 1.5rem;
+		}
+		label {
+			font-size: 1rem;
+			color: $clr-text;
+			margin-bottom: 0.5rem;
+			display: block;
+		}
+		input {
+			@include inputField
+		}
+		input:focus {
+			border-color: $clr-orange;
+		}
+	}
+}
+/*Link profile ends*/
+/*---------------------------------------------------------------------------------*/
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	/*my account starts*/
+	.my-account .avatar img {
+		width: 10rem;
+		height: 10rem;
+	}
+	.my-account .avt-name-local .name-location {
+		margin-left: 11.5rem;
+		padding: 0.875rem 0;
+	}
+	/*my account ends*/
+	/*profile starts*/
+	.profile {
+		.upload-avartar {
+			.copy-input {
+				.my-btn, .info-btn {
+					height: 2.75rem;
+				}
+			}
+		}
+	}
+	/*profile ends*/
+}
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	/*title bar starts*/
+	.title-bar .left-title-text,
+	.title-bar .right-title-text {
+		padding: 1.5rem 0.16rem 1.5rem 0;
+	}
+	.title-bar .left-title-text {
+		justify-content: flex-start;
+	}
+	.title-bar .right-title-text {
+		justify-content: flex-end;
+	}
+	/*title bar ends*/
+	/*my account starts*/
+	.my-account .name-location h2 {
+		font-size: 1.375rem;
+	}
+	.my-account .name-location p {
+		font-size: 0.875rem;
+	}
+	.my-account .go-to-setting .my-btn {
+		padding: 0.75rem 0.875rem;
+		font-size: 1rem;
+	}
+	/*my account ends*/
+}
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+	
+}
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	/*my account starts*/
+	.my-account .avatar img {
+		width: 13.75rem;
+		height: 13.75rem;
+	}
+	.my-account .avt-name-local .name-location {
+		margin-left: 15.75rem;
+		padding: 1.5rem 0;
+	}
+	.my-account .name-location h2 {
+		font-size: 1.5rem;
+	}
+	.my-account .name-location p {
+		padding-top: 0.5rem;
+	}
+	.my-account .go-to-setting .my-btn {
+		padding: 0.75rem 0.875rem;
+		font-size: 1rem;
+	}
+	/*my account ends*/
+	
+}
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+	.container .row {
+		padding: 0 2rem;
+	}
+}

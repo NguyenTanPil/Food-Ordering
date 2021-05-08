@@ -1,0 +1,233 @@
+<!-- title bar starts -->
+<section class="title-bar">
+	<div class="container">
+		<div class="row">
+			<div class="col col-12 col-md-6">
+				<div class="left-title-text">
+					<h3>Edit profile</h3>
+				</div>
+			</div>
+			<div class="col col-12 col-md-6">
+				<div class="right-title-text">
+					<div class="breadcrumb">
+						<div class="breadcrumb-item">
+							<a href="/">Home</a>
+						</div>
+						<div class="breadcrumb-item active">Edit profile
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- title bar ends -->
+<!-- my accout starts -->
+<section class="my-account">
+	<div class="profile-bg">
+		<img src="/images/profile-bg.jpg" alt="profile image">
+		<div class="profile-top-details">
+			<div class="container">
+				<div class="row">
+					<div class="avt-name-local">
+						<div class="avatar">
+							<img src="/images/avatar-user.jpg" alt="avatar">
+						</div>
+						<div class="name-location">
+							<h2 class="name">
+							Tan Pil
+							</h2>
+							<div class="location">
+								<p>
+									<span>
+										<i class="fa fa-map-marker" aria-hidden="true"></i>
+									</span>
+									Sydney, Australia
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- my accout ends -->
+<!-- all profile details starts -->
+<section class="all-profile-details">
+	<div class="container">
+		<div class="row">
+			<div class="col col-12 col-md-4 col-lg-3">
+				<div class="side-bar">
+					<div class="nav-tab">
+						<div class="nav-item active" data-id="edit-profile">
+							<a href="#">Edit Profile</a>
+						</div>
+						<div class="nav-item" data-id="change-password">
+							<a href="#">Change Password</a>
+						</div>
+						<div class="nav-item" data-id="deactivate-account">
+							<a href="#">Deactivate Account</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col col-12 col-md-8 col-lg-6">
+				<div class="tab-content">
+					<div class="tab-pane active">
+						<div id="edit-profile">
+							<div class="tab-pane-heading">
+								<h4>Edit Profile</h4>
+								<a href="/user">
+									<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
+								</a>
+							</div>
+							<div class="profile">
+								<form>
+									<div class="form-container">
+										<div class="edit-avartar">
+											<div class="avatar">
+												<label for="input-upload-avartar">Avatar</label>
+												<img src="/images/avatar-profile.jpg" alt="">
+											</div>
+											<div class="upload-avartar">
+												<div class="form-group">
+													<label for="upload-avartar">Upload New Avatar *</label>
+													<div class="input-container">
+														<input class="input-upload-avartar" type="file" name="upload-avartar" id="input-upload-avartar" placeholder="Enter your avatar">
+														<div class="copy-input">
+															<div class="browse-btn">
+																<button type="button" class="my-btn">Choose file</button>
+															</div>
+															<span class="info-btn">Upload a file</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="edit-background">
+											<div class="background">
+												<label for="input-upload-background">Background Image</label>
+												<img src="/images/bg-profile.jpg" alt="">
+											</div>
+											<div class="upload-avartar">
+												<div class="form-group">
+													<label for="upload-background">Upload Background Image *</label>
+													<div class="input-container">
+														<input class="input-upload-avartar" type="file" name="upload-background" id="input-upload-background" placeholder="Enter your background">
+														<div class="copy-input">
+															<div class="browse-btn">
+																<button type="button" class="my-btn">Choose file</button>
+															</div>
+															<span class="info-btn">Upload a file</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="full-name">Full Name *</label>
+											<input class="field-input" type="text" name="full-name" id="full-name" placeholder="Nguyen Tan Pil">
+										</div>
+										<div class="form-group">
+											<label for="location-living">Where are you live? *</label>
+											<input class="field-input" type="search" name="location-living" id="location-living" placeholder="Can Tho">
+										</div>
+										<div class="form-group">
+											<label for="description-video">Description *</label>
+											<textarea class="textarea-form" name="description-video" id="description-video" placeholder="Enter your description"></textarea>
+										</div>
+										<div class="form-group">
+											<label for="email">Email *</label>
+											<input class="field-input" type="email" name="email" id="email" placeholder="pilnguyen@gmail.com">
+										</div>
+										<div class="form-group">
+											<label for="phone-number">Phone Number *</label>
+											<input class="field-input" type="tel" name="phone-number" id="phone-number" placeholder="+84 01234 567 789">
+										</div>
+										<div class="sends">
+											<input type="submit" class="my-btn" value="Upload Now">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane">
+						<div id="change-password">
+							<div class="tab-pane-heading">
+								<h4>Change Password</h4>
+								<a href="/user">
+									<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
+								</a>
+							</div>
+							<div class="profile">
+								<form>
+									<div class="form-container">
+										<div class="form-group">
+											<label for="old-password">Old Password *</label>
+											<input class="field-input" type="password" name="old-password" id="old-password" placeholder="Enter old password">
+										</div>
+										<div class="form-group">
+											<label for="new-password">New Password *</label>
+											<input class="field-input" type="password" name="new-password" id="new-password" placeholder="Enter new password">
+										</div>
+										<div class="form-group">
+											<label for="confirm-password">Confirm Password *</label>
+											<input class="field-input" type="password" name="confirm-password" id="confirm-password" placeholder="Enter confirm password">
+										</div>
+										<div class="sends">
+											<input type="submit" class="my-btn" value="Upload Now">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane">
+						<div id="deactivate-account">
+							<div class="tab-pane-heading">
+								<h4>Deactivate Account</h4>
+								<a href="/user">
+									<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
+								</a>
+							</div>
+							<div class="profile">
+								<form>
+									<div class="form-container">
+										<div class="form-group">
+											<label for="delete-account">Your Password *</label>
+											<input class="field-input" type="password" name="delete-account" id="delete-account" placeholder="Enter your password">
+										</div>
+										<div class="sends">
+											<input type="submit" class="my-btn" value="Upload Now">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col col-12 col-md-0 col-lg-3">
+				<div class="natto-links">
+					<div class="link-title">
+						<h4>Natto Profile Link</h4>
+					</div>
+					<div class="link-detail">
+						<p>You can now register a short url to</p>
+						<p>your profile. e.g.</p>
+						<p>natto.com/username</p>
+						<form action="#">
+							<div class="form-group">
+								<label for="user-link">You can set your profile URL only once.</label>
+								<input type="text" class="field-input" name="user-link" id="user-link" placeholder="Natto.com/username">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- all profile details ends -->

@@ -33,7 +33,7 @@ class UserController {
 			if(validPassword) {
 				user = mongooseToOject(user);
 				res.cookie('userId', user._id, {
-					maxAge: 1000 * 20
+					maxAge: 1000 * 60 * 60
 				});
 				res.redirect('/user');
 				// res.render('my_profile', { layout: 'my_profile', user });
@@ -44,9 +44,13 @@ class UserController {
 			res.redirect('/user/login');
 		}
 	}
-	// [GET] /my_profile
+	// [GET] /user/my_profile
 	my_profile(req, res) {
 		res.render('my_profile', { layout: 'my_profile' });
+	}
+	// [GET] /user/edit-profile
+	edit_profile(req, res) {
+		res.render('edit_profile', { layout: 'edit_profile' });
 	}
 }
 
