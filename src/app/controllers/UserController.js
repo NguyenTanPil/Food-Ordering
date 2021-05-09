@@ -52,6 +52,10 @@ class UserController {
 	edit_profile(req, res) {
 		res.render('edit_profile', { layout: 'edit_profile' });
 	}
+	// [POST] /user/edit-profile-process
+	edit_profile_process(req, res) {
+		res.json(req.files);
+	}
 }
 
 module.exports = new UserController;

@@ -13,6 +13,9 @@
 						<div class="breadcrumb-item">
 							<a href="/">Home</a>
 						</div>
+						<div class="breadcrumb-item">
+							<a href="/user">My Profile</a>
+						</div>
 						<div class="breadcrumb-item active">Edit profile
 						</div>
 					</div>
@@ -83,7 +86,7 @@
 								</a>
 							</div>
 							<div class="profile">
-								<form>
+								<form method="POST" action="/user/edit-profile-process" enctype="multipart/form-data">
 									<div class="form-container">
 										<div class="edit-avartar">
 											<div class="avatar">
