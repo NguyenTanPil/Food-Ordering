@@ -44,6 +44,9 @@ class UserController {
 				res.cookie('userId', user._id, {
 					maxAge: 1000 * 60 * 60
 				});
+				body.userId = user._id;
+				const userDetail = new UserDetail(body);
+				userDetail.save();
 				res.redirect('/user');
 				// res.render('my_profile', { layout: 'my_profile', user });
 			} else {
@@ -56,15 +59,22 @@ class UserController {
 	// [GET] /user/my_profile
 	async my_profile(req, res) {
 		const userId = req.cookies['userId'];
-		await User.findOne({ userId: userId })
+		await UserDetail.findOne({ userId: userId })
 			.then((user) => {
 				user = mongooseToOject(user);
 				res.render('my_profile', { layout: 'my_profile', user });
 			})
 	}
+	// them du lieu vao collection user
+	// neu khong co anh trong co su du lieu thi de mac dinh
 	// [GET] /user/edit-profile
-	edit_profile(req, res) {
-		res.render('edit_profile', { layout: 'edit_profile' });
+	async edit_profile(req, res) {
+		const userId = req.cookies['userId'];
+		await UserDetail.findOne({ userId: userId })
+			.then((user) => {
+				user = mongooseToOject(user);
+				res.render('edit_profile', { layout: 'edit_profile', user });
+			})
 	}
 	// [POST] /user/edit-profile-process
 	edit_profile_process(req, res) {

@@ -13,7 +13,7 @@ router.post('/create-user', userController.create_user);
 router.get('/login', userController.login);
 router.post('/login-process', userController.login_process);
 router.get('/edit-profile' , loginMiddleware.requireLogin, userController.edit_profile);
-router.post('/edit-profile-process', uploadMulter, userController.edit_profile_process);
+router.put('/edit-profile-process', uploadMulter, userController.edit_profile_process);
 router.get('/', loginMiddleware.requireLogin, userController.my_profile);
 
 module.exports = router;

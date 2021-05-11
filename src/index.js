@@ -7,6 +7,7 @@ const handlebars = require('express-handlebars');
 const route = require('./route/index.js');
 const db = require('./config/db/index.js');
 const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override');
 // connnet to db
 db.connect();
 // static
@@ -19,7 +20,8 @@ app.use(cookieParser());
 app.use(express.json());
 // HTTP logger
 // app.use(morgan('combined'));
-
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
 // Template engine
 app.engine(
     'hbs',
