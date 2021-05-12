@@ -45,6 +45,7 @@ class UserController {
 					maxAge: 1000 * 60 * 60
 				});
 				body.userId = user._id;
+				body.name = user.name;
 				const userDetail = new UserDetail(body);
 				userDetail.save();
 				res.redirect('/user');
@@ -65,8 +66,6 @@ class UserController {
 				res.render('my_profile', { layout: 'my_profile', user });
 			})
 	}
-	// them du lieu vao collection user
-	// neu khong co anh trong co su du lieu thi de mac dinh
 	// [GET] /user/edit-profile
 	async edit_profile(req, res) {
 		const userId = req.cookies['userId'];
@@ -76,12 +75,15 @@ class UserController {
 				res.render('edit_profile', { layout: 'edit_profile', user });
 			})
 	}
-	// [POST] /user/edit-profile-process
+	// [PUT] /user/edit-profile-process
 	edit_profile_process(req, res) {
 		const formData = req.body;
-		const img1 = req.files['avartar'][0]['path'];
-		const img2 = req.files['background'][0]['path'];
-		cloudinary.uploader.upload( img1, {folder: 'user-details'})
+		const userId =  req.cookies['userId'];
+		let img1, img2;
+		try {
+			img1 = req.files['avartar'][0]['path'];
+			img2 = req.files['background'][0]['path'];
+			cloudinary.uploader.upload( img1, {folder: 'user-details'})
 			.then((avartar) => avartar)
 			.then((avartar) => {
 				cloudinary.uploader.upload( img2, {folder: 'user-details'})
@@ -89,11 +91,40 @@ class UserController {
 					formData.avartar = avartar.secure_url;
 					formData.background = background.secure_url;
 					formData.userId = req.cookies['userId'];
-					const userDetail = new UserDetail(formData);
-					userDetail.save();
-					res.redirect('/user/edit-profile');
+					// res.json(formData);
+					UserDetail.updateOne({ userId: userId}, formData)
+						.then(() => res.redirect('/user/edit-profile'))
+						.catch(() => res.json("Khong thanh cong"));
 				});
 			});
+		} catch(e) {
+			formData.userId = req.cookies['userId'];
+			UserDetail.updateOne({ userId: userId}, formData)
+				.then(() => res.redirect('/user/edit-profile'))
+				.catch(() => res.json("Khong thanh cong"));
+		}
+	}
+	// [PUT] /user/change-password
+	async change_password(req, res) {
+		const formData = req.body;
+		const userId = req.cookies['userId'];
+		// find user
+		let userDb = await User.findOne({ _id: userId });
+		let userObj = mongooseToOject(userDb);
+		// check password currently
+		const validPassword = await bcrypt.compare(formData['old-password'], userObj.password);
+		if(validPassword) {
+			// encode new password
+			const salt = await bcrypt.genSalt(10);
+			formData['new-password'] = await bcrypt.hash(formData['new-password'], salt);
+			userObj.password = formData['new-password'];
+			// update password in db
+			User.updateOne({ _id: userId }, userObj)
+				.then(() => res.redirect('/user/edit-profile'))
+				.catch(() => res.json("That bai"));
+		} else {
+			res.redirect('/user');
+		}
 	}
 }
 

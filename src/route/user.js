@@ -14,6 +14,7 @@ router.get('/login', userController.login);
 router.post('/login-process', userController.login_process);
 router.get('/edit-profile' , loginMiddleware.requireLogin, userController.edit_profile);
 router.put('/edit-profile-process', uploadMulter, userController.edit_profile_process);
+router.put('/change-password', userController.change_password);
 router.get('/', loginMiddleware.requireLogin, userController.my_profile);
 
 module.exports = router;

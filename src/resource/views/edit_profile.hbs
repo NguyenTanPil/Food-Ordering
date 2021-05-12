@@ -98,7 +98,7 @@
 												<div class="form-group">
 													<label for="upload-avartar">Upload New Avatar *</label>
 													<div class="input-container">
-														<input class="input-upload-avartar" type="file" name="avartar" id="input-upload-avartar" placeholder="Enter your avatar">
+														<input class="input-upload-avartar" type="file" name="avartar" id="input-upload-avartar" placeholder="Enter your avatar" value="{{ user.avartar }}">
 														<div class="copy-input">
 															<div class="browse-btn">
 																<button type="button" class="my-btn">Choose file</button>
@@ -119,7 +119,7 @@
 												<div class="form-group">
 													<label for="upload-background">Upload Background Image *</label>
 													<div class="input-container">
-														<input class="input-upload-avartar" type="file" name="background" id="input-upload-background" placeholder="Enter your background" >
+														<input class="input-upload-avartar" type="file" name="background" id="input-upload-background" placeholder="Enter your background" value="{{ user.background }}">
 														<div class="copy-input">
 															<div class="browse-btn">
 																<button type="button" class="my-btn">Choose file</button>
@@ -167,7 +167,7 @@
 								</a>
 							</div>
 							<div class="profile">
-								<form>
+								<form method="POST" action="/user/change-password?_method=PUT">
 									<div class="form-container">
 										<div class="form-group">
 											<label for="old-password">Old Password *</label>

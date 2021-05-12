@@ -10,7 +10,7 @@ const UserDetail = new Schema({
   background: { type: String, default: defaultBackground },
   name: { type: String, default: 'User Name' },
   location: { type: String, default: 'Location'},
-  description: { type: String },
+  description: { type: String, default: '' },
   email: { type: String },
   phone: { type: String },
   userId: { type: String },
