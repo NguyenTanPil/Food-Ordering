@@ -126,6 +126,19 @@ class UserController {
 			res.redirect('/user');
 		}
 	}
+	async delete_account(req, res) {
+		const formData = req.body;
+		const userId = req.cookies['userId'];
+		// find user
+		let userDb = await User.findOne({ _id: userId });
+		let userObj = mongooseToOject(userDb);
+		// check password currently
+		const validPassword = await bcrypt.compare(formData['delete-account'], userObj.password);
+		await UserDetail.deleteOne({ userId: userId });
+		await User.deleteOne({ _id: userId });
+		await res.clearCookie('userId');
+		res.redirect('/');
+	}
 }
 
 module.exports = new UserController;
