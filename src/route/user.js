@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const multer  = require('multer');
-const upload = multer({ dest: 'src/public/uploads/' });
 const userController = require('../app/controllers/UserController.js');
 const loginMiddleware =  require('../middlewares/login_mdw.js');
+const upload =  require('../middlewares/multer.js');
 
-const uploadMulter = upload.fields([{ name: 'avartar', maxCount: 1 }, { name: 'background', maxCount: 1 }]);
+const uploadMulter = upload.fields([{ name: 'avartar' }, { name: 'background' }]);
 
 // config router
 router.get('/signup', userController.signup);

@@ -1,15 +1,9 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User.js');
 const UserDetail = require('../models/UserDetail.js'); 
-const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 const { mongooseToOject } = require('../../util/mongoose.js');
-
-cloudinary.config({
-    cloud_name: 'food-odering',
-    api_key: '477487244417641',
-    api_secret: '1KluvCVw995QAU1WeWXZG28DIwg',
-});
+const cloudinary = require('../../middlewares/cloudinary_config.js');
 
 class UserController {
 
@@ -76,33 +70,46 @@ class UserController {
 			})
 	}
 	// [PUT] /user/edit-profile-process
-	edit_profile_process(req, res) {
+	async edit_profile_process(req, res) {
 		const formData = req.body;
 		const userId =  req.cookies['userId'];
+		formData.userId = req.cookies['userId'];
+		const defaultAvartar = 'https://res.cloudinary.com/food-odering/image/upload/v1620744647/user-details/avt_npasta.png';
+		const defaultBackground = 'https://res.cloudinary.com/food-odering/image/upload/v1620744647/user-details/backgroundjpg_knsmfc.jpg';
 		let img1, img2;
-		try {
+		let user = await UserDetail.findOne({ userId: userId });
+		user = mongooseToOject(user);
+		if(req.files.avartar) {
 			img1 = req.files['avartar'][0]['path'];
-			img2 = req.files['background'][0]['path'];
-			cloudinary.uploader.upload( img1, {folder: 'user-details'})
-			.then((avartar) => avartar)
-			.then((avartar) => {
-				cloudinary.uploader.upload( img2, {folder: 'user-details'})
-				.then((background) => {
-					formData.avartar = avartar.secure_url;
-					formData.background = background.secure_url;
-					formData.userId = req.cookies['userId'];
-					// res.json(formData);
-					UserDetail.updateOne({ userId: userId}, formData)
-						.then(() => res.redirect('/user/edit-profile'))
-						.catch(() => res.json("Khong thanh cong"));
-				});
-			});
-		} catch(e) {
-			formData.userId = req.cookies['userId'];
-			UserDetail.updateOne({ userId: userId}, formData)
-				.then(() => res.redirect('/user/edit-profile'))
-				.catch(() => res.json("Khong thanh cong"));
+		} else {
+			img1 = defaultAvartar;
 		}
+		if(req.files.background) {
+			img2 = req.files['background'][0]['path'];
+		} else {
+			img2 = defaultBackground;
+		}
+		await cloudinary.uploader.upload( img1, {folder: 'user-details'})
+			.then((avartar) => {
+				formData.avartar = avartar.secure_url;
+				formData.public_id_avartar = avartar.public_id;
+			})
+			.catch(err => console.log(err));
+		await cloudinary.uploader.upload( img2, {folder: 'user-details'})
+			.then((background) => {
+				formData.background = background.secure_url;
+				formData.public_id_background = background.public_id;
+			})
+			.catch(err => console.log(err));
+		if(user.public_id_avartar) {
+			await cloudinary.uploader.destroy(user.public_id_avartar);
+		}
+		if(user.public_id_background) {
+			await cloudinary.uploader.destroy(user.public_id_background);
+		}
+		UserDetail.updateOne({ userId: userId}, formData)
+			.then(() => res.redirect('/user/edit-profile'))
+			.catch(() => res.json("Khong thanh cong"));
 	}
 	// [PUT] /user/change-password
 	async change_password(req, res) {
@@ -121,7 +128,7 @@ class UserController {
 			// update password in db
 			User.updateOne({ _id: userId }, userObj)
 				.then(() => res.redirect('/user/edit-profile'))
-				.catch(() => res.json("That bai"));
+				.catch((error) => console.log(error));
 		} else {
 			res.redirect('/user');
 		}

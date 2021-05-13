@@ -14,6 +14,8 @@ const UserDetail = new Schema({
   email: { type: String },
   phone: { type: String },
   userId: { type: String },
+  public_id_avartar: { type: String},
+  public_id_background: { type: String},
 }, {
 	timestamps: true,
 });
