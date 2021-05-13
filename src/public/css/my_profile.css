@@ -48,7 +48,7 @@
   width: 100%;
   object-fit: cover;
   min-height: 7.5rem;
-  background-color: #f3f3f3; }
+  max-height: 25rem; }
 
 .my-account .container .row {
   justify-content: space-between;

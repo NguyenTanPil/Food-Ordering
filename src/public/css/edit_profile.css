@@ -291,6 +291,57 @@
     border-color: #ffa803; }
 
 /*Link profile ends*/
+/*confirm delete account starts*/
+.modal-confirm-remove-account {
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  transition: all 0.3s ease;
+  display: none; }
+  .modal-confirm-remove-account .message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 33rem;
+    z-index: 1;
+    padding: 2rem;
+    padding-top: 0;
+    background: white; }
+    .modal-confirm-remove-account .message .icon {
+      text-align: right;
+      font-size: 1.5rem;
+      color: rgba(0, 0, 0, 0.55);
+      font-weight: bold;
+      cursor: pointer;
+      padding-top: 0.625rem;
+      transition: all 0.3s ease; }
+    .modal-confirm-remove-account .message .icon:hover {
+      color: #ffa803; }
+    .modal-confirm-remove-account .message h2 {
+      font-size: 2rem; }
+    .modal-confirm-remove-account .message p {
+      font-size: 1.25rem;
+      color: rgba(0, 0, 0, 0.55);
+      line-height: 1.5rem;
+      margin-top: 0.75rem;
+      margin-bottom: 1rem; }
+    .modal-confirm-remove-account .message .btns-delete-account {
+      display: flex;
+      justify-content: center; }
+    .modal-confirm-remove-account .message .delete-btn {
+      background-color: #df4655; }
+    .modal-confirm-remove-account .message .delete-btn:hover {
+      background-color: #dd3333; }
+    .modal-confirm-remove-account .message .my-btn {
+      font-size: 1rem;
+      margin: 0 0.5rem; }
+
+/*confirm delete account ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {

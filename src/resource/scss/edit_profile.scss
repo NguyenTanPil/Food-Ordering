@@ -318,6 +318,66 @@
 	}
 }
 /*Link profile ends*/
+/*confirm delete account starts*/
+.modal-confirm-remove-account {
+	text-align: center;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background: $bg-modal;
+	@include transition();
+	display: none;
+	.message {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 33rem;
+		z-index: 1;
+		padding: 2rem;
+		padding-top: 0;
+		background: $clr-white;
+		.icon {
+			text-align: right;
+			font-size: 1.5rem;
+			color: $clr-text;
+			font-weight: bold;
+			cursor: pointer;
+			padding-top: 0.625rem;
+			@include transition();
+		}
+		.icon:hover {
+			color: $clr-orange;
+		}
+		h2 {
+			font-size: 2rem;
+		}
+		p {
+			font-size: 1.25rem;
+			color: $clr-text;
+			line-height: 1.5rem;
+			margin-top: 0.75rem;
+			margin-bottom: 1rem;
+		}
+		.btns-delete-account {
+			display: flex;
+			justify-content: center;
+		}
+		.delete-btn {
+			background-color: $clr-danger;
+		}
+		.delete-btn:hover {
+			background-color: $clr-danger-hover;
+		}
+		.my-btn {
+			font-size: 1rem;
+			margin: 0 0.5rem;
+		}
+	}
+}
+/*confirm delete account ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {

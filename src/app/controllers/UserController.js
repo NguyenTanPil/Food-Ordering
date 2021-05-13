@@ -109,7 +109,7 @@ class UserController {
 		}
 		UserDetail.updateOne({ userId: userId}, formData)
 			.then(() => res.redirect('/user/edit-profile'))
-			.catch(() => res.json("Khong thanh cong"));
+			.catch((error) => console.log(error));
 	}
 	// [PUT] /user/change-password
 	async change_password(req, res) {
@@ -141,10 +141,14 @@ class UserController {
 		let userObj = mongooseToOject(userDb);
 		// check password currently
 		const validPassword = await bcrypt.compare(formData['delete-account'], userObj.password);
-		await UserDetail.deleteOne({ userId: userId });
-		await User.deleteOne({ _id: userId });
-		await res.clearCookie('userId');
-		res.redirect('/');
+		if(validPassword) {
+			await UserDetail.deleteOne({ userId: userId });
+			await User.deleteOne({ _id: userId });
+			await res.clearCookie('userId');
+			res.redirect('/');
+		} else {
+			res.redirect('/user/edit-profile');
+		}
 	}
 }
 
