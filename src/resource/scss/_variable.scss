@@ -13,3 +13,8 @@ $bg-title: rgb(243, 243, 243);
 @mixin transition() {
 	transition: all 0.3s ease;
 }
+@keyframes rotate {
+	100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+	}
+}

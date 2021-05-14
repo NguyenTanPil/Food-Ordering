@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'variable';
 *::selection {
 	background: rgba(255,255,255,.3);
 	color: black;
@@ -74,6 +75,9 @@
 }
 .add-restaurant .information .form-group {
 	margin-bottom: 1.625rem;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
 }
 .add-restaurant .form-group label,
 .add-restaurant .form-group .checkboxTitle {
@@ -82,6 +86,7 @@
 	font-weight: 400;
 	color: var(--clr-black);
 	display: block;
+	width: 100%;
 }
 .add-restaurant .form-group .input-group {
 	width: 100%;
@@ -97,11 +102,19 @@
 }
 .add-restaurant .filter-radio {
 	display: flex;
+	flex-wrap: wrap;
 }
 .add-restaurant .filter-radio .radio-item {
 	display: flex;
 	align-items: center;
 	margin-right: 1.75rem;
+	margin-bottom: 0.5rem;
+	min-width: 3.125rem;
+	position: relative;
+}
+.add-restaurant .radio-item input {
+	position: absolute;
+	opacity: 0;
 }
 .add-restaurant .radio-item label {
 	margin-bottom: 0;
@@ -111,9 +124,215 @@
 	line-height: 0.75rem;
 	font-weight: 400;
 	cursor: pointer;
+	display: inline-block;
+	text-indent: 1rem;
+}
+.add-restaurant .radio-item label:before,
+.add-restaurant .radio-item label:after {
+	content: '';
+  width: 0.875rem;
+  height: 0.875rem;
+  display: block;
+  box-sizing: border-box;
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  border: 2px solid var(--clr-border);
+  border-radius: 20%;
+  top: calc((67% - (100% - 1rem)) - 8%);
+  transition: all 0.5s ease;
+  background-color: transparent;
+}
+.add-restaurant .radio-item label:after {
+	transform: scale(0);
+}
+.add-restaurant .state.active label:before {
+	border-color: $clr-orange;
+	animation: pulse 1s;
+}
+.add-restaurant .state.active label:after {
+	background-color: $clr-orange;
+  transform: scale(0.4);
+}
+.add-restaurant .state.active label {
+	color: $clr-orange;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 168, 3, 0.8); 
+  }
+  100% {
+    box-shadow: 0 0 0 1rem rgba(255, 168, 3, 0); 
+  } 
 }
 .add-restaurant .form-group .row {
 	margin: 0 -1.5rem;
+}
+.form-group {
+	.checkbox-title {
+		margin-bottom: 0.875rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		width: 100%;
+	}
+	button {
+		color: $clr-black;
+		font-size: 0.813rem;
+		background-color: transparent;
+		padding: 0.75rem 1rem 0.75rem 1.25rem;
+		padding-right: 1.5rem;
+		min-height: 2.5rem;
+		border-radius: 0.25rem;
+		outline: none;
+		width: 90%;
+		border: 1px solid $clr-border;
+		cursor: pointer;
+		text-align: left;
+	}
+	i {
+		position: absolute;
+		color: $clr-text;
+		right: 30%;
+		top: calc(3rem - 2px);
+		z-index: -1;
+	}
+	.dropdown-menu {
+		border: 1px solid $clr-border;
+		width: 90%;
+		display: none;
+		@include transition();
+		max-height: 16.2rem;
+		overflow: auto;
+		position: absolute;
+		z-index: 999;
+		top: 5.25rem;
+		background-color: $clr-white;
+	}
+	.dropdown-menu.active {
+		display: block;
+	}
+	.select-item {
+		text-align: center;
+		color: $clr-text;
+		font-size: 0.813rem;
+		font-weight: 400;
+		padding: 0.75rem 1rem 0.75rem 1.313rem;
+		width: 100%;
+		cursor: pointer;
+		@include transition();
+		text-align: left;
+	}
+	.select-item.active {
+		background-color: $clr-border;
+	}
+	.select-item:hover {
+		background-color: rgba(0, 0, 0, 0.05);
+		padding-left: 1.75rem;
+	}
+}
+.add-time-btn {
+	margin-bottom: 1.625rem;
+	padding: 0.75rem 1.25rem;
+  font-size: 0.813rem;
+}
+.information .container .row {
+	padding: 0;
+}
+.list-times {
+	font-size: 0.938rem;
+	color: $clr-text;
+	font-weight: 400;
+	line-height: 1.5rem;
+	.time-item {
+		display: flex;
+		margin-bottom: 0.25rem;
+	}
+	.day {
+		color: $clr-black;
+		text-transform: capitalize;
+		min-width: 4.875rem;
+		margin-right: 1.5rem;
+	}
+	.open-close {
+		font-size: 0.875rem;
+		margin-right: 1.75rem;
+	}
+	.remove-add-time {
+		outline: none;
+		background-color: transparent;
+		border: 0;
+		@icnlude transition();
+		cursor: pointer;
+		i {
+			color: $clr-text;
+			font-size: 1rem;
+		}
+	}
+	.remove-add-time:hover {
+		i {
+			color: $clr-orange;
+		}
+	}
+}
+.add-restaurant .form-group {
+	.icon-search {
+		position: absolute;
+		right: 1rem;
+		z-index: 1;
+		width: auto;
+		margin-top: 0.25rem;
+		cursor: pointer;
+		@include transition();
+	}
+	.icon-search:hover i {
+		color: $clr-orange;
+	}
+}
+.form-group {
+	.select-cuisines,
+	.select-tags {
+		width: 100%;
+	}
+	.select-cuisines + i,
+	.select-tags + i {
+		right: 5%;
+	}
+	.option-cuisines,
+	.option-tags {
+		width: 100%;
+	}
+}
+.sb-add-restaurant {
+	margin-bottom: 5rem;
+	.my-btn {
+		font-size: 1rem;
+		padding: 1rem 1.5rem;
+	}
+}
+.how-it-work {
+	margin-top: 3rem;
+	img {
+		height: 2.5rem;
+	}
+	img:hover {
+		animation: rotate 1s;
+		@include transition();
+	}
+	h4 {
+		padding-top: 1.625rem;
+		padding-bottom: 0.625rem;
+		font-size: 1.125rem;
+		line-height: 1.5rem;
+		font-weight: 500;
+		color: $clr-black;
+	}
+	p {
+		color: $clr-text;
+		font-size: 0.938rem;
+		font-weight: 400;
+		line-height: 1.5rem;
+		letter-spacing: 1px;
+	}
 }
 /*add restaurant ends*/
 /*---------------------------------------------------------------------------------*/

@@ -29,18 +29,18 @@
 			<div class="row">
 				<div class="col col-lg-6 col-md-8 col-12">
 					<div class="heading">
-						<img src="/images/partner_with_us-1.svg" alt>
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620997069/systems/partner_with_us-1_gqsvx2.svg" alt>
 						<h1>Add restaurant</h1>
 					</div>
 					<div class="information">
 						<h4>Basic Info</h4>
 						<div class="form-group">
-							<label for="nameRestaurant">Restaurant Name *</label>
-							<input class="input-group" id="nameRestaurant" type="text" name="nameRestaurant" placeholder="Enter your restaurant name">
+							<label for="name-restaurant">Restaurant Name *</label>
+							<input class="input-group" id="name-restaurant" type="text" name="name-restaurant" placeholder="Enter your restaurant name">
 						</div>
 						<div class="form-group">
-							<label for="searchCity">City *</label>
-							<input class="input-group" id="searchCity" type="search" name="searchCity" placeholder="Search city">
+							<label for="search-city">City *</label>
+							<input class="input-group" id="search-city" type="search" name="search-city" placeholder="Search city">
 						</div>
 						<div class="form-group">
 							<div class="checkboxTitle">
@@ -49,11 +49,15 @@
 							<div class="filter-radio">
 								<div class="radio-item">
 									<input type="radio" id="owner" name="owner-manager" value="owner">
-									<label for="owner">I am a Owner</label>
+									<div class="state">
+										<label for="owner">I am a Owner</label>
+									</div>
 								</div>
 								<div class="radio-item">
 									<input type="radio" id="manager" name="owner-manager" value="manager">
-									<label for="manager">I am a Owner</label>
+									<div class="state">
+										<label for="manager">I’m the manager</label>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -83,11 +87,15 @@
 							<div class="filter-radio">
 								<div class="radio-item">
 									<input type="radio" id="already" name="open" value="already">
-									<label for="already">This place already open</label>
+									<div class="state">
+										<label for="already">This place already open</label>
+									</div>
 								</div>
 								<div class="radio-item">
 									<input type="radio" id="soon" name="open" value="soon">
-									<label for="soon">This place is opening soon</label>
+									<div class="state">
+										<label for="soon">This place is opening soon</label>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -96,53 +104,282 @@
 						<h4>Timing</h4>
 						<div class="form-group">
 							<div class="checkboxTitle">
-								Add time
+								Add time *
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="checkbox" id="monday" name="day" value="monday">
-									<label for="monday">Mon</label>
+									<input type="checkbox" id="monday" name="day[]" value="monday">
+									<div class="state">
+										<label for="monday">Mon</label>
+									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="tuesday" name="day" value="tuesday">
-									<label for="tuesday">Tue</label>
+									<input type="checkbox" id="tuesday" name="day[]" value="tuesday">
+									<div class="state">
+										<label for="tuesday">Tue</label>
+									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="webnesday" name="day" value="webnesday">
-									<label for="webnesday">Web</label>
+									<input type="checkbox" id="webnesday" name="day[]" value="webnesday">
+									<div class="state">
+										<label for="webnesday">Web</label>
+									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="thursday" name="day" value="thursday">
-									<label for="thursday">Thu</label>
+									<input type="checkbox" id="thursday" name="day[]" value="thursday">
+									<div class="state">
+										<label for="thursday">Thu</label>
+									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="friday" name="day" value="friday">
-									<label for="friday">Fri</label>
+									<input type="checkbox" id="friday" name="day[]" value="friday">
+									<div class="state">
+										<label for="friday">Fri</label>
+									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="saturday" name="day" value="saturday">
-									<label for="saturday">Sat</label>
+									<input type="checkbox" id="saturday" name="day[]" value="saturday">
+									<div class="state">
+										<label for="saturday">Sat</label>
+									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="sunday" name="day" value="sunday">
-									<label for="sunday">Sun</label>
+									<input type="checkbox" id="sunday" name="day[]" value="sunday">
+									<div class="state">
+										<label for="sunday">Sun</label>
+									</div>
+								</div>
+								<div class="radio-item">
+									<input type="checkbox" id="select-all" value="select-all">
+									<div class="state">
+										<label for="select-all">All</label>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="container">
+						<div class="container" style="padding-left: 0;">
 							<div class="row">
-								<div class="col col-12 col-md-3">
+								<div class="col col-6 col-sm-4">
 									<div class="form-group">
-										<div class="checkboxTitle">From *</div>
-										<div class="select-time">
+										<div class="checkbox-title">From *</div>
+										<button type="button" class="select-time-from">
+										12.00 AM
+										</button>
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+										<div class="from-time dropdown-menu">
+											<div class="select-item active">12.00 AM</div>
+											<div class="select-item">01.00 AM</div>
+											<div class="select-item">02.00 AM</div>
+											<div class="select-item">03.00 AM</div>
+											<div class="select-item">04.00 AM</div>
+											<div class="select-item">05.00 AM</div>
+											<div class="select-item">06.00 AM</div>
+											<div class="select-item">07.00 AM</div>
+											<div class="select-item">08.00 AM</div>
+											<div class="select-item">09.00 AM</div>
+											<div class="select-item">10.00 AM</div>
+											<div class="select-item">11.00 AM</div>
 										</div>
+									</div>
+								</div>
+								<div class="col col-6 col-sm-4">
+									<div class="form-group">
+										<div class="checkbox-title">To *</div>
+										<button type="button" class="select-time-to">
+										12.00 PM
+										</button>
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+										<div class="to-time dropdown-menu">
+											<div class="select-item active">12.00 PM</div>
+											<div class="select-item">01.00 PM</div>
+											<div class="select-item">02.00 PM</div>
+											<div class="select-item">03.00 PM</div>
+											<div class="select-item">04.00 PM</div>
+											<div class="select-item">05.00 PM</div>
+											<div class="select-item">06.00 PM</div>
+											<div class="select-item">07.00 PM</div>
+											<div class="select-item">08.00 PM</div>
+											<div class="select-item">09.00 PM</div>
+											<div class="select-item">10.00 PM</div>
+											<div class="select-item">11.00 PM</div>
+										</div>
+									</div>
+								</div>
+								<div class="col col-12 col-sm-4" style="align-self: flex-end;">
+									<button type="button" class="my-btn add-time-btn">Add Time</button>
+								</div>
+							</div>
+						</div>
+						<div class="list-times">
+						</div>
+					</div>
+					<div class="information">
+						<h4>Location</h4>
+						<div class="form-group">
+							<label for="address-restaurant">Enter Address *</label>
+							<input class="input-group" type="search" name="address-restaurant" id="address-restaurant" placeholder="Enter Your Address Restaurant">
+							<label class="icon-search" for="address-restaurant">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</label>
+						</div>
+					</div>
+					<div class="information">
+						<h4>Characteristics</h4>
+						<div class="form-group">
+							<div class="checkboxTitle">
+								Services *
+							</div>
+							<div class="filter-radio">
+								<div class="radio-item">
+									<input type="checkbox" id="breakfast" name="services[]" value="breakfast">
+									<div class="state">
+										<label for="breakfast">Breakfast</label>
+									</div>
+								</div>
+								<div class="radio-item">
+									<input type="checkbox" id="lunch" name="services[]" value="lunch">
+									<div class="state">
+										<label for="lunch">Lunch</label>
+									</div>
+								</div>
+								<div class="radio-item">
+									<input type="checkbox" id="dinner" name="services[]" value="dinner">
+									<div class="state">
+										<label for="dinner">Dinner</label>
+									</div>
+								</div>
+								<div class="radio-item">
+									<input type="checkbox" id="cafe" name="services[]" value="cafe">
+									<div class="state">
+										<label for="cafe">Cafe's</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="checkboxTitle">
+								Alcohol *
+							</div>
+							<div class="filter-radio">
+								<div class="radio-item">
+									<input type="radio" id="serve" name="alcohol" value="serve">
+									<div class="state">
+										<label for="serve">Serve</label>
+									</div>
+								</div>
+								<div class="radio-item">
+									<input type="radio" id="not-serve" name="alcohol" value="not-serve">
+									<div class="state">
+										<label for="not-serve">Not Serve</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="checkboxTitle">
+								Seating *
+							</div>
+							<div class="filter-radio">
+								<div class="radio-item">
+									<input type="radio" id="available" name="seating" value="available">
+									<div class="state">
+										<label for="available">Available</label>
+									</div>
+								</div>
+								<div class="radio-item">
+									<input type="radio" id="not-vailable" name="seating" value="not-vailable">
+									<div class="state">
+										<label for="not-vailable">Not Available</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="checkbox-title">Cuisines *</div>
+							<button type="button" class="select-cuisines">
+							Select Cuisines
+							</button>
+							<i class="fa fa-caret-down" aria-hidden="true"></i>
+							<div class="option-cuisines dropdown-menu">
+								<div class="select-item active">Select Cuisines</div>
+								<div class="select-item">Pizza</div>
+								<div class="select-item">Cakes & Desserts</div>
+								<div class="select-item">Sushi</div>
+								<div class="select-item">Fast Food</div>
+								<div class="select-item">Fish</div>
+								<div class="select-item">Luch</div>
+								<div class="select-item">Coffee Cafe's</div>
+								<div class="select-item">Cheses Tika</div>
+								<div class="select-item">Samosa and Pakodas</div>
+								<div class="select-item">Drinks & Beer</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="checkbox-title">Tags *</div>
+							<button type="button" class="select-tags">
+							Select Tags
+							</button>
+							<i class="fa fa-caret-down" aria-hidden="true"></i>
+							<div class="option-tags dropdown-menu">
+								<div class="select-item active">Select Tags</div>
+								<div class="select-item">Breakfast</div>
+								<div class="select-item">Lunch</div>
+								<div class="select-item">Dinner</div>
+								<div class="select-item">Fast Food</div>
+								<div class="select-item">Non Veg</div>
+								<div class="select-item">Beer Bar</div>
+							</div>
+						</div>
+					</div>
+					<div class="information">
+						<h4>Payment</h4>
+						<div class="form-group">
+							<div class="checkboxTitle">
+								Payment method *
+							</div>
+							<div class="filter-radio">
+								<div class="radio-item">
+									<input type="radio" id="cash-only" name="payment" value="cash-only">
+									<div class="state">
+										<label for="cash-only">Cash Only</label>
+									</div>
+								</div>
+								<div class="radio-item">
+									<input type="radio" id="cash-or-cards" name="payment" value="cash-or-cards">
+									<div class="state">
+										<label for="cash-or-cards">Cash/cards</label>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<div class="information">
+						<div class="sb-add-restaurant">
+							<button type="submit" class="my-btn">Add Restaurant</button>
+						</div>
+					</div>
 				</div>
-				<div class="col col-lg-5 col-md-4 col-12"></div>
+				<div class="col col-lg-5 col-md-4 col-12">
+					<div class="heading">
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620997069/systems/partner_with_us-2_taubqq.svg" alt>
+						<h1>How It Works</h1>
+					</div>
+					<div class="how-it-work">
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-1_yc7lwv.svg" alt="">
+						<h4>Fill Form</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis volutpat. Donec venenatis</p>
+					</div>
+					<div class="how-it-work">
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-2_f7nh7p.svg" alt="">
+						<h4>Send Information</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis volutpat. Donec venenatis</p>
+					</div>
+					<div class="how-it-work" style="margin-bottom: 5rem;">
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-3_qttlw6.svg" alt="">
+						<h4>Verified Listing & Start Working With Natto</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis volutpat. Donec venenatis</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</form>
