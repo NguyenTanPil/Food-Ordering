@@ -21,10 +21,6 @@ class SiteController {
 	partner_with_us(req, res) {
 		res.render('partner_with_us', { layout: 'partner_with_us' });
 	}
-// [GET] /upload_video
-	upload_video(req, res) {
-		res.render('upload_video', { layout: 'upload_video' });
-	}
 // [GET] /browse_place
 	browse_place(req, res) {
 		res.render('browse_place', { layout: 'browse_place' });

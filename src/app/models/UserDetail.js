@@ -12,7 +12,7 @@ const UserDetail = new Schema({
   location: { type: String, default: 'Location'},
   description: { type: String, default: '' },
   email: { type: String },
-  phone: { type: String },
+  phone: { type: String, default: '0987 654 3210' },
   userId: { type: String },
   public_id_avartar: { type: String},
   public_id_background: { type: String},

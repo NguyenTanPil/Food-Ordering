@@ -101,11 +101,6 @@
 	max-width: 100%;
 	min-height: 6.25rem;
 }
-.upload-video .form-group .upload-video-wrap {
-	position: relative;
-	border: 1px solid var(--clr-border);
-	border-radius: 0.25rem;
-}
 .upload-video .form-group .upload-file-form {
 	position: absolute;
 	width: 100%;
@@ -113,26 +108,8 @@
 	outline: none;
 	opacity: 0;
 	cursor: pointer;
-	z-index: 1;
 }
-.upload-video .form-group .drag-text {
-	text-align: center;
-	padding: 1.25rem 0;
-}
-.upload-video .form-group .drag-text i {
-	font-size: 1.875rem;
-	text-transform: none;
-	color: #a1a1a1;
-	margin-bottom: 0.5rem;
-}
-.upload-video .form-group .drag-text h4 {
-	font-weight: 500;
-	font-size: 1.125rem;
-	margin-bottom: 0.315rem;
-}
-.upload-video .form-group .drag-text p {
-	font-size: 0.75rem;
-}
+
 .upload-video .form-group .box {
 	position: relative;
 	border: 1px solid var(--clr-border);
@@ -142,9 +119,6 @@
 	display: inline-block;
 	font-size: 0.875rem;
 	color: var(--clr-white);
-}
-.upload-video .box .upload-file-form {
-	z-index: -1;
 }
 .upload-video .box span {
 	font-size: 0.875rem;

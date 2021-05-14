@@ -311,7 +311,8 @@
     z-index: 1;
     padding: 2rem;
     padding-top: 0;
-    background: white; }
+    background: white;
+    border-radius: 0.75rem; }
     .modal-confirm-remove-account .message .icon {
       text-align: right;
       font-size: 1.5rem;

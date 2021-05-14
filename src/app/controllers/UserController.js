@@ -1,8 +1,9 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User.js');
-const UserDetail = require('../models/UserDetail.js'); 
+const UserDetail = require('../models/UserDetail.js');
+const Video = require('../models/Video.js');
 const streamifier = require('streamifier');
-const { mongooseToOject } = require('../../util/mongoose.js');
+const { mutipleMongooseToOject, mongooseToOject } = require('../../util/mongoose.js');
 const cloudinary = require('../../middlewares/cloudinary_config.js');
 
 class UserController {
@@ -54,11 +55,16 @@ class UserController {
 	// [GET] /user/my_profile
 	async my_profile(req, res) {
 		const userId = req.cookies['userId'];
-		await UserDetail.findOne({ userId: userId })
+		const infoUser = await UserDetail.findOne({ userId: userId })
 			.then((user) => {
 				user = mongooseToOject(user);
-				res.render('my_profile', { layout: 'my_profile', user });
-			})
+				return user;
+			});
+		const videosUser = await Video.find({ userId: userId })
+			.then((videos) => {
+				return mutipleMongooseToOject(videos);
+			});
+		res.render('my_profile', { layout: 'my_profile', infoUser, videosUser });
 	}
 	// [GET] /user/edit-profile
 	async edit_profile(req, res) {
@@ -150,6 +156,26 @@ class UserController {
 			res.redirect('/user/edit-profile');
 		}
 	}
+	// [GET] /user/upload-video
+	upload_video(req, res) {
+		res.render('upload_video', { layout: 'upload_video' });
+	}
+	// [POST] /user/create-video
+	async create_video(req, res) {
+		const formData = req.body;
+		const userId = req.cookies['userId'];
+		const imgVideo = req.file.path;
+		formData.userId =  userId;
+		await cloudinary.uploader.upload(imgVideo, { folder: 'videos' })
+			.then((video) => {
+				formData.public_id_video = video.public_id;
+				formData.thumbnail = video.secure_url;
+			});
+		const video = new Video(formData);
+		video.save();
+		res.redirect('/recipe/recipe-details');
+	}
+	// Mai lam tiep phan them video
 }
 
 module.exports = new UserController;

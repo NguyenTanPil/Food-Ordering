@@ -25,24 +25,24 @@
 <!-- my accout starts -->
 <section class="my-account">
 	<div class="profile-bg">
-		<img src="{{ user.background }}" alt="profile image">
+		<img src="{{ infoUser.background }}" alt="profile image">
 		<div class="profile-top-details">
 			<div class="container">
 				<div class="row">
 					<div class="avt-name-local">
 						<div class="avatar">
-							<img src="{{ user.avartar }}" alt="avatar">
+							<img src="{{ infoUser.avartar }}" alt="avatar">
 						</div>
 						<div class="name-location">
 							<h2 class="name">
-							{{ user.name }}
+							{{ infoUser.name }}
 							</h2>
 							<div class="location">
 								<p>
 									<span>
 										<i class="fa fa-map-marker" aria-hidden="true"></i>
 									</span>
-									{{ user.location }}
+									{{ infoUser.location }}
 								</p>
 							</div>
 						</div>
@@ -388,27 +388,27 @@
 							<div class="about-details">
 								<div class="about-dt">
 									<h6>Name</h6>
-									<p>John Doe</p>
+									<p>{{ infoUser.name }}</p>
 								</div>
 								<div class="about-dt">
 									<h6>Location</h6>
-									<p>Hill District, Sydney, Australia</p>
+									<p>{{ infoUser.location }}</p>
 								</div>
 								<div class="about-dt">
 									<h6>Mobile Number</h6>
-									<p>+ 2 987 654 3210</p>
+									<p>{{ infoUser.phone }}</p>
 								</div>
 								<div class="about-dt">
 									<h6>Email Address</h6>
-									<p>Johndoe@gmail.com</p>
+									<p>{{ infoUser.email }}</p>
 								</div>
-								<div class="about-dt">
+								{{!-- <div class="about-dt">
 									<h6>Personal Website</h6>
 									<p>www.johndoe.com</p>
-								</div>
+								</div> --}}
 								<div class="about-dt">
 									<h6>Description About Yopur Self</h6>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur elementum leo sit amet volutpat porta. Integer tincidunt id enim eget suscipit. Aenean vitae mi at arcu pulvinar dictum. Donec pretium ipsum diam, vitae posuere nunc dapibus ut. Vivamus tempus et magna at elementum</p>
+									<p>{{ infoUser.description }}</p>
 								</div>
 								<div class="about-dt">
 									<h6>Social Accounts</h6>
@@ -567,57 +567,17 @@
 					<div class="tab-pane">
 						<div id="my-videos">
 							<div class="my-videos-heading">
-								<h4>Photos</h4>
+								<h4>Videos</h4>
 							</div>
 							<div class="gallery">
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-1.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-2.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-3.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-4.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-5.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-6.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-7.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-8.jpg" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div>
+								{{#each videosUser}}
+									<div class="gallery-item">
+										<img src="{{ this.thumbnail }}" alt="img item">
+										<a href="/recipe/recipe-details">
+											<i class="fa fa-play-circle" aria-hidden="true"></i>
+										</a>
+									</div>
+								{{/each}}
 							</div>
 						</div>
 					</div>
