@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User.js');
 const UserDetail = require('../models/UserDetail.js');
 const Video = require('../models/Video.js');
+const Restaurant = require('../models/Restaurant.js');
 const streamifier = require('streamifier');
 const { mutipleMongooseToOject, mongooseToOject } = require('../../util/mongoose.js');
 const cloudinary = require('../../middlewares/cloudinary_config.js');
@@ -39,12 +40,14 @@ class UserController {
 				res.cookie('userId', user._id, {
 					maxAge: 1000 * 60 * 60
 				});
-				body.userId = user._id;
-				body.name = user.name;
-				const userDetail = new UserDetail(body);
-				userDetail.save();
+				const checkUser = await UserDetail.findOne({ userId: user._id });
+				if(!checkUser) {
+					body.userId = user._id;
+					body.name = user.name;
+					const userDetail = new UserDetail(body);
+					userDetail.save();
+				}
 				res.redirect('/user');
-				// res.render('my_profile', { layout: 'my_profile', user });
 			} else {
 				res.redirect('/user/login');
 			}
@@ -175,7 +178,23 @@ class UserController {
 		video.save();
 		res.redirect('/recipe/recipe-details');
 	}
-	// Mai lam tiep phan them video
+	// [GET] /user/add-restaurant
+	add_restaurant(req, res) {
+		res.render('add_restaurant', { layout: 'add_restaurant' });
+	}
+	// [POST] /user/create-restaurant
+	create_restaurant(req, res) {
+		const formData = req.body;
+		const userId = req.cookies['userId'];
+		formData.userId = userId;
+		const restaurant = new Restaurant(formData);
+		restaurant.save();
+		res.redirect('/partner/restaurant-detail-view');
+	}
+	// [GET] /user/restaurant-detail
+	restaurant_detail(req, res) {
+		res.render('restaurant_detail', { layout: 'restaurant_detail' });
+	}
 }
 
 module.exports = new UserController;

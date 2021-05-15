@@ -17,6 +17,7 @@ const listTimes = document.querySelector('.list-times');
 const addTimeBtn = document.querySelector('.add-time-btn');
 const slAll = document.querySelector('#select-all');
 const checkbox = document.querySelectorAll('.information .radio-item');
+const form =  document.querySelector('form');
 
 // dropdown select time
 selectTimeFrom.onclick =  () => {
@@ -61,6 +62,7 @@ optionCuisines.onclick = (e) => {
 	optionCuisines.classList.remove('active');
 	removeAllActiveMenuItem(cuisineItems);
 	addActiveMenuItem(e.target);
+	saveCuisine(selectCuisines.innerText);
 };
 
 // select tags
@@ -73,6 +75,7 @@ optionTags.onclick = (e) => {
 	optionTags.classList.remove('active');
 	removeAllActiveMenuItem(tagItems);
 	addActiveMenuItem(e.target);
+	saveTag(selectTags.innerText);
 };
 
 // checkbox and radio 
@@ -87,6 +90,16 @@ checkbox.forEach((item) => {
 		state.classList.toggle('active');
 		});
 });
+
+// save by input hidden
+saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
+saveCuisine(selectCuisines.innerText);
+saveTag(selectTags.innerText);
+
+// form submit
+form.submit = () => {
+
+}
 
 // function 
 function removeAllActiveMenuItem(menu) {
@@ -103,12 +116,13 @@ function addTime(list) {
 	// reset list
 	list.innerHTML = '';
 	// select days
-	let days = document.getElementsByName('day[]');
+	let days = document.getElementsByName('days[]');
 	days = Array.prototype.slice.call(days);
 	const seletctDay = days.filter((day) => day.checked == true);
 	// select hours open - close
 	const openHour = selectTimeFrom.innerText;
 	const closeHour = selectTimeTo.innerText;
+	saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
 	// Add time items
 	seletctDay.forEach((day) => {
 		const div =  document.createElement('div');
@@ -151,4 +165,21 @@ function removeActiveRadio(radios) {
 		const state = rb.querySelector('.state');
 		state.classList.remove('active');
 	});
+}
+
+function saveHours(openHour, closeHour) {
+	const open =  document.querySelector('.input-hidden-open');
+	const close =  document.querySelector('.input-hidden-close');
+	open.value = openHour;
+	close.value =  closeHour;
+}
+
+function saveCuisine(cuisine) {
+	const inputCuisine = document.querySelector('.input-hidden-cuisine');
+	inputCuisine.value = cuisine;
+}
+
+function saveTag(tag) {
+	const inputTag = document.querySelector('.input-hidden-tag');
+	inputTag.value = tag;
 }

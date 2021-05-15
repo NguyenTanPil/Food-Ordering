@@ -14,13 +14,18 @@ router.get('/login', userController.login);
 router.post('/login-process', userController.login_process);
 
 router.get('/edit-profile' , loginMiddleware.requireLogin, userController.edit_profile);
-router.put('/edit-profile-process', uploadAvtBack, userController.edit_profile_process);
-router.put('/change-password', userController.change_password);
-router.delete('/delete-account', userController.delete_account);
+router.put('/edit-profile-process', uploadAvtBack, loginMiddleware.requireLogin, userController.edit_profile_process);
+router.put('/change-password', loginMiddleware.requireLogin, userController.change_password);
+router.delete('/delete-account', loginMiddleware.requireLogin, userController.delete_account);
 
 
-router.get('/upload-video', userController.upload_video);
-router.post('/create-video', upload.single('thumbnail'), userController.create_video);
+router.get('/upload-video', loginMiddleware.requireLogin, userController.upload_video);
+router.post('/create-video', loginMiddleware.requireLogin, upload.single('thumbnail'), userController.create_video);
+
+router.get('/add-restaurant', loginMiddleware.requireLogin, userController.add_restaurant);
+router.post('/create-restaurant', loginMiddleware.requireLogin, userController.create_restaurant);
+router.get('/restaurant-detail', loginMiddleware.requireLogin, userController.restaurant_detail);
+
 
 router.get('/', loginMiddleware.requireLogin, userController.my_profile);
 

@@ -24,7 +24,7 @@
 <!-- title bar ends -->
 <!-- add restaurant starts -->
 <section class="add-restaurant">
-	<form action="#" method="post">
+	<form action="/user/create-restaurant" method="POST">
 		<div class="container">
 			<div class="row">
 				<div class="col col-lg-6 col-md-8 col-12">
@@ -36,11 +36,11 @@
 						<h4>Basic Info</h4>
 						<div class="form-group">
 							<label for="name-restaurant">Restaurant Name *</label>
-							<input class="input-group" id="name-restaurant" type="text" name="name-restaurant" placeholder="Enter your restaurant name">
+							<input class="input-group" id="name-restaurant" type="text" name="name" placeholder="Enter your restaurant name">
 						</div>
 						<div class="form-group">
 							<label for="search-city">City *</label>
-							<input class="input-group" id="search-city" type="search" name="search-city" placeholder="Search city">
+							<input class="input-group" id="search-city" type="search" name="city" placeholder="Search city">
 						</div>
 						<div class="form-group">
 							<div class="checkboxTitle">
@@ -48,13 +48,13 @@
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="radio" id="owner" name="owner-manager" value="owner">
-									<div class="state">
+									<input type="radio" id="owner" name="position" value="owner" checked>
+									<div class="state active">
 										<label for="owner">I am a Owner</label>
 									</div>
 								</div>
 								<div class="radio-item">
-									<input type="radio" id="manager" name="owner-manager" value="manager">
+									<input type="radio" id="manager" name="position" value="manager">
 									<div class="state">
 										<label for="manager">I’m the manager</label>
 									</div>
@@ -78,7 +78,7 @@
 						</div>
 						<div class="form-group">
 							<label for="websiteRestaurant">Restaurant Website *</label>
-							<input class="input-group" type="tel" name="websiteRestaurant" id="websiteRestaurant" placeholder="Restaurant Wedsite">
+							<input class="input-group" type="tel" name="website" id="websiteRestaurant" placeholder="Restaurant Wedsite">
 						</div>
 						<div class="form-group">
 							<div class="checkboxTitle">
@@ -86,8 +86,8 @@
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="radio" id="already" name="open" value="already">
-									<div class="state">
+									<input type="radio" id="already" name="open" value="already" checked>
+									<div class="state active">
 										<label for="already">This place already open</label>
 									</div>
 								</div>
@@ -108,43 +108,43 @@
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="checkbox" id="monday" name="day[]" value="monday">
-									<div class="state">
+									<input type="checkbox" id="monday" name="days[]" value="monday" checked>
+									<div class="state active">
 										<label for="monday">Mon</label>
 									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="tuesday" name="day[]" value="tuesday">
+									<input type="checkbox" id="tuesday" name="days[]" value="tuesday">
 									<div class="state">
 										<label for="tuesday">Tue</label>
 									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="webnesday" name="day[]" value="webnesday">
+									<input type="checkbox" id="webnesday" name="days[]" value="webnesday">
 									<div class="state">
 										<label for="webnesday">Web</label>
 									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="thursday" name="day[]" value="thursday">
+									<input type="checkbox" id="thursday" name="days[]" value="thursday">
 									<div class="state">
 										<label for="thursday">Thu</label>
 									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="friday" name="day[]" value="friday">
+									<input type="checkbox" id="friday" name="days[]" value="friday">
 									<div class="state">
 										<label for="friday">Fri</label>
 									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="saturday" name="day[]" value="saturday">
+									<input type="checkbox" id="saturday" name="days[]" value="saturday">
 									<div class="state">
 										<label for="saturday">Sat</label>
 									</div>
 								</div>
 								<div class="radio-item">
-									<input type="checkbox" id="sunday" name="day[]" value="sunday">
+									<input type="checkbox" id="sunday" name="days[]" value="sunday">
 									<div class="state">
 										<label for="sunday">Sun</label>
 									</div>
@@ -155,6 +155,8 @@
 										<label for="select-all">All</label>
 									</div>
 								</div>
+								<input type="hidden" name="openHour" class="input-hidden-open">
+								<input type="hidden" name="closeHour" class="input-hidden-close">
 							</div>
 						</div>
 						<div class="container" style="padding-left: 0;">
@@ -217,7 +219,7 @@
 						<h4>Location</h4>
 						<div class="form-group">
 							<label for="address-restaurant">Enter Address *</label>
-							<input class="input-group" type="search" name="address-restaurant" id="address-restaurant" placeholder="Enter Your Address Restaurant">
+							<input class="input-group" type="search" name="address" id="address-restaurant" placeholder="Enter Your Address Restaurant">
 							<label class="icon-search" for="address-restaurant">
 								<i class="fa fa-search" aria-hidden="true"></i>
 							</label>
@@ -231,8 +233,8 @@
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="checkbox" id="breakfast" name="services[]" value="breakfast">
-									<div class="state">
+									<input type="checkbox" id="breakfast" name="services[]" value="breakfast" checked>
+									<div class="state active">
 										<label for="breakfast">Breakfast</label>
 									</div>
 								</div>
@@ -262,8 +264,8 @@
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="radio" id="serve" name="alcohol" value="serve">
-									<div class="state">
+									<input type="radio" id="serve" name="alcohol" value="serve" checked>
+									<div class="state active">
 										<label for="serve">Serve</label>
 									</div>
 								</div>
@@ -281,8 +283,8 @@
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="radio" id="available" name="seating" value="available">
-									<div class="state">
+									<input type="radio" id="available" name="seating" value="available" checked>
+									<div class="state active">
 										<label for="available">Available</label>
 									</div>
 								</div>
@@ -296,13 +298,13 @@
 						</div>
 						<div class="form-group">
 							<div class="checkbox-title">Cuisines *</div>
+							<input type="hidden" name="cuisine" class="input-hidden-cuisine">
 							<button type="button" class="select-cuisines">
-							Select Cuisines
+							Pizza
 							</button>
 							<i class="fa fa-caret-down" aria-hidden="true"></i>
 							<div class="option-cuisines dropdown-menu">
-								<div class="select-item active">Select Cuisines</div>
-								<div class="select-item">Pizza</div>
+								<div class="select-item active">Pizza</div>
 								<div class="select-item">Cakes & Desserts</div>
 								<div class="select-item">Sushi</div>
 								<div class="select-item">Fast Food</div>
@@ -316,13 +318,13 @@
 						</div>
 						<div class="form-group">
 							<div class="checkbox-title">Tags *</div>
+							<input type="hidden" name="tag" class="input-hidden-tag">
 							<button type="button" class="select-tags">
-							Select Tags
+							Breakfast
 							</button>
 							<i class="fa fa-caret-down" aria-hidden="true"></i>
 							<div class="option-tags dropdown-menu">
-								<div class="select-item active">Select Tags</div>
-								<div class="select-item">Breakfast</div>
+								<div class="select-item active">Breakfast</div>
 								<div class="select-item">Lunch</div>
 								<div class="select-item">Dinner</div>
 								<div class="select-item">Fast Food</div>
@@ -339,8 +341,8 @@
 							</div>
 							<div class="filter-radio">
 								<div class="radio-item">
-									<input type="radio" id="cash-only" name="payment" value="cash-only">
-									<div class="state">
+									<input type="radio" id="cash-only" name="payment" value="cash-only" checked>
+									<div class="state active">
 										<label for="cash-only">Cash Only</label>
 									</div>
 								</div>
