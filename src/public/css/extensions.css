@@ -1,0 +1,43 @@
+@keyframes rotate {
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg); } }
+
+/*button -> class="btn" with color(white) and background color(orange) */
+.btn {
+  text-decoration: none;
+  color: white;
+  background: #ffa803;
+  padding: .65rem 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.875rem; }
+
+.btn:hover {
+  background-color: #e38802; }
+
+/*form*/
+.form-container .form-group {
+  position: relative;
+  margin-bottom: 1.875rem; }
+  .form-container .form-group label {
+    color: var(--clr-black);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.875rem;
+    display: block;
+    text-align: left; }
+  .form-container .form-group .field-input {
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--clr-border);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    color: var(--clr-text);
+    border-radius: 0.25rem;
+    background-color: white;
+    font-weight: 400;
+    transition: var(--transition); }
+  .form-container .form-group .field-input:focus {
+    border-color: var(--clr-orange); }

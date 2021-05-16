@@ -58,25 +58,15 @@ class UserController {
 	// [GET] /user/my_profile
 	async my_profile(req, res) {
 		const userId = req.cookies['userId'];
-		const infoUser = await UserDetail.findOne({ userId: userId })
-			.then((user) => {
-				user = mongooseToOject(user);
-				return user;
-			});
-		const videosUser = await Video.find({ userId: userId })
-			.then((videos) => {
-				return mutipleMongooseToOject(videos);
-			});
+		const infoUser = await getUserDetail(userId);
+		const videosUser = await getVideos(userId);
 		res.render('my_profile', { layout: 'my_profile', infoUser, videosUser });
 	}
 	// [GET] /user/edit-profile
 	async edit_profile(req, res) {
 		const userId = req.cookies['userId'];
-		await UserDetail.findOne({ userId: userId })
-			.then((user) => {
-				user = mongooseToOject(user);
-				res.render('edit_profile', { layout: 'edit_profile', user });
-			})
+		const user = await getUserDetail(userId);
+		res.render('edit_profile', { layout: 'edit_profile', user });
 	}
 	// [PUT] /user/edit-profile-process
 	async edit_profile_process(req, res) {
@@ -86,8 +76,7 @@ class UserController {
 		const defaultAvartar = 'https://res.cloudinary.com/food-odering/image/upload/v1620744647/user-details/avt_npasta.png';
 		const defaultBackground = 'https://res.cloudinary.com/food-odering/image/upload/v1620744647/user-details/backgroundjpg_knsmfc.jpg';
 		let img1, img2;
-		let user = await UserDetail.findOne({ userId: userId });
-		user = mongooseToOject(user);
+		const user = await getUserDetail(userId);
 		if(req.files.avartar) {
 			img1 = req.files['avartar'][0]['path'];
 		} else {
@@ -125,8 +114,7 @@ class UserController {
 		const formData = req.body;
 		const userId = req.cookies['userId'];
 		// find user
-		let userDb = await User.findOne({ _id: userId });
-		let userObj = mongooseToOject(userDb);
+		const userObj = await getUser(userId);
 		// check password currently
 		const validPassword = await bcrypt.compare(formData['old-password'], userObj.password);
 		if(validPassword) {
@@ -146,8 +134,7 @@ class UserController {
 		const formData = req.body;
 		const userId = req.cookies['userId'];
 		// find user
-		let userDb = await User.findOne({ _id: userId });
-		let userObj = mongooseToOject(userDb);
+		const userObj = await getUser(userId);
 		// check password currently
 		const validPassword = await bcrypt.compare(formData['delete-account'], userObj.password);
 		if(validPassword) {
@@ -192,9 +179,50 @@ class UserController {
 		res.redirect('/partner/restaurant-detail-view');
 	}
 	// [GET] /user/restaurant-detail
-	restaurant_detail(req, res) {
-		res.render('restaurant_detail', { layout: 'restaurant_detail' });
+	async restaurant_detail(req, res) {
+		const userId = req.cookies['userId'];
+		const infoUser = await getUserDetail(userId);
+		const videosUser = await getVideos(userId);
+		const restaurant = await getRestaurant(userId);
+		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant });
 	}
 }
 
+// get user
+async function getUser(userId) {
+	let user;
+	await User.findOne({ userId: userId })
+		.then((data) => {
+			user = mongooseToOject(data);
+		});
+	return user;
+}
+
+// get user detail
+async function getUserDetail(userId) {
+	let userDetail;
+	await UserDetail.findOne({ userId: userId })
+		.then((data) => {
+			userDetail = mongooseToOject(data);
+		});
+	return userDetail;
+}
+// get videos
+async function getVideos(userId) {
+	let videos;
+	await Video.find({ userId: userId })
+		.then((data) => {
+			videos = mutipleMongooseToOject(data);
+		});
+	return videos;
+}
+// get user detail
+async function getRestaurantDetails(userId) {
+	let restaurant;
+	await Restaurant.findOne({ userId: userId })
+		.then((data) => {
+			restaurant = mongooseToOject(data);
+		});
+	return restaurant;
+}
 module.exports = new UserController;

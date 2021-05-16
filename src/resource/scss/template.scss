@@ -413,6 +413,222 @@ ul {
 	background-color: var(--clr-orange-hover);
 }
 /*end of template form search*/
+/*form template starts*/
+.form-container {
+	.form-group {
+		position: relative;
+		margin-bottom: 1.875rem;
+		label {
+			color: var(--clr-black);
+	    font-size: 1rem;
+	    font-weight: 500;
+	    margin-bottom: 0.875rem;
+	    display: block;
+	    text-align: left;
+		}
+		.field-input {
+			width: 100%;
+	    outline: none;
+	    border: 1px solid var(--clr-border);
+	    padding: 0.75rem 1.25rem;
+	    font-size: 0.875rem;
+	    color: var(--clr-text);
+	    border-radius: 0.25rem;
+	    background-color: white;
+	    font-weight: 400;
+	    transition: var(--transition);
+		}
+		.field-input:focus {
+			border-color: var(--clr-orange);
+		}
+		.radio-title {
+			margin-bottom: 0.875rem;
+	    font-size: 0.875rem;
+	    font-weight: 400;
+	    color: var(--clr-black);
+	    display: block;
+	    width: 100%;
+		}
+		.filter-radio {
+			display: flex;
+    	flex-wrap: wrap;
+    	.radio-item {
+    		display: flex;
+		    align-items: center;
+		    margin-right: 1.75rem;
+		    margin-bottom: 0.5rem;
+		    min-width: 3.125rem;
+		    position: relative;
+    	}
+    	input {
+    		position: absolute;
+    		opacity: 0;
+    	}
+    	.state.active label {
+    		color: var(--clr-orange);
+    	}
+    	.state.active label:before {
+    		border-color: var(--clr-orange);
+    		animation: pulse 1s;
+    	}
+    	@keyframes pulse {
+			  0% {
+			    box-shadow: 0 0 0 0 rgba(255, 168, 3, 0.8); 
+			  }
+			  100% {
+			    box-shadow: 0 0 0 1rem rgba(255, 168, 3, 0); 
+			  } 
+			}
+    	.state.active label:after {
+    		background-color: var(--clr-orange);
+    		transform: scale(0.4);
+    	}
+    	label {
+    		margin-bottom: 0;
+		    color: var(--clr-text);
+		    font-size: 0.875rem;
+		    margin-left: 0.5rem;
+		    line-height: 0.75rem;
+		    font-weight: 400;
+		    cursor: pointer;
+		    display: inline-block;
+		    text-indent: 1rem;
+    	}
+    	label:before, label:after {
+    		content: '';
+		    width: 0.875rem;
+		    height: 0.875rem;
+		    display: block;
+		    box-sizing: border-box;
+		    z-index: 0;
+		    position: absolute;
+		    left: 0;
+		    border: 2px solid var(--clr-border);
+		    border-radius: 20%;
+		    top: calc((67% - (100% - 1rem)) - 8%);
+		    transition: all 0.5s ease;
+		    background-color: transparent;
+    	}
+    	label:after {
+    		transform: scale(0);
+    	}
+		}
+		.dropdown-btn {
+			color: black;
+    	font-size: 0.813rem;
+    	background-color: transparent;
+    	padding: 0.75rem 1rem 0.75rem 1.25rem;
+    	padding-right: 1.5rem;
+    	min-height: 2.5rem;
+    	border-radius: 0.25rem;
+    	outline: none;
+    	width: 100%;
+    	border: 1px solid rgba(0, 0, 0, 0.15);
+    	cursor: pointer;
+    	text-align: left;
+		}
+		.icon-select {
+			position: absolute;
+    	color: var(--clr-text);
+    	right: 5%;
+    	top: calc(3rem + 2px);
+    	z-index: -1;
+		}
+		.dropdown-menu {
+			border: 1px solid var(--clr-border);
+    	width: 100%;
+    	display: none;
+    	transition: all 0.3s ease;
+    	max-height: 16.2rem;
+    	overflow: auto;
+    	position: absolute;
+    	z-index: 999;
+    	top: 5.25rem;
+    	background-color: white;
+		}
+		.dropdown-menu.active {
+			display: block;
+		}
+		.dropdown-item {
+			text-align: left;
+    	color: rgba(0, 0, 0, 0.55);
+    	font-size: 0.813rem;
+    	font-weight: 400;
+    	padding: 0.75rem 1rem 0.75rem 1.313rem;
+    	width: 100%;
+    	cursor: pointer;
+    	transition: all 0.3s ease;
+    	text-align: left;
+		}
+		.dropdown-item:hover {
+			padding-left: 1.75rem;
+		}
+		.dropdown-item.active {
+			background-color: rgba(0, 0, 0, 0.15);
+		}
+		.overlay-input {
+			position: absolute;
+			top: 0;
+			z-index: -1;
+			max-width: 9.5rem;
+			i {
+				font-size: 1rem;
+				margin-right: 0.25rem;
+				z-index: -1;
+			}
+		}
+		.file-input {
+			color: var(--clr-black);
+			opacity: 0;
+			max-width: 9.5rem;
+			display: flex;
+		}
+	}
+}
+/*form template ends*/
+/*modal template starts*/
+.modal {
+	text-align: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  transition: all 0.3s ease;
+  display: none;
+  z-index: 1;
+  .modal-content {
+  	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 50rem; 
+    z-index: 1;
+    padding: 2rem;
+    background: white;
+    border-radius: 0.75rem;
+    .icon {
+    	position: absolute;
+	    font-size: 1.5rem;
+	    color: rgba(0, 0, 0, 0.55);
+	    font-weight: bold;
+	    cursor: pointer;
+	    padding-top: 0.625rem;
+	    transition: all 0.3s ease;
+	    top: 0.5rem;
+	    right: 2rem;
+    }
+    .icon:hover {
+    	color: var(--clr-orange);
+    }
+  }
+}
+.modal.active {
+	display: block;
+}
+/*modal template ends*/
 .footer .subscribe-newletter {
 	padding: 1.785rem 0;
 }
