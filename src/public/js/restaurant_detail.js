@@ -10,7 +10,9 @@ const addTimeBtn = document.querySelector('.add-time-btn');
 const slAll = document.querySelector('#select-all');
 const selectTimeFrom = document.querySelector('.select-time-from');
 const selectTimeTo = document.querySelector('.select-time-to');
-
+const selectCuisine = document.querySelector('.btn-cuisine');
+const selectTag = document.querySelector('.btn-tag');
+const checkbox = document.querySelectorAll('.information .radio-item');
 showTabContent(navItem, tabPane);
 clickShow.onclick = () => {
 	showModal();
@@ -28,6 +30,10 @@ addTimeBtn.onclick = async() => {
 slAll.onclick = () => {
 	selectAllDay(slAll.checked);
 }
+
+saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
+saveCuisine(selectCuisine.innerText);
+saveTag(selectTag.innerText);
 
 // function
 function showTabContent(navItem, tabPane) {
@@ -115,6 +121,9 @@ function closeDropdown(menu, btn) {
 			btn.innerText = e.currentTarget.innerText;
 			removeAllDropdownItems(dropDownItems);
 			addActiveDropdownItem(e.currentTarget);
+			saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
+			saveCuisine(selectCuisine.innerText);
+			saveTag(selectTag.innerText);
 		};
 	});
 }
@@ -137,10 +146,12 @@ function removeActiveRadio(radios) {
 }
 
 // checkbox and radio 
-const checkbox = document.querySelectorAll('.information .radio-item');
 checkbox.forEach((item) => {
 	const input = item.querySelector('input');
 	const state = item.querySelector('.state');
+	if(input.checked == true) {
+		state.classList.add('active');
+	}
 	input.addEventListener('click', (e) => {
 		if(input.type == 'radio') {
 			const radios = item.parentElement.querySelectorAll('.radio-item');
@@ -183,18 +194,25 @@ function removeTimes(list) {
 			const elemRemove = timeItemElem.querySelector('.day').innerText.toLowerCase();
 			const unCheckDay = document.getElementById(elemRemove);
 			unCheckDay.checked =  false;
+			unCheckDay.parentElement.querySelector('.state').classList.remove('active');
 			timeItemElem.remove();
 			slAll.checked = false;
+			slAll.parentElement.querySelector('.state').classList.remove('active');
 		}
 	});
 }
 
 function selectAllDay(status) {
-	let days = document.getElementsByName('day[]');
+	let days = document.getElementsByName('days[]');
 	days = Array.prototype.slice.call(days);
 	days.forEach(day => {
 		day.checked = status;
-	})
+		if(status) {
+			day.parentElement.querySelector('.state').classList.add('active');
+		} else {
+			day.parentElement.querySelector('.state').classList.remove('active');
+		}
+	});
 }
 
 function removeActiveRadio(radios) {
@@ -210,7 +228,6 @@ function saveHours(openHour, closeHour) {
 	open.value = openHour;
 	close.value =  closeHour;
 }
-
 function saveCuisine(cuisine) {
 	const inputCuisine = document.querySelector('.input-hidden-cuisine');
 	inputCuisine.value = cuisine;

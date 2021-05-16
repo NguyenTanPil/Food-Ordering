@@ -145,19 +145,26 @@ function removeTimes(list) {
 			const timeItemElem = e.currentTarget.parentElement.parentElement;
 			const elemRemove = timeItemElem.querySelector('.day').innerText.toLowerCase();
 			const unCheckDay = document.getElementById(elemRemove);
+			unCheckDay.parentElement.querySelector('.state').classList.remove('active');
 			unCheckDay.checked =  false;
 			timeItemElem.remove();
 			slAll.checked = false;
+			slAll.parentElement.querySelector('.state').classList.remove('active');
 		}
 	});
 }
 
 function selectAllDay(status) {
-	let days = document.getElementsByName('day[]');
+	let days = document.getElementsByName('days[]');
 	days = Array.prototype.slice.call(days);
 	days.forEach(day => {
 		day.checked = status;
-	})
+		if(status) {
+			day.parentElement.querySelector('.state').classList.add('active');
+		} else {
+			day.parentElement.querySelector('.state').classList.remove('active');
+		}
+	});
 }
 
 function removeActiveRadio(radios) {

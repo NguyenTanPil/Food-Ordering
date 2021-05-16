@@ -27,6 +27,7 @@ app.engine(
     'hbs',
     handlebars({
         extname: '.hbs',
+        helpers: require('./helpers/handlebars.js')
     }),
 );
 app.set('view engine', 'hbs'); // su dung file mat dinh la hbs

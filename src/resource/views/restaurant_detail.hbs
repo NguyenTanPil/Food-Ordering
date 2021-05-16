@@ -626,12 +626,19 @@
 										<div class="information">
 											<h4>Basic Info</h4>
 											<div class="form-group">
+												<label for="logo-restaurant">Restaurant Logo *</label>
+												<input class="field-input file-input" id="logo-restaurant" type="file" name="logo" placeholder="Enter your restaurant logo">
+												<div class="overlay-input field-input">
+													<i class="fa fa-picture-o" aria-hidden="true"></i> Add a restaurant logo
+												</div>
+											</div>
+											<div class="form-group">
 												<label for="name-restaurant">Restaurant Name *</label>
-												<input class="field-input" id="name-restaurant" type="text" name="name" placeholder="Enter your restaurant name">
+												<input class="field-input" id="name-restaurant" type="text" name="name" placeholder="Enter your restaurant name" value="{{ restaurant.name }}">
 											</div>
 											<div class="form-group">
 												<label for="search-city">City *</label>
-												<input class="field-input" id="search-city" type="search" name="city" placeholder="Search city">
+												<input class="field-input" id="search-city" type="search" name="city" placeholder="Search city" value="{{ restaurant.city }}">
 											</div>
 											<div class="form-group">
 												<div class="radio-title">
@@ -639,13 +646,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="owner" name="position" value="owner" checked>
+														<input type="radio" id="owner" name="position" value="owner" {{#if (isCheckedRadio 'owner' restaurant.position)}}checked{{/if}}>
 														<div class="state active">
 															<label for="owner">I am a Owner</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="manager" name="position" value="manager">
+														<input type="radio" id="manager" name="position" value="manager" {{#if (isCheckedRadio 'manager' restaurant.position)}}checked{{/if}}>
 														<div class="state">
 															<label for="manager">I’m the manager</label>
 														</div>
@@ -657,19 +664,19 @@
 											<h4>Contact info</h4>
 											<div class="form-group">
 												<label for="email">Email Address *</label>
-												<input class="field-input" id="email" type="email" name="email" placeholder="Enter your email">
+												<input class="field-input" id="email" type="email" name="email" placeholder="Enter your email" value="{{ restaurant.email }}">
 											</div>
 											<div class="form-group">
 												<label for="phoneNumber">Phone Number *</label>
-												<input class="field-input" id="phoneNumber" type="tel" name="phoneNumber" placeholder="Owner / Manager Phone Number">
+												<input class="field-input" id="phoneNumber" type="tel" name="phoneNumber" placeholder="Owner / Manager Phone Number" value="{{ restaurant.phoneNumber }}">
 											</div>
 											<div class="form-group">
 												<label for="phoneRestaurant">Restaurant Phone Number *</label>
-												<input class="field-input" type="tel" name="phoneRestaurant" id="phoneRestaurant" placeholder="Restaurant Phone Number">
+												<input class="field-input" type="tel" name="phoneRestaurant" id="phoneRestaurant" placeholder="Restaurant Phone Number" value="{{ restaurant.phoneRestaurant }}">
 											</div>
 											<div class="form-group">
 												<label for="websiteRestaurant">Restaurant Website *</label>
-												<input class="field-input" type="tel" name="website" id="websiteRestaurant" placeholder="Restaurant Wedsite">
+												<input class="field-input" type="tel" name="website" id="websiteRestaurant" placeholder="Restaurant Wedsite" value="{{ restaurant.website }}">
 											</div>
 											<div class="form-group">
 												<div class="radio-title">
@@ -677,13 +684,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="already" name="open" value="already" checked>
+														<input type="radio" id="already" name="open" value="already" {{#if (isCheckedRadio 'already' restaurant.open)}}checked{{/if}}>
 														<div class="state active">
 															<label for="already">This place already open</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="soon" name="open" value="soon">
+														<input type="radio" id="soon" name="open" value="soon" {{#if (isCheckedRadio 'soon' restaurant.open)}}checked{{/if}}>
 														<div class="state">
 															<label for="soon">This place is opening soon</label>
 														</div>
@@ -699,43 +706,43 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="checkbox" id="monday" name="days[]" value="monday" checked>
+														<input type="checkbox" id="monday" name="days[]" value="monday"{{#if (isCheckedCheckbox 'monday' restaurant.days)}}checked{{/if}}>
 														<div class="state active">
 															<label for="monday">Mon</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="tuesday" name="days[]" value="tuesday">
+														<input type="checkbox" id="tuesday" name="days[]" value="tuesday" {{#if (isCheckedCheckbox 'tuesday' restaurant.days)}}checked{{/if}}>
 														<div class="state">
 															<label for="tuesday">Tue</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="webnesday" name="days[]" value="webnesday">
+														<input type="checkbox" id="webnesday" name="days[]" value="webnesday" {{#if (isCheckedCheckbox 'webnesday' restaurant.days)}}checked{{/if}}>
 														<div class="state">
 															<label for="webnesday">Web</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="thursday" name="days[]" value="thursday">
+														<input type="checkbox" id="thursday" name="days[]" value="thursday" {{#if (isCheckedCheckbox 'thursday' restaurant.days)}}checked{{/if}}>
 														<div class="state">
 															<label for="thursday">Thu</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="friday" name="days[]" value="friday">
+														<input type="checkbox" id="friday" name="days[]" value="friday" {{#if (isCheckedCheckbox 'friday' restaurant.days)}}checked{{/if}}>
 														<div class="state">
 															<label for="friday">Fri</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="saturday" name="days[]" value="saturday">
+														<input type="checkbox" id="saturday" name="days[]" value="saturday" {{#if (isCheckedCheckbox 'saturday' restaurant.days)}}checked{{/if}}>
 														<div class="state">
 															<label for="saturday">Sat</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="sunday" name="days[]" value="sunday">
+														<input type="checkbox" id="sunday" name="days[]" value="sunday" {{#if (isCheckedCheckbox 'sunday' restaurant.days)}}checked{{/if}}>
 														<div class="state">
 															<label for="sunday">Sun</label>
 														</div>
@@ -756,7 +763,7 @@
 														<div class="form-group">
 															<div class="radio-title">From *</div>
 															<button type="button" class="dropdown-btn select-time-from">
-															12.00 AM
+															{{ restaurant.openHour }}
 															</button>
 															<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 															<div class="dropdown-menu">
@@ -779,7 +786,7 @@
 														<div class="form-group">
 															<div class="radio-title">To *</div>
 															<button type="button" class="dropdown-btn select-time-to">
-															12.00 PM
+															{{ restaurant.closeHour }}
 															</button>
 															<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 															<div class="dropdown-menu">
@@ -810,7 +817,7 @@
 											<h4>Location</h4>
 											<div class="form-group">
 												<label for="address-restaurant">Enter Address *</label>
-												<input class="field-input" type="search" name="address" id="address-restaurant" placeholder="Enter Your Address Restaurant">
+												<input class="field-input" type="search" name="address" id="address-restaurant" placeholder="Enter Your Address Restaurant" value="{{ restaurant.address }}">
 											</div>
 										</div>
 										<div class="information">
@@ -821,25 +828,25 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="checkbox" id="breakfast-ck" name="services[]" value="breakfast" checked>
+														<input type="checkbox" id="breakfast-ck" name="services[]" value="breakfast" {{#if (isCheckedCheckbox 'breakfast' restaurant.services)}}checked{{/if}}>
 														<div class="state active">
 															<label for="breakfast-ck">Breakfast</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="lunch-ck" name="services[]" value="lunch">
+														<input type="checkbox" id="lunch-ck" name="services[]" value="lunch" {{#if (isCheckedCheckbox 'lunch' restaurant.services)}}checked{{/if}}>
 														<div class="state">
 															<label for="lunch-ck">Lunch</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="dinner-ck" name="services[]" value="dinner">
+														<input type="checkbox" id="dinner-ck" name="services[]" value="dinner" {{#if (isCheckedCheckbox 'dinner' restaurant.services)}}checked{{/if}}>
 														<div class="state">
 															<label for="dinner-ck">Dinner</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="cafe-ck" name="services[]" value="cafe">
+														<input type="checkbox" id="cafe-ck" name="services[]" value="cafe" {{#if (isCheckedCheckbox 'cafe' restaurant.services)}}checked{{/if}}>
 														<div class="state">
 															<label for="cafe-ck">Cafe's</label>
 														</div>
@@ -852,13 +859,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="serve" name="alcohol" value="serve" checked>
+														<input type="radio" id="serve" name="alcohol" value="serve" {{#if (isCheckedRadio 'serve' restaurant.alcohol)}}checked{{/if}}>
 														<div class="state active">
 															<label for="serve">Serve</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="not-serve" name="alcohol" value="not-serve">
+														<input type="radio" id="not-serve" name="alcohol" value="not-serve" {{#if (isCheckedRadio 'not-serve' restaurant.alcohol)}}checked{{/if}}>
 														<div class="state">
 															<label for="not-serve">Not Serve</label>
 														</div>
@@ -871,13 +878,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="available" name="seating" value="available" checked>
+														<input type="radio" id="available" name="seating" value="available" {{#if (isCheckedRadio 'available' restaurant.seating)}}checked{{/if}}>
 														<div class="state active">
 															<label for="available">Available</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="not-vailable" name="seating" value="not-vailable">
+														<input type="radio" id="not-vailable" name="seating" value="not-vailable" {{#if (isCheckedRadio 'not-vailable' restaurant.seating)}}checked{{/if}}>
 														<div class="state">
 															<label for="not-vailable">Not Available</label>
 														</div>
@@ -887,37 +894,37 @@
 											<div class="form-group">
 												<div class="radio-title">Cuisines *</div>
 												<input type="hidden" name="cuisine" class="input-hidden-cuisine">
-												<button type="button" class="dropdown-btn">
-												Pizza
+												<button type="button" class="dropdown-btn btn-cuisine">
+												{{restaurant.cuisine}}
 												</button>
 												<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 												<div class="dropdown-menu">
-													<div class="dropdown-item active">Pizza</div>
-													<div class="dropdown-item">Cakes & Desserts</div>
-													<div class="dropdown-item">Sushi</div>
-													<div class="dropdown-item">Fast Food</div>
-													<div class="dropdown-item">Fish</div>
-													<div class="dropdown-item">Luch</div>
-													<div class="dropdown-item">Coffee Cafe's</div>
-													<div class="dropdown-item">Cheses Tika</div>
-													<div class="dropdown-item">Samosa and Pakodas</div>
-													<div class="dropdown-item">Drinks & Beer</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Pizza' restaurant.cuisine)}}active{{/if}}">Pizza</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Cakes & Desserts' restaurant.cuisine)}}active{{/if}}">Cakes & Desserts</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Sushi' restaurant.cuisine)}}active{{/if}}">Sushi</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Fast Food' restaurant.cuisine)}}active{{/if}}">Fast Food</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Fish' restaurant.cuisine)}}active{{/if}}">Fish</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Luch' restaurant.cuisine)}}active{{/if}}">Luch</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Coffee Cafe\'s' restaurant.cuisine)}}active{{/if}}">Coffee Cafe's</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Cheses Tika' restaurant.cuisine)}}active{{/if}}">Cheses Tika</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Samosa and Pakodas' restaurant.cuisine)}}active{{/if}}">Samosa and Pakodas</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Drinks & Beer' restaurant.cuisine)}}active{{/if}}">Drinks & Beer</div>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="radio-title">Tags *</div>
 												<input type="hidden" name="tag" class="input-hidden-tag">
-												<button type="button" class="dropdown-btn">
-												Breakfast
+												<button type="button" class="dropdown-btn btn-tag">
+												{{restaurant.tag}}
 												</button>
 												<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 												<div class="dropdown-menu">
-													<div class="dropdown-item active">Breakfast</div>
-													<div class="dropdown-item">Lunch</div>
-													<div class="dropdown-item">Dinner</div>
-													<div class="dropdown-item">Fast Food</div>
-													<div class="dropdown-item">Non Veg</div>
-													<div class="dropdown-item">Beer Bar</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Breakfast' restaurant.tag)}}active{{/if}}">Breakfast</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Lunch' restaurant.tag)}}active{{/if}}">Lunch</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Dinner' restaurant.tag)}}active{{/if}}">Dinner</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Fast Food' restaurant.tag)}}active{{/if}}">Fast Food</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Non Veg' restaurant.tag)}}active{{/if}}">Non Veg</div>
+													<div class="dropdown-item {{#if (isCheckedRadio 'Beer Bar' restaurant.tag)}}active{{/if}}">Beer Bar</div>
 												</div>
 											</div>
 										</div>
@@ -929,13 +936,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="cash-only" name="payment" value="cash-only" checked>
+														<input type="radio" id="cash-only" name="payment" value="cash-only" {{#if (isCheckedRadio 'cash-only' restaurant.payment)}}checked{{/if}}>
 														<div class="state active">
 															<label for="cash-only">Cash Only</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="cash-or-cards" name="payment" value="cash-or-cards">
+														<input type="radio" id="cash-or-cards" name="payment" value="cash-or-cards" {{#if (isCheckedRadio 'cash-or-cards' restaurant.payment)}}checked{{/if}}>
 														<div class="state">
 															<label for="cash-or-cards">Cash/cards</label>
 														</div>

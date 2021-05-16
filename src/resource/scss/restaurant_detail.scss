@@ -609,6 +609,9 @@
   opacity: 1; 
 }
 /*restaurant changes*/
+.all-profile-details .information {
+	padding-top: 1rem;
+}
 .all-profile-details .information h4 {
 	padding-bottom: 1.25rem;
   font-size: 1.125rem;
@@ -620,7 +623,7 @@
   .day {
   	color: black;
     text-transform: capitalize;
-    min-width: 4.875rem;
+    min-width: 5.25rem;
     margin-right: 1.5rem;
   }
   .open-close {
@@ -643,6 +646,13 @@
 .all-profile-details .sb-add-restaurant .my-btn {
   font-size: 1rem;
   padding: 1rem 1.5rem;
+}
+.form-container .form-group .overlay-input {
+	max-width: 100%;
+	top: 2.375rem;
+}
+.form-container .form-group .file-input {
+	max-width: 100%;
 }
 /*my order */
 .all-profile-details #my-orders .table-responsive,

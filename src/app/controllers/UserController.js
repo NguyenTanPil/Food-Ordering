@@ -174,6 +174,7 @@ class UserController {
 		const formData = req.body;
 		const userId = req.cookies['userId'];
 		formData.userId = userId;
+		res.json(formData);
 		const restaurant = new Restaurant(formData);
 		restaurant.save();
 		res.redirect('/partner/restaurant-detail-view');
@@ -183,7 +184,7 @@ class UserController {
 		const userId = req.cookies['userId'];
 		const infoUser = await getUserDetail(userId);
 		const videosUser = await getVideos(userId);
-		const restaurant = await getRestaurant(userId);
+		const restaurant = await getRestaurantDetails(userId);
 		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant });
 	}
 }
