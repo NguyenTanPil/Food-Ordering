@@ -12,7 +12,11 @@ const selectTimeFrom = document.querySelector('.select-time-from');
 const selectTimeTo = document.querySelector('.select-time-to');
 const selectCuisine = document.querySelector('.btn-cuisine');
 const selectTag = document.querySelector('.btn-tag');
+const selectMeal = document.querySelector('.btn-meal');
+const selectOffer = document.querySelector('.btn-offer');
 const checkbox = document.querySelectorAll('.information .radio-item');
+const addPhotosMeal = document.querySelector('.add-photos-meal');
+
 showTabContent(navItem, tabPane);
 clickShow.onclick = () => {
 	showModal();
@@ -34,6 +38,13 @@ slAll.onclick = () => {
 saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
 saveCuisine(selectCuisine.innerText);
 saveTag(selectTag.innerText);
+saveSelectMeal(selectMeal.innerText);
+saveSelectOffer(selectOffer.innerText);
+
+// add photos meal
+addPhotosMeal.onchange = () => {
+	console.log([addPhotosMeal.files]);
+}
 
 // function
 function showTabContent(navItem, tabPane) {
@@ -124,6 +135,8 @@ function closeDropdown(menu, btn) {
 			saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
 			saveCuisine(selectCuisine.innerText);
 			saveTag(selectTag.innerText);
+			saveSelectMeal(selectMeal.innerText);
+			saveSelectOffer(selectOffer.innerText);
 		};
 	});
 }
@@ -236,6 +249,15 @@ function saveCuisine(cuisine) {
 function saveTag(tag) {
 	const inputTag = document.querySelector('.input-hidden-tag');
 	inputTag.value = tag;
+}
+
+function saveSelectMeal(meal) {
+	const inputMeal = document.querySelector('.select-meal');
+	inputMeal.value = meal;
+}
+function saveSelectOffer(offer) {
+	const inputOffer = document.querySelector('.offer-meal');
+	inputOffer.value = offer;
 }
 // Add data temp => Chinh sua bang du lieu trong mongoose sau
 const listBreakfastMeals = [

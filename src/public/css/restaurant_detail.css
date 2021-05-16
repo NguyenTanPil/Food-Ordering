@@ -538,6 +538,9 @@
   padding: 1rem 1.25rem;
   font-size: 1rem; }
 
+#order-online .overlay-input {
+  top: 0; }
+
 /*photos*/
 .all-profile-details #photos .gallery,
 .all-profile-details #my-videos .gallery {

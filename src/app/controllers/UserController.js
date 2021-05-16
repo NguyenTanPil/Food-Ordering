@@ -155,7 +155,7 @@ class UserController {
 		const formData = req.body;
 		const userId = req.cookies['userId'];
 		const imgVideo = req.file.path;
-		formData.userId =  userId;
+		formData.userId = userId;
 		await cloudinary.uploader.upload(imgVideo, { folder: 'videos' })
 			.then((video) => {
 				formData.public_id_video = video.public_id;
@@ -186,6 +186,21 @@ class UserController {
 		const videosUser = await getVideos(userId);
 		const restaurant = await getRestaurantDetails(userId);
 		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant });
+	}
+	// [PUT] /user/update-restaurant
+	async update_restaurant(req, res) {
+		const userId = req.cookies['userId'];
+		const restaurant = await getRestaurantDetails(userId);
+		let formData = req.body;
+		const logoRestaurant = req.file.path;
+		await cloudinary.uploader.upload(logoRestaurant, { folder: 'restaurants' })
+			.then(logo => {
+				formData.public_id_logo = logo.public_id;
+				formData.logo = logo.secure_url;
+			});
+		Restaurant.updateOne({ userId: userId }, formData)
+			.then(() => res.redirect('/user/restaurant-detail'))
+			.catch((error) => console.log(error));
 	}
 }
 

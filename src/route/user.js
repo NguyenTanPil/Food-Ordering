@@ -25,6 +25,7 @@ router.post('/create-video', loginMiddleware.requireLogin, upload.single('thumbn
 router.get('/add-restaurant', loginMiddleware.requireLogin, userController.add_restaurant);
 router.post('/create-restaurant', loginMiddleware.requireLogin, userController.create_restaurant);
 router.get('/restaurant-detail', loginMiddleware.requireLogin, userController.restaurant_detail);
+router.put('/update-restaurant', loginMiddleware.requireLogin, upload.single('logo'), userController.update_restaurant);
 
 
 router.get('/', loginMiddleware.requireLogin, userController.my_profile);

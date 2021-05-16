@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Restaurant = new Schema({
+	logo: { type: String },
+	public_id_logo: { type: String },
 	name: { type: String },
 	city: { type: String },
 	position: { type: String },

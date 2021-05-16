@@ -98,7 +98,7 @@
 			</div>
 			<div class="col col-12 col-md-9 col-lg-6">
 				<div class="tab-content">
-					<div class="tab-pane">
+					<div class="tab-pane active">
 						<div id="timeline">
 							<div class="timeline-heading">
 								<h4>Timeline</h4>
@@ -564,8 +564,9 @@
 												</div>
 												<div class="col col-12 col-lg-6">
 													<div class="form-group">
+														<input type="hidden" name="select-meal" class="select-meal">
 														<label for="name-meal">Select Meal *</label>
-														<button type="button" class="dropdown-btn">Breakfast</button>
+														<button type="button" class="dropdown-btn btn-meal">Breakfast</button>
 														<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 														<div class="dropdown-menu">
 															<div class="dropdown-item active">Breakfast</div>
@@ -578,8 +579,9 @@
 												</div>
 												<div class="col col-12 col-lg-6">
 													<div class="form-group">
+														<input type="hidden" name="offer-meal" class="offer-meal">
 														<label for="name-meal">Select Offers *</label>
-														<button type="button" class="dropdown-btn">10%</button>
+														<button type="button" class="dropdown-btn btn-offer">10%</button>
 														<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 														<div class="dropdown-menu">
 															<div class="dropdown-item active">10%</div>
@@ -594,7 +596,7 @@
 												</div>
 												<div class="col col-12 col-sm-6">
 													<div class="form-group">
-														<input type="file" class="field-input file-input" name="photos">
+														<input type="file" class="field-input file-input add-photos-meal" name="photos" multiple>
 														<div class="overlay-input field-input">
 															<i class="fa fa-picture-o" aria-hidden="true"></i>
 															Add Photos
@@ -615,14 +617,14 @@
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane active">
+					<div class="tab-pane">
 						<div id="restaurant-changes">
 							<div class="about-heading">
 								<h4>Restaurant Changes</h4>
 							</div>
 							<div class="about-details">
 								<div class="restaurant-detail-bg">
-									<form action="#" method="post" class="form-container">
+									<form action="/user/update-restaurant?_method=PUT" method="post" class="form-container" enctype="multipart/form-data">
 										<div class="information">
 											<h4>Basic Info</h4>
 											<div class="form-group">
