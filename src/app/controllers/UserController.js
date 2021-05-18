@@ -3,6 +3,7 @@ const User = require('../models/User.js');
 const UserDetail = require('../models/UserDetail.js');
 const Video = require('../models/Video.js');
 const Restaurant = require('../models/Restaurant.js');
+const Meal = require('../models/Meal.js');
 const streamifier = require('streamifier');
 const { mutipleMongooseToOject, mongooseToOject } = require('../../util/mongoose.js');
 const cloudinary = require('../../middlewares/cloudinary_config.js');
@@ -185,7 +186,8 @@ class UserController {
 		const infoUser = await getUserDetail(userId);
 		const videosUser = await getVideos(userId);
 		const restaurant = await getRestaurantDetails(userId);
-		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant });
+		const meal = await getMeals(userId);
+		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant, meal });
 	}
 	// [PUT] /user/update-restaurant
 	async update_restaurant(req, res) {
@@ -201,6 +203,32 @@ class UserController {
 		Restaurant.updateOne({ userId: userId }, formData)
 			.then(() => res.redirect('/user/restaurant-detail'))
 			.catch((error) => console.log(error));
+	}
+	// [PUT] /user/create-meal
+	async create_meal(req, res) {
+		let formData = req.body;
+		const userId = req.cookies['userId'];
+		formData.userId = userId;
+		formData.photos = [];
+		formData.public_id_photos = [];
+		for(let i = 0; i < req.files.length; i++) {
+			await cloudinary.uploader.upload(req.files[i].path, { folder: 'meals' })
+				.then(data => {
+					formData.public_id_photos.push(data.public_id);
+					formData.photos.push(data.secure_url);
+				});
+		}
+		const meal = new Meal(formData);
+		meal.save();
+		res.redirect('/user/restaurant-detail');
+	}
+
+	// [GET] /user/meal-detail
+	async meal_detail(req, res) {
+		const userId = req.cookies['userId'];
+		const slug = 'veggie-burger-recipe-lost-BiyeBuJ7W';
+		const meal = await getMealDetail(userId, slug);
+		res.render('meal-detail', { layout: 'meal-detail', meal });
 	}
 }
 
@@ -232,7 +260,7 @@ async function getVideos(userId) {
 		});
 	return videos;
 }
-// get user detail
+// get retaurant detail
 async function getRestaurantDetails(userId) {
 	let restaurant;
 	await Restaurant.findOne({ userId: userId })
@@ -241,4 +269,24 @@ async function getRestaurantDetails(userId) {
 		});
 	return restaurant;
 }
+// get meal
+async function getMeals(userId) {
+	let meal;
+	await Meal.findOne({ userId: userId })
+		.then((data) => {
+			meal = mongooseToOject(data);
+		});
+	return meal;
+}
+
+// get meal
+async function getMealDetail(userId, slug) {
+	let meal;
+	await Meal.findOne({ userId: userId, slug: slug })
+		.then((data) => {
+			meal = mongooseToOject(data);
+		});
+	return meal;
+}
+
 module.exports = new UserController;

@@ -1,6 +1,9 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const slug = require('mongoose-slug-generator');
+
+mongoose.plugin(slug);
 
 const Restaurant = new Schema({
 	logo: { type: String },
@@ -24,6 +27,7 @@ const Restaurant = new Schema({
 	tag: { type: String },
 	payment: { type: String },
 	userId: { type: String },
+	slug: { type: String, slug: "name", unique: true },
 });
 
 module.exports = mongoose.model('Restaurant', Restaurant);

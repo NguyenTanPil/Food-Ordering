@@ -494,6 +494,27 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
+														{{#if (isCheckedRadio 'Breakfast' meal.selectMeal)}}
+														<div class="col col-12 col-md-6">
+															<div class="meals">
+																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<div class="capiton-meals">
+																	<a href="/user/meal-detail/{{meal.slug}}">
+																		<h3>{{meal.name}}</h3>
+																	</a>
+																	<div class="rating">
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star-o" aria-hidden="true"></i>
+																		<span>4.5</span>
+																	</div>
+																	<p class="price">${{meal.price}}.00</p>
+																</div>
+															</div>
+														</div>
+														{{/if}}
 													</div>
 												</div>
 											</div>
@@ -503,6 +524,27 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
+														{{#if (isCheckedRadio 'Lunch' meal.selectMeal)}}
+														<div class="col col-12 col-md-6">
+															<div class="meals">
+																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<div class="capiton-meals">
+																	<a href="/user/meal-detail/{{meal.slug}}">
+																		<h3>{{meal.name}}</h3>
+																	</a>
+																	<div class="rating">
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star-o" aria-hidden="true"></i>
+																		<span>4.5</span>
+																	</div>
+																	<p class="price">${{meal.price}}.00</p>
+																</div>
+															</div>
+														</div>
+														{{/if}}
 													</div>
 												</div>
 											</div>
@@ -512,6 +554,27 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
+														{{#if (isCheckedRadio 'Dinner' meal.selectMeal)}}
+														<div class="col col-12 col-md-6">
+															<div class="meals">
+																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<div class="capiton-meals">
+																	<a href="/user/meal-detail/{{meal.slug}}">
+																		<h3>{{meal.name}}</h3>
+																	</a>
+																	<div class="rating">
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star-o" aria-hidden="true"></i>
+																		<span>4.5</span>
+																	</div>
+																	<p class="price">${{meal.price}}.00</p>
+																</div>
+															</div>
+														</div>
+														{{/if}}
 													</div>
 												</div>
 											</div>
@@ -521,6 +584,27 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
+														{{#if (isCheckedRadio 'Cafe\'s' meal.selectMeal)}}
+														<div class="col col-12 col-md-6">
+															<div class="meals">
+																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<div class="capiton-meals">
+																	<a href="/user/meal-detail/{{meal.slug}}">
+																		<h3>{{meal.name}}</h3>
+																	</a>
+																	<div class="rating">
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star-o" aria-hidden="true"></i>
+																		<span>4.5</span>
+																	</div>
+																	<p class="price">${{meal.price}}.00</p>
+																</div>
+															</div>
+														</div>
+														{{/if}}
 													</div>
 												</div>
 											</div>
@@ -530,6 +614,27 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
+														{{#if (isCheckedRadio 'Delivery' meal.selectMeal)}}
+														<div class="col col-12 col-md-6">
+															<div class="meals">
+																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<div class="capiton-meals">
+																	<a href="/user/meal-detail/{{meal.slug}}">
+																		<h3>{{meal.name}}</h3>
+																	</a>
+																	<div class="rating">
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star" aria-hidden="true"></i>
+																		<i class="fa fa-star-o" aria-hidden="true"></i>
+																		<span>4.5</span>
+																	</div>
+																	<p class="price">${{meal.price}}.00</p>
+																</div>
+															</div>
+														</div>
+														{{/if}}
 													</div>
 												</div>
 											</div>
@@ -542,7 +647,7 @@
 									<div class="icon">
 										<i class="fa fa-times" aria-hidden="true"></i>
 									</div>
-									<form action="#" class="form-container" enctype="multipart/form-data">
+									<form action="/user/create-meal" method="POST" class="form-container" enctype="multipart/form-data">
 										<div class="container">
 											<div class="row">
 												<div class="col col-12">
@@ -564,7 +669,7 @@
 												</div>
 												<div class="col col-12 col-lg-6">
 													<div class="form-group">
-														<input type="hidden" name="select-meal" class="select-meal">
+														<input type="hidden" name="selectMeal" class="select-meal">
 														<label for="name-meal">Select Meal *</label>
 														<button type="button" class="dropdown-btn btn-meal">Breakfast</button>
 														<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
@@ -579,12 +684,13 @@
 												</div>
 												<div class="col col-12 col-lg-6">
 													<div class="form-group">
-														<input type="hidden" name="offer-meal" class="offer-meal">
+														<input type="hidden" name="offerMeal" class="offer-meal">
 														<label for="name-meal">Select Offers *</label>
-														<button type="button" class="dropdown-btn btn-offer">10%</button>
+														<button type="button" class="dropdown-btn btn-offer">0%</button>
 														<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 														<div class="dropdown-menu">
-															<div class="dropdown-item active">10%</div>
+															<div class="dropdown-item active">0%</div>
+															<div class="dropdown-item">10%</div>
 															<div class="dropdown-item">20%</div>
 															<div class="dropdown-item">30%</div>
 															<div class="dropdown-item">40%</div>
@@ -601,6 +707,11 @@
 															<i class="fa fa-picture-o" aria-hidden="true"></i>
 															Add Photos
 														</div>
+													</div>
+												</div>
+												<div class="col col-12 col-sm-6">
+													<div class="form-group">
+														<button type="button" class="my-btn clear-all-photos">Clear All</button>
 													</div>
 												</div>
 												<div class="col col-12">
@@ -649,7 +760,7 @@
 												<div class="filter-radio">
 													<div class="radio-item">
 														<input type="radio" id="owner" name="position" value="owner" {{#if (isCheckedRadio 'owner' restaurant.position)}}checked{{/if}}>
-														<div class="state active">
+														<div class="state">
 															<label for="owner">I am a Owner</label>
 														</div>
 													</div>
@@ -687,7 +798,7 @@
 												<div class="filter-radio">
 													<div class="radio-item">
 														<input type="radio" id="already" name="open" value="already" {{#if (isCheckedRadio 'already' restaurant.open)}}checked{{/if}}>
-														<div class="state active">
+														<div class="state">
 															<label for="already">This place already open</label>
 														</div>
 													</div>
@@ -709,7 +820,7 @@
 												<div class="filter-radio">
 													<div class="radio-item">
 														<input type="checkbox" id="monday" name="days[]" value="monday"{{#if (isCheckedCheckbox 'monday' restaurant.days)}}checked{{/if}}>
-														<div class="state active">
+														<div class="state">
 															<label for="monday">Mon</label>
 														</div>
 													</div>
@@ -764,12 +875,10 @@
 													<div class="col col-6 col-sm-4">
 														<div class="form-group">
 															<div class="radio-title">From *</div>
-															<button type="button" class="dropdown-btn select-time-from">
-															{{ restaurant.openHour }}
-															</button>
+															<button type="button" class="dropdown-btn select-time-from">{{ restaurant.openHour }}</button>
 															<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 															<div class="dropdown-menu">
-																<div class="dropdown-item active">12.00 AM</div>
+																<div class="dropdown-item">12.00 AM</div>
 																<div class="dropdown-item">01.00 AM</div>
 																<div class="dropdown-item">02.00 AM</div>
 																<div class="dropdown-item">03.00 AM</div>
@@ -787,12 +896,10 @@
 													<div class="col col-6 col-sm-4">
 														<div class="form-group">
 															<div class="radio-title">To *</div>
-															<button type="button" class="dropdown-btn select-time-to">
-															{{ restaurant.closeHour }}
-															</button>
+															<button type="button" class="dropdown-btn select-time-to">{{ restaurant.closeHour }}</button>
 															<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 															<div class="dropdown-menu">
-																<div class="dropdown-item active">12.00 PM</div>
+																<div class="dropdown-item">12.00 PM</div>
 																<div class="dropdown-item">01.00 PM</div>
 																<div class="dropdown-item">02.00 PM</div>
 																<div class="dropdown-item">03.00 PM</div>
@@ -831,7 +938,7 @@
 												<div class="filter-radio">
 													<div class="radio-item">
 														<input type="checkbox" id="breakfast-ck" name="services[]" value="breakfast" {{#if (isCheckedCheckbox 'breakfast' restaurant.services)}}checked{{/if}}>
-														<div class="state active">
+														<div class="state">
 															<label for="breakfast-ck">Breakfast</label>
 														</div>
 													</div>
@@ -862,7 +969,7 @@
 												<div class="filter-radio">
 													<div class="radio-item">
 														<input type="radio" id="serve" name="alcohol" value="serve" {{#if (isCheckedRadio 'serve' restaurant.alcohol)}}checked{{/if}}>
-														<div class="state active">
+														<div class="state">
 															<label for="serve">Serve</label>
 														</div>
 													</div>
@@ -881,7 +988,7 @@
 												<div class="filter-radio">
 													<div class="radio-item">
 														<input type="radio" id="available" name="seating" value="available" {{#if (isCheckedRadio 'available' restaurant.seating)}}checked{{/if}}>
-														<div class="state active">
+														<div class="state">
 															<label for="available">Available</label>
 														</div>
 													</div>
@@ -896,9 +1003,7 @@
 											<div class="form-group">
 												<div class="radio-title">Cuisines *</div>
 												<input type="hidden" name="cuisine" class="input-hidden-cuisine">
-												<button type="button" class="dropdown-btn btn-cuisine">
-												{{restaurant.cuisine}}
-												</button>
+												<button type="button" class="dropdown-btn btn-cuisine">{{restaurant.cuisine}}</button>
 												<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 												<div class="dropdown-menu">
 													<div class="dropdown-item {{#if (isCheckedRadio 'Pizza' restaurant.cuisine)}}active{{/if}}">Pizza</div>
@@ -916,9 +1021,7 @@
 											<div class="form-group">
 												<div class="radio-title">Tags *</div>
 												<input type="hidden" name="tag" class="input-hidden-tag">
-												<button type="button" class="dropdown-btn btn-tag">
-												{{restaurant.tag}}
-												</button>
+												<button type="button" class="dropdown-btn btn-tag">{{restaurant.tag}}</button>
 												<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 												<div class="dropdown-menu">
 													<div class="dropdown-item {{#if (isCheckedRadio 'Breakfast' restaurant.tag)}}active{{/if}}">Breakfast</div>
@@ -939,7 +1042,7 @@
 												<div class="filter-radio">
 													<div class="radio-item">
 														<input type="radio" id="cash-only" name="payment" value="cash-only" {{#if (isCheckedRadio 'cash-only' restaurant.payment)}}checked{{/if}}>
-														<div class="state active">
+														<div class="state">
 															<label for="cash-only">Cash Only</label>
 														</div>
 													</div>
@@ -968,54 +1071,14 @@
 								<h4>Photos</h4>
 							</div>
 							<div class="gallery">
+								{{#each meal.photos}}
 								<div class="gallery-item">
-									<img src="/images/restaurant-img-1.jpg" alt="img item">
+									<img src="{{ this }}" alt="img item">
 									<a href="#">
 										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
 									</a>
 								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-2.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-3.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-4.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-5.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-6.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-7.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-8.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
+								{{/each}}
 							</div>
 						</div>
 					</div>

@@ -2,10 +2,8 @@
 const Handlebars = require('handlebars');
 
 module.exports = {
-	checkbox: Handlebars.registerHelper('isCheckedCheckbox', function (value, list) {
-	  return list.find((day) => day == value);
-	}),
-	radio: Handlebars.registerHelper('isCheckedRadio', function (value, list) {
-	  return value == list;
-	})
+	sum: (a, b) => a + b,
+	checkFirst: (index) => (index == 0),
+	isCheckedCheckbox: (value, list) => list.find((day) => day == value),
+	isCheckedRadio: (value, list) => (value == list),
 };

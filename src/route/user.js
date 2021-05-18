@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const userController = require('../app/controllers/UserController.js');
@@ -26,6 +27,8 @@ router.get('/add-restaurant', loginMiddleware.requireLogin, userController.add_r
 router.post('/create-restaurant', loginMiddleware.requireLogin, userController.create_restaurant);
 router.get('/restaurant-detail', loginMiddleware.requireLogin, userController.restaurant_detail);
 router.put('/update-restaurant', loginMiddleware.requireLogin, upload.single('logo'), userController.update_restaurant);
+router.post('/create-meal', upload.array('photos', 10), loginMiddleware.requireLogin, userController.create_meal);
+router.get('/meal-detail/:slug', userController.meal_detail);
 
 
 router.get('/', loginMiddleware.requireLogin, userController.my_profile);

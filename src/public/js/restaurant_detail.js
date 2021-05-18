@@ -15,7 +15,9 @@ const selectTag = document.querySelector('.btn-tag');
 const selectMeal = document.querySelector('.btn-meal');
 const selectOffer = document.querySelector('.btn-offer');
 const checkbox = document.querySelectorAll('.information .radio-item');
-const addPhotosMeal = document.querySelector('.add-photos-meal');
+let addPhotosMeal = document.querySelector('.add-photos-meal');
+const selectPhotos = document.querySelector('.select-photos');
+const clearAllPhotos = document.querySelector('.clear-all-photos');
 
 showTabContent(navItem, tabPane);
 clickShow.onclick = () => {
@@ -42,8 +44,19 @@ saveSelectMeal(selectMeal.innerText);
 saveSelectOffer(selectOffer.innerText);
 
 // add photos meal
-addPhotosMeal.onchange = () => {
-	console.log([addPhotosMeal.files]);
+addPhotosOnchange(addPhotosMeal);
+
+// clear all photos
+clearAllPhotos.onclick = () => {
+	const addPhotos = document.createElement('input');
+	addPhotos.className = 'field-input file-input add-photos-meal';
+	addPhotos.type = 'file';
+	addPhotos.multiple = true;
+	addPhotos.name = 'photos';
+	addPhotosMeal.replaceWith(addPhotos);
+	selectPhotos.innerHTML = '';
+	addPhotosMeal = addPhotos;
+	addPhotosOnchange(addPhotosMeal);
 }
 
 // function
@@ -259,334 +272,22 @@ function saveSelectOffer(offer) {
 	const inputOffer = document.querySelector('.offer-meal');
 	inputOffer.value = offer;
 }
-// Add data temp => Chinh sua bang du lieu trong mongoose sau
-const listBreakfastMeals = [
-	{
-		id: 1,
-		img: 'breakfast-meal-1.jfif',
-		title: 'Sunny side egg in Toast',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'breakfast-meal-2.jfif',
-		title: 'Waffle pancake',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'breakfast-meal-3.jfif',
-		title: 'Toasted wheat bread',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'breakfast-meal-4.jfif',
-		title: 'Brawn and white pastry',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'breakfast-meal-5.jfif',
-		title: 'Boiled eggs and toast',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'breakfast-meal-6.jfif',
-		title: 'Pancake with blueberry',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'breakfast-meal-7.jfif',
-		title: 'Assorted variant',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'breakfast-meal-8.jfif',
-		title: 'Sliced bread',
-		stars: '4.5',
-		price: '11'
+
+// add photo when onchange
+function addPhotosOnchange(addPhotos) {
+	addPhotos.onchange = (e) => {
+		const imgs = e.target.files;
+		for(let i = 0; i < imgs.length; i++) {
+			const img = document.createElement('img');
+			img.src = URL.createObjectURL(imgs[i]);
+			img.alt = "preview-img";
+			img.className = 'img-preview';
+			selectPhotos.appendChild(img);
+		}
 	}
-];
-const listLunchMeals = [
-	{
-		id: 1,
-		img: 'lunch-meal-1.jfif',
-		title: 'Meat and vegetable salad',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'lunch-meal-2.jfif',
-		title: 'Cooked food',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'lunch-meal-3.jfif',
-		title: 'Chicken bites',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'lunch-meal-4.jfif',
-		title: 'Egg and cooked rice',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'lunch-meal-5.jfif',
-		title: 'Meat with sauce',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'lunch-meal-6.jfif',
-		title: 'Assorted variant',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'lunch-meal-7.jfif',
-		title: 'Vagetable salad',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'lunch-meal-8.jfif',
-		title: 'Green salad',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const listDinnerMeals = [
-	{
-		id: 1,
-		img: 'dinner-meal-1.jfif',
-		title: 'Egg and cook rice',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'dinner-meal-2.jfif',
-		title: 'Cooked chicken',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'dinner-meal-3.jfif',
-		title: 'Beef stir-fried',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'dinner-meal-4.jfif',
-		title: 'Bites beef',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'dinner-meal-5.jfif',
-		title: 'Italian Pasta Full Plate',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'dinner-meal-6.jfif',
-		title: 'Humburger',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'dinner-meal-7.jfif',
-		title: 'Fired meat with vegetable',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'dinner-meal-8.jfif',
-		title: 'Full food',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const listCafes = [
-	{
-		id: 1,
-		img: 'cafe-1.jfif',
-		title: 'Coffee latte',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'cafe-2.jfif',
-		title: 'Black coffee',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'cafe-3.jfif',
-		title: 'Cold brew coffee',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'cafe-4.jfif',
-		title: 'Irish coffee',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'cafe-5.jfif',
-		title: 'Latte macchiato',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'cafe-6.jfif',
-		title: 'Ristretto',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'cafe-7.jfif',
-		title: 'Espresso lungo',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'cafe-8.jfif',
-		title: 'Affogato',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const listDeliveryMeals = [
-	{
-		id: 1,
-		img: 'delivery-1.jfif',
-		title: 'Fried fries',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'delivery-2.jfif',
-		title: 'Slice cucumber and carots',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'delivery-3.jfif',
-		title: 'Sushi',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'delivery-4.jfif',
-		title: 'Cooked mussels',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'delivery-5.jfif',
-		title: 'Pasta dish',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'delivery-6.jfif',
-		title: 'Vagetable with yellow sauce',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'delivery-7.jfif',
-		title: 'Green and brawn vegetable',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'delivery-8.jfif',
-		title: 'Green and white labeled pack',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const breakfastMeals = document.querySelector('#breakfast .row');
-createOrderOnlineMeals(breakfastMeals, listBreakfastMeals);
-const lunchMeals = document.querySelector('#lunch .row');
-createOrderOnlineMeals(lunchMeals, listLunchMeals);
-const dinnerMeals = document.querySelector('#dinner .row');
-createOrderOnlineMeals(dinnerMeals, listDinnerMeals);
-const cafes = document.querySelector('#cafe .row');
-createOrderOnlineMeals(cafes, listCafes);
-const delilveryMeals = document.querySelector('#delivery .row');
-createOrderOnlineMeals(delilveryMeals, listDeliveryMeals);
-function createOrderOnlineMeals(typeMeal, listMeals) {
-	listMeals.forEach(meal => {
-		const div = document.createElement('div');
-		div.className = 'col col-12 col-md-6';
-		div.innerHTML = `
-			<div class="meals">
-				<img src="/images/${meal.img}" alt="meal order">
-				<div class="capiton-meals">
-					<a href="/meal-detail">
-						<h3>${meal.title}</h3>
-					</a>
-					<div class="rating">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
-						<span>${meal.stars}</span>
-					</div>
-					<p class="price">$${meal.price}.00</p>
-				</div>
-			</div>
-		`;
-		countStar(div, meal.stars);
-		typeMeal.appendChild(div);
-	});
 }
+
+// Add data temp => Chinh sua bang du lieu trong mongoose sau
 
 // count star
 function countStar(parent, numberStar) {
