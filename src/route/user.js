@@ -23,14 +23,6 @@ router.delete('/delete-account', loginMiddleware.requireLogin, userController.de
 router.get('/upload-video', loginMiddleware.requireLogin, userController.upload_video);
 router.post('/create-video', loginMiddleware.requireLogin, upload.single('thumbnail'), userController.create_video);
 
-router.get('/add-restaurant', loginMiddleware.requireLogin, userController.add_restaurant);
-router.post('/create-restaurant', loginMiddleware.requireLogin, userController.create_restaurant);
-router.get('/restaurant-detail', loginMiddleware.requireLogin, userController.restaurant_detail);
-router.put('/update-restaurant', loginMiddleware.requireLogin, upload.single('logo'), userController.update_restaurant);
-router.post('/create-meal', upload.array('photos', 10), loginMiddleware.requireLogin, userController.create_meal);
-router.get('/meal-detail/:slug', userController.meal_detail);
-
-
 router.get('/', loginMiddleware.requireLogin, userController.my_profile);
 
 module.exports = router;
