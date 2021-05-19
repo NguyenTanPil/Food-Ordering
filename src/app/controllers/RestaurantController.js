@@ -28,8 +28,8 @@ class RestaurantController {
 		const infoUser = await getUserDetail(userId);
 		const videosUser = await getVideos(userId);
 		const restaurant = await getRestaurantDetails(userId);
-		const meal = await getMeals(userId);
-		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant, meal });
+		const meals = await getMeals(userId, 'nha-hang-nam-nho');
+		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant, meals });
 	}
 	// [PUT] /user/restaurant/update-restaurant
 	async update_restaurant(req, res, next) {
@@ -38,7 +38,7 @@ class RestaurantController {
 		const restaurantUser =  await restaurant;
 		let formData = req.body;
 		const files = req.files;
-		let clLogo, clPhotos;
+		let clLogo, clPhotos, photo;
 		formData.photos = [];
 		formData.public_id_photos = [];
 		if(files.logo) {
@@ -46,11 +46,10 @@ class RestaurantController {
 			clLogo = cloudinary.uploader.upload(logo, { folder: 'restaurants' })
 				.then(data => data)
 				.catch(next);
+			const uploadLogo = await clLogo;
+			formData.logo = uploadLogo.secure_url;
+			formData.public_id_logo = uploadLogo.public_id;
 		}
-		const uploadLogo = await clLogo;
-		formData.logo = uploadLogo.secure_url;
-		formData.public_id_logo = uploadLogo.public_id;
-		let photo;
 		if(files.photos) {
 			for(let i = 0; i < files.photos.length; i++) {
 				photo =  files.photos[i].path;
@@ -71,6 +70,7 @@ class RestaurantController {
 		let formData = req.body;
 		const userId = req.cookies['userId'];
 		formData.userId = userId;
+		formData.slugRestaurant = 'nha-hang-nam-nho';
 		formData.photos = [];
 		formData.public_id_photos = [];
 		for(let i = 0; i < req.files.length; i++) {
@@ -123,12 +123,12 @@ async function getRestaurantDetails(userId) {
 		});
 	return restaurant;
 }
-// get meal
-async function getMeals(userId) {
+// get meals
+async function getMeals(userId, slugRestaurant) {
 	let meal;
-	await Meal.findOne({ userId: userId })
+	await Meal.find({ userId: userId, slugRestaurant: slugRestaurant })
 		.then((data) => {
-			meal = mongooseToOject(data);
+			meal = mutipleMongooseToOject(data);
 		});
 	return meal;
 }

@@ -75,6 +75,9 @@
 						<div class="nav-item" data-id="photos">
 							<a href="#">Photos</a>
 						</div>
+						<div class="nav-item" data-id="restaurants">
+							<a href="#">Restaurants</a>
+						</div>
 						<div class="nav-item" data-id="my-orders">
 							<a href="#">My orders</a>
 						</div>
@@ -500,6 +503,29 @@
 							</div>
 						</div>
 					</div>
+					<div class="tab-pane">
+						<div id="restaurants">
+							<div class="photos-heading">
+								<h4>Restaurants</h4>
+							</div>
+							<div class="all-restaurants">
+								{{#each restaurantUser}}
+								<div class="restaurant-item">
+									<div class="card-restaurant">
+										<a href="/user/restaurant/{{this.slug}}">
+										<img src="{{this.logo}}" alt="img item">
+										</a>
+										<div class="description">
+											<a href="/user/restaurant/{{this.slug}}">{{this.name}}</a>
+											<p><i class="fa fa-map-marker" aria-hidden="true"></i>{{this.city}}</p>
+										</div>
+										</div>
+								</div>
+								{{/each}}
+							</div>
+						</div>
+					</div>
+
 					<div class="tab-pane">
 						<div id="my-orders">
 							<div class="my-orders-heading">

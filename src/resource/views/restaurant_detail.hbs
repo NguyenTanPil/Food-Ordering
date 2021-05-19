@@ -98,7 +98,7 @@
 			</div>
 			<div class="col col-12 col-md-9 col-lg-6">
 				<div class="tab-content">
-					<div class="tab-pane active">
+					<div class="tab-pane ">
 						<div id="timeline">
 							<div class="timeline-heading">
 								<h4>Timeline</h4>
@@ -494,13 +494,14 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#if (isCheckedRadio 'Breakfast' meal.selectMeal)}}
+														{{#each meals}}
+														{{#if (isCheckedRadio 'Breakfast' this.selectMeal)}}
 														<div class="col col-12 col-md-6">
 															<div class="meals">
-																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<img src="{{this.photos.[0]}}" alt="meal order">
 																<div class="capiton-meals">
-																	<a href="/user/restaurant/meal/{{meal.slug}}">
-																		<h3>{{meal.name}}</h3>
+																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
+																		<h3>{{this.name}}</h3>
 																	</a>
 																	<div class="rating">
 																		<i class="fa fa-star" aria-hidden="true"></i>
@@ -510,11 +511,12 @@
 																		<i class="fa fa-star-o" aria-hidden="true"></i>
 																		<span>4.5</span>
 																	</div>
-																	<p class="price">${{meal.price}}.00</p>
+																	<p class="price">${{this.price}}.00</p>
 																</div>
 															</div>
 														</div>
 														{{/if}}
+														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -524,13 +526,14 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#if (isCheckedRadio 'Lunch' meal.selectMeal)}}
+														{{#each meals}}
+														{{#if (isCheckedRadio 'Lunch' this.selectMeal)}}
 														<div class="col col-12 col-md-6">
 															<div class="meals">
-																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<img src="{{this.photos.[0]}}" alt="meal order">
 																<div class="capiton-meals">
-																	<a href="/user/restaurant/meal/{{meal.slug}}">
-																		<h3>{{meal.name}}</h3>
+																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
+																		<h3>{{this.name}}</h3>
 																	</a>
 																	<div class="rating">
 																		<i class="fa fa-star" aria-hidden="true"></i>
@@ -540,11 +543,12 @@
 																		<i class="fa fa-star-o" aria-hidden="true"></i>
 																		<span>4.5</span>
 																	</div>
-																	<p class="price">${{meal.price}}.00</p>
+																	<p class="price">${{this.price}}.00</p>
 																</div>
 															</div>
 														</div>
 														{{/if}}
+														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -554,13 +558,14 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#if (isCheckedRadio 'Dinner' meal.selectMeal)}}
+														{{#each meals}}
+														{{#if (isCheckedRadio 'Dinner' this.selectMeal)}}
 														<div class="col col-12 col-md-6">
 															<div class="meals">
-																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<img src="{{this.photos.[0]}}" alt="meal order">
 																<div class="capiton-meals">
-																	<a href="/user/restaurant/meal/{{meal.slug}}">
-																		<h3>{{meal.name}}</h3>
+																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
+																		<h3>{{this.name}}</h3>
 																	</a>
 																	<div class="rating">
 																		<i class="fa fa-star" aria-hidden="true"></i>
@@ -570,11 +575,12 @@
 																		<i class="fa fa-star-o" aria-hidden="true"></i>
 																		<span>4.5</span>
 																	</div>
-																	<p class="price">${{meal.price}}.00</p>
+																	<p class="price">${{this.price}}.00</p>
 																</div>
 															</div>
 														</div>
 														{{/if}}
+														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -584,13 +590,14 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#if (isCheckedRadio 'Cafe\'s' meal.selectMeal)}}
+														{{#each meals}}
+														{{#if (isCheckedRadio 'Cafe\'s' this.selectMeal)}}
 														<div class="col col-12 col-md-6">
 															<div class="meals">
-																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<img src="{{this.photos.[0]}}" alt="meal order">
 																<div class="capiton-meals">
-																	<a href="/user/restaurant/meal/{{meal.slug}}">
-																		<h3>{{meal.name}}</h3>
+																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
+																		<h3>{{this.name}}</h3>
 																	</a>
 																	<div class="rating">
 																		<i class="fa fa-star" aria-hidden="true"></i>
@@ -600,11 +607,12 @@
 																		<i class="fa fa-star-o" aria-hidden="true"></i>
 																		<span>4.5</span>
 																	</div>
-																	<p class="price">${{meal.price}}.00</p>
+																	<p class="price">${{this.price}}.00</p>
 																</div>
 															</div>
 														</div>
 														{{/if}}
+														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -614,13 +622,14 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#if (isCheckedRadio 'Delivery' meal.selectMeal)}}
+														{{#each meals}}
+														{{#if (isCheckedRadio 'Delivery' this.selectMeal)}}
 														<div class="col col-12 col-md-6">
 															<div class="meals">
-																<img src="{{meal.photos.[0]}}" alt="meal order">
+																<img src="{{this.photos.[0]}}" alt="meal order">
 																<div class="capiton-meals">
-																	<a href="/user/restaurant/meal/{{meal.slug}}">
-																		<h3>{{meal.name}}</h3>
+																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
+																		<h3>{{this.name}}</h3>
 																	</a>
 																	<div class="rating">
 																		<i class="fa fa-star" aria-hidden="true"></i>
@@ -630,11 +639,12 @@
 																		<i class="fa fa-star-o" aria-hidden="true"></i>
 																		<span>4.5</span>
 																	</div>
-																	<p class="price">${{meal.price}}.00</p>
+																	<p class="price">${{this.price}}.00</p>
 																</div>
 															</div>
 														</div>
 														{{/if}}
+														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -728,14 +738,14 @@
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane">
+					<div class="tab-pane active">
 						<div id="restaurant-changes">
 							<div class="about-heading">
 								<h4>Restaurant Changes</h4>
 							</div>
 							<div class="about-details">
 								<div class="restaurant-detail-bg">
-									<form action="/user/update-restaurant?_method=PUT" method="post" class="form-container" enctype="multipart/form-data">
+									<form action="/user/restaurant/update-restaurant/nha-hang-nam-nho?_method=PUT" method="post" class="form-container" enctype="multipart/form-data">
 										<div class="information">
 											<h4>Basic Info</h4>
 											<div class="form-group">
@@ -743,6 +753,13 @@
 												<input class="field-input file-input" id="logo-restaurant" type="file" name="logo" placeholder="Enter your restaurant logo">
 												<div class="overlay-input field-input">
 													<i class="fa fa-picture-o" aria-hidden="true"></i> Add a restaurant logo
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="logo-restaurant">Restaurant Photos *</label>
+												<input class="field-input file-input" id="photos-restaurant" type="file" name="photos" multiple>
+												<div class="overlay-input field-input">
+													<i class="fa fa-picture-o" aria-hidden="true"></i> Add restaurants photos
 												</div>
 											</div>
 											<div class="form-group">
@@ -1071,7 +1088,7 @@
 								<h4>Photos</h4>
 							</div>
 							<div class="gallery">
-								{{#each meal.photos}}
+								{{#each restaurant.photos}}
 								<div class="gallery-item">
 									<img src="{{ this }}" alt="img item">
 									<a href="#">
