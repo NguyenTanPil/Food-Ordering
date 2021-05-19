@@ -32,7 +32,6 @@ class UserController {
 	async login_process(req, res, next) {
 		const body = req.body;
 		let user = await User.findOne({ email: body.email });
-		// res.json(user);
 		if(user) {
 			const validPassword = await bcrypt.compare(body.password, user.password);
 			if(validPassword) {
@@ -58,9 +57,13 @@ class UserController {
 	// [GET] /user/my_profile
 	async my_profile(req, res) {
 		const userId = req.cookies['userId'];
-		const infoUser = await getUserDetail(userId);
-		const videosUser = await getVideos(userId);
-		res.render('my_profile', { layout: 'my_profile', infoUser, videosUser });
+		const info = getUserDetail(userId);
+		const videos = getVideos(userId);
+		const restaurants = getRestaurants(userId);
+		const infoUser = await info;
+		const videosUser = await videos;
+		const restaurantUser = await restaurants;
+		res.render('my_profile', { layout: 'my_profile', infoUser, videosUser, restaurantUser });
 	}
 	// [GET] /user/edit-profile
 	async edit_profile(req, res) {
@@ -197,6 +200,15 @@ async function getRestaurantDetails(userId) {
 		});
 	return restaurant;
 }
+async function getRestaurants(userId) {
+	let restaurant;
+	await Restaurant.find({ userId: userId })
+		.then((data) => {
+			restaurant = mutipleMongooseToOject(data);
+		});
+	return restaurant;
+}
+
 // get meal
 async function getMeals(userId) {
 	let meal;

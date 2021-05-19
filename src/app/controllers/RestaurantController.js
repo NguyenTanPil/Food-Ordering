@@ -32,19 +32,39 @@ class RestaurantController {
 		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant, meal });
 	}
 	// [PUT] /user/restaurant/update-restaurant
-	async update_restaurant(req, res) {
+	async update_restaurant(req, res, next) {
 		const userId = req.cookies['userId'];
 		const restaurant = await getRestaurantDetails(userId);
+		const restaurantUser =  await restaurant;
 		let formData = req.body;
-		const logoRestaurant = req.file.path;
-		await cloudinary.uploader.upload(logoRestaurant, { folder: 'restaurants' })
-			.then(logo => {
-				formData.public_id_logo = logo.public_id;
-				formData.logo = logo.secure_url;
-			});
+		const files = req.files;
+		let clLogo, clPhotos;
+		formData.photos = [];
+		formData.public_id_photos = [];
+		if(files.logo) {
+			const logo = files.logo[0].path;
+			clLogo = cloudinary.uploader.upload(logo, { folder: 'restaurants' })
+				.then(data => data)
+				.catch(next);
+		}
+		const uploadLogo = await clLogo;
+		formData.logo = uploadLogo.secure_url;
+		formData.public_id_logo = uploadLogo.public_id;
+		let photo;
+		if(files.photos) {
+			for(let i = 0; i < files.photos.length; i++) {
+				photo =  files.photos[i].path;
+				clPhotos = cloudinary.uploader.upload(photo, { folder: 'restaurants' })
+					.then(data => data)
+					.catch(next);
+				const uploadPhotos = await clPhotos;
+				formData.photos[i] = uploadPhotos.secure_url;
+				formData.public_id_photos[i] = uploadPhotos.public_id;
+			}
+		}
 		Restaurant.updateOne({ userId: userId }, formData)
-			.then(() => res.redirect('/user/restaurant-detail'))
-			.catch((error) => console.log(error));
+			.then(() => res.redirect('/user/restaurant/restaurant-detail'))
+			.catch(next);
 	}
 	// [POST] /user/restaurant/create-meal
 	async create_meal(req, res) {
