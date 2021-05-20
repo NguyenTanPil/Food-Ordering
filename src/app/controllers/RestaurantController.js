@@ -22,13 +22,17 @@ class RestaurantController {
 		restaurant.save();
 		res.redirect('/partner/restaurant-detail-view');
 	}
-	// [GET] /user/restaurant/restaurant-detail
+	// [GET] /user/restaurant/:slug
 	async restaurant_detail(req, res) {
 		const userId = req.cookies['userId'];
+		// res.json(req.params);
+		const restaurant = await getRestaurantDetails(userId, req.params.slug);
+		if(!restaurant) {
+			res.status(404).send('Khong tim thay');
+		}
 		const infoUser = await getUserDetail(userId);
 		const videosUser = await getVideos(userId);
-		const restaurant = await getRestaurantDetails(userId);
-		const meals = await getMeals(userId, 'nha-hang-nam-nho');
+		const meals = await getMeals(userId, req.params.slug);
 		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant, meals });
 	}
 	// [PUT] /user/restaurant/update-restaurant
@@ -115,12 +119,12 @@ async function getVideos(userId) {
 	return videos;
 }
 // get retaurant detail
-async function getRestaurantDetails(userId) {
+async function getRestaurantDetails(userId, slug) {
 	let restaurant;
-	await Restaurant.findOne({ userId: userId })
+	await Restaurant.findOne({ userId: userId, slug: slug })
 		.then((data) => {
 			restaurant = mongooseToOject(data);
-		});
+		})
 	return restaurant;
 }
 // get meals

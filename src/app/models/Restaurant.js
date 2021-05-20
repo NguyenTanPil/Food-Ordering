@@ -7,7 +7,9 @@ mongoose.plugin(slug);
 
 const Restaurant = new Schema({
 	logo: { type: String },
+	photos: { type: [String] },
 	public_id_logo: { type: String },
+	public_id_photos: { type: [String] },
 	name: { type: String },
 	city: { type: String },
 	position: { type: String },
@@ -27,7 +29,7 @@ const Restaurant = new Schema({
 	tag: { type: String },
 	payment: { type: String },
 	userId: { type: String },
-	slug: { type: String, slug: "name", unique: true },
+	slugRestaurant: { type: String, slug: "name", unique: true },
 });
 
 module.exports = mongoose.model('Restaurant', Restaurant);

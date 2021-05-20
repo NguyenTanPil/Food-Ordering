@@ -13,6 +13,7 @@ const Meal = new Schema({
 	photos: { type: [String] },
 	public_id_photos: { type: [String] },
 	userId: { type: String },
+	slugRestaurant: { type: String },
 	slug: { type: String, slug: "name", unique: true },
 });
 

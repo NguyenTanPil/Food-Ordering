@@ -9,7 +9,7 @@ const siteRouter = require('./site.js');
 
 function route(app) {
 
-	app.use('/user/restaurant/meal', mealRouter);
+	app.use('/user/restaurant/:slug/meal', mealRouter);
 	app.use('/user/restaurant', restaurantRouter);
 	app.use('/user', userRouter);
 	app.use('/recipe', recipeRouter);

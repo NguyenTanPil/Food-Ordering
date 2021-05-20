@@ -12,8 +12,15 @@ class MealController {
 	// [GET] /user/restaurant/meal-detail
 	async meal_detail(req, res) {
 		const userId = req.cookies['userId'];
-		const slug = 'veggie-burger-recipe-lost-BiyeBuJ7W';
+		const slug = req.params.slug;
 		const meal = await getMealDetail(userId, slug);
+		if(!meal) {
+			res.status(404).send('Khong tim thay');
+		}
+		const checkUrl = req.originalUrl.indexOf(meal.slugRestaurant);
+		if(checkUrl == -1) {
+			res.status(404).send('Khong tim thay');
+		}
 		res.render('meal-detail', { layout: 'meal-detail', meal });
 	}
 }
