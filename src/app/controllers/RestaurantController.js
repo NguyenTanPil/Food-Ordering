@@ -28,7 +28,8 @@ class RestaurantController {
 		// res.json(req.params);
 		const restaurant = await getRestaurantDetails(userId, req.params.slug);
 		if(!restaurant) {
-			res.status(404).send('Khong tim thay');
+			res.status(404).redirect('/error');
+			return;
 		}
 		const infoUser = await getUserDetail(userId);
 		const videosUser = await getVideos(userId);

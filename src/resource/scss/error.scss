@@ -1,0 +1,100 @@
+/*title bar starts*/
+.title-bar {
+	background-color: rgb(243, 243, 243);
+}
+.title-bar .left-title-text,
+.title-bar .right-title-text {
+	display: flex;
+	justify-content: center;
+}
+.title-bar .left-title-text {
+	padding: 1rem 0.16rem 0.5rem 1rem;
+}
+.title-bar .right-title-text {
+	padding: .5rem 0.16rem 1rem 1rem;
+}
+.title-bar .right-title-text a {
+	color: black;
+}
+.title-bar .left-title-text h3 {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+}
+.title-bar .breadcrumb {
+	display: flex;
+	align-items: center;
+	height: 2rem;
+}
+.breadcrumb-item.active {
+	color: var(--clr-orange);
+}
+.title-bar .breadcrumb-item+.breadcrumb-item::before {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  color: #6c757d;
+  content: '/';
+}
+/*title bar ends*/
+.error-404 {
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	text-align: center;
+	h1 {
+		font-size: 1.75rem;
+		line-height: 1.5rem;
+		padding-top: 2.5rem;
+		padding-bottom: 1.5rem;
+		font-weight: 600;
+	}
+	p {
+	    font-size: 1rem;
+	    font-family: "Open Sans";
+	    font-weight: 400;
+	    color: var(--clr-text);
+	    line-height: 1.714;
+	    margin-bottom: 2rem;
+	}
+	.my-btn {
+		border-radius: 3px;
+    	padding: 1rem 1.25rem;
+	}
+}
+/*---------------------------------------------------------------------------------*/
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	
+}
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	/*title bar starts*/
+	.title-bar .left-title-text,
+	.title-bar .right-title-text {
+		padding: 1.5rem 0.16rem 1.5rem 0;
+	}
+	.title-bar .left-title-text {
+		justify-content: flex-start;
+	}
+	.title-bar .right-title-text {
+		justify-content: flex-end;
+	}
+	/*title bar ends*/
+	
+}
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+	
+}
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+	
+	/*form login ends*/
+	.container .row {
+		padding: 0 2rem;
+	}
+}

@@ -15,11 +15,11 @@ class MealController {
 		const slug = req.params.slug;
 		const meal = await getMealDetail(userId, slug);
 		if(!meal) {
-			res.status(404).send('Khong tim thay');
+			res.status(404).redirect('/error');
 		}
 		const checkUrl = req.originalUrl.indexOf(meal.slugRestaurant);
 		if(checkUrl == -1) {
-			res.status(404).send('Khong tim thay');
+			res.status(404).redirect('/error');
 		}
 		res.render('meal-detail', { layout: 'meal-detail', meal });
 	}
