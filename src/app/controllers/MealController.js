@@ -10,7 +10,7 @@ const { mutipleMongooseToOject, mongooseToOject } = require('../../util/mongoose
 
 class MealController {
 
-	// [GET] /user/restaurant/meal-detail
+	// [GET] /user/restaurant/:slug/meal/:slug
 	async meal_detail(req, res) {
 		const userId = req.cookies['userId'];
 		const slug = req.params.slug;
@@ -31,8 +31,14 @@ class MealController {
 		const restaurant = await restaurantUser;
 		res.render('meal-detail', { layout: 'meal-detail', meal, user, restaurant });
 	}
+	// [POST] /user/restaurant/:slug/meal/:slug/order-meal
 	async order_meal(req, res) {
-		const orderMeal = new OrderMeal(req.body);
+		const formData = req.body;
+		const mealUser = getMealDetailById(formData.mealId);
+		const meal = await mealUser;
+		formData.sellerId = meal.userId;
+		formData.completed = false;
+		const orderMeal = new OrderMeal(formData);
 		orderMeal.save();
 		res.redirect('/');
 	}
@@ -89,6 +95,15 @@ async function getRestaurantDetails(userId, slug) {
 async function getMealDetail(userId, slug) {
 	let meal;
 	await Meal.findOne({ userId: userId, slug: slug })
+		.then((data) => {
+			meal = mongooseToOject(data);
+		});
+	return meal;
+}
+// get meal by id
+async function getMealDetailById(id) {
+	let meal;
+	await Meal.findOne({ _id: id })
 		.then((data) => {
 			meal = mongooseToOject(data);
 		});

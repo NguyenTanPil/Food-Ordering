@@ -4,6 +4,7 @@ const UserDetail = require('../models/UserDetail.js');
 const Video = require('../models/Video.js');
 const Restaurant = require('../models/Restaurant.js');
 const Meal = require('../models/Meal.js');
+const OrderMeal = require('../models/OrderMeal.js');
 const { mutipleMongooseToOject, mongooseToOject } = require('../../util/mongoose.js');
 const cloudinary = require('../../middlewares/cloudinary_config.js');
 
@@ -58,12 +59,8 @@ class UserController {
 	async my_profile(req, res) {
 		const userId = req.cookies['userId'];
 		const info = getUserDetail(userId);
-		const videos = getVideos(userId);
-		const restaurants = getRestaurants(userId);
 		const infoUser = await info;
-		const videosUser = await videos;
-		const restaurantUser = await restaurants;
-		res.render('my_profile', { layout: 'my_profile', infoUser, videosUser, restaurantUser });
+		res.render('my_profile', { layout: 'my_profile', infoUser });
 	}
 	// [GET] /user/edit-profile
 	async edit_profile(req, res) {
@@ -225,6 +222,16 @@ async function getMealDetail(userId, slug) {
 	await Meal.findOne({ userId: userId, slug: slug })
 		.then((data) => {
 			meal = mongooseToOject(data);
+		});
+	return meal;
+}
+
+// get order meal
+async function getOrderMeals(userId) {
+	let meal;
+	await OrderMeal.find({ sellerId: userId })
+		.then((data) => {
+			meal = mutipleMongooseToOject(data);
 		});
 	return meal;
 }

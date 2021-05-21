@@ -657,7 +657,7 @@
 									<div class="icon">
 										<i class="fa fa-times" aria-hidden="true"></i>
 									</div>
-									<form action="/user/create-meal" method="POST" class="form-container" enctype="multipart/form-data">
+									<form action="/user/restaurant/create-meal" method="POST" class="form-container" enctype="multipart/form-data">
 										<div class="container">
 											<div class="row">
 												<div class="col col-12">
@@ -752,7 +752,7 @@
 							</div>
 							<div class="about-details">
 								<div class="restaurant-detail-bg">
-									<form action="/user/restaurant/update-restaurant/nha-hang-nam-nho?_method=PUT" method="post" class="form-container" enctype="multipart/form-data">
+									<form action="/user/restaurant/update-restaurant/{{restaurant.slug}}?_method=PUT" method="post" class="form-container" enctype="multipart/form-data">
 										<div class="information">
 											<h4>Basic Info</h4>
 											<div class="form-group">

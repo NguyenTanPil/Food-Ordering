@@ -5,12 +5,13 @@ const restaurantRouter = require('./restaurant.js');
 const mealRouter = require('./meal.js');
 const partnerRouter = require('./partner.js');
 const siteRouter = require('./site.js');
-
+const apiRouter = require('./api.js');
 
 function route(app) {
 
 	app.use('/user/restaurant/:slug/meal', mealRouter);
 	app.use('/user/restaurant', restaurantRouter);
+	app.use('/user/api', apiRouter);
 	app.use('/user', userRouter);
 	app.use('/recipe', recipeRouter);
 	app.use('/partner', partnerRouter);

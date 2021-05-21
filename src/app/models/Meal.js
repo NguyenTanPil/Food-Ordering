@@ -15,6 +15,7 @@ const Meal = new Schema({
 	public_id_photos: { type: [String] },
 	userId: { type: String },
 	slugRestaurant: { type: String },
+	complelted: { type: Boolean },
 	slug: { type: String, slug: "name", unique: true },
 });
 
