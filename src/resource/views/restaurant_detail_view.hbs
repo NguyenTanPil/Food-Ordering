@@ -209,8 +209,8 @@
 												<ul class="view-detail">
 													<li>Name</li>
 													<li>Owner</li>
-													<li>Phone <span>Number</span></li>
-													<li>Restaurant <span>Number</span></li>
+													<li>Phone</li>
+													<li>Restaurant</li>
 													<li>Email</li>
 													<li>Cuisines</li>
 												</ul>
@@ -223,21 +223,21 @@
 													<li>:</li>
 												</ul>
 												<ul class="view-detail view-detail-info">
-													<li>Restaurant <span>Name</span></li>
-													<li>John Doe</li>
-													<li>+2 123 456 7890</li>
-													<li>+2 987 654 3210</li>
-													<li>Restaurantname@gmail.com</li>
-													<li>Dhabas</li>
+													<li>{{restaurant.name}}</li>
+													<li>{{user.name}}</li>
+													<li>{{restaurant.phoneNumber}}</li>
+													<li>{{restaurant.phoneRestaurant}}</li>
+													<li>{{restaurant.email}}</li>
+													<li>{{restaurant.cuisine}}</li>
 												</ul>
 											</div>
 										</div>
 										<div class="col col-12 col-md-6">
 											<div class="overview-right">
 												<ul class="view-detail">
-													<li>Opening <span>Hours</span></li>
+													<li>Opening</li>
 													<li>Status</li>
-													<li>Country</li>
+													<li>City</li>
 													<li>Address</li>
 													<li>Featured</li>
 													<li>Discount</li>
@@ -251,14 +251,14 @@
 													<li>:</li>
 												</ul>
 												<ul class="view-detail view-detail-info">
-													<li>9Am to 12PM (Mon-Sun)</li>
-													<li>Online</li>
-													<li>+Australia</li>
+													<li>{{restaurant.openHour}} to {{restaurant.closeHour}} (Mon-Sun)</li>
+													<li>{{restaurant.open}}</li>
+													<li>{{restaurant.city}}</li>
 													<li>
 														<a href="#">Get Direction</a>
 													</li>
 													<li>Treading</li>
-													<li>10% off on al orders</li>
+													<li>{{meal.offerMeal}}</li>
 												</ul>
 											</div>
 										</div>

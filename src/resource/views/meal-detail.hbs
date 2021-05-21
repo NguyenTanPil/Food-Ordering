@@ -29,7 +29,7 @@
 <section class="restaurant-detail-view">
 	<div class="container">
 		<div class="row">
-			<div class="col col-12 col-lg-9">
+			<div class="col col-12 col-lg-8">
 				<div class="slider">
 					<div class="main-img">
 						{{#each meal.photos}}
@@ -52,14 +52,14 @@
 					<div class="user-details">
 						<div class="user-img">
 							<a href="/user-profile-view">
-								<img src="/images/own-restaurant.png" alt="own">
+								<img src="{{user.avartar}}" alt="own">
 							</a>
 						</div>
 						<div class="name-location">
 							<a href="/user-profile-view">
-								<h4>John Doe</h4>
+								<h4>{{user.name}}</h4>
 							</a>
-							<p>Owner</p>
+							<p>{{restaurant.position}}</p>
 						</div>
 					</div>
 					<div class="right-side-btns">
@@ -82,16 +82,16 @@
 					<div class="restaurant-details">
 						<div class="restaurant-img">
 							<a href="/user-profile-view">
-								<img src="/images/restaurant-name.jpg" alt="own">
+								<img src="{{restaurant.logo}}" alt="own">
 							</a>
 						</div>
 						<div class="name-location">
-							<a href="/user-profile-view">
-								<h4>Restaurant Name</h4>
+							<a href="/user/restaurant/{{meal.slugRestaurant}}">
+								<h4>{{restaurant.name}}</h4>
 							</a>
 							<p>
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
-								<span>Sidney, Australia</span>
+								<span>{{restaurant.city}}</span>
 							</p>
 						</div>
 					</div>
@@ -155,385 +155,53 @@
 						</div>
 					</div>
 				</div>
-				<div class="all-tab">
-					<div class="nav-tab">
-						<div class="nav-item active" data-id="overview">
-							<a href="#">Overview</a>
-						</div>
-						<div class="nav-item" data-id="menu">
-							<a href="#">Menu</a>
-						</div>
-						<div class="nav-item" data-id="order-online">
-							<a href="#">Order Online</a>
-						</div>
-						<div class="nav-item" data-id="reviews">
-							<a href="#">Reviews</a>
-						</div>
-						<div class="nav-item" data-id="book-a-table">
-							<a href="#">Book a table</a>
-						</div>
-						<div class="nav-item" data-id="photos">
-							<a href="#">Photos</a>
-						</div>
-					</div>
-				</div>
-				<div class="tab-content">
-					<div class="tab-pane active" id="overview">
-						<div class="restaurant-detail-bg">
-							<h4>About Restaurant</h4>
-							<div class="overview-details">
-								<div class="container">
-									<div class="row">
-										<div class="col col-12 col-md-6">
-											<div class="overview-left">
-												<ul class="view-detail">
-													<li>Name</li>
-													<li>Owner</li>
-													<li>Phone <span>Number</span></li>
-													<li>Restaurant <span>Number</span></li>
-													<li>Email</li>
-													<li>Cuisines</li>
-												</ul>
-												<ul class="view-detail">
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-												</ul>
-												<ul class="view-detail view-detail-info">
-													<li>Restaurant <span>Name</span></li>
-													<li>John Doe</li>
-													<li>+2 123 456 7890</li>
-													<li>+2 987 654 3210</li>
-													<li>Restaurantname@gmail.com</li>
-													<li>Dhabas</li>
-												</ul>
-											</div>
-										</div>
-										<div class="col col-12 col-md-6">
-											<div class="overview-right">
-												<ul class="view-detail">
-													<li>Opening <span>Hours</span></li>
-													<li>Status</li>
-													<li>Country</li>
-													<li>Address</li>
-													<li>Featured</li>
-													<li>Discount</li>
-												</ul>
-												<ul class="view-detail">
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-													<li>:</li>
-												</ul>
-												<ul class="view-detail view-detail-info">
-													<li>9Am to 12PM (Mon-Sun)</li>
-													<li>Online</li>
-													<li>+Australia</li>
-													<li>
-														<a href="#">Get Direction</a>
-													</li>
-													<li>Treading</li>
-													<li>10% off on al orders</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="restaurant-detail-bg">
-							<h4>Description</h4>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula ut nisl id aliquam. Phasellus vestibulum ante eget aliquet sodales. Aliquam erat enim, venenatis eget fringilla ac, euismod ac sapien. Sed tincidunt diam eget orci finibus blandit. Sed eget interdum quam. Proin arcu dolor, eleifend ut commodo sed, accumsan et ipsum. Mauris laoreet bibendum dolor, at vestibulum neque facilisis sed. Donec a eros quam. Cras lobortis, nunc a dignissim maximus, leo nunc imperdiet tellus, sed viverra felis elit ac arcu. Sed et sapien venenatis leo ullamcorper finibus eu id lectus. Aliquam tristique pulvinar vehicula.
-							</p>
-						</div>
-						<div class="ads-offer">
-							<div class="offer-banner">
-								<h2>10% off</h2>
-								<p>on all orders get the code : 156CD85</p>
-							</div>
-							<div class="offer-order">
-								<a href="#" class="my-btn">Order Now</a>
-							</div>
-						</div>
-					</div>
-					<!-- menu -->
-					<div class="tab-pane" id="menu">
-						<div class="restaurant-detail-bg">
-							<h4>Restaurant Menu Card</h4>
-							<p>2 images</p>
-							<div class="restaurant-menu-card">
-								<div class="all-tab-small">
-									<div class="nav-tab">
-										<div class="nav-item-small" data-id="top-img">
-											<img src="/images/menu-top.jpg" alt="menu img">
-										</div>
-										<div class="nav-item-small" data-id="bottom-img">
-											<img src="/images/menu-bottom.jpg" alt="menu img">
-										</div>
-									</div>
-								</div>
-								<div class="tab-content-small">
-									<div class="tab-pane-small active" id="top-img">
-										<img src="/images/menu-top-show.jpg" alt="main img menu">
-									</div>
-									<div class="tab-pane-small" id="bottom-img">
-										<img src="/images/menu-bottom-show.jpg" alt="main img menu">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane" id="order-online">
-						<div class="restaurant-detail-bg">
-							<h4>Restaurant Order Online Meals</h4>
-							<div class="order-tabs">
-								<div class="nav-tab-order">
-									<div class="meal-icon-tab active" data-id="breakfast">
-										<img src="/images/meal-1.svg" alt="nav tab order">
-										<p>Breakfast</p>
-									</div>
-									<div class="meal-icon-tab" data-id="lunch">
-										<img src="/images/meal-2.svg" alt="nav tab order">
-										<p>Lunch</p>
-									</div>
-									<div class="meal-icon-tab" data-id="dinner">
-										<img src="/images/meal-3.svg" alt="nav tab order">
-										<p>Dinner</p>
-									</div>
-									<div class="meal-icon-tab" data-id="cafe">
-										<img src="/images/meal-4.svg" alt="nav tab order">
-										<p>Cafe's</p>
-									</div>
-									<div class="meal-icon-tab" data-id="delivery">
-										<img src="/images/meal-5.svg" alt="nav tab order">
-										<p>Delivery</p>
-									</div>
-								</div>
-							</div>
-							<div class="tab-content-order">
-								<div class="tab-pane-order active" id="breakfast">
-									<h6>Breakfast Meals</h6>
-									<div class="all-meals">
-										<div class="container">
-											<div class="row">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane-order" id="lunch">
-									<h6>Lunch Meals</h6>
-									<div class="all-meals">
-										<div class="container">
-											<div class="row">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane-order" id="dinner">
-									<h6>Dinner Meals</h6>
-									<div class="all-meals">
-										<div class="container">
-											<div class="row">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane-order" id="cafe">
-									<h6>Cafe's</h6>
-									<div class="all-meals">
-										<div class="container">
-											<div class="row">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane-order" id="delivery">
-									<h6>Delivery Meals</h6>
-									<div class="all-meals">
-										<div class="container">
-											<div class="row">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane" id="reviews">
-						<div class="comment-post">
-							<div class="post-items">
-								<div class="img-user">
-									<i class="fa fa-user" aria-hidden="true"></i>
-								</div>
-								<div class="select-rating">
-									<h4>Your Rating: </h4>
-									<div class="rating">
-										<i class="fa fa-star" aria-hidden="true" data-id="1"></i>
-										<i class="fa fa-star" aria-hidden="true" data-id="2"></i>
-										<i class="fa fa-star" aria-hidden="true" data-id="3"></i>
-										<i class="fa fa-star" aria-hidden="true" data-id="4"></i>
-										<i class="fa fa-star" aria-hidden="true" data-id="5"></i>
-									</div>
-								</div>
-								<form action="#" method="post">
-									<input type="text" class="post-input" name="postComment" placeholder="Please describe the reason for your rating to help the author">
-									<input type="submit" value="Save Review" class="my-btn">
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane" id="book-a-table">
-						<div class="restaurant-detail-bg">
-							<h4>Book a table</h4>
-							<form action="#" class="book-form">
-								<div class="form-group">
-									<label for="select-date">Date</label>
-									<input type="date" name="date" id="select-date" placeholder="Enter your date">
-								</div>
-								<div class="form-group">
-									<label for="select-name">Name</label>
-									<input type="text" name="name" id="select-name" placeholder="Enter your name">
-								</div>
-								<div class="form-group">
-									<label>Time</label>
-									<button id="select-time">Select time</button>
-									<i class="fa fa-caret-down" aria-hidden="true"></i>
-									<ul class="dropdown-menu">
-										<li class="active">
-											<span class="text">Select time</span>
-										</li>
-										<li>
-											<span class="text">9AM - 10AM</span>
-										</li>
-										<li>
-											<span class="text">10AM - 11PM</span>
-										</li>
-										<li>
-											<span class="text">11PM - 12PM</span>
-										</li>
-										<li>
-											<span class="text">12AM - 13PM</span>
-										</li>
-									</ul>
-								</div>
-								<div class="form-group">
-									<label for="select-email">Email</label>
-									<input type="email" name="email" id="select-email" placeholder="Enter your email">
-								</div>
-								<div class="form-group">
-									<label>Member</label>
-									<button id="select-member">Select member</button>
-									<i class="fa fa-caret-down" aria-hidden="true"></i>
-									<ul class="dropdown-menu">
-										<li class="active">
-											<span class="text">Select member</span>
-										</li>
-										<li>
-											<span class="text">1</span>
-										</li>
-										<li>
-											<span class="text">2</span>
-										</li>
-										<li>
-											<span class="text">3</span>
-										</li>
-										<li>
-											<span class="text">4</span>
-										</li>
-									</ul>
-								</div>
-								<div class="form-group">
-									<label for="select-phone">Phone</label>
-									<input type="tel" name="phone" id="select-phone" placeholder="Enter your phone">
-								</div>
-								<div class="form-group form-group-message">
-									<label for="message">Messages</label>
-									<textarea placeholder="Messages" id="message"></textarea>
-								</div>
-								<div class="form-group">
-									<input type="submit" value="Request Booking">
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="tab-pane" id="photos">
-						<div class="restaurant-detail-bg">
-							<h4>Photos</h4>
-							<p>10 photos</p>
-							<div class="gallery">
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-1.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-2.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-3.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-4.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-5.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-6.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-7.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-8.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
-			<div class="col col-12 col-lg-3">
-				<div class="result-popular">
-					<div class="show-map-result">
-						<a href="#">Get Direction</a>
+			<div class="col col-12 col-lg-4">
+				<form class="meal-detail form-container" action="/user/restaurant/{{meal.slugRestaurant}}/meal/{{meal.slug}}/order-meal" method="POST">
+					<input type="hidden" name="userName" value="{{user.name}}">
+					<input type="hidden" name="userId" value="{{user.userId}}">
+					<input type="hidden" name="location" value="{{user.location}}">
+					<input type="hidden" name="name" value="{{meal.name}}">
+					<input type="hidden" name="mealId" value="{{meal._id}}">
+					<input type="hidden" name="price" value="{{meal.price}}">
+					<input type="hidden" name="quantity" class="quantityInput" value="1">
+					<input type="hidden" name="payment" class="payment" value="{{meal.price}}">
+					<div class="name-meal">
+						<h1>{{meal.name}}</h1>
 					</div>
-					<div class="popular-restaurants">
-						<h4>Popular Restaurents </h4>
-					<ul class="list-pop-res"></ul>
-				</div>
-				<div class="google-ads">
-					<a href="#">
-						<img src="/images/google-ad.jpg" alt="google ads">
-					</a>
-				</div>
+					<div class="description">
+						<h4>Description</h4>
+						<p>{{meal.description}}</p>
+					</div>
+					<div class="price">
+						<p>$<span class="price-meal">{{meal.price}}</span>.00</p>
+					</div>
+					<div class="delivery">
+						<div class="transportation">
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+							Delivery Free : Free
+						</div>
+						<div class="time">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							Delivery Time : 30 Min
+						</div>
+					</div>
+					<div class="quantity">
+						<h4>Quantity</h4>
+						<div class="form-group">
+							<button type="button" class="down-qty"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
+							<input class="field-input" type="number" value="1" min="1" name="quantity" disabled>
+							<button type="button" class="up-qty"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+						</div>
+					</div>
+					<div class="total">
+						<div class="total-text">Total</div>
+						<div class="total-price">$<span>{{meal.price}}</span>.00</div>
+					</div>
+					<div class="form-group order-now-btn">
+						<input type="submit" value="Order Now">
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

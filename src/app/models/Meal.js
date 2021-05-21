@@ -8,6 +8,7 @@ mongoose.plugin(slug);
 const Meal = new Schema({
 	name: { type: String },
 	price: { type: Number },
+	description: { type: String },
 	selectMeal: { type: String },
 	offerMeal: { type: String },
 	photos: { type: [String] },

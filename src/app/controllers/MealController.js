@@ -1,9 +1,10 @@
 
 // const User = require('../models/User.js');
-// const UserDetail = require('../models/UserDetail.js');
+const UserDetail = require('../models/UserDetail.js');
 // const Video = require('../models/Video.js');
-// const Restaurant = require('../models/Restaurant.js');
+const Restaurant = require('../models/Restaurant.js');
 const Meal = require('../models/Meal.js');
+const OrderMeal = require('../models/OrderMeal.js');
 const { mutipleMongooseToOject, mongooseToOject } = require('../../util/mongoose.js');
 // const cloudinary = require('../../middlewares/cloudinary_config.js');
 
@@ -13,15 +14,27 @@ class MealController {
 	async meal_detail(req, res) {
 		const userId = req.cookies['userId'];
 		const slug = req.params.slug;
-		const meal = await getMealDetail(userId, slug);
+		const mealUser = getMealDetail(userId, slug);
+		const meal = await mealUser;
 		if(!meal) {
 			res.status(404).redirect('/error');
+			return;
 		}
 		const checkUrl = req.originalUrl.indexOf(meal.slugRestaurant);
 		if(checkUrl == -1) {
 			res.status(404).redirect('/error');
+			return;
 		}
-		res.render('meal-detail', { layout: 'meal-detail', meal });
+		const restaurantUser = getRestaurantDetails(userId, meal.slugRestaurant);
+		const userDetail = getUserDetail(userId);
+		const user = await userDetail;
+		const restaurant = await restaurantUser;
+		res.render('meal-detail', { layout: 'meal-detail', meal, user, restaurant });
+	}
+	async order_meal(req, res) {
+		const orderMeal = new OrderMeal(req.body);
+		orderMeal.save();
+		res.redirect('/');
 	}
 }
 
@@ -36,14 +49,14 @@ class MealController {
 // }
 
 // // get user detail
-// async function getUserDetail(userId) {
-// 	let userDetail;
-// 	await UserDetail.findOne({ userId: userId })
-// 		.then((data) => {
-// 			userDetail = mongooseToOject(data);
-// 		});
-// 	return userDetail;
-// }
+async function getUserDetail(userId) {
+	let userDetail;
+	await UserDetail.findOne({ userId: userId })
+		.then((data) => {
+			userDetail = mongooseToOject(data);
+		});
+	return userDetail;
+}
 // // get videos
 // async function getVideos(userId) {
 // 	let videos;
@@ -54,14 +67,14 @@ class MealController {
 // 	return videos;
 // }
 // // get retaurant detail
-// async function getRestaurantDetails(userId) {
-// 	let restaurant;
-// 	await Restaurant.findOne({ userId: userId })
-// 		.then((data) => {
-// 			restaurant = mongooseToOject(data);
-// 		});
-// 	return restaurant;
-// }
+async function getRestaurantDetails(userId, slug) {
+	let restaurant;
+	await Restaurant.findOne({ userId: userId, slug: slug })
+		.then((data) => {
+			restaurant = mongooseToOject(data);
+		})
+	return restaurant;
+}
 // // get meal
 // async function getMeals(userId) {
 // 	let meal;
