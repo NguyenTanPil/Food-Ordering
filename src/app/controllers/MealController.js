@@ -25,11 +25,7 @@ class MealController {
 			res.status(404).redirect('/error');
 			return;
 		}
-		const restaurantUser = getRestaurantDetails(userId, meal.slugRestaurant);
-		const userDetail = getUserDetail(userId);
-		const user = await userDetail;
-		const restaurant = await restaurantUser;
-		res.render('meal-detail', { layout: 'meal-detail', meal, user, restaurant });
+		res.render('meal-detail', { layout: 'meal-detail' });
 	}
 	// [POST] /user/restaurant/:slug/meal/:slug/order-meal
 	async order_meal(req, res) {
@@ -42,7 +38,7 @@ class MealController {
 		formData.userDeleted = false;
 		const orderMeal = new OrderMeal(formData);
 		orderMeal.save();
-		res.redirect('/');
+		res.redirect('/user');
 	}
 }
 

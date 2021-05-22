@@ -32,34 +32,22 @@
 			<div class="col col-12 col-lg-8">
 				<div class="slider">
 					<div class="main-img">
-						{{#each meal.photos}}
-							{{#if (checkFirst @index)}}
-								<img class="active main-img-{{sum @index 1}}" src="{{this}}" alt="slider">
-								{{else}}
-								<img class="main-img-{{sum @index 1}}" src="{{this}}" alt="slider">
-							{{/if}}
-						{{/each}}
 					</div>
 					<div class="nav-img">
-						{{#each meal.photos}}
-							<div class="nav-img-item">
-								<img src="{{this}}" alt="img item" data-id="{{sum @index 1}}">
-							</div>
-						{{/each}}
 					</div>
 				</div>
 				<div class="profile-own">
 					<div class="user-details">
 						<div class="user-img">
-							<a href="/user-profile-view">
-								<img src="{{user.avartar}}" alt="own">
+							<a>
+								<img alt="own">
 							</a>
 						</div>
 						<div class="name-location">
-							<a href="/user-profile-view">
-								<h4>{{user.name}}</h4>
+							<a>
+								<h4></h4>
 							</a>
-							<p>{{restaurant.position}}</p>
+							<p></p>
 						</div>
 					</div>
 					<div class="right-side-btns">
@@ -82,16 +70,16 @@
 					<div class="restaurant-details">
 						<div class="restaurant-img">
 							<a href="/user-profile-view">
-								<img src="{{restaurant.logo}}" alt="own">
+								<img alt="own">
 							</a>
 						</div>
 						<div class="name-location">
-							<a href="/user/restaurant/{{meal.slugRestaurant}}">
-								<h4>{{restaurant.name}}</h4>
+							<a>
+								<h4></h4>
 							</a>
 							<p>
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
-								<span>{{restaurant.city}}</span>
+								<span></span>
 							</p>
 						</div>
 					</div>
@@ -157,26 +145,26 @@
 				</div>
 			</div>
 			<div class="col col-12 col-lg-4">
-				<form class="meal-detail form-container" action="/user/restaurant/{{meal.slugRestaurant}}/meal/{{meal.slug}}/order-meal" method="POST">
-					<input type="hidden" name="userName" value="{{user.name}}">
-					<input type="hidden" name="userId" value="{{user.userId}}">
-					<input type="hidden" name="location" value="{{user.location}}">
-					<input type="hidden" name="name" value="{{meal.name}}">
-					<input type="hidden" name="mealId" value="{{meal._id}}">
-					<input type="hidden" name="sellerRest" value="{{restaurant.name}}">
-					<input type="hidden" name="mealImg" value="{{meal.photos.[0]}}">
-					<input type="hidden" name="price" value="{{meal.price}}">
+				<form class="meal-detail form-container" method="POST">
+					<input type="hidden" name="userName">
+					<input type="hidden" name="userId">
+					<input type="hidden" name="location">
+					<input type="hidden" name="name">
+					<input type="hidden" name="mealId">
+					<input type="hidden" name="sellerRest">
+					<input type="hidden" name="mealImg">
+					<input type="hidden" name="price">
 					<input type="hidden" name="quantity" class="quantityInput" value="1">
-					<input type="hidden" name="payment" class="payment" value="{{meal.price}}">
+					<input type="hidden" name="payment" class="payment">
 					<div class="name-meal">
-						<h1>{{meal.name}}</h1>
+						<h1></h1>
 					</div>
 					<div class="description">
 						<h4>Description</h4>
-						<p>{{meal.description}}</p>
+						<p></p>
 					</div>
 					<div class="price">
-						<p>$<span class="price-meal">{{meal.price}}</span>.00</p>
+						<p>$<span class="price-meal"></span>.00</p>
 					</div>
 					<div class="delivery">
 						<div class="transportation">
@@ -198,7 +186,7 @@
 					</div>
 					<div class="total">
 						<div class="total-text">Total</div>
-						<div class="total-price">$<span>{{meal.price}}</span>.00</div>
+						<div class="total-price">$<span></span>.00</div>
 					</div>
 					<div class="form-group order-now-btn">
 						<input type="submit" value="Order Now">

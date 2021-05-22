@@ -6,6 +6,10 @@ const meals = require('../api/controller/MealsController.js');
 const restaurants = require('../api/controller/RestaurantsController.js');
 const restaurant = require('../api/controller/RestaurantController.js');
 const videos = require('../api/controller/VideosController.js');
+const user = require('../api/controller/UserController.js');
+
+// user
+router.get('/user-detail', user.fetchUser);
 
 // order meals of user
 router.delete('/order-meals/:slug', orderMeals.deleteOrderMeals);
@@ -14,6 +18,7 @@ router.get('/order-meals', orderMeals.fetchOrderMeals);
 
 // meals of user
 router.get('/meals', meals.fetchMeals);
+router.get('/meals/:slug', meals.fetchMealDetail);
 
 // restaurant of user
 router.get('/restaurants', restaurants.fetchRestaurants);

@@ -342,19 +342,22 @@
   margin-top: 1rem; }
 
 /*about*/
-.all-profile-details #about .about-heading {
+.all-profile-details #about .about-heading,
+.all-profile-details #restaurants .photos-heading {
   display: flex;
   align-items: center;
   justify-content: space-between; }
 
-.all-profile-details .about-heading a {
+.all-profile-details .about-heading a,
+.all-profile-details #restaurants .photos-heading a {
   font-size: 1rem;
   font-weight: 400;
   color: var(--clr-orange);
   line-height: 1.5rem; }
 
-.all-profile-details .about-heading a i {
-  margin-left: 0.25rem; }
+.all-profile-details .about-heading a i,
+.all-profile-details #restaurants .photos-heading i {
+  margin-right: 0.25rem; }
 
 .all-profile-details .about-details {
   border: 1px solid var(--clr-border);

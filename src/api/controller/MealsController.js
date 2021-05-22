@@ -1,6 +1,6 @@
 // nhung meals hang cua user
 const Meals = require('../../app/models/Meal.js');
-const { mutipleMongooseToOject } = require('../../util/mongoose.js');
+const { mongooseToOject, mutipleMongooseToOject } = require('../../util/mongoose.js');
 
 class MealController {
 	// [GET] /user/api/meals
@@ -9,6 +9,14 @@ class MealController {
 		const meals = getMeals(userId);
 		const mealsUser = await meals;
 		res.json(mealsUser);
+	}
+	// [GET] /user/api/meals/:slug
+	async fetchMealDetail(req, res) {
+		const userId = req.cookies.userId;
+		const slug = req.params.slug;
+		const mealDetail = getMealDetail(userId, slug);
+		const mealDetailUser = await mealDetail;
+		res.json(mealDetailUser);
 	}
 }
 
@@ -20,6 +28,15 @@ async function getMeals(userId) {
 			meal = mutipleMongooseToOject(data);
 		});
 	return meal;
+}
+
+async function getMealDetail(userId, slug) {
+	let mealDetail;
+	await Meals.findOne({ userId: userId, slug: slug })
+		.then((data) => {
+			mealDetail = mongooseToOject(data);
+		});
+	return mealDetail;
 }
 
 module.exports = new MealController;
