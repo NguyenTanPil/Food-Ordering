@@ -25,16 +25,13 @@ class RestaurantController {
 	// [GET] /user/restaurant/:slug
 	async restaurant_detail(req, res) {
 		const userId = req.cookies['userId'];
-		// res.json(req.params);
 		const restaurant = await getRestaurantDetails(userId, req.params.slug);
 		if(!restaurant) {
 			res.status(404).redirect('/error');
 			return;
 		}
 		const infoUser = await getUserDetail(userId);
-		const videosUser = await getVideos(userId);
-		const meals = await getMeals(userId, req.params.slug);
-		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, videosUser, restaurant, meals });
+		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, restaurant });
 	}
 	// [PUT] /user/restaurant/update-restaurant
 	async update_restaurant(req, res, next) {

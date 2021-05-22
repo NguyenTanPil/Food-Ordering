@@ -18,7 +18,7 @@ class OrderMealController {
 	}
 	// [DELETE] /user/api/order-meals/:slug
 	async deleteOrderMeals(req, res) {
-		OrderMeals.deleteOne({ _id: req.params.slug })
+		OrderMeals.updateOne({ _id: req.params.slug })
 			.then(() => console.log('Xoa thanh cong'))
 			.catch(() => console.log('Khong thanh cong roi'));
 	}

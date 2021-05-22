@@ -17,6 +17,8 @@ const OrderMeal = new Schema({
 	payment: { type: Number},
 	payment: { type: Number},
 	completed: { type: String},
+	deleted: { type: String},
+	userDeleted: { type: String},
 });
 
 module.exports = mongoose.model('OrderMeal', OrderMeal);

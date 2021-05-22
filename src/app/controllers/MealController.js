@@ -38,6 +38,8 @@ class MealController {
 		const meal = await mealUser;
 		formData.sellerId = meal.userId;
 		formData.completed = false;
+		formData.deleted = false;
+		formData.userDeleted = false;
 		const orderMeal = new OrderMeal(formData);
 		orderMeal.save();
 		res.redirect('/');

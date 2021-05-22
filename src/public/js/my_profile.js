@@ -44,31 +44,18 @@ function removeActiveTabPane(tabPane) {
 // fetch api
 function deleteOrder(id) {
 	const options = {
-		method: 'DELETE',
-		headers: {
-	    'Content-Type': 'application/json',
-	  },
-	};
-	fetch(`${mealsUrl}/${id}`, options)
-		.then(response =>  response.json())
-		.catch(err => console.log(err));
-		getOrderMeals(mealsUrl, renderOrderMeals);
-}
-
-function updateOrder(id) {
-	const options = {
 		method: 'PATCH',
 		headers: {
 	    'Content-Type': 'application/json',
 	  },
 	  body: JSON.stringify({
-	  	completed: true
+	  	userDeleted: true
 	  }),
 	};
 	fetch(`${mealsUrl}/${id}`, options)
 		.then(response =>  response.json())
 		.catch(err => console.log(err));
-		getOrderMeals(mealsUrl, renderOrderMeals);
+	getOrderMeals(mealsUrl, renderOrderMeals);
 }
 
 function start() {
@@ -88,8 +75,9 @@ function renderOrderMeals(orderMeals) {
 	let order = [], history = [];
 	orderMeals.forEach(meal => {
 		if(meal.completed == 'false') {
-			order.push(componentMeal(meal, 'trace'));
-		} else {
+			order.push(componentMeal(meal, 'tracing'));
+		} 
+		if(meal.completed == 'true' && meal.userDeleted == 'false') {
 			history.push(componentMeal(meal, 'finished'));
 		}
 	});
@@ -100,8 +88,13 @@ function renderOrderMeals(orderMeals) {
 function componentMeal(meal, btn) {
 	let clickEvent = '';
 	let deleteOrder = '';
-	if(btn == 'trace') {
-		clickEvent = `onclick="updateOrder('${meal._id}')"`;
+	let actionBtn = '';
+	if(btn == 'finished') {
+		actionBtn = `
+			<button type="button" class="my-btn" onclick="deleteOrder('${meal._id}')">
+				<i class="fa fa-trash" aria-hidden="true"></i>
+			</button>
+		`;
 	}
 	return `
 		<div class="table-row">
@@ -120,11 +113,9 @@ function componentMeal(meal, btn) {
 			</div>
 			<div class="td-content td-4">
 				<div class="action-btns">
-					<button type="button" class="my-btn ${btn}" ${clickEvent}>${btn}
+					<button type="button" class="my-btn ${btn}">${btn}
 					</button>
-					<button type="button" class="my-btn" onclick="deleteOrder('${meal._id}')">
-						<i class="fa fa-trash" aria-hidden="true"></i>
-					</button>
+					${actionBtn}
 				</div>
 			</div>
 		</div>

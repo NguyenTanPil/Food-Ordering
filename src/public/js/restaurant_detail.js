@@ -18,6 +18,8 @@ const checkbox = document.querySelectorAll('.information .radio-item');
 let addPhotosMeal = document.querySelector('.add-photos-meal');
 const selectPhotos = document.querySelector('.select-photos');
 const clearAllPhotos = document.querySelector('.clear-all-photos');
+const mealsResContainer = document.querySelector('#request-orders .table-body');
+const mealsHisContainer = document.querySelector('#orders-history .table-body');
 
 showTabContent(navItem, tabPane);
 clickShow.onclick = () => {
@@ -37,12 +39,6 @@ slAll.onclick = () => {
 	selectAllDay(slAll.checked);
 }
 
-saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
-saveCuisine(selectCuisine.innerText);
-saveTag(selectTag.innerText);
-saveSelectMeal(selectMeal.innerText);
-saveSelectOffer(selectOffer.innerText);
-
 // add photos meal
 addPhotosOnchange(addPhotosMeal);
 
@@ -58,7 +54,14 @@ clearAllPhotos.onclick = () => {
 	addPhotosMeal = addPhotos;
 	addPhotosOnchange(addPhotosMeal);
 }
-
+// fetch api
+const currentLink = window.location.href;
+const currRest = currentLink.slice(currentLink.lastIndexOf('/') + 1);
+const mealsUrl = '/user/api/meals';
+const orderMealsUrl = '/user/api/order-meals';
+const restaurantsUrl = `/user/api/restaurant-detail/${currRest}`;
+const videosUrl = '/user/api/videos';
+start();
 // function
 function showTabContent(navItem, tabPane) {
 	navItem.forEach(nav => {
@@ -175,9 +178,6 @@ function removeActiveRadio(radios) {
 checkbox.forEach((item) => {
 	const input = item.querySelector('input');
 	const state = item.querySelector('.state');
-	if(input.checked == true) {
-		state.classList.add('active');
-	}
 	input.addEventListener('click', (e) => {
 		if(input.type == 'radio') {
 			const radios = item.parentElement.querySelectorAll('.radio-item');
@@ -287,8 +287,6 @@ function addPhotosOnchange(addPhotos) {
 	}
 }
 
-// Add data temp => Chinh sua bang du lieu trong mongoose sau
-
 // count star
 function countStar(parent, numberStar) {
 	const stars = parent.querySelectorAll('.rating i');
@@ -306,3 +304,352 @@ function countStar(parent, numberStar) {
 	});
 }
 
+// fetch api
+
+function start() {
+	getOrderMeals(mealsUrl, renderOrderMeals);
+	getRestaurantPhotos(restaurantsUrl, renderRestaurantPhotos);
+	getRestaurantDetail(restaurantsUrl, renderRestaurantDetail);
+	getMealsRequest(orderMealsUrl, renderMealsRequest);
+	getOrdersHistory(orderMealsUrl, renderOrdersHistory);
+}
+// meals
+function getOrderMeals(url, callback) {
+	fetch(url)
+		.then(data => data.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderOrderMeals(orderMeals) {
+	const breakfast = document.querySelector('#breakfast .row');
+	const lunch = document.querySelector('#lunch .row');
+	const dinner = document.querySelector('#dinner .row');
+	const cafe = document.querySelector('#cafe .row');
+	const delivery = document.querySelector('#delivery .row');
+
+	let getBreakfast = [];
+	let getLunch = [];
+	let getDinner = [];
+	let getCafe = [];
+	let getDelivery = [];
+	orderMeals.forEach(meal => {
+		if(meal.selectMeal.toLowerCase() == 'breakfast') {
+			getBreakfast.push(componentMeal(meal));
+		} else if(meal.selectMeal.toLowerCase() == 'lunch') {
+			getLunch.push(componentMeal(meal));
+		} else if(meal.selectMeal.toLowerCase() == 'dinner') {
+			getDinner.push(componentMeal(meal));
+		} else if(meal.selectMeal.toLowerCase() == 'cafe') {
+			getCafe.push(componentMeal(meal));
+		} else {
+			getDelivery.push(componentMeal(meal));
+		}
+	});
+	
+	breakfast.innerHTML = getBreakfast.join('');
+	lunch.innerHTML = getLunch.join('');
+	dinner.innerHTML = getDinner.join('');
+	cafe.innerHTML = getCafe.join('');
+	delivery.innerHTML = getDelivery.join('');
+}
+
+function componentMeal(meal) {
+	return `
+		<div class="col col-12 col-md-6">
+			<div class="meals">
+				<img src="${meal.photos[0]}" alt="meal order">
+				<div class="capiton-meals">
+					<a href="/user/restaurant/${meal.slugRestaurant}/meal/${meal.slug}">
+						<h3>${meal.name}</h3>
+					</a>
+					<div class="rating">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<span>4.5</span>
+					</div>
+					<p class="price">$${meal.price}.00</p>
+				</div>
+			</div>
+		</div>
+	`;
+}
+
+// photos restaurant
+function getRestaurantPhotos(url, callback) {
+	fetch(url)
+		.then(data => data.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderRestaurantPhotos(restaurant) {
+	const photos = restaurant.photos;
+	const allPhotos = document.querySelector('#photos .gallery');
+	const allPhotosRight = document.querySelector('.pf-gallery');
+	const photosUser = photos.map(photo => {
+		return componentRestaurantPhotos(photo);
+	});
+	const photosRight = photos.map(photo => {
+		return componentPhotosRight(photo);
+	});
+	
+	allPhotos.innerHTML = photosUser.join('');
+	allPhotosRight.innerHTML = photosRight.join('');
+}
+
+function componentRestaurantPhotos(photo) {
+	return `
+		<div class="gallery-item">
+			<img src="${photo}" alt="img item">
+			<a href="#">
+				<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+			</a>
+		</div>
+	`;
+}
+
+// restaurant change
+function getRestaurantDetail(url, callback) {
+	fetch(url)
+		.then(response =>  response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderRestaurantDetail(restaurant) {
+	// select element
+	const name = document.querySelector('#name-restaurant');
+	const city = document.querySelector('#search-city');
+	const email = document.querySelector('#email');
+	const phoneNumber = document.querySelector('#phoneNumber');
+	const phoneRestaurant = document.querySelector('#phoneRestaurant');
+	const websiteRestaurant = document.querySelector('#websiteRestaurant');
+	const address = document.querySelector('#address-restaurant');
+	const position = document.querySelectorAll('input[name="position"]');
+	const status = document.querySelectorAll('input[name="open"]');
+	const days = document.querySelectorAll('input[name="days[]"]');
+	const services = document.querySelectorAll('input[name="services[]"]');
+	const alcohol = document.querySelectorAll('input[name="alcohol"]');
+	const seating = document.querySelectorAll('input[name="seating"]');
+	const payment = document.querySelectorAll('input[name="payment"]');
+	
+	// assign value
+	name.value = restaurant.name;
+	city.value = restaurant.city;
+	email.value = restaurant.email;
+	phoneNumber.value = restaurant.phoneNumber;
+	phoneRestaurant.value = restaurant.phoneRestaurant;
+	websiteRestaurant.value = restaurant.website;
+	address.value = restaurant.address;
+	// assign postion
+	position.forEach(pos => {
+		if(pos.value == restaurant.position) {
+			pos.checked = true;
+			pos.parentElement.querySelector('.state').classList.add('active');
+		}
+	});
+	// assign status
+	status.forEach(st => {
+		if(st.value == restaurant.open) {
+			st.checked = true;
+			st.parentElement.querySelector('.state').classList.add('active');
+		}
+	});
+	// assign days
+	days.forEach(day => {
+		if(restaurant.days.some(time => (time == day.value))) {
+			day.checked = true;
+			day.parentElement.querySelector('.state').classList.add('active');
+		}
+	});
+	// assign from time
+	selectTimeFrom.innerText = restaurant.openHour;
+	activeDropdown(selectTimeFrom, restaurant.openHour);
+	// assign to time
+	selectTimeTo.innerText = restaurant.closeHour;
+	activeDropdown(selectTimeTo, restaurant.closeHour);
+	// assign services
+	services.forEach(service => {
+		if(restaurant.services.some(ser => (ser == service.value))) {
+			service.checked = true;
+			service.parentElement.querySelector('.state').classList.add('active');
+		}
+	});
+	// assign alcohol
+	alcohol.forEach(al => {
+		if(al.value == restaurant.alcohol) {
+			al.checked = true;
+			al.parentElement.querySelector('.state').classList.add('active');
+		}
+	});
+	// assign seating
+	seating.forEach(seat => {
+		if(seat.value == restaurant.seating) {
+			seat.checked = true;
+			seat.parentElement.querySelector('.state').classList.add('active');
+		}
+	});
+	// assign cuisine
+	selectCuisine.innerText = restaurant.cuisine;
+	activeDropdown(selectCuisine, restaurant.cuisine);
+	selectTag.innerText = restaurant.tag;
+	// assign tag
+	activeDropdown(selectTag, restaurant.tag);
+	// assign payment
+	payment.forEach(pay => {
+		if(pay.value == restaurant.payment) {
+			pay.checked = true;
+			pay.parentElement.querySelector('.state').classList.add('active');
+		}
+	});
+	// assign value input hidden
+	saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
+	saveCuisine(selectCuisine.innerText);
+	saveTag(selectTag.innerText);
+	saveSelectMeal(selectMeal.innerText);
+	saveSelectOffer(selectOffer.innerText);
+}
+
+function activeDropdown(btn, value) {
+	const menu = btn.parentElement.querySelector('.dropdown-menu');
+	const items = menu.querySelectorAll('.dropdown-item');
+	items.forEach(item => {
+		if(item.innerText == value) {
+			addActiveDropdownItem(item);
+		}
+	});
+}
+
+// order meals request
+function getMealsRequest(url, callback) {
+	fetch(url)
+		.then(response =>  response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderMealsRequest(mealsRequest) {
+	const mealsRes = mealsRequest.map(meal => {
+		if(meal.completed == 'false') {
+			return componentMealRequest(meal);
+		}
+	});
+	mealsResContainer.innerHTML = mealsRes.join('');
+}
+
+function componentMealRequest(meal) {
+	return `
+		<div class="table-row">
+			<div class="td-content td-1">
+				<img src="${meal.mealImg}" alt="my orders">
+				<div class="name-rest">
+					<h4>${meal.name}</h4>
+					<p>${meal.sellerRest}</p>
+				</div>
+			</div>
+			<div class="td-content td-2">
+				<span>${meal.quantity}</span>
+			</div>
+			<div class="td-content td-3">
+				<span>$${meal.payment}</span>
+			</div>
+			<div class="td-content td-4">
+				<div class="action-btns">
+					<button type="button" class="my-btn" onclick="acceptOrder('${meal._id}')">Accept
+					</button>
+				</div>
+			</div>
+		</div>
+	`;
+}
+
+// order meals history
+function getOrdersHistory(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderOrdersHistory(mealsHistory) {
+	const mealsHis = mealsHistory.map(meal => {
+		if(meal.completed == 'true' && meal.deleted == 'false') {
+			return componentMealHis(meal);
+		}
+	});
+	mealsHisContainer.innerHTML = mealsHis.join('');
+}
+
+function componentMealHis(meal) {
+	return `
+		<div class="table-row">
+			<div class="td-content td-1">
+				<img src="${meal.mealImg}" alt="my orders">
+				<div class="name-rest">
+					<h4>${meal.name}</h4>
+					<p>${meal.sellerRest}</p>
+				</div>
+			</div>
+			<div class="td-content td-2">
+				<span>${meal.quantity}</span>
+			</div>
+			<div class="td-content td-3">
+				<span>$${meal.payment}</span>
+			</div>
+			<div class="td-content td-4">
+				<div class="action-btns">
+					<button type="button" class="my-btn">Finished
+					</button>
+					<button type="button" class="my-btn" onclick="deleteOrder('${meal._id}')">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	`;
+}
+
+function acceptOrder(id) {
+	const options = {
+		method: 'PATCH',
+		headers: {
+	    'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify({
+	  	completed: true
+	  }),
+	};
+	fetch(`${orderMealsUrl}/${id}`, options)
+		.then(response =>  response.json())
+		.catch(err => console.log(err));
+	getMealsRequest(orderMealsUrl, renderMealsRequest);
+	getOrdersHistory(orderMealsUrl, renderOrdersHistory);
+}
+
+function deleteOrder(id) {
+	const options = {
+		method: 'PATCH',
+		headers: {
+	    'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify({
+	  	deleted: true
+	  }),
+	};
+	fetch(`${orderMealsUrl}/${id}`, options)
+		.then(response =>  response.json())
+		.catch(err => console.log(err));
+	getOrdersHistory(orderMealsUrl, renderOrdersHistory);
+}
+
+function componentPhotosRight(photo) {
+	return `
+		<a href="#">
+			<img src="${photo}" alt="img item">
+		</a>
+	`;
+}

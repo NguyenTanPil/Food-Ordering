@@ -84,14 +84,14 @@
 						<div class="nav-item" data-id="photos">
 							<a href="#">Photos</a>
 						</div>
-						<div class="nav-item" data-id="my-orders">
-							<a href="#">My orders</a>
-						</div>
-						<div class="nav-item" data-id="my-videos">
-							<a href="#">My videos</a>
+						<div class="nav-item" data-id="request-orders">
+							<a href="#">Request Orders</a>
 						</div>
 						<div class="nav-item" data-id="orders-history">
-							<a href="#">Orders History</a>
+							<a href="#">Request History</a>
+						</div>
+						<div class="nav-item" data-id="my-videos">
+							<a href="#">My Videos</a>
 						</div>
 					</div>
 				</div>
@@ -494,29 +494,6 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#each meals}}
-														{{#if (isCheckedRadio 'Breakfast' this.selectMeal)}}
-														<div class="col col-12 col-md-6">
-															<div class="meals">
-																<img src="{{this.photos.[0]}}" alt="meal order">
-																<div class="capiton-meals">
-																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
-																		<h3>{{this.name}}</h3>
-																	</a>
-																	<div class="rating">
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star-o" aria-hidden="true"></i>
-																		<span>4.5</span>
-																	</div>
-																	<p class="price">${{this.price}}.00</p>
-																</div>
-															</div>
-														</div>
-														{{/if}}
-														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -526,29 +503,6 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#each meals}}
-														{{#if (isCheckedRadio 'Lunch' this.selectMeal)}}
-														<div class="col col-12 col-md-6">
-															<div class="meals">
-																<img src="{{this.photos.[0]}}" alt="meal order">
-																<div class="capiton-meals">
-																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
-																		<h3>{{this.name}}</h3>
-																	</a>
-																	<div class="rating">
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star-o" aria-hidden="true"></i>
-																		<span>4.5</span>
-																	</div>
-																	<p class="price">${{this.price}}.00</p>
-																</div>
-															</div>
-														</div>
-														{{/if}}
-														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -558,29 +512,6 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#each meals}}
-														{{#if (isCheckedRadio 'Dinner' this.selectMeal)}}
-														<div class="col col-12 col-md-6">
-															<div class="meals">
-																<img src="{{this.photos.[0]}}" alt="meal order">
-																<div class="capiton-meals">
-																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
-																		<h3>{{this.name}}</h3>
-																	</a>
-																	<div class="rating">
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star-o" aria-hidden="true"></i>
-																		<span>4.5</span>
-																	</div>
-																	<p class="price">${{this.price}}.00</p>
-																</div>
-															</div>
-														</div>
-														{{/if}}
-														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -590,29 +521,6 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#each meals}}
-														{{#if (isCheckedRadio 'Cafe\'s' this.selectMeal)}}
-														<div class="col col-12 col-md-6">
-															<div class="meals">
-																<img src="{{this.photos.[0]}}" alt="meal order">
-																<div class="capiton-meals">
-																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
-																		<h3>{{this.name}}</h3>
-																	</a>
-																	<div class="rating">
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star-o" aria-hidden="true"></i>
-																		<span>4.5</span>
-																	</div>
-																	<p class="price">${{this.price}}.00</p>
-																</div>
-															</div>
-														</div>
-														{{/if}}
-														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -622,29 +530,6 @@
 											<div class="all-meals">
 												<div class="container">
 													<div class="row">
-														{{#each meals}}
-														{{#if (isCheckedRadio 'Delivery' this.selectMeal)}}
-														<div class="col col-12 col-md-6">
-															<div class="meals">
-																<img src="{{this.photos.[0]}}" alt="meal order">
-																<div class="capiton-meals">
-																	<a href="/user/restaurant/{{this.slugRestaurant}}/meal/{{this.slug}}">
-																		<h3>{{this.name}}</h3>
-																	</a>
-																	<div class="rating">
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star" aria-hidden="true"></i>
-																		<i class="fa fa-star-o" aria-hidden="true"></i>
-																		<span>4.5</span>
-																	</div>
-																	<p class="price">${{this.price}}.00</p>
-																</div>
-															</div>
-														</div>
-														{{/if}}
-														{{/each}}
 													</div>
 												</div>
 											</div>
@@ -771,11 +656,11 @@
 											</div>
 											<div class="form-group">
 												<label for="name-restaurant">Restaurant Name *</label>
-												<input class="field-input" id="name-restaurant" type="text" name="name" placeholder="Enter your restaurant name" value="{{ restaurant.name }}">
+												<input class="field-input" id="name-restaurant" type="text" name="name" placeholder="Enter your restaurant name">
 											</div>
 											<div class="form-group">
 												<label for="search-city">City *</label>
-												<input class="field-input" id="search-city" type="search" name="city" placeholder="Search city" value="{{ restaurant.city }}">
+												<input class="field-input" id="search-city" type="search" name="city" placeholder="Search city">
 											</div>
 											<div class="form-group">
 												<div class="radio-title">
@@ -783,13 +668,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="owner" name="position" value="owner" {{#if (isCheckedRadio 'owner' restaurant.position)}}checked{{/if}}>
+														<input type="radio" id="owner" name="position" value="owner">
 														<div class="state">
 															<label for="owner">I am a Owner</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="manager" name="position" value="manager" {{#if (isCheckedRadio 'manager' restaurant.position)}}checked{{/if}}>
+														<input type="radio" id="manager" name="position" value="manager">
 														<div class="state">
 															<label for="manager">I’m the manager</label>
 														</div>
@@ -801,19 +686,19 @@
 											<h4>Contact info</h4>
 											<div class="form-group">
 												<label for="email">Email Address *</label>
-												<input class="field-input" id="email" type="email" name="email" placeholder="Enter your email" value="{{ restaurant.email }}">
+												<input class="field-input" id="email" type="email" name="email" placeholder="Enter your email">
 											</div>
 											<div class="form-group">
 												<label for="phoneNumber">Phone Number *</label>
-												<input class="field-input" id="phoneNumber" type="tel" name="phoneNumber" placeholder="Owner / Manager Phone Number" value="{{ restaurant.phoneNumber }}">
+												<input class="field-input" id="phoneNumber" type="tel" name="phoneNumber" placeholder="Owner / Manager Phone Number">
 											</div>
 											<div class="form-group">
 												<label for="phoneRestaurant">Restaurant Phone Number *</label>
-												<input class="field-input" type="tel" name="phoneRestaurant" id="phoneRestaurant" placeholder="Restaurant Phone Number" value="{{ restaurant.phoneRestaurant }}">
+												<input class="field-input" type="tel" name="phoneRestaurant" id="phoneRestaurant" placeholder="Restaurant Phone Number">
 											</div>
 											<div class="form-group">
 												<label for="websiteRestaurant">Restaurant Website *</label>
-												<input class="field-input" type="tel" name="website" id="websiteRestaurant" placeholder="Restaurant Wedsite" value="{{ restaurant.website }}">
+												<input class="field-input" type="tel" name="website" id="websiteRestaurant" placeholder="Restaurant Wedsite">
 											</div>
 											<div class="form-group">
 												<div class="radio-title">
@@ -821,13 +706,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="already" name="open" value="already" {{#if (isCheckedRadio 'already' restaurant.open)}}checked{{/if}}>
+														<input type="radio" id="already" name="open" value="already">
 														<div class="state">
 															<label for="already">This place already open</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="soon" name="open" value="soon" {{#if (isCheckedRadio 'soon' restaurant.open)}}checked{{/if}}>
+														<input type="radio" id="soon" name="open" value="soon">
 														<div class="state">
 															<label for="soon">This place is opening soon</label>
 														</div>
@@ -843,43 +728,43 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="checkbox" id="monday" name="days[]" value="monday"{{#if (isCheckedCheckbox 'monday' restaurant.days)}}checked{{/if}}>
+														<input type="checkbox" id="monday" name="days[]" value="monday">
 														<div class="state">
 															<label for="monday">Mon</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="tuesday" name="days[]" value="tuesday" {{#if (isCheckedCheckbox 'tuesday' restaurant.days)}}checked{{/if}}>
+														<input type="checkbox" id="tuesday" name="days[]" value="tuesday">
 														<div class="state">
 															<label for="tuesday">Tue</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="webnesday" name="days[]" value="webnesday" {{#if (isCheckedCheckbox 'webnesday' restaurant.days)}}checked{{/if}}>
+														<input type="checkbox" id="webnesday" name="days[]" value="webnesday">
 														<div class="state">
 															<label for="webnesday">Web</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="thursday" name="days[]" value="thursday" {{#if (isCheckedCheckbox 'thursday' restaurant.days)}}checked{{/if}}>
+														<input type="checkbox" id="thursday" name="days[]" value="thursday">
 														<div class="state">
 															<label for="thursday">Thu</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="friday" name="days[]" value="friday" {{#if (isCheckedCheckbox 'friday' restaurant.days)}}checked{{/if}}>
+														<input type="checkbox" id="friday" name="days[]" value="friday">
 														<div class="state">
 															<label for="friday">Fri</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="saturday" name="days[]" value="saturday" {{#if (isCheckedCheckbox 'saturday' restaurant.days)}}checked{{/if}}>
+														<input type="checkbox" id="saturday" name="days[]" value="saturday">
 														<div class="state">
 															<label for="saturday">Sat</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="sunday" name="days[]" value="sunday" {{#if (isCheckedCheckbox 'sunday' restaurant.days)}}checked{{/if}}>
+														<input type="checkbox" id="sunday" name="days[]" value="sunday">
 														<div class="state">
 															<label for="sunday">Sun</label>
 														</div>
@@ -899,7 +784,7 @@
 													<div class="col col-6 col-sm-4">
 														<div class="form-group">
 															<div class="radio-title">From *</div>
-															<button type="button" class="dropdown-btn select-time-from">{{ restaurant.openHour }}</button>
+															<button type="button" class="dropdown-btn select-time-from"></button>
 															<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 															<div class="dropdown-menu">
 																<div class="dropdown-item">12.00 AM</div>
@@ -920,7 +805,7 @@
 													<div class="col col-6 col-sm-4">
 														<div class="form-group">
 															<div class="radio-title">To *</div>
-															<button type="button" class="dropdown-btn select-time-to">{{ restaurant.closeHour }}</button>
+															<button type="button" class="dropdown-btn select-time-to"></button>
 															<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 															<div class="dropdown-menu">
 																<div class="dropdown-item">12.00 PM</div>
@@ -950,7 +835,7 @@
 											<h4>Location</h4>
 											<div class="form-group">
 												<label for="address-restaurant">Enter Address *</label>
-												<input class="field-input" type="search" name="address" id="address-restaurant" placeholder="Enter Your Address Restaurant" value="{{ restaurant.address }}">
+												<input class="field-input" type="search" name="address" id="address-restaurant" placeholder="Enter Your Address Restaurant">
 											</div>
 										</div>
 										<div class="information">
@@ -961,25 +846,25 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="checkbox" id="breakfast-ck" name="services[]" value="breakfast" {{#if (isCheckedCheckbox 'breakfast' restaurant.services)}}checked{{/if}}>
+														<input type="checkbox" id="breakfast-ck" name="services[]" value="breakfast">
 														<div class="state">
 															<label for="breakfast-ck">Breakfast</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="lunch-ck" name="services[]" value="lunch" {{#if (isCheckedCheckbox 'lunch' restaurant.services)}}checked{{/if}}>
+														<input type="checkbox" id="lunch-ck" name="services[]" value="lunch">
 														<div class="state">
 															<label for="lunch-ck">Lunch</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="dinner-ck" name="services[]" value="dinner" {{#if (isCheckedCheckbox 'dinner' restaurant.services)}}checked{{/if}}>
+														<input type="checkbox" id="dinner-ck" name="services[]" value="dinner">
 														<div class="state">
 															<label for="dinner-ck">Dinner</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="checkbox" id="cafe-ck" name="services[]" value="cafe" {{#if (isCheckedCheckbox 'cafe' restaurant.services)}}checked{{/if}}>
+														<input type="checkbox" id="cafe-ck" name="services[]" value="cafe">
 														<div class="state">
 															<label for="cafe-ck">Cafe's</label>
 														</div>
@@ -992,13 +877,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="serve" name="alcohol" value="serve" {{#if (isCheckedRadio 'serve' restaurant.alcohol)}}checked{{/if}}>
+														<input type="radio" id="serve" name="alcohol" value="serve">
 														<div class="state">
 															<label for="serve">Serve</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="not-serve" name="alcohol" value="not-serve" {{#if (isCheckedRadio 'not-serve' restaurant.alcohol)}}checked{{/if}}>
+														<input type="radio" id="not-serve" name="alcohol" value="not-serve">
 														<div class="state">
 															<label for="not-serve">Not Serve</label>
 														</div>
@@ -1011,13 +896,13 @@
 												</div>
 												<div class="filter-radio">
 													<div class="radio-item">
-														<input type="radio" id="available" name="seating" value="available" {{#if (isCheckedRadio 'available' restaurant.seating)}}checked{{/if}}>
+														<input type="radio" id="available" name="seating" value="available">
 														<div class="state">
 															<label for="available">Available</label>
 														</div>
 													</div>
 													<div class="radio-item">
-														<input type="radio" id="not-vailable" name="seating" value="not-vailable" {{#if (isCheckedRadio 'not-vailable' restaurant.seating)}}checked{{/if}}>
+														<input type="radio" id="not-vailable" name="seating" value="not-vailable">
 														<div class="state">
 															<label for="not-vailable">Not Available</label>
 														</div>
@@ -1027,33 +912,33 @@
 											<div class="form-group">
 												<div class="radio-title">Cuisines *</div>
 												<input type="hidden" name="cuisine" class="input-hidden-cuisine">
-												<button type="button" class="dropdown-btn btn-cuisine">{{restaurant.cuisine}}</button>
+												<button type="button" class="dropdown-btn btn-cuisine"></button>
 												<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 												<div class="dropdown-menu">
-													<div class="dropdown-item {{#if (isCheckedRadio 'Pizza' restaurant.cuisine)}}active{{/if}}">Pizza</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Cakes & Desserts' restaurant.cuisine)}}active{{/if}}">Cakes & Desserts</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Sushi' restaurant.cuisine)}}active{{/if}}">Sushi</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Fast Food' restaurant.cuisine)}}active{{/if}}">Fast Food</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Fish' restaurant.cuisine)}}active{{/if}}">Fish</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Luch' restaurant.cuisine)}}active{{/if}}">Luch</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Coffee Cafe\'s' restaurant.cuisine)}}active{{/if}}">Coffee Cafe's</div>
+													<div class="dropdown-item">Pizza</div>
+													<div class="dropdown-item">Cakes & Desserts</div>
+													<div class="dropdown-item">Sushi</div>
+													<div class="dropdown-item">Fast Food</div>
+													<div class="dropdown-item">Fish</div>
+													<div class="dropdown-item">Luch</div>
+													<div class="dropdown-item">Coffee Cafe's</div>
 													<div class="dropdown-item {{#if (isCheckedRadio 'Cheses Tika' restaurant.cuisine)}}active{{/if}}">Cheses Tika</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Samosa and Pakodas' restaurant.cuisine)}}active{{/if}}">Samosa and Pakodas</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Drinks & Beer' restaurant.cuisine)}}active{{/if}}">Drinks & Beer</div>
+													<div class="dropdown-item">Samosa and Pakodas</div>
+													<div class="dropdown-item">Drinks & Beer</div>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="radio-title">Tags *</div>
 												<input type="hidden" name="tag" class="input-hidden-tag">
-												<button type="button" class="dropdown-btn btn-tag">{{restaurant.tag}}</button>
+												<button type="button" class="dropdown-btn btn-tag"></button>
 												<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
 												<div class="dropdown-menu">
-													<div class="dropdown-item {{#if (isCheckedRadio 'Breakfast' restaurant.tag)}}active{{/if}}">Breakfast</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Lunch' restaurant.tag)}}active{{/if}}">Lunch</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Dinner' restaurant.tag)}}active{{/if}}">Dinner</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Fast Food' restaurant.tag)}}active{{/if}}">Fast Food</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Non Veg' restaurant.tag)}}active{{/if}}">Non Veg</div>
-													<div class="dropdown-item {{#if (isCheckedRadio 'Beer Bar' restaurant.tag)}}active{{/if}}">Beer Bar</div>
+													<div class="dropdown-item">Breakfast</div>
+													<div class="dropdown-item">Lunch</div>
+													<div class="dropdown-item">Dinner</div>
+													<div class="dropdown-item">Fast Food</div>
+													<div class="dropdown-item">Non Veg</div>
+													<div class="dropdown-item">Beer Bar</div>
 												</div>
 											</div>
 										</div>
@@ -1095,19 +980,11 @@
 								<h4>Photos</h4>
 							</div>
 							<div class="gallery">
-								{{#each restaurant.photos}}
-								<div class="gallery-item">
-									<img src="{{ this }}" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								{{/each}}
 							</div>
 						</div>
 					</div>
 					<div class="tab-pane">
-						<div id="my-orders">
+						<div id="request-orders">
 							<div class="my-orders-heading">
 								<h4>My orders</h4>
 							</div>
@@ -1119,53 +996,23 @@
 									<div class="td-heading td-4">Action</div>
 								</div>
 								<div class="table-body">
-									<div class="table-row">
-										<div class="td-content td-1">
-											<img src="/images/my-orders-1.jpg" alt="my orders">
-											<div class="name-rest">
-												<h4>Hum Burgar</h4>
-												<p>Restaurant Name</p>
-											</div>
-										</div>
-										<div class="td-content td-2">
-											<span>2</span>
-										</div>
-										<div class="td-content td-3">
-											<span>$22</span>
-										</div>
-										<div class="td-content td-4">
-											<div class="action-btns">
-												<a href="#" class="my-btn">Trace</a>
-												<a href="#" class="my-btn">
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="table-row">
-										<div class="td-content td-1">
-											<img src="/images/my-orders-1.jpg" alt="my orders">
-											<div class="name-rest">
-												<h4>Hum Burgar</h4>
-												<p>Restaurant Name</p>
-											</div>
-										</div>
-										<div class="td-content td-2">
-											<span>2</span>
-										</div>
-										<div class="td-content td-3">
-											<span>$22</span>
-										</div>
-										<div class="td-content td-4">
-											<div class="action-btns">
-												<a href="#" class="my-btn">Trace</a>
-												<a href="#" class="my-btn">
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane">
+						<div id="orders-history">
+							<div class="orders-history-heading">
+								<h4>Orders History</h4>
+							</div>
+							<div class="table-responsive">
+								<div class="table-heading">
+									<div class="td-heading td-1">Meal</div>
+									<div class="td-heading td-2">Qty</div>
+									<div class="td-heading td-3">Price</div>
+									<div class="td-heading td-4">Action</div>
+								</div>
+								<div class="table-body">
 								</div>
 							</div>
 						</div>
@@ -1184,69 +1031,6 @@
 									</a>
 								</div>
 								{{/each}}
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane">
-						<div id="orders-history">
-							<div class="orders-history-heading">
-								<h4>Orders History</h4>
-							</div>
-							<div class="table-responsive">
-								<div class="table-heading">
-									<div class="td-heading td-1">Meal</div>
-									<div class="td-heading td-2">Qty</div>
-									<div class="td-heading td-3">Price</div>
-									<div class="td-heading td-4">Action</div>
-								</div>
-								<div class="table-body">
-									<div class="table-row">
-										<div class="td-content td-1">
-											<img src="/images/my-orders-1.jpg" alt="my orders">
-											<div class="name-rest">
-												<h4>Hum Burgar</h4>
-												<p>Restaurant Name</p>
-											</div>
-										</div>
-										<div class="td-content td-2">
-											<span>2</span>
-										</div>
-										<div class="td-content td-3">
-											<span>$22</span>
-										</div>
-										<div class="td-content td-4">
-											<div class="action-btns">
-												<a href="#" class="my-btn">Completed</a>
-												<a href="#" class="my-btn">
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="table-row">
-										<div class="td-content td-1">
-											<img src="/images/my-orders-1.jpg" alt="my orders">
-											<div class="name-rest">
-												<h4>Hum Burgar</h4>
-												<p>Restaurant Name</p>
-											</div>
-										</div>
-										<div class="td-content td-2">
-											<span>2</span>
-										</div>
-										<div class="td-content td-3">
-											<span>$22</span>
-										</div>
-										<div class="td-content td-4">
-											<div class="action-btns">
-												<a href="#" class="my-btn">Completed</a>
-												<a href="#" class="my-btn">
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -1335,30 +1119,6 @@
 						<h3>Photos</h3>
 					</div>
 					<div class="pf-gallery">
-						<a href="#">
-							<img src="/images/restaurant-img-1.jpg" alt="img item">
-						</a>
-						<a href="#">
-							<img src="/images/restaurant-img-2.jpg" alt="img item">
-						</a>
-						<a href="#">
-							<img src="/images/restaurant-img-3.jpg" alt="img item">
-						</a>
-						<a href="#">
-							<img src="/images/restaurant-img-4.jpg" alt="img item">
-						</a>
-						<a href="#">
-							<img src="/images/restaurant-img-5.jpg" alt="img item">
-						</a>
-						<a href="#">
-							<img src="/images/restaurant-img-6.jpg" alt="img item">
-						</a>
-						<a href="#">
-							<img src="/images/restaurant-img-7.jpg" alt="img item">
-						</a>
-						<a href="#">
-							<img src="/images/restaurant-img-8.jpg" alt="img item">
-						</a>
 					</div>
 				</div>
 			</div>
