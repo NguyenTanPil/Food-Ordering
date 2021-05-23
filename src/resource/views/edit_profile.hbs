@@ -28,24 +28,23 @@
 <!-- my accout starts -->
 <section class="my-account">
 	<div class="profile-bg">
-		<img src="{{ user.background }}" alt="profile image">
+		<img alt="profile image">
 		<div class="profile-top-details">
 			<div class="container">
 				<div class="row">
 					<div class="avt-name-local">
 						<div class="avatar">
-							<img src="{{ user.avartar }}" alt="avatar">
+							<img alt="avatar">
 						</div>
 						<div class="name-location">
 							<h2 class="name">
-							{{ user.name }}
 							</h2>
 							<div class="location">
 								<p>
 									<span>
 										<i class="fa fa-map-marker" aria-hidden="true"></i>
 									</span>
-									{{ user.location }}
+									<span class="locationDet"></span>
 								</p>
 							</div>
 						</div>
@@ -91,8 +90,7 @@
 										<div class="edit-avartar">
 											<div class="avatar">
 												<label for="input-upload-avartar">Avatar</label>
-												{{!-- <img src="/images/avatar-profile.jpg" alt=""> --}}
-												<img src="{{ user.avartar }}" alt="avartar">
+												<img alt="avartar">
 											</div>
 											<div class="upload-avartar">
 												<div class="form-group">
@@ -112,8 +110,7 @@
 										<div class="edit-background">
 											<div class="background">
 												<label for="input-upload-background">Background Image</label>
-												{{!-- <img src="/images/bg-profile.jpg" alt=""> --}}
-												<img src="{{ user.background }}" alt="background">
+												<img alt="background">
 											</div>
 											<div class="upload-avartar">
 												<div class="form-group">
@@ -132,23 +129,23 @@
 										</div>
 										<div class="form-group">
 											<label for="full-name">Full Name *</label>
-											<input class="field-input" type="text" name="name" id="full-name" placeholder="Nguyen Tan Pil" value="{{ user.name }}">
+											<input class="field-input" type="text" name="name" id="full-name" placeholder="Nguyen Tan Pil">
 										</div>
 										<div class="form-group">
 											<label for="location-living">Where are you live? *</label>
-											<input class="field-input" type="search" name="location" id="location-living" placeholder="Can Tho" value="{{ user.location }}">
+											<input class="field-input" type="search" name="location" id="location-living" placeholder="Can Tho">
 										</div>
 										<div class="form-group">
 											<label for="description-video">Description *</label>
-											<textarea class="textarea-form" name="description" id="description-video" placeholder="Enter your description">{{ user.description }}</textarea>
+											<textarea class="textarea-form" name="description" id="description-video" placeholder="Enter your description"></textarea>
 										</div>
 										<div class="form-group">
 											<label for="email">Email *</label>
-											<input class="field-input" type="email" name="email" id="email" placeholder="pilnguyen@gmail.com" value="{{ user.email }}">
+											<input class="field-input" type="email" name="email" id="email" placeholder="pilnguyen@gmail.com">
 										</div>
 										<div class="form-group">
 											<label for="phone-number">Phone Number *</label>
-											<input class="field-input" type="tel" name="phone" id="phone-number" placeholder="+84 01234 567 789" value="{{ user.phone }}">
+											<input class="field-input" type="tel" name="phone" id="phone-number" placeholder="+84 01234 567 789">
 										</div>
 										<div class="sends">
 											<input type="submit" class="my-btn" value="Upload Now">

@@ -30,8 +30,7 @@ class RestaurantController {
 			res.status(404).redirect('/error');
 			return;
 		}
-		const infoUser = await getUserDetail(userId);
-		res.render('restaurant_detail', { layout: 'restaurant_detail', infoUser, restaurant });
+		res.render('restaurant_detail', { layout: 'restaurant_detail' });
 	}
 	// [PUT] /user/restaurant/update-restaurant
 	async update_restaurant(req, res, next) {

@@ -61,6 +61,7 @@ const mealsUrl = '/user/api/meals';
 const orderMealsUrl = '/user/api/order-meals';
 const restaurantsUrl = `/user/api/restaurant-detail/${currRest}`;
 const videosUrl = '/user/api/videos';
+const userUrl = '/user/api/user-detail';
 start();
 // function
 function showTabContent(navItem, tabPane) {
@@ -307,6 +308,7 @@ function countStar(parent, numberStar) {
 // fetch api
 
 function start() {
+	getUser(userUrl, renderUser);
 	getOrderMeals(mealsUrl, renderOrderMeals);
 	getRestaurantPhotos(restaurantsUrl, renderRestaurantPhotos);
 	getRestaurantDetail(restaurantsUrl, renderRestaurantDetail);
@@ -436,7 +438,8 @@ function renderRestaurantDetail(restaurant) {
 	const alcohol = document.querySelectorAll('input[name="alcohol"]');
 	const seating = document.querySelectorAll('input[name="seating"]');
 	const payment = document.querySelectorAll('input[name="payment"]');
-	
+	const formUpdate = document.querySelector('.restaurant-detail-bg form');
+
 	// assign value
 	name.value = restaurant.name;
 	city.value = restaurant.city;
@@ -512,6 +515,8 @@ function renderRestaurantDetail(restaurant) {
 	saveTag(selectTag.innerText);
 	saveSelectMeal(selectMeal.innerText);
 	saveSelectOffer(selectOffer.innerText);
+	// form
+	formUpdate.action =  `/user/restaurant/update-restaurant/${restaurant.slug}?_method=PUT`;
 }
 
 function activeDropdown(btn, value) {
@@ -652,4 +657,34 @@ function componentPhotosRight(photo) {
 			<img src="${photo}" alt="img item">
 		</a>
 	`;
+}
+
+// user detail
+function getUser(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderUser(user) {
+	const background = document.querySelector('.profile-bg img');
+	const avartar = document.querySelector('.avt-name-local .avatar img');
+	const name = document.querySelector('.avt-name-local .name-location .name');
+	const location = document.querySelector('.avt-name-local .name-location .location .locationText');
+	const aboutName = document.querySelector('#about .about-name')
+	const aboutLocation = document.querySelector('#about .about-location')
+	const aboutPhone = document.querySelector('#about .about-phone')
+	const aboutEmail = document.querySelector('#about .about-email')
+	const aboutDescription = document.querySelector('#about .about-description')
+
+	background.src = user.background;
+	avartar.src = user.avartar;
+	name.innerText = user.name;
+	location.innerText = user.location;
+	aboutName.innerText = user.name;
+	aboutLocation.innerText = user.location;
+	aboutPhone.innerText = user.phone;
+	aboutEmail.innerText = user.email;
+	aboutDescription.innerText = user.description;
 }
