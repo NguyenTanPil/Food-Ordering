@@ -25,24 +25,23 @@
 <!-- my accout starts -->
 <section class="my-account">
 	<div class="profile-bg">
-		<img src="{{ infoUser.background }}" alt="profile image">
+		<img alt="profile image">
 		<div class="profile-top-details">
 			<div class="container">
 				<div class="row">
 					<div class="avt-name-local">
 						<div class="avatar">
-							<img src="{{ infoUser.avartar }}" alt="avatar">
+							<img alt="avatar">
 						</div>
 						<div class="name-location">
 							<h2 class="name">
-							{{ infoUser.name }}
 							</h2>
 							<div class="location">
 								<p>
 									<span>
 										<i class="fa fa-map-marker" aria-hidden="true"></i>
 									</span>
-									{{ infoUser.location }}
+									<span class="locationDet"></span>
 								</p>
 							</div>
 						</div>
@@ -388,27 +387,23 @@
 							<div class="about-details">
 								<div class="about-dt">
 									<h6>Name</h6>
-									<p>{{ infoUser.name }}</p>
+									<p class="name-about"></p>
 								</div>
 								<div class="about-dt">
 									<h6>Location</h6>
-									<p>{{ infoUser.location }}</p>
+									<p class="about-location"></p>
 								</div>
 								<div class="about-dt">
 									<h6>Mobile Number</h6>
-									<p>{{ infoUser.phone }}</p>
+									<p class="about-phone"></p>
 								</div>
 								<div class="about-dt">
 									<h6>Email Address</h6>
-									<p>{{ infoUser.email }}</p>
+									<p class="about-email"></p>
 								</div>
-								{{!-- <div class="about-dt">
-									<h6>Personal Website</h6>
-									<p>www.johndoe.com</p>
-								</div> --}}
 								<div class="about-dt">
 									<h6>Description About Yopur Self</h6>
-									<p>{{ infoUser.description }}</p>
+									<p class="about-description"></p>
 								</div>
 								<div class="about-dt">
 									<h6>Social Accounts</h6>

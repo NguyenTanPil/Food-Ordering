@@ -93,6 +93,56 @@ function yourRating(numberStar) {
 		}
 	}); 
 }
+
+// fetch api 
+const currLink = window.location.href;
+const recipeUrl = `/user/api/videos/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
+const userUrl =  '/user/api/user-detail';
+
+start();
+
+function start() {
+	getRecipe(recipeUrl, renderRecipe);
+	getUser(userUrl, renderUser);
+}
+
+// user
+function getUser(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err))
+}
+
+function renderUser(user) {
+	const avartar = document.querySelector('.user-details .user-img img');
+	const name = document.querySelector('.user-details .name-location h4');
+	const location = document.querySelector('.user-details .name-location .location');
+
+	avartar.src =  user.avartar;
+	name.innerText = user.name;
+	location.innerText = user.location;
+}
+
+// video
+function getRecipe(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderRecipe(recipe) {
+	const video = document.querySelector('.video iframe');
+	const title = document.querySelector('.title-share h4');
+	const about = document.querySelector('.about-recipe p');
+
+	const link = recipe.link.slice(recipe.link.lastIndexOf('/') + 1);
+	video.src = `https://www.youtube.com/embed/${link}`;
+	title.innerText =  recipe.title;
+	about.innerText = recipe.description;
+}
+
 //comments
 const listCmts = [
 	{

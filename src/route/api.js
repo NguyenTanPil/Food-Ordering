@@ -28,5 +28,6 @@ router.get('/restaurant-detail/:slug', restaurant.fetchRestaurant);
 
 // video of user 
 router.get('/videos', videos.fetchVideos);
+router.get('/videos/:slug', videos.fetchVideoDetail);
 
 module.exports = router;

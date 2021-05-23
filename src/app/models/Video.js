@@ -10,6 +10,7 @@ const Video = new Schema({
   thumbnail: { type: String },
   public_id_video: { type: String },
   userId: { type: String },
+  slug: { type: String, slug: "title", unique: true },
 }, {
 	timestamps: true,
 });

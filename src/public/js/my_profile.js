@@ -11,10 +11,10 @@ showTabContent(navItem, tabPane);
 const mealsUrl = '/user/api/order-meals';
 const restaurantsUrl = '/user/api/restaurants';
 const videosUrl = '/user/api/videos';
+const userUrl = '/user/api/user-detail';
 start();
 
 // function
-
 function showTabContent(navItem, tabPane) {
 	navItem.forEach(nav => {
 		nav.onclick = (e) => {
@@ -59,6 +59,7 @@ function deleteOrder(id) {
 }
 
 function start() {
+	getUser(userUrl, renderUser);
 	getOrderMeals(mealsUrl, renderOrderMeals);
 	getRestaurants(restaurantsUrl, renderRestaurants);
 	getVideos(videosUrl, renderVideos);
@@ -166,9 +167,39 @@ function componentVideo(video) {
 	return `
 		<div class="gallery-item">
 			<img src="${video.thumbnail}" alt="img item">
-			<a href="/recipe/recipe-details">
+			<a href="/user/recipe/${video.slug}">
 				<i class="fa fa-play-circle" aria-hidden="true"></i>
 			</a>
 		</div>
 	`;
+}
+
+// user 
+function getUser(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+ 
+function renderUser(user) {
+	const background = document.querySelector('.profile-bg img');
+	const avartar = document.querySelector('.avt-name-local .avatar img');
+	const name = document.querySelector('.name-location .name');
+	const location = document.querySelector('.name-location .locationDet');
+	const nameAbout =  document.querySelector('.name-about');
+	const nameLocation =  document.querySelector('.about-location');
+	const phoneAbout = document.querySelector('.about-phone');
+	const emailAbout = document.querySelector('.about-email');
+	const descriptionAbout = document.querySelector('.about-description');
+
+	background.src = user.background;
+	avartar.src = user.avartar;
+	name.innerText =  user.name;
+	location.innerText =  user.location;
+	nameAbout.innerText = user.name;
+	nameLocation.innerText = user.location;
+	phoneAbout.innerText = user.phone;
+	emailAbout.innerText = user.email;
+	descriptionAbout.innerText = user.description;
 }
