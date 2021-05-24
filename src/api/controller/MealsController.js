@@ -18,12 +18,40 @@ class MealController {
 		const mealDetailUser = await mealDetail;
 		res.json(mealDetailUser);
 	}
+	// [GET] /user/api/meals/meal-detail/:slug
+	async fetchMealDetailView(req, res) {
+		const slug = req.params.slug;
+		const mealDetail = getMealDetailView(slug);
+		const mealDetailUser = await mealDetail;
+		res.json(mealDetailUser);
+	}
+	// [GET] /user/api/meals-view
+	async fetchMealsView(req, res) {
+		const meals = getMealsView();
+		const mealsUser = await meals;
+		res.json(mealsUser);
+	}
+	// [GET] /user/api/retaurants/:slug/meals
+	async fetchMealsByRest(req, res) {
+		const meals = getMealsByRestaurant(req.params.slug);
+		const mealsUser = await meals;
+		res.json(mealsUser);
+	}
 }
 
 // function
 async function getMeals(userId) {
 	let meal;
 	await Meals.find({ userId: userId })
+		.then((data) => {
+			meal = mutipleMongooseToOject(data);
+		});
+	return meal;
+}
+
+async function getMealsView() {
+	let meal;
+	await Meals.find({})
 		.then((data) => {
 			meal = mutipleMongooseToOject(data);
 		});
@@ -37,6 +65,24 @@ async function getMealDetail(userId, slug) {
 			mealDetail = mongooseToOject(data);
 		});
 	return mealDetail;
+}
+
+async function getMealDetailView(slug) {
+	let mealDetail;
+	await Meals.findOne({ slug: slug })
+		.then((data) => {
+			mealDetail = mongooseToOject(data);
+		});
+	return mealDetail;
+}
+
+async function getMealsByRestaurant(slug) {
+	let meals;
+	await Meals.find({ slugRestaurant: slug })
+		.then((data) => {
+			meals = mutipleMongooseToOject(data);
+		});
+	return meals;
 }
 
 module.exports = new MealController;

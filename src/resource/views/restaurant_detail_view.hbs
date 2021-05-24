@@ -32,54 +32,22 @@
 			<div class="col col-12 col-lg-9">
 				<div class="slider">
 					<div class="main-img">
-						<img class="active main-img-1" src="/images/restaurant-img-1.jpg" alt="slider">
-						<img class="main-img-2" src="/images/restaurant-img-2.jpg" alt="slider">
-						<img class="main-img-3" src="/images/restaurant-img-3.jpg" alt="slider">
-						<img class="main-img-4" src="/images/restaurant-img-4.jpg" alt="slider">
-						<img class="main-img-5" src="/images/restaurant-img-5.jpg" alt="slider">
-						<img class="main-img-6" src="/images/restaurant-img-6.jpg" alt="slider">
-						<img class="main-img-7" src="/images/restaurant-img-7.jpg" alt="slider">
-						<img class="main-img-8" src="/images/restaurant-img-8.jpg" alt="slider">
 					</div>
 					<div class="nav-img">
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-1.jpg" alt="img item" data-id="1">
-						</div>
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-2.jpg" alt="img item" data-id="2">
-						</div>
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-3.jpg" alt="img item" data-id="3">
-						</div>
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-4.jpg" alt="img item" data-id="4">
-						</div>
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-5.jpg" alt="img item" data-id="5">
-						</div>
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-6.jpg" alt="img item" data-id="6">
-						</div>
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-7.jpg" alt="img item" data-id="7">
-						</div>
-						<div class="nav-img-item">
-							<img src="/images/restaurant-img-8.jpg" alt="img item" data-id="8">
-						</div>
 					</div>
 				</div>
 				<div class="profile-own">
 					<div class="user-details">
 						<div class="user-img">
 							<a href="/user-profile-view">
-								<img src="/images/own-restaurant.png" alt="own">
+								<img alt="own">
 							</a>
 						</div>
 						<div class="name-location">
 							<a href="/user-profile-view">
-								<h4>John Doe</h4>
+								<h4></h4>
 							</a>
-							<p>Owner</p>
+							<p></p>
 						</div>
 					</div>
 					<div class="right-side-btns">
@@ -102,16 +70,16 @@
 					<div class="restaurant-details">
 						<div class="restaurant-img">
 							<a href="/user-profile-view">
-								<img src="/images/restaurant-name.jpg" alt="own">
+								<img alt="own">
 							</a>
 						</div>
 						<div class="name-location">
 							<a href="/user-profile-view">
-								<h4>Restaurant Name</h4>
+								<h4></h4>
 							</a>
 							<p>
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
-								<span>Sidney, Australia</span>
+								<span class="locationDet"></span>
 							</p>
 						</div>
 					</div>
@@ -223,12 +191,12 @@
 													<li>:</li>
 												</ul>
 												<ul class="view-detail view-detail-info">
-													<li>{{restaurant.name}}</li>
-													<li>{{user.name}}</li>
-													<li>{{restaurant.phoneNumber}}</li>
-													<li>{{restaurant.phoneRestaurant}}</li>
-													<li>{{restaurant.email}}</li>
-													<li>{{restaurant.cuisine}}</li>
+													<li class="rest-name"></li>
+													<li class="rest-own"></li>
+													<li class="number-phone"></li>
+													<li class="rest-phone"></li>
+													<li class="rest-email"></li>
+													<li class="rest-cuisine"></li>
 												</ul>
 											</div>
 										</div>
@@ -251,14 +219,12 @@
 													<li>:</li>
 												</ul>
 												<ul class="view-detail view-detail-info">
-													<li>{{restaurant.openHour}} to {{restaurant.closeHour}} (Mon-Sun)</li>
-													<li>{{restaurant.open}}</li>
-													<li>{{restaurant.city}}</li>
-													<li>
-														<a href="#">Get Direction</a>
-													</li>
+													<li><span class="rest-open"></span> to <span class="rest-close"></span> (Mon-Sun)</li>
+													<li class="rest-status"></li>
+													<li class="rest-city"></li>
+													<li class="rest-address"></li>
 													<li>Treading</li>
-													<li>{{meal.offerMeal}}</li>
+													<li class="rest-discout"></li>
 												</ul>
 											</div>
 										</div>
@@ -485,56 +451,8 @@
 					<div class="tab-pane" id="photos">
 						<div class="restaurant-detail-bg">
 							<h4>Photos</h4>
-							<p>10 photos</p>
+							<p class="number-gallery"></p>
 							<div class="gallery">
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-1.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-2.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-3.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-4.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-5.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-6.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-7.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
-								<div class="gallery-item">
-									<img src="/images/restaurant-img-8.jpg" alt="img item">
-									<a href="#">
-										<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-									</a>
-								</div>
 							</div>
 						</div>
 					</div>

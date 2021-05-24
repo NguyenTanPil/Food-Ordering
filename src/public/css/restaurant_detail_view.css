@@ -52,18 +52,20 @@
 .restaurant-detail-view .main-img img {
   width: 100%;
   display: none;
-  transition: var(--transition); }
+  transition: var(--transition);
+  height: 32rem;
+  object-fit: cover; }
 
 .restaurant-detail-view .main-img img.active {
   display: block; }
 
 .restaurant-detail-view .nav-img {
-  display: flex;
-  justify-content: space-between; }
+  display: flex; }
 
 .restaurant-detail-view .nav-img .nav-img-item {
   box-sizing: border-box;
-  width: calc(100% / 9); }
+  width: calc(100% / 9);
+  margin-right: 0.625rem; }
 
 .restaurant-detail-view .nav-img .nav-img-item img {
   width: 100%;
@@ -71,6 +73,9 @@
   object-fit: cover;
   margin: 0.625rem 0;
   cursor: pointer; }
+
+.restaurant-detail-view .nav-img .nav-img-item:last-child {
+  margin-right: 0; }
 
 /*profile own and info restaurant*/
 .restaurant-detail-view .profile-own,
@@ -91,7 +96,12 @@
 
 .restaurant-detail-view .user-details img,
 .restaurant-detail-view .restaurant-details img {
-  margin-right: 1rem; }
+  margin-right: 1rem;
+  width: 3.75rem;
+  object-fit: cover; }
+
+.restaurant-detail-view .user-details img {
+  border-radius: 50%; }
 
 .restaurant-detail-view .user-details h4,
 .restaurant-detail-view .restaurant-details h4 {
@@ -107,7 +117,8 @@
 
 .restaurant-detail-view .user-details p {
   font-size: 0.875rem;
-  color: var(--clr-text); }
+  color: var(--clr-text);
+  text-transform: capitalize; }
 
 .restaurant-detail-view .right-side-btns {
   display: flex;
@@ -418,7 +429,9 @@
   display: flex; }
 
 .restaurant-detail-view .nav-item-small img {
-  display: block; }
+  display: block;
+  width: 5.625rem;
+  object-fit: cover; }
 
 /*order online*/
 .restaurant-detail-view #order-online .restaurant-detail-bg {

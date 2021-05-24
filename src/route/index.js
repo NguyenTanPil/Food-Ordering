@@ -6,6 +6,7 @@ const mealRouter = require('./meal.js');
 const partnerRouter = require('./partner.js');
 const siteRouter = require('./site.js');
 const apiRouter = require('./api.js');
+const viewsRouter = require('./views.js');
 
 function route(app) {
 
@@ -15,6 +16,7 @@ function route(app) {
 	app.use('/user/recipe', recipeRouter);
 	app.use('/user', userRouter);
 	app.use('/partner', partnerRouter);
+	app.use('/views', viewsRouter);
 	app.use('/', siteRouter);
 
 }

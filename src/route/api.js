@@ -10,6 +10,7 @@ const user = require('../api/controller/UserController.js');
 
 // user
 router.get('/user-detail', user.fetchUser);
+router.get('/user-detail/:slug', user.fetchUserView);
 
 // order meals of user
 router.delete('/order-meals/:slug', orderMeals.deleteOrderMeals);
@@ -19,9 +20,13 @@ router.get('/order-meals', orderMeals.fetchOrderMeals);
 // meals of user
 router.get('/meals', meals.fetchMeals);
 router.get('/meals/:slug', meals.fetchMealDetail);
+router.get('/meals-view', meals.fetchMealsView);
+router.get('/meals/meal-detail/:slug', meals.fetchMealDetailView);
+router.get('/restaurants/:slug/meals-view', meals.fetchMealsByRest);
 
 // restaurant of user
 router.get('/restaurants', restaurants.fetchRestaurants);
+router.get('/restaurants-view/:slug', restaurants.fetchRestaurantView);
 
 // restaurant detail of user
 router.get('/restaurant-detail/:slug', restaurant.fetchRestaurant);

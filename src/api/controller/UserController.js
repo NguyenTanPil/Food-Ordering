@@ -10,6 +10,12 @@ class UserController {
 		const userDetail = await user;
 		res.json(userDetail);
 	}
+	async fetchUserView(req, res) {
+		const userId = req.params.slug;
+		const user = getUser(userId);
+		const userDetail = await user;
+		res.json(userDetail);
+	}
 }
 
 // function

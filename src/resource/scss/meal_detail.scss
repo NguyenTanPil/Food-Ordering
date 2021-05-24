@@ -53,6 +53,8 @@
 	width: 100%;
 	display: none;
 	transition: var(--transition);
+	height: 32rem;
+    object-fit: cover;
 }
 .restaurant-detail-view .main-img img.active {
 	display: block;

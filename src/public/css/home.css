@@ -218,7 +218,9 @@
 
 .order-online .card-img-top img {
   width: 100%;
-  display: block; }
+  display: block;
+  height: 12.75rem;
+  object-fit: cover; }
 
 .order-online .card-img-top .theme {
   height: 100%;

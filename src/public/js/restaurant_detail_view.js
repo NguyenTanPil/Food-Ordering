@@ -1,19 +1,21 @@
 // slider
-const navImg = document.querySelector('.nav-img');
-const navImgItems = document.querySelectorAll('.nav-img-item img');
-const imgMains = document.querySelectorAll('.main-img img');
-navImgItems.forEach((imgItem) => {
-	imgItem.onclick = (e) => {
-		removeActiveImg();
-		const numberImgActive = e.currentTarget.dataset.id;
-		const imgActive = imgMains[numberImgActive - 1];
-		showImgItem(imgActive);
-	}
-	const widthPattern = imgItem.offsetWidth;
-	setHeightNav(imgItem, widthPattern);
-});
+function slider() {
+	const navImg = document.querySelector('.nav-img');
+	const navImgItems = document.querySelectorAll('.nav-img-item img');
+	navImgItems.forEach((imgItem) => {
+		imgItem.onclick = (e) => {
+			const imgMains = document.querySelectorAll('.main-img img');
+			removeActiveImg(imgMains);
+			const numberImgActive = e.currentTarget.dataset.id;
+			const imgActive = imgMains[numberImgActive - 1];
+			showImgItem(imgActive);
+		}
+		const widthPattern = imgItem.offsetWidth;
+		setHeightNav(imgItem, widthPattern);
+	});
+}
 
-function removeActiveImg() {
+function removeActiveImg(imgMains) {
 	imgMains.forEach((img) => {
 		img.classList.remove('active');
 	});
@@ -46,14 +48,16 @@ listNavLink.forEach(link => {
 	}
 });
 // navtab small 
-const listNavImg = document.querySelectorAll('.nav-item-small');
-const tabpaneSmall = document.querySelectorAll('.tab-pane-small');
-listNavImg.forEach(img => {
-	img.onclick = (e) => {
-		removeAllTabPaneSmall();
-		addActiveSmall(e);
-	}
-});
+function menuNav() {
+	const listNavImg = document.querySelectorAll('.nav-item-small');
+	listNavImg.forEach(img => {
+		const tabpaneSmall = document.querySelectorAll('.tab-pane-small');
+		img.onclick = (e) => {
+			removeAllTabPaneSmall(tabpaneSmall);
+			addActiveSmall(e);
+		}
+	});
+}
 // navtab order
 const iconTab = document.querySelectorAll('.meal-icon-tab');
 const tabpaneOrder = document.querySelectorAll('.tab-pane-order');
@@ -64,6 +68,227 @@ iconTab.forEach(icon => {
 		addActiveOrder(e);
 	}
 });
+
+// fetch api
+const currentLink = window.location.href;
+const currRest = currentLink.slice(currentLink.lastIndexOf('/') + 1);
+// lay thong tin nha hang
+const restaurantUrl = `/user/api/restaurants-view/${currRest}`;
+// lay thong tin nguoi dung hien tai
+const userUrl = '/user/api/user-detail';
+// lay thong tin chu nha hang 
+let mealsUrl, sellerUrl;
+start();
+
+function start() {
+	getRestaurant(restaurantUrl, renderRestaurantDetail);
+}
+// restaurant
+function getRestaurant(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(error => console.log(error));
+}
+
+function renderRestaurantDetail(restaurant) {
+	sellerUrl = `/user/api/user-detail/${restaurant.userId}`;
+	mealsUrl = `/user/api/restaurants/${restaurant.slug}/meals-view`;
+	
+	const mainImg = document.querySelector('.main-img');
+	const mainMenu = document.querySelector('.restaurant-menu-card .nav-tab');
+	const navMenu = document.querySelector('.restaurant-menu-card .tab-content-small');
+	const mainContainer = [], navContainer = [], galleryContainer = [], mainMenuContainer = [], navMenuContainer = [];
+	const navImg = document.querySelector('.nav-img');
+	const position = document.querySelector('.user-details .name-location p');
+	const name = document.querySelector('.restaurant-details .name-location h4');
+	const locationDet = document.querySelector('.restaurant-details .locationDet');
+	const logo = document.querySelector('.restaurant-img img');
+	const gallery = document.querySelector('.gallery');
+	const numberGallery = document.querySelector('.number-gallery');
+
+	restaurant.photos.forEach((photo, index) => {
+		let main, nav, photos;
+		if(index == 0) {
+			main = `
+				<img class="active main-img-${index + 1}" src="${photo}" alt="slider">
+			`;
+		} else {
+			main = `
+				<img class="main-img-${index + 1}" src="${photo}" alt="slider">
+			`;
+		}
+		nav = `
+			<div class="nav-img-item">
+				<img src="${photo}" alt="img item" data-id="${index + 1}">
+			</div>
+		`;
+		photos = `
+			<div class="gallery-item">
+				<img src="${photo}" alt="img item">
+				<a href="#">
+					<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+				</a>
+			</div>
+		`;
+		mainContainer.push(main);
+		navContainer.push(nav);
+		galleryContainer.push(photos);
+	});
+
+	restaurant.menu.forEach((menu, index) => {
+		let nav, main;
+		if(index == 0) {
+			nav = `
+				<div class="tab-pane-small active" id="top-img">
+					<img src="${menu}" alt="main img menu">
+				</div>
+			`;
+			main = `
+			<div class="nav-item-small" data-id="top-img">
+				<img src="${menu}" alt="menu img">
+			</div>
+		`;
+		} else {
+			nav = `
+				<div class="tab-pane-small" id="bottom-img">
+					<img src="${menu}" alt="main img menu">
+				</div>
+			`;
+			main = `
+			<div class="nav-item-small" data-id="bottom-img">
+				<img src="${menu}" alt="menu img">
+			</div>
+		`;
+		}
+		mainMenuContainer.push(main);
+		navMenuContainer.push(nav);
+	});
+	mainImg.innerHTML = mainContainer.join('');
+	navImg.innerHTML = navContainer.join('');
+	mainMenu.innerHTML = mainMenuContainer.join('');
+	navMenu.innerHTML = navMenuContainer.join('');
+	gallery.innerHTML = galleryContainer.join('');
+	numberGallery.innerText = `${restaurant.photos.length} photos`;
+	position.innerText = restaurant.position;
+	name.innerText = restaurant.name;
+	locationDet.innerText = restaurant.address;
+	logo.src =  restaurant.logo;
+
+	// about restaurant
+	const nameRest = document.querySelector('.rest-name');
+	const phoneNumber = document.querySelector('.number-phone');
+	const phoneRest = document.querySelector('.rest-phone');
+	const emailRest = document.querySelector('.rest-email');
+	const cuisineRest = document.querySelector('.rest-cuisine');
+	const openRest = document.querySelector('.rest-open');
+	const closeRest = document.querySelector('.rest-close');
+	const statusRest = document.querySelector('.rest-status');
+	const cityRest = document.querySelector('.rest-city');
+	const addressRest = document.querySelector('.rest-address');
+	const discoutRest = document.querySelector('.rest-discout');
+
+	nameRest.innerText = restaurant.name;
+	phoneNumber.innerText = restaurant.phoneNumber;
+	phoneRest.innerText = restaurant.phoneRestaurant;
+	emailRest.innerText = restaurant.email;
+	cuisineRest.innerText = restaurant.cuisine;
+	openRest.innerText = restaurant.openHour;
+	closeRest.innerText = restaurant.closeHour;
+	statusRest.innerText = restaurant.open;
+	cityRest.innerText = restaurant.city;
+	addressRest.innerText = restaurant.address;
+	discoutRest.innerText = '10% all meal';
+
+	getSeller(sellerUrl, renderSeller);
+	getMealsOfRestaurant(mealsUrl, renderMealsOfRestaurant);
+	slider();
+	menuNav();
+}
+
+// seller
+function getSeller(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(error => console.log(error));
+}
+
+function renderSeller(user) {
+	const avartar = document.querySelector('.user-details img');
+	const name = document.querySelector('.user-details .name-location h4');
+	const owner = document.querySelector('.rest-own');
+
+	avartar.src = user.avartar;
+	name.innerText = user.name;
+	owner.innerText = user.name;
+}
+
+// meals of restaurant 
+function getMealsOfRestaurant(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(error => console.log(error));
+}
+
+function renderMealsOfRestaurant(orderMeals) {
+	const breakfast = document.querySelector('#breakfast .row');
+	const lunch = document.querySelector('#lunch .row');
+	const dinner = document.querySelector('#dinner .row');
+	const cafe = document.querySelector('#cafe .row');
+	const delivery = document.querySelector('#delivery .row');
+
+	let getBreakfast = [];
+	let getLunch = [];
+	let getDinner = [];
+	let getCafe = [];
+	let getDelivery = [];
+	orderMeals.forEach(meal => {
+		if(meal.selectMeal.toLowerCase() == 'breakfast') {
+			getBreakfast.push(componentMeal(meal));
+		} else if(meal.selectMeal.toLowerCase() == 'lunch') {
+			getLunch.push(componentMeal(meal));
+		} else if(meal.selectMeal.toLowerCase() == 'dinner') {
+			getDinner.push(componentMeal(meal));
+		} else if(meal.selectMeal.toLowerCase() == 'cafe') {
+			getCafe.push(componentMeal(meal));
+		} else {
+			getDelivery.push(componentMeal(meal));
+		}
+	});
+	
+	breakfast.innerHTML = getBreakfast.join('');
+	lunch.innerHTML = getLunch.join('');
+	dinner.innerHTML = getDinner.join('');
+	cafe.innerHTML = getCafe.join('');
+	delivery.innerHTML = getDelivery.join('');
+}
+
+function componentMeal(meal) {
+	return `
+		<div class="col col-12 col-md-6">
+			<div class="meals">
+				<img src="${meal.photos[0]}" alt="meal order">
+				<div class="capiton-meals">
+					<a href="/views/meals/${meal.slug}">
+						<h3>${meal.name}</h3>
+					</a>
+					<div class="rating">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<span>4.5</span>
+					</div>
+					<p class="price">$${meal.price}.00</p>
+				</div>
+			</div>
+		</div>
+	`;
+}
+
 // remove default a link
 function removeDefault() {
 	listNavLink.forEach(link => {
@@ -90,7 +315,7 @@ function addActive(e) {
 	currentTab.classList.add('active');
 }
 // remove all tabpane small
-function removeAllTabPaneSmall() {
+function removeAllTabPaneSmall(tabpaneSmall) {
 	tabpaneSmall.forEach(tab => {
 		tab.classList.remove('active');
 	});
@@ -120,7 +345,7 @@ function addActiveOrder(e) {
 	showTab.classList.add('active');
 	currentTab.classList.add('active');
 }
-// form book a table
+// form book a table 
 const selectTime = document.querySelector('#select-time');
 const selectMember = document.querySelector('#select-member');
 const dropdownMenuTime = selectTime.parentElement.querySelector('.dropdown-menu');

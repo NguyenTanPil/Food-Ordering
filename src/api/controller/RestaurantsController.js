@@ -1,6 +1,6 @@
 // nhung meals hang cua user
 const Restaurants = require('../../app/models/Restaurant.js');
-const { mutipleMongooseToOject } = require('../../util/mongoose.js');
+const { mongooseToOject, mutipleMongooseToOject } = require('../../util/mongoose.js');
 
 class RestaurantsController {
 	// [GET] /user/api/restaurants
@@ -9,6 +9,12 @@ class RestaurantsController {
 		const restaurants = getRestaurants(userId);
 		const restaurantsUser = await restaurants;
 		res.json(restaurantsUser);
+	}
+	// [GET] /user/api/restaurants-view/:slug
+	async fetchRestaurantView(req, res) {
+		const restaurant = getRestaurantView(req.params.slug);
+		const restaurantUser = await restaurant;
+		res.json(restaurantUser);
 	}
 }
 
@@ -21,5 +27,12 @@ async function getRestaurants(userId) {
 		});
 	return restaurants;
 }
-
+async function getRestaurantView(slug) {
+	let restaurant;
+	await Restaurants.findOne({ slug: slug })
+		.then((data) => {
+			restaurant = mongooseToOject(data);
+		});
+	return restaurant;
+}
 module.exports = new RestaurantsController;
