@@ -11,8 +11,12 @@ const cloudinary = require('../../middlewares/cloudinary_config.js');
 class UserController {
 
 	// [GET] /user/signup
-	signup(req, res) {
-		res.render('signup', { layout: 'signup' });
+	signup(req, res, next) {
+		try {
+			res.render('signup', { layout: 'signup' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [POST] /user/create_user
 	async create_user(req, res) {
@@ -26,8 +30,12 @@ class UserController {
 		res.redirect('/user/login');
 	}
 	// [GET] /user/login
-	login(req, res) {
-		res.render('login', { layout: 'login' });
+	login(req, res, next) {
+		try {
+			res.render('login', { layout: 'login' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [POST] /user/login-process
 	async login_process(req, res, next) {
@@ -56,17 +64,20 @@ class UserController {
 		}
 	}
 	// [GET] /user/my_profile
-	async my_profile(req, res) {
-		const userId = req.cookies['userId'];
-		const info = getUserDetail(userId);
-		const infoUser = await info;
-		res.render('my_profile', { layout: 'my_profile', infoUser });
+	async my_profile(req, res, next) {
+		try {
+			res.render('my_profile', { layout: 'my_profile' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [GET] /user/edit-profile
-	async edit_profile(req, res) {
-		const userId = req.cookies['userId'];
-		const user = await getUserDetail(userId);
-		res.render('edit_profile', { layout: 'edit_profile', user });
+	async edit_profile(req, res, next) {
+		try {
+			res.render('edit_profile', { layout: 'edit_profile' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [PUT] /user/edit-profile-process
 	async edit_profile_process(req, res, next) {
@@ -140,8 +151,12 @@ class UserController {
 		}
 	}
 	// [GET] /user/upload-video
-	upload_video(req, res) {
-		res.render('upload_video', { layout: 'upload_video' });
+	upload_video(req, res, next) {
+		try {
+			res.render('upload_video', { layout: 'upload_video' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [POST] /user/create-video
 	async create_video(req, res) {

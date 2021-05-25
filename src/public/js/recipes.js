@@ -39,7 +39,7 @@ function renderVideosView(videos) {
 }
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 function componentMainVideo(video) {
-	const date =  new Date(video.createdAt);
+	const date = new Date(video.createdAt);
 	return `
 		<div class="my-bg-gradient"></div>
 			<img src="${video.thumbnail}" alt="main-video">

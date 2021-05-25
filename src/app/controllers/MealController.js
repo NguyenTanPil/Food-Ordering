@@ -11,7 +11,7 @@ const { mutipleMongooseToOject, mongooseToOject } = require('../../util/mongoose
 class MealController {
 
 	// [GET] /user/restaurant/:slug/meal/:slug
-	async meal_detail(req, res) {
+	async meal_detail(req, res, next) {
 		const userId = req.cookies['userId'];
 		const slug = req.params.slug;
 		const mealUser = getMealDetail(userId, slug);
@@ -25,7 +25,11 @@ class MealController {
 			res.status(404).redirect('/error');
 			return;
 		}
-		res.render('meal-detail', { layout: 'meal-detail' });
+		try {
+			res.render('meal-detail', { layout: 'meal-detail' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [POST] /user/restaurant/:slug/meal/:slug/order-meal
 	async order_meal(req, res) {

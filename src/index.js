@@ -36,6 +36,17 @@ app.set('views', path.join(__dirname, 'resource', 'views'));
 // route
 route(app);
 
+// error
+app.use((req, res, next) => {
+	const err = new Error('Not Found');
+	err.status = 404;
+	next(err);
+});
+app.use((err, req, res, next) => {
+	res.status(err.status || 500);
+	res.redirect('/error');
+});
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });

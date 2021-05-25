@@ -10,7 +10,11 @@ const cloudinary = require('../../middlewares/cloudinary_config.js');
 class RestaurantController {
 	// [GET] /user/restaurant/add-restaurant
 	add_restaurant(req, res) {
-		res.render('add_restaurant', { layout: 'add_restaurant' });
+		try {
+			res.render('add_restaurant', { layout: 'add_restaurant' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [POST] /user/restaurant/create-restaurant
 	create_restaurant(req, res) {
@@ -23,14 +27,18 @@ class RestaurantController {
 		res.redirect('/partner/restaurant-detail-view');
 	}
 	// [GET] /user/restaurant/:slug
-	async restaurant_detail(req, res) {
+	async restaurant_detail(req, res, next) {
 		const userId = req.cookies['userId'];
 		const restaurant = await getRestaurantDetails(userId, req.params.slug);
 		if(!restaurant) {
 			res.status(404).redirect('/error');
 			return;
 		}
-		res.render('restaurant_detail', { layout: 'restaurant_detail' });
+		try {
+			res.render('restaurant_detail', { layout: 'restaurant_detail' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [PUT] /user/restaurant/update-restaurant
 	async update_restaurant(req, res, next) {
@@ -64,10 +72,10 @@ class RestaurantController {
 		}
 		Restaurant.updateOne({ userId: userId }, formData)
 			.then(() => res.redirect('/user/restaurant/restaurant-detail'))
-			.catch(next);
+			.catch(next(err));
 	}
 	// [POST] /user/restaurant/create-meal
-	async create_meal(req, res) {
+	async create_meal(req, res, next) {
 		let formData = req.body;
 		const userId = req.cookies['userId'];
 		formData.userId = userId;

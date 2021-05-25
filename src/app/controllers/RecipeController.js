@@ -5,7 +5,11 @@ class RecipeController {
 
 	// [GET] /recipe/recipe-details
 	recipe_details(req, res) {
-		res.render('recipe_details', { layout: 'recipe_details' });
+		try {
+			res.render('recipe_details', { layout: 'recipe_details' });
+		} catch(e) {
+			next(err);
+		}
 	}
 }
 

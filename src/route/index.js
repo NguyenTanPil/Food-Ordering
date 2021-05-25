@@ -18,7 +18,7 @@ function route(app) {
 	app.use('/partner', partnerRouter);
 	app.use('/views', viewsRouter);
 	app.use('/', siteRouter);
-
+	
 }
 
 module.exports = route;

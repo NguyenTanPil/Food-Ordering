@@ -5,29 +5,44 @@ const { mongooseToOject, mutipleMongooseToOject } = require('../../util/mongoose
 
 class ViewsController {
 	// [GET] /views/restaurants/:slug
-	async viewMeal(req, res) {
-		res.render('meal-detail', { layout: 'meal_detail_view' });
+	async viewMeal(req, res, next) {
+		try {
+			res.render('meal-detail', { layout: 'meal_detail_view' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [GET] /views/restaurants
-	async viewRestaurant(req, res) {
-		res.render('restaurant_detail_view', { layout: 'restaurant_detail_view' });
+	async viewRestaurant(req, res, next) {
+		try {
+			res.render('restaurant_detail_view', { layout: 'restaurant_detail_view' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [GET] /views/meals
-	all_meals(req, res) {
-		res.render('all_meals', { layout: 'all_meals' });
+	all_meals(req, res, next) {
+		try {
+			res.render('all_meals', { layout: 'all_meals' });
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [GET] /recipe
 	recipes(req, res, next) {
-		recipeVideo.find({})
-			.then(recipeVideos => {
-				recipeVideos = mutipleMongooseToOject(recipeVideos);
-				res.render('recipe', { layout: 'recipe', recipeVideos } );
-			})
-			.catch(next);
+		try {
+			res.render('recipe', { layout: 'recipe' } );
+		} catch(e) {
+			next(err);
+		}
 	}
 	// [GET] /views/recipe-detail
 	recipe_detail(req, res) {
-		res.render('recipe_details', { layout: 'recipe_detail_view' });
+		try {
+			res.render('recipe_details', { layout: 'recipe_detail_view' });
+		} catch(e) {
+			next(err);
+		}
 	}
 }
 

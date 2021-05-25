@@ -145,7 +145,7 @@ var vue2 = new Vue({
 Vue.component('recipe-item', {
 	props: ['obj'],
 	template: `
-		<a href="#">
+		<a href="/views/recipes">
 			<div class="recipe-item">
 				<img :src="obj.img" alt="">
 				<div class="overlay">
