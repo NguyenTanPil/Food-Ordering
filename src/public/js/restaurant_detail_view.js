@@ -169,7 +169,7 @@ function renderRestaurantDetail(restaurant) {
 	mainMenu.innerHTML = mainMenuContainer.join('');
 	navMenu.innerHTML = navMenuContainer.join('');
 	gallery.innerHTML = galleryContainer.join('');
-	numberGallery.innerText = `${restaurant.photos.length} photos`;
+	numberGallery.innerText = `${restaurant.photos.length} photos`; 
 	position.innerText = restaurant.position;
 	name.innerText = restaurant.name;
 	locationDet.innerText = restaurant.address;

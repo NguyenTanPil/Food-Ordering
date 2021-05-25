@@ -445,6 +445,11 @@
 	display: flex;
 	justify-content: center;
 }
+.featured-restaurants .img-item img {
+	width: 3.125rem;
+	height: 3.125rem;
+	object-fit: cover;
+}
 .featured-restaurants .list-treading .img-item {
 	justify-content: unset;
 }

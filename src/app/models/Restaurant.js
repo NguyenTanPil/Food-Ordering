@@ -30,6 +30,8 @@ const Restaurant = new Schema({
 	payment: { type: String },
 	userId: { type: String },
 	slugRestaurant: { type: String, slug: "name", unique: true },
+}, {
+	timestamps: true,
 });
 
 module.exports = mongoose.model('Restaurant', Restaurant);

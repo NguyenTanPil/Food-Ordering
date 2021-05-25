@@ -463,7 +463,8 @@
 
 .video-detail-recipes .recommended-meal-item img {
   width: 7.5rem;
-  height: 7.5rem; }
+  height: 7.5rem;
+  object-fit: cover; }
 
 .video-detail-recipes .recommended-meal-item .caption {
   padding: 1.125rem 1.125rem 0 1.125rem; }

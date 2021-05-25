@@ -206,7 +206,7 @@
 							<p>Use code to get 50% off upto $5 <br>on your next order.</p>
 						</div>
 						<div class="banner-btn">
-							<a href="/meals" class="my-btn">Order Now</a>
+							<a href="/views/all-meals" class="my-btn">Order Now</a>
 						</div>
 					</div>
 				</div>
@@ -270,23 +270,20 @@
 <section class="featured-restaurants">
 	<div class="container">
 		<div class="row">
-			<div class="col col-12 col-lg-8" >
+			<div class="col col-12 col-lg-7" >
 				<div class="heading">
 					<h2> Featured Restaurants </h2>
 				</div>
-				<div class="list-features app-4">
-					<div class="feature-item" v-for="i in listFeature">
-						<feature-item v-bind:obj="i" v-bind:key="i.id"></feature-item>
+				<div class="list-features">
+					<div class="feature-item">
 					</div>
 				</div>
 			</div>
-			<div class="col col-12 col-lg-4">
+			<div class="col col-12 col-lg-5">
 				<div class="heading">
 					<h2> Treading This Week Sellers </h2>
 				</div>
-				<div class="list-treading app-5">
-					<div class="treading-item" v-for="i in listTreading">
-					<treading-item v-bind:obj="i" v-bind:key="i.id"></treading-item>
+				<div class="list-treading">
 				</div>
 			</div>
 		</div>

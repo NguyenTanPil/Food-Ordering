@@ -26,6 +26,7 @@ router.get('/restaurants/:slug/meals-view', meals.fetchMealsByRest);
 
 // restaurant of user
 router.get('/restaurants', restaurants.fetchRestaurants);
+router.get('/restaurants-view', restaurants.fetchRestaurantsView);
 router.get('/restaurants-view/:slug', restaurants.fetchRestaurantView);
 
 // restaurant detail of user
@@ -34,5 +35,7 @@ router.get('/restaurant-detail/:slug', restaurant.fetchRestaurant);
 // video of user 
 router.get('/videos', videos.fetchVideos);
 router.get('/videos/:slug', videos.fetchVideoDetail);
+router.get('/videos-view', videos.fetchVideosView);
+router.get('/videos-view/:slug', videos.fetchVideoDetailView);
 
 module.exports = router;

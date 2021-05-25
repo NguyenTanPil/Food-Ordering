@@ -138,7 +138,7 @@ function renderMealDetail(mealDetail) {
 	inputMealImg.value = mealDetail.photos[0];
 	inputMealPrice.value = mealDetail.price;
 	inputMealPayment.value = mealDetail.price;
-	linkRestaurant.href = `/user/restaurant/${mealDetail.slugRestaurant}`;
+	linkRestaurant.href = `/views/restaurants/${mealDetail.slugRestaurant}`;
 
 	const renderMainImg = mealDetail.photos.map((img, index) => {
 		if(index == 0) {

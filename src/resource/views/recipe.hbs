@@ -55,7 +55,7 @@
 						<span>or</span>
 					</div>
 					<div class="upload">
-						<a href="#" class="my-btn">Upload video</a>
+						<a href="/user/upload-video" class="my-btn">Upload video</a>
 					</div>
 				</div>
 			</div>
@@ -87,49 +87,6 @@
 		<div class="row">
 			<div class="col col-12 col-lg-9">
 				<div class="video">
-					<div class="my-bg-gradient"></div>
-					<img src="/images/main-video.jpg" alt="main-video">
-					<div class="top-items">
-						<div class="views">
-							<p>
-								<i class="fa fa-eye" aria-hidden="true"></i>
-								2m views
-							</p>
-						</div>
-						<div class="video-time">
-							<p>
-								<i class="fa fa-clock-o" aria-hidden="true"></i>
-								12.08
-							</p>
-						</div>
-					</div>
-					<div class="bottom-items">
-						<div class="video-title">
-							<a href="/recipe/recipe-details">
-								<h4>Learn to cook easy egg gravey dishes</h4>
-							</a>
-							<div class="bottom-star">
-								<div class="rating">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-half-o" aria-hidden="true"></i>
-									<span>4.5</span>
-								</div>
-								<div class="published">
-									<p><span>Published</span> 5 March 2018</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="middle-items">
-						<a href="/recipe/recipe-details">
-							<div class="play">
-								<i class="fa fa-play" aria-hidden="true"></i>
-							</div>
-						</a>
-					</div>
 				</div>
 			</div>
 			<div class="col col-12 col-lg-3">
@@ -156,64 +113,6 @@
 			</div>
 		</div>
 		<div class="row">
-			{{#each recipeVideos}}
-			<div class="col col-12 col-md-6 col-lg-4 col-xl-3">
-				<div class="recipe-video">
-					<div class="top">
-						<div class="my-bg-gradient"></div>
-						<img src="/images/{{this.image}}" alt="{{this.image}}">
-						<div class="top-items">
-							<div class="views">
-								<p>
-									<i class="fa fa-eye" aria-hidden="true"></i>
-									{{this.views}}m views
-								</p>
-							</div>
-							<div class="video-time">
-								<p>
-									<i class="fa fa-clock-o" aria-hidden="true"></i>
-									{{this.time}}
-								</p>
-							</div>
-						</div>
-						<div class="middle-items">
-							<a href="/recipe/recipe-details">
-								<div class="play">
-									<i class="fa fa-play" aria-hidden="true"></i>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="desciption">
-						<div class="video-title">
-							<a href="/recipe/recipe-details">
-								<h3>{{this.name}}</h3>
-							</a>
-							<h4>{{this.desciption}}</h4>
-						</div>
-						<div class="published">
-							<p>Published {{this.date}}</p>
-						</div>
-						<div class="rating-cmt">
-							<div class="rating">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<span>{{this.stars}}</span>
-							</div>
-							<div class="comment">
-								<a href="#">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									<span>{{this.comment}}</span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			{{/each}}
 		</div>
 	</div>
 </section>
@@ -229,64 +128,6 @@
 			</div>
 		</div>
 		<div class="row">
-			{{#each recipeVideos}}
-			<div class="col col-12 col-md-6 col-lg-4 col-xl-3">
-				<div class="recipe-video">
-					<div class="top">
-						<div class="my-bg-gradient"></div>
-						<img src="/images/{{this.image}}" alt="{{this.image}}">
-						<div class="top-items">
-							<div class="views">
-								<p>
-									<i class="fa fa-eye" aria-hidden="true"></i>
-									{{this.views}}m views
-								</p>
-							</div>
-							<div class="video-time">
-								<p>
-									<i class="fa fa-clock-o" aria-hidden="true"></i>
-									{{this.time}}
-								</p>
-							</div>
-						</div>
-						<div class="middle-items">
-							<a href="/recipe/recipe-details">
-								<div class="play">
-									<i class="fa fa-play" aria-hidden="true"></i>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="desciption">
-						<div class="video-title">
-							<a href="/recipe/recipe-details">
-								<h3>{{this.name}}</h3>
-							</a>
-							<h4>{{this.desciption}}</h4>
-						</div>
-						<div class="published">
-							<p>Published {{this.date}}</p>
-						</div>
-						<div class="rating-cmt">
-							<div class="rating">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<span>{{this.stars}}</span>
-							</div>
-							<div class="comment">
-								<a href="#">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									<span>{{this.comment}}</span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			{{/each}}
 		</div>
 		<div class="row">
 			<div class="col col-12">

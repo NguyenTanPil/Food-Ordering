@@ -7,6 +7,146 @@ window.onload = function() {
 		overlay.style.width = `${imgRecipes.offsetWidth}px`;
 	});
 }
+
+// fetch api
+const videoUrl = '/user/api/videos-view';
+start();
+
+function start() {
+	getVideosView(videoUrl, renderVideosView);
+}
+
+function getVideosView(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(error => console.log(error));
+}
+
+function renderVideosView(videos) {
+	const main =  document.querySelector('.main-video .video');
+	const recommend = document.querySelector('.recomended .row');
+	const recent = document.querySelector('.update .row');
+	const container = [];
+
+	videos.forEach(video => {
+		container.push(componentRecommendVideos(video));
+	})
+
+	main.innerHTML = componentMainVideo(videos[0]);
+	recommend.innerHTML = container.join('');
+	recent.innerHTML = container.join('');
+}
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function componentMainVideo(video) {
+	const date =  new Date(video.createdAt);
+	return `
+		<div class="my-bg-gradient"></div>
+			<img src="${video.thumbnail}" alt="main-video">
+			<div class="top-items">
+				<div class="views">
+					<p>
+						<i class="fa fa-eye" aria-hidden="true"></i>
+						2m views
+					</p>
+				</div>
+				<div class="video-time">
+					<p>
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+						12.08
+					</p>
+				</div>
+			</div>
+			<div class="bottom-items">
+				<div class="video-title">
+					<a href="/views/recipes/${video.slug}">
+						<h4>${video.title}</h4>
+					</a>
+					<div class="bottom-star">
+						<div class="rating">
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star-half-o" aria-hidden="true"></i>
+							<span>4.5</span>
+						</div>
+						<div class="published">
+							<p><span>Published</span> ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="middle-items">
+				<a href="/views/recipes/${video.slug}">
+					<div class="play">
+						<i class="fa fa-play" aria-hidden="true"></i>
+					</div>
+				</a>
+			</div>
+	`;
+}
+
+function componentRecommendVideos(video) {
+	const date =  new Date(video.createdAt);
+	return `
+		<div class="col col-12 col-md-6 col-lg-4 col-xl-3">
+			<div class="recipe-video">
+				<div class="top">
+					<div class="my-bg-gradient"></div>
+					<img src="${video.thumbnail}" alt="">
+					<div class="top-items">
+						<div class="views">
+							<p>
+								<i class="fa fa-eye" aria-hidden="true"></i>
+								2m views
+							</p>
+						</div>
+						<div class="video-time">
+							<p>
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+								10.00
+							</p>
+						</div>
+					</div>
+						<div class="middle-items">
+						<a href="/views/recipes/${video.slug}">
+							<div class="play">
+								<i class="fa fa-play" aria-hidden="true"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="desciption">
+					<div class="video-title">
+						<a href="/views/recipes/${video.slug}">
+							<h3>${video.title}</h3>
+						</a>
+					</div>
+					<div class="published">
+							<p><span>Published</span> ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}</p>
+					</div>
+					<div class="rating-cmt">
+						<div class="rating">
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+							<span>5.0</span>
+						</div>
+						<div class="comment">
+							<a href="#">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<span>03</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	`;
+}
 // recipes starts
 const listRecipes = [
 	{

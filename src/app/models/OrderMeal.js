@@ -19,6 +19,8 @@ const OrderMeal = new Schema({
 	completed: { type: String},
 	deleted: { type: String},
 	userDeleted: { type: String},
+}, {
+	timestamps: true,
 });
 
 module.exports = mongoose.model('OrderMeal', OrderMeal);

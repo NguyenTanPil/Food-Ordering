@@ -10,6 +10,8 @@ const RecipeVideo = new Schema({
   date: { type: String },
   stars: { type: String },
   comment: { type: String },
+}, {
+	timestamps: true,
 });
 
 module.exports = mongoose.model('RecipeVideo', RecipeVideo);

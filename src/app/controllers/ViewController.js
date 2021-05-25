@@ -1,6 +1,7 @@
 // nhung meals hang cua user
 const Restaurants = require('../../app/models/Restaurant.js');
-const { mongooseToOject } = require('../../util/mongoose.js');
+const recipeVideo = require('../../app/models/RecipeVideo.js');
+const { mongooseToOject, mutipleMongooseToOject } = require('../../util/mongoose.js');
 
 class ViewsController {
 	// [GET] /views/restaurants/:slug
@@ -14,6 +15,19 @@ class ViewsController {
 	// [GET] /views/meals
 	all_meals(req, res) {
 		res.render('all_meals', { layout: 'all_meals' });
+	}
+	// [GET] /recipe
+	recipes(req, res, next) {
+		recipeVideo.find({})
+			.then(recipeVideos => {
+				recipeVideos = mutipleMongooseToOject(recipeVideos);
+				res.render('recipe', { layout: 'recipe', recipeVideos } );
+			})
+			.catch(next);
+	}
+	// [GET] /views/recipe-detail
+	recipe_detail(req, res) {
+		res.render('recipe_details', { layout: 'recipe_detail_view' });
 	}
 }
 

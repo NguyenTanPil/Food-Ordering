@@ -327,7 +327,8 @@
 .update .top img {
   object-fit: cover;
   width: 100%;
-  display: block; }
+  display: block;
+  height: 13.125rem; }
 
 .recomended .top-items,
 .update .top-items {

@@ -1,9 +1,11 @@
 // fetch api
-const mealsUrl = 'user/api/meals-view';
+const mealsUrl = '/user/api/meals-view';
+const restaurantsUrl =  '/user/api/restaurants-view';
 start();
 
 function start() {
 	getMeals(mealsUrl, renderMeals);
+	getRestaurants(restaurantsUrl, renderRestaurants);
 }
 
 function getMeals(url, callback) {
@@ -14,12 +16,16 @@ function getMeals(url, callback) {
 }
 
 function renderMeals(meals) {
+	const container = [];
+	const listTreanding = document.querySelector('.list-treading');
 	meals.forEach(meal => {
 		const urlRestaurant = `/user/api/restaurants-view/${meal.slugRestaurant}`;
 		getRestaurant(urlRestaurant, (restaurant) => {
 			renderProducts(meal, restaurant);
 		});
+		container.push(componentMealTreanding(meal));
 	});
+	listTreanding.innerHTML = container.join('');
 }
 
 function getRestaurant(url, callback) {
@@ -31,7 +37,6 @@ function getRestaurant(url, callback) {
 
 function renderProducts(meal, restaurant) {
 	const foods = document.querySelector('.foods-online');
-
 	const div =  document.createElement('div');
 	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3 meal-item';
 	div.innerHTML = `
@@ -91,6 +96,73 @@ function renderProducts(meal, restaurant) {
 	foods.appendChild(div);
 }
 
+function getRestaurants(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderRestaurants(restaurants) {
+	const listFeatures = document.querySelector('.list-features');
+	const container = [];
+	restaurants.forEach(restaurant => {
+		container.push(componentRestaurantFeature(restaurant));
+	});
+	listFeatures.innerHTML =  container.join('');
+}
+
+function componentRestaurantFeature(restaurant) {
+	return `
+		<div class="feature-item">
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<div class="img-item">
+						<img src="${restaurant.logo}" alt="Featured">
+						<div class="info-img">
+							<h4>${restaurant.name}</h4>
+							<p>VietName Restaurant</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div class="location-item text-center">
+						<span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+						<span class="text">${restaurant.city} City</span>
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div class="btn-item">
+						<a href="/views/restaurants/${restaurant.slug}" class="btn my-btn" role="button" data-bs-toggle="button">View Menu</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	`;
+}
+
+function componentMealTreanding(meal) {
+	return `
+	<div class="treading-item">
+		<div class="row">
+			<div class="col-7 col-md-6">
+				<div class="img-item">
+					<img src="${meal.photos[0]}" alt="Featured">
+					<div class="info-img">
+						<h4>${meal.name}</h4>
+						<p>Treading</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-5 col-md-6">
+				<div class="btn-item">
+					<a href="/views/meals/${meal.slug}" class="my-btn" role="button" data-bs-toggle="button">View <span>Menu</span></a>
+				</div>
+			</div>
+		</div>
+		</div>
+	`;
+}
 
 // places starts 
 new Splide( '.browse-places .splide', {

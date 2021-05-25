@@ -10,6 +10,12 @@ class RestaurantsController {
 		const restaurantsUser = await restaurants;
 		res.json(restaurantsUser);
 	}
+	// [GET] /user/api/restaurants
+	async fetchRestaurantsView(req, res) {
+		const restaurants = getRestaurantsView();
+		const restaurantsUser = await restaurants;
+		res.json(restaurantsUser);
+	}
 	// [GET] /user/api/restaurants-view/:slug
 	async fetchRestaurantView(req, res) {
 		const restaurant = getRestaurantView(req.params.slug);
@@ -22,6 +28,14 @@ class RestaurantsController {
 async function getRestaurants(userId) {
 	let restaurants;
 	await Restaurants.find({ userId: userId })
+		.then((data) => {
+			restaurants = mutipleMongooseToOject(data);
+		});
+	return restaurants;
+}
+async function getRestaurantsView() {
+	let restaurants;
+	await Restaurants.find({})
 		.then((data) => {
 			restaurants = mutipleMongooseToOject(data);
 		});
