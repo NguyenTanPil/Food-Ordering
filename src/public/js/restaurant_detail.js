@@ -13,6 +13,7 @@ const selectTimeTo = document.querySelector('.select-time-to');
 const selectCuisine = document.querySelector('.btn-cuisine');
 const selectTag = document.querySelector('.btn-tag');
 const selectMeal = document.querySelector('.btn-meal');
+const cuisineMeal = document.querySelector('.btn-cuisine');
 const selectOffer = document.querySelector('.btn-offer');
 const checkbox = document.querySelectorAll('.information .radio-item');
 let addPhotosMeal = document.querySelector('.add-photos-meal');
@@ -269,6 +270,12 @@ function saveSelectMeal(meal) {
 	const inputMeal = document.querySelector('.select-meal');
 	inputMeal.value = meal;
 }
+
+function saveSelectCuisine(cuisine) {
+	const inputMeal = document.querySelector('.select-cuisine');
+	inputMeal.value = cuisine;
+}
+
 function saveSelectOffer(offer) {
 	const inputOffer = document.querySelector('.offer-meal');
 	inputOffer.value = offer;
@@ -439,6 +446,8 @@ function renderRestaurantDetail(restaurant) {
 	const seating = document.querySelectorAll('input[name="seating"]');
 	const payment = document.querySelectorAll('input[name="payment"]');
 	const formUpdate = document.querySelector('.restaurant-detail-bg form');
+	const slugRestaurant = document.querySelector('.slug-restaurant');
+	const locationRestaurant = document.querySelector('.location-restaurant');
 
 	// assign value
 	name.value = restaurant.name;
@@ -448,6 +457,8 @@ function renderRestaurantDetail(restaurant) {
 	phoneRestaurant.value = restaurant.phoneRestaurant;
 	websiteRestaurant.value = restaurant.website;
 	address.value = restaurant.address;
+	slugRestaurant.value = restaurant.slug;
+	locationRestaurant.value = restaurant.city;
 	// assign postion
 	position.forEach(pos => {
 		if(pos.value == restaurant.position) {
@@ -514,6 +525,7 @@ function renderRestaurantDetail(restaurant) {
 	saveCuisine(selectCuisine.innerText);
 	saveTag(selectTag.innerText);
 	saveSelectMeal(selectMeal.innerText);
+	saveSelectCuisine(selectCuisine.innerText);
 	saveSelectOffer(selectOffer.innerText);
 	// form
 	formUpdate.action =  `/user/restaurant/update-restaurant/${restaurant.slug}?_method=PUT`;

@@ -573,6 +573,26 @@
 												</div>
 												<div class="col col-12 col-lg-6">
 													<div class="form-group">
+														<input type="hidden" name="cuisineMeal" class="input-hidden-cuisine">
+														<label for="cuisine-meal">Select Cuisines *</label>
+														<button type="button" class="dropdown-btn btn-cuisine">Cakes & Desserts</button>
+														<i class="fa fa-caret-down icon-select" aria-hidden="true"></i>
+														<div class="dropdown-menu">
+															<div class="dropdown-item active">Cakes & Desserts</div>
+															<div class="dropdown-item">Pizza</div>
+															<div class="dropdown-item">Drinks & Beer</div>
+															
+															<div class="dropdown-item">Shusi</div>
+															<div class="dropdown-item">Fast Food</div>
+															<div class="dropdown-item">Shawarma</div>
+															<div class="dropdown-item">Fish</div>
+															<div class="dropdown-item">Cheese Tika</div>
+															{{!-- <div class="dropdown-item">Orther</div> --}}
+														</div>
+													</div>
+												</div>
+												<div class="col col-12 col-lg-6">
+													<div class="form-group">
 														<input type="hidden" name="offerMeal" class="offer-meal">
 														<label for="name-meal">Select Offers *</label>
 														<button type="button" class="dropdown-btn btn-offer">0%</button>
@@ -607,6 +627,8 @@
 												</div>
 												<div class="col col-12 col-sm-6">
 													<div class="form-group">
+														<input type="hidden" name="slugRestaurant" class="slug-restaurant">
+														<input type="hidden" name="location" class="location-restaurant">
 														<button type="button" class="my-btn clear-all-photos">Clear All</button>
 													</div>
 												</div>

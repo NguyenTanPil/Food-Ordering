@@ -11,6 +11,8 @@ const Meal = new Schema({
 	description: { type: String },
 	selectMeal: { type: String },
 	offerMeal: { type: String },
+	cuisineMeal: { type: String },
+	location: { type: String },
 	photos: { type: [String] },
 	public_id_photos: { type: [String] },
 	userId: { type: String },

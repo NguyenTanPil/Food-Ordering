@@ -71,7 +71,6 @@ class RestaurantController {
 		let formData = req.body;
 		const userId = req.cookies['userId'];
 		formData.userId = userId;
-		formData.slugRestaurant = 'nha-hang-nam-nho';
 		formData.photos = [];
 		formData.public_id_photos = [];
 		for(let i = 0; i < req.files.length; i++) {
@@ -83,7 +82,7 @@ class RestaurantController {
 		}
 		const meal = new Meal(formData);
 		meal.save();
-		res.redirect('/user/restaurant-detail');
+		res.redirect(`/user/restaurant/${formData.slugRestaurant}`);
 	}
 }
 
