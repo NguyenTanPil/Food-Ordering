@@ -374,9 +374,6 @@
 
 /*offer bannar ends*/
 /*quick searches starts*/
-.quick-searches {
-  margin-bottom: 2rem; }
-
 .quick-searches .col-12 {
   text-align: center; }
 
@@ -394,6 +391,9 @@
 /*featured restaurants starts*/
 .featured-restaurants .row-features > div {
   margin-top: 3rem; }
+
+.featured-restaurants .heading {
+  padding-top: 2rem; }
 
 .featured-restaurants .heading h2 {
   font-size: 1.4rem;

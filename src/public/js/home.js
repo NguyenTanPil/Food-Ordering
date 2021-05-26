@@ -186,6 +186,243 @@ formSeach.addEventListener('submit', (e) => {
 	});
 })
 
+// quick search, browse place, favorite recipes
+const listOrderOnlines = [
+	{
+		id: 1,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-1_trkary.svg',
+		name: 'Breakfast'
+	},
+	{
+		id: 2,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-2_gpch3l.svg',
+		name: 'Lunch'
+	},
+	{
+		id: 3,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-3_nqz5fr.svg',
+		name: 'Dinner'
+	},
+	{	
+		id: 4,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033668/systems/meal-4_uk5wmz.svg',
+		name: 'Cafe\'s'
+	},
+	{
+		id: 5,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-5_bvrvio.svg',
+		name: 'Delivery'
+	},
+	{
+		id: 6,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-1_trkary.svg',
+		name: 'Breakfast'
+	},
+	{
+		id: 7,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-2_gpch3l.svg',
+		name: 'Lunch'
+	},
+	{
+		id: 8,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-3_nqz5fr.svg',
+		name: 'Dinner'
+	},
+	{
+		id: 9,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033668/systems/meal-4_uk5wmz.svg',
+		name: 'Cafe\''
+	},
+	{
+		id: 10,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-5_bvrvio.svg',
+		name: 'Delivery'
+	},
+];
+
+const listBrowsePlaces = [
+	{
+		id: 1,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/01_tpiobv.svg',
+		name: 'Near by'
+	},
+	{
+		id: 2,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/02_ovhaiy.svg',
+		name: 'Cafes & More'
+	},
+	{
+		id: 3,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/03_m4r91u.svg',
+		name: 'Drinks & Nightkise'
+	},
+	{
+		id: 4,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034344/systems/04_kykevg.svg',
+		name: 'Desserts & Bakes'
+	},
+	{
+		id: 5,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034346/systems/05_kpqafx.svg',
+		name: 'Upcoming Events'
+	},
+	{
+		id: 6,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034345/systems/06_edughw.svg',
+		name: 'Newly Opened'
+	},
+	{
+		id: 7,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/01_tpiobv.svg',
+		name: 'Near by'
+	},
+	{
+		id: 8,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/02_ovhaiy.svg',
+		name: 'Cafes & More'
+	},
+	{
+		id: 9,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/03_m4r91u.svg',
+		name: 'Drinks & Nightkise'
+	},
+	{
+		id: 10,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034344/systems/04_kykevg.svg',
+		name: 'Desserts & Bakes'
+	},
+	{
+		id: 11,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034346/systems/05_kpqafx.svg',
+		name: 'Upcoming Events'
+	},
+	{
+		id: 12,
+		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034345/systems/06_edughw.svg',
+		name: 'Newly Opened'
+	},
+];
+
+const listFavoriteRecipes = [
+	{
+		id: 1,
+		img: '../images/recipe_01.jpg',
+		type: 'North Indian',
+		video: '75'
+	},
+	{
+		id: 2,
+		img: '../images/recipe_02.jpg',
+		type: 'Fast Food',
+		video: '105'
+	},
+	{
+		id: 3,
+		img: '../images/recipe_03.jpg',
+		type: 'Italian Food',
+		video: '35'
+	},
+	{
+		id: 4,
+		img: '../images/recipe_04.jpg',
+		type: 'Chinese Food',
+		video: '60'
+	},
+	{
+		id: 5,
+		img: '../images/recipe_05.jpg',
+		type: 'Street Food',
+		video: '45'
+	},
+	{
+		id: 6,
+		img: '../images/recipe_06.jpg',
+		type: 'Bakery',
+		video: '20'
+	},
+];
+
+renderBrowsePlaces();
+renderOrderOnlines();
+renderFavoriteRecipes();
+
+function renderBrowsePlaces() {
+	const browsePlace = document.querySelector('.browse-places .splide__list');
+	const containerBrowsePlace = [];
+	listBrowsePlaces.forEach(browse => {
+		containerBrowsePlace.push(componentBrowsePlace(browse));
+	});
+	browsePlace.innerHTML =  containerBrowsePlace.join('');
+}
+
+function componentBrowsePlace(place) {
+	return `
+		<li class="splide__slide">
+			<div class="places">
+				<a href="/views/all-meals">
+					<div class="places-icon">
+						<img src="${place.img}" class="d-block mx-auto" alt="places logo">
+					</div>
+					<div class="places-text">
+						${place.name}
+					</div>
+				</a>
+			</div>
+		</li>
+	`;
+}
+
+function renderOrderOnlines() {
+	const quickSearch = document.querySelector('.quick-searches .splide__list');
+	const containerQuickSearch = [];
+	listOrderOnlines.forEach(order => {
+		containerQuickSearch.push(componentOrderOnline(order));
+	});
+	quickSearch.innerHTML =  containerQuickSearch.join('');
+}
+
+function componentOrderOnline(order) {
+	return `
+		<li class="splide__slide">
+			<div class="places">
+				<a href="/views/all-meals?categorie=${order.name}">
+					<div class="places-icon">
+						<img src="${order.img}" class="d-block mx-auto" alt="places logo">
+					</div>
+					<div class="places-text">
+						${order.name}
+					</div>
+				</a>
+			</div>
+		</li>
+	`;
+}
+
+function renderFavoriteRecipes() {
+	const listRecipe = document.querySelector('.list-recipes');
+	const container = [];
+	listFavoriteRecipes.forEach(recipe => {
+		container.push(componentFavoriteRecipe(recipe));
+	});
+	listRecipe.innerHTML =  container.join('');
+}
+
+function componentFavoriteRecipe(recipe) {
+	return `
+		<div class="col col-12 col-md-6 col-lg-4">
+			<a href="/views/recipes">
+				<div class="recipe-item">
+					<img src="${recipe.img}" alt="recipe image">
+					<div class="overlay">
+						<h6>${recipe.type}</h6>
+						<p>${recipe.video} Videos</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	`;
+}
+
 // places starts 
 new Splide( '.browse-places .splide', {
 	type: 'loop',

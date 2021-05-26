@@ -45,10 +45,7 @@
 				<div class="list-places">
 					<div class="splide">
 						<div class="splide__track">
-							<ul class="splide__list app-1">
-								<li class="splide__slide" v-for="i in listPlaces">
-									<items v-bind:obj="i" v-bind:key="i.id"></items>
-								</li>
+							<ul class="splide__list">
 							</ul>
 						</div>
 					</div>
@@ -249,14 +246,11 @@
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<div class="col col-md-8">
+			<div class="col col-md-8"> 
 				<div class="list-meal">
 					<div class="splide">
 						<div class="splide__track">
-							<ul class="splide__list app-2">
-								<li class="splide__slide" v-for="i in listMeals">
-									<items v-bind:obj="i" v-bind:key="i.id"></items>
-								</li>
+							<ul class="splide__list">
 							</ul>
 						</div>
 					</div>
@@ -299,10 +293,8 @@
 			<h2> Explore Your Favorite Recipes </h2>
 		</div>
 	</div>
-	<div class="row app-6">
-		<div class="col col-12 col-md-6 col-lg-4" v-for="i in listRecipe">
-			<recipe-item v-bind:obj="i" v-bind:key="i.id"></recipe-item>
-		</div>
+	<div class="row list-recipes">
+		
 	</div>
 	<div class="recipe-btn">
 		<a href="#" class="my-btn">Show All</a>

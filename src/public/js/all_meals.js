@@ -33,6 +33,7 @@ const urlString = window.location.href;
 const urlFind = new URL(urlString);
 let locationFind = urlFind.searchParams.get('location');
 const restaurantFind = [urlFind.searchParams.get('restaurant')];
+const categorieFind = [urlFind.searchParams.get('categorie')];
 
 // fetch api
 const mealsUrl = '/user/api/meals-view';
@@ -185,6 +186,14 @@ function filterResults(filters) {
 				hiddenEl.push(meal);
 			}
 		}
+		if(categorieFind[0]) {
+			let isShowing = categorieFind.some(categorie => {
+				return meal.value.indexOf(categorie) >= 0;
+			});
+			if(!isShowing) {
+				hiddenEl.push(meal);
+			}
+		}
 		if(filters.locations.length > 0) {
 			let isShowing = filters.locations.some(location => {
 				return meal.value.toLowerCase().indexOf(location.toLowerCase()) >= 0;
@@ -271,6 +280,11 @@ function findMealsByUrl() {
 		const inputLocation = document.querySelector('input[value="' + locationFind +'"]');
 		inputLocation.checked = true;
 		inputLocation.parentElement.querySelector('.state').classList.add('active');
+		filterMeals();
+	} else if(categorieFind) {
+		const inputCategorie = document.querySelector('input[value="' + categorieFind +'"]');
+		inputCategorie.checked = true;
+		inputCategorie.parentElement.querySelector('.state').classList.add('active');
 		filterMeals();
 	} else {
 		return;
