@@ -44,6 +44,9 @@ class ViewsController {
 			next(err);
 		}
 	}
+	partner(req, res) {
+		res.render('partner', { layout: 'partner' });
+	}
 }
 
 

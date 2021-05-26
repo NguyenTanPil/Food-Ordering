@@ -4,7 +4,9 @@ const restaurantsUrl =  '/user/api/restaurants-view';
 start();
 
 function start() {
-	getMeals(mealsUrl, renderMeals);
+	getMeals(mealsUrl, (meals) => {
+		renderMeals(meals, '');
+	});
 	getRestaurants(restaurantsUrl, renderRestaurants);
 }
 
@@ -15,13 +17,19 @@ function getMeals(url, callback) {
 		.catch(error => console.log(error));
 }
 
-function renderMeals(meals) {
+function renderMeals(meals, search) {
 	const container = [];
 	const listTreanding = document.querySelector('.list-treading');
 	meals.forEach(meal => {
 		const urlRestaurant = `/user/api/restaurants-view/${meal.slugRestaurant}`;
 		getRestaurant(urlRestaurant, (restaurant) => {
-			renderProducts(meal, restaurant);
+			if(search != '') {
+				if(meal.location.toLowerCase() == search.toLowerCase()) {
+					renderProducts(meal, restaurant);
+				}
+			} else {
+				renderProducts(meal, restaurant);
+			}
 		});
 		container.push(componentMealTreanding(meal));
 	});
@@ -163,6 +171,20 @@ function componentMealTreanding(meal) {
 		</div>
 	`;
 }
+
+// form search
+const formSeach = document.querySelector('.form-search');
+formSeach.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const searchLocaton = document.querySelector('.form-search button');
+	const input = document.querySelector('.form-search input').value;
+	const foodsOnline = document.querySelector('.foods-online');
+	// reset
+	foodsOnline.innerHTML = '';
+	getMeals(mealsUrl, (meals) => {
+		renderMeals(meals, input);
+	});
+})
 
 // places starts 
 new Splide( '.browse-places .splide', {

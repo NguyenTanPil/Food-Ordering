@@ -28,6 +28,12 @@ accordions.forEach((accordion) => {
 	});
 });
 
+// url 
+const urlString = window.location.href;
+const urlFind = new URL(urlString);
+let locationFind = urlFind.searchParams.get('location');
+const restaurantFind = [urlFind.searchParams.get('restaurant')];
+
 // fetch api
 const mealsUrl = '/user/api/meals-view';
 start();
@@ -57,6 +63,7 @@ async function renderMeals(meals) {
 	foods.innerHTML = foodsContainer.join('');
 	checkStates();
 	checkAllLocations();
+	findMealsByUrl();
 }
 let index = 2;
 const listLocations = [];
@@ -79,7 +86,7 @@ function renderProducts(meal, restaurant) {
 	return `
 		<div class="col col-12 col-md-6 col-lg-4 meal-item">
 			<div class="card">
-			<input type="hidden" value="${meal.location} ${meal.selectMeal} ${meal.cuisineMeal} ${meal.offerMeal}">
+			<input type="hidden" value="${meal.location} ${meal.selectMeal} ${meal.cuisineMeal} ${meal.offerMeal} ${meal.slugRestaurant}">
 				<div class="card-img-top">
 					<img src="${meal.photos[0]}" alt="meal">
 					<a href="/views/meals/${meal.slug}" class="theme"></a>
@@ -170,9 +177,17 @@ function filterResults(filters) {
 		return;
 	}
 	mealsItems.forEach(meal => {
+		if(restaurantFind[0]) {
+			let isShowing = restaurantFind.some(name => {
+				return meal.value.toLowerCase().indexOf(name.replaceAll(' ', '-').toLowerCase()) >= 0;
+			});
+			if(!isShowing) {
+				hiddenEl.push(meal);
+			}
+		}
 		if(filters.locations.length > 0) {
 			let isShowing = filters.locations.some(location => {
-				return meal.value.indexOf(location) >= 0;
+				return meal.value.toLowerCase().indexOf(location.toLowerCase()) >= 0;
 			});
 			if(!isShowing) {
 				hiddenEl.push(meal);
@@ -248,4 +263,22 @@ function checkAllLocations() {
 			}
 		}
 	})
+}
+
+function findMealsByUrl() {
+	if(locationFind) {
+		locationFind = formatStringCapitalize(locationFind);
+		const inputLocation = document.querySelector('input[value="' + locationFind +'"]');
+		inputLocation.checked = true;
+		inputLocation.parentElement.querySelector('.state').classList.add('active');
+		filterMeals();
+	} else {
+		return;
+	}
+}
+
+function formatStringCapitalize(string) {
+	string = string.toLowerCase();
+	const array = string.split(' ');
+	return array.map(item => item[0].toUpperCase() + item.substring(1)).join(' ');
 }

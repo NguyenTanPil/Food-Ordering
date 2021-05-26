@@ -8,21 +8,21 @@
 					<h1 class="title">Choose, Order and Checkout</h1>
 					<h6 class="exception">Specify your address to suggest you the fast delivery</h6>
 					<p class="time-services">Get our services from 24 hours.</p>
-					<a href="#" class="btn my-btn" role="button" data-bs-toggle="button">Go To Meal</a>
+					<a href="/views/all-meals" class="btn my-btn" role="button" data-bs-toggle="button">Go To Meal</a>
 				</div>
 			</div>
 			<div class="col col-12 col-sm-5 col-lg-4 right-review">
-				<form action="#" method="post">
+				<form action="/views/all-meals" method="GET">
 					<div class="form-box">
 						<div class="input-group">
 							<i class="fa fa-map-marker" aria-hidden="true" style="width: 12.58px;"></i>
-							<input type="text" class="my-input input-review" placeholder="Choose your location">
+							<input type="text" class="my-input input-review" placeholder="Choose your location" name="location">
 						</div>
 						<div class="input-group">
 							<i class="fa fa-cutlery" aria-hidden="true"></i>
-							<input type="text" class="my-input input-review" placeholder="Choose restaurant">
+							<input type="text" class="my-input input-review" placeholder="Choose restaurant" name="restaurant">
 						</div>
-						<button type="button" class="my-btn">Find Food</button>
+						<button type="submit" class="my-btn">Find Food</button>
 					</div>
 				</form>
 			</div>
@@ -173,7 +173,7 @@
 					</p>
 				</div>
 				<div class="search-location col-12 col-md-6 col-lg-4">
-					<form action="#" method="post">
+					<form class="form-search">
 						<div class="input-group">
 							<input type="text" class="my-input" placeholder="Enter your location">
 							<i class="fa fa-crosshairs" aria-hidden="true"></i>
