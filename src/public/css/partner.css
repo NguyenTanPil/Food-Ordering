@@ -188,6 +188,9 @@
   margin-bottom: 1.875rem;
   border: 1px solid var(--clr-border); }
 
+.list-partners .parners-section:last-child .partners-bar {
+  margin-bottom: 0; }
+
 .list-partners .partners-top {
   padding: 1rem;
   display: flex;
@@ -198,7 +201,10 @@
 .list-partners .partners-top img {
   display: block;
   margin-right: 1.5rem;
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  object-fit: cover; }
 
 .list-partners .partners-top .partner-info {
   flex: 1 0 auto;
@@ -332,7 +338,8 @@
 /*list partner ends*/
 /*result popular starts*/
 .result-popular {
-  margin-top: 5rem; }
+  margin-top: 5rem;
+  margin-bottom: 5rem; }
 
 .result-popular .show-map-result {
   padding: 1rem;
@@ -363,8 +370,9 @@
   border-bottom: 1px solid var(--clr-border); }
 
 .result-popular .list-pop-res img {
-  width: 5rem;
-  height: 5rem; }
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: cover; }
 
 .result-popular .caption h4 {
   color: var(--clr-black);
@@ -391,13 +399,6 @@
   border-radius: 2.5rem;
   font-size: 0.75rem;
   margin-left: 0.5rem; }
-
-.result-popular .google-ads {
-  margin-top: 2rem;
-  margin-bottom: 5rem; }
-
-.result-popular .google-ads img {
-  width: 100%; }
 
 /*result popular ends*/
 /*all partners ends*/
@@ -428,7 +429,8 @@
   .list-partners .partners-top img {
     margin-bottom: 1.5rem; }
   .list-partners {
-    margin-top: 5rem; }
+    margin-top: 5rem;
+    margin-bottom: 5rem; }
   .result-popular {
     display: none; }
   /*list partners ends*/ }

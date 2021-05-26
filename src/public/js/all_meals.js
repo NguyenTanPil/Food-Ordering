@@ -82,7 +82,7 @@ function renderProducts(meal, restaurant) {
 			<input type="hidden" value="${meal.location} ${meal.selectMeal} ${meal.cuisineMeal} ${meal.offerMeal}">
 				<div class="card-img-top">
 					<img src="${meal.photos[0]}" alt="meal">
-					<a href="#" class="theme"></a>
+					<a href="/views/meals/${meal.slug}" class="theme"></a>
 				</div>
 				<div class="content">
 					<div class="top-text">

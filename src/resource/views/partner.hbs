@@ -5,7 +5,7 @@
 			<div class="col col-12 col-md-6">
 				<div class="left-title-text">
 					<h3>Partners</h3>
-				</div>
+				</div> 
 			</div>
 			<div class="col col-12 col-md-6">
 				<div class="right-title-text">
@@ -31,7 +31,7 @@
 					<div class="filter-heading">
 						<h3>Filters</h3>
 					</div>
-					<div class="accordion">
+					<div class="accordion locations">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
 							loacation
@@ -48,75 +48,9 @@
 									</div>
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk1">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk1">
 											<div class="state">
 												<label for="chk1">All</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk2">
-											<div class="state">
-												<label for="chk2">Canterbury-Bankstown</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk3">
-											<div class="state">
-												<label for="chk3">Central Business District</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk4">
-											<div class="state">
-												<label for="chk4">Eastern Suburbs</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk5">
-											<div class="state">
-												<label for="chk5">Forest District</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk6">
-											<div class="state">
-												<label for="chk6">Greater Western Sydney</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk7">
-											<div class="state">
-												<label for="chk7">Hills District</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk8">
-											<div class="state">
-												<label for="chk8">Inner West</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk9">
-											<div class="state">
-												<label for="chk9">Macarthur</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk10">
-											<div class="state">
-												<label for="chk10">Central Business</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk11">
-											<div class="state">
-												<label for="chk11">Main Market</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk12">
-											<div class="state">
-												<label for="chk12">Eastern</label>
 											</div>
 										</div>
 									</div>
@@ -124,7 +58,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="accordion">
+					<div class="accordion categories">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
 							categories
@@ -133,31 +67,31 @@
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk13">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk13" value="Breakfast">
 											<div class="state">
 												<label for="chk13">Breakfast</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk14">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk14" value="Lunch">
 											<div class="state">
 												<label for="chk14">Lunch</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk15">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk15" value="Dinner">
 											<div class="state">
 												<label for="chk15">Dinner</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk16">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk16" value="Cafe">
 											<div class="state">
 												<label for="chk16">Cafe's</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk17">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk17" value="Delivery">
 											<div class="state">
 												<label for="chk17">Delivery</label>
 											</div>
@@ -167,7 +101,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="accordion">
+					<div class="accordion cuisines">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
 							Cuisine
@@ -176,75 +110,51 @@
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk18">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk18" value="Cakes & Desserts">
 											<div class="state">
-												<label for="chk18">pizza</label>
+												<label for="chk18">Cakes & Desserts</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk19">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk19" value="Pizza">
 											<div class="state">
-												<label for="chk19">drinks & beer restaurant</label>
+												<label for="chk19">Pizza</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk20">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk20" value="Drinks & Beer">
 											<div class="state">
-												<label for="chk20">cakes & desserts</label>
+												<label for="chk20">Drinks & Beer</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk21">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk21" value="Shusi">
 											<div class="state">
-												<label for="chk21">shusi</label>
+												<label for="chk21">Shusi</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk22">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk22" value="Fast Food">
 											<div class="state">
-												<label for="chk22">fast food</label>
+												<label for="chk22">Fast Food</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk23">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk23" value="Shawarma">
 											<div class="state">
-												<label for="chk23">shawarma</label>
+												<label for="chk23">Shawarma</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk24">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk24" value="Fish">
 											<div class="state">
-												<label for="chk24">fish</label>
+												<label for="chk24">Fish</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk25">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk25" value="Cheese Tika">
 											<div class="state">
-												<label for="chk25">lunch</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk26">
-											<div class="state">
-												<label for="chk26">Coffee cafe's</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk27">
-											<div class="state">
-												<label for="chk27">cheese tika</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk28">
-											<div class="state">
-												<label for="chk28">Samosa and Pakodas</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk29">
-											<div class="state">
-												<label for="chk29">chinese</label>
+												<label for="chk25">Cheese Tika</label>
 											</div>
 										</div>
 									</div>
@@ -252,74 +162,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="accordion">
-						<div class="accordion-item">
-							<button class="filters-dropdown">
-							Establish Type
-							</button>
-							<div class="container-collapse">
-								<div class="collapse">
-									<div class="filter-checkbox">
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk30">
-											<div class="state">
-												<label for="chk30">Cafe’s</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk31">
-											<div class="state">
-												<label for="chk31">Dhaba’s</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk32">
-											<div class="state">
-												<label for="chk32">Sweet Shopst</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk33">
-											<div class="state">
-												<label for="chk33">Fine Dinings</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk34">
-											<div class="state">
-												<label for="chk34">Casual Dinings</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk35">
-											<div class="state">
-												<label for="chk35">Bakeries</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk36">
-											<div class="state">
-												<label for="chk36">Bars</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk37">
-											<div class="state">
-												<label for="chk37">Vine Shops</label>
-											</div>
-										</div>
-										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk38">
-											<div class="state">
-												<label for="chk38">Halls</label>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="accordion">
+					<div class="accordion offers">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
 							Restaurants offers
@@ -328,49 +171,49 @@
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk39">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk39" value="10%">
 											<div class="state">
 												<label for="chk39">10% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk40">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk40" value="20%">
 											<div class="state">
 												<label for="chk40">20% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk41">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk41" value="30%">
 											<div class="state">
 												<label for="chk41">30% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk42">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk42" value="40%">
 											<div class="state">
 												<label for="chk42">40% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk43">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk43" value="50%">
 											<div class="state">
 												<label for="chk43">50% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk44">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk44" value="60%">
 											<div class="state">
 												<label for="chk44">60% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk45">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk45" value="70%">
 											<div class="state">
 												<label for="chk45">70% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="cb" id="chk46">
+											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk46" value="80%">
 											<div class="state">
 												<label for="chk46">80% off</label>
 											</div>
@@ -380,7 +223,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="accordion">
+					<div class="accordion rating">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
 							Rating
@@ -389,7 +232,7 @@
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input type="radio" name="rb" id="rb1">
+											<input type="checkbox" name="rb" id="rb1">
 											<div class="state">
 												<label for="chk47">
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -401,7 +244,7 @@
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="radio" name="rb" id="rb2">
+											<input type="checkbox" name="rb" id="rb2">
 											<div class="state">
 												<label for="chk48">
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -412,7 +255,7 @@
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="radio" name="rb" id="rb3">
+											<input type="checkbox" name="rb" id="rb3">
 											<div class="state">
 												<label for="chk49">
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -422,7 +265,7 @@
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="radio" name="rb" id="rb4">
+											<input type="checkbox" name="rb" id="rb4">
 											<div class="state">
 												<label for="chk50">
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -431,7 +274,7 @@
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="radio" name="rb" id="rb5">
+											<input type="checkbox" name="rb" id="rb5">
 											<div class="state">
 												<label for="chk51">
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -458,11 +301,6 @@
 						<h4>Popular Restaurents </h4>
 						<ul class="list-pop-res">
 						</ul>
-					</div>
-					<div class="google-ads">
-						<a href="#">
-							<img src="/images/google-ad.jpg" alt="google ads">
-						</a>
 					</div>
 				</div>
 			</div>
