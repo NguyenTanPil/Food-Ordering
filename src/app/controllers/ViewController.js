@@ -35,9 +35,9 @@ class ViewsController {
 		} catch(e) {
 			next(err);
 		}
-	}
+	} 
 	// [GET] /views/recipe-detail
-	recipe_detail(req, res) {
+	recipe_detail(req, res, next) {
 		try {
 			res.render('recipe_details', { layout: 'recipe_detail_view' });
 		} catch(e) {

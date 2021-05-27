@@ -104,3 +104,12 @@ bars.addEventListener('click', (e) => {
 		navbarContainerCenter.style.height = '0';
 	}
 });
+
+// search
+const searchFoodHeader = document.querySelector('#search-food');
+const formSearchFoodHeader = searchFoodHeader.parentElement;
+formSearchFoodHeader.onsubmit = (e) => {
+	let valueSearch = searchFoodHeader.value;
+	valueSearch = valueSearch.toLowerCase().replaceAll(' ', '-');
+	formSearchFoodHeader.action = `/views/meals/${valueSearch}`;
+}

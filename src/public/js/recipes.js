@@ -10,12 +10,13 @@ window.onload = function() {
 
 // fetch api
 const videoUrl = '/user/api/videos-view';
+let arrCheckFind = [];
 start();
 
 function start() {
 	getVideosView(videoUrl, renderVideosView);
 }
-
+ 
 function getVideosView(url, callback) {
 	fetch(url)
 		.then(response => response.json())
@@ -25,11 +26,12 @@ function getVideosView(url, callback) {
 
 function renderVideosView(videos) {
 	const main =  document.querySelector('.main-video .video');
-	const recommend = document.querySelector('.recomended .row');
-	const recent = document.querySelector('.update .row');
+	const recommend = document.querySelector('.recomended .container .content');
+	const recent = document.querySelector('.update .container .content');
 	const container = [];
 
 	videos.forEach(video => {
+		arrCheckFind.push(video.slug);
 		container.push(componentRecommendVideos(video));
 	})
 
@@ -291,3 +293,17 @@ window.addEventListener('resize', () => {
 		overlay.style.width = `${imgRecipes.offsetWidth}px`;
 	});
 });
+
+// search
+const formSearchRecipe = document.querySelector('.search-recipe');
+const inputSearchRecipe = formSearchRecipe.querySelector('input');
+formSearchRecipe.onsubmit = async (e) => {
+	let valueSearch = inputSearchRecipe.value;
+	valueSearch = valueSearch.toLowerCase().replaceAll(' ', '-');
+	const status = arrCheckFind.some(recipe => recipe == valueSearch);
+	if(status) {
+		formSearchRecipe.action = `/views/recipes/${valueSearch}`;
+	} else {
+		return;
+	}
+}
