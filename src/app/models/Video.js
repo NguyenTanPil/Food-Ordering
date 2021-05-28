@@ -8,6 +8,7 @@ const Video = new Schema({
   tags: { type: String },
   link: { type: String },
   thumbnail: { type: String },
+  stars: { type: Number },
   public_id_video: { type: String },
   userId: { type: String },
   slug: { type: String, slug: "title", unique: true },

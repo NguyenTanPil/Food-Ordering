@@ -227,17 +227,6 @@
 .video-detail-recipes .nav-item {
   margin-bottom: -1.5px; }
 
-.video-detail-recipes .nav-item a {
-  padding: 1rem;
-  color: var(--clr-text); }
-
-.video-detail-recipes .nav-item.active a {
-  border: 1px solid var(--clr-border);
-  border-bottom-width: 2.5px;
-  border-bottom-color: var(--clr-white);
-  border-radius: 0.25rem 0.25rem 0 0;
-  color: var(--clr-orange); }
-
 .video-detail-recipes .tab-content .comment-post {
   margin-top: 1.875rem; }
 
@@ -312,7 +301,9 @@
 .video-detail-recipes .user-comment img {
   width: 3.125rem;
   height: 3.125rem;
-  margin-right: 1.25rem; }
+  margin-right: 1.25rem;
+  object-fit: cover;
+  border-radius: 50%; }
 
 .video-detail-recipes .user-comment h4 {
   font-size: 1.125rem;

@@ -124,84 +124,13 @@
 				</div>
 				<div class="all-tab">
 					<div class="nav-tab">
-						<div class="nav-item active" data-id="comments">
-							<a href="#">05 Comments</a>
-						</div>
-						<div class="nav-item" data-id="reviews">
-							<a href="#">03 Reviews</a>
+						<div class="nav-item">
+							<h2>Reviews</h2>
 						</div>
 					</div>
 				</div>
 				<div class="tab-content">
-					<div class="tab-pane active" id="comments">
-						<div class="comment-post">
-							<div class="post-items">
-								<div class="img-user">
-									<i class="fa fa-user" aria-hidden="true"></i>
-								</div>
-								<form action="#" method="post">
-									<input type="text" class="post-input" name="postComment" placeholder="Write a comment">
-									<input type="submit" value="Post Comment" class="my-btn">
-								</form>
-							</div>
-						</div>
-						<div class="main-comments">
-							<div class="comment">
-								<div class="user-comment">
-									<a href="/user_profile_view">
-										<img src="/images/user-3.png" alt="user comment">
-									</a>
-									<a href="/user_profile_view">
-										<h4 class="name"> Rock Smith</h4>
-									</a>
-								</div>
-								<div class="reply-time">
-									<a href="#">Reply</a>
-									<p>
-										<i class="fa fa-clock-o" aria-hidden="true"></i>
-										12 hours ago
-									</p>
-								</div>
-								<div class="desciption-comment">
-									<p>Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.</p>
-								</div>
-							</div>
-							<div class="reply">
-								<div class="user-comment">
-									<a href="/user_profile_view">
-										<img src="/images/user-2.png" alt="user comment">
-									</a>
-									<a href="/user_profile_view">
-										<h4 class="name">John Doe</h4>
-									</a>
-								</div>
-								<div class="reply-time">
-									<p>
-										<i class="fa fa-clock-o" aria-hidden="true"></i>
-										12 hours ago
-									</p>
-								</div>
-								<div class="desciption-comment">
-									<p>
-										<a href="/user_profile_view">@RockSmith</a>
-										Thank you
-									</p>
-								</div>
-							</div>
-							<div class="reply-comment">
-								<div class="post-items">
-									<div class="img-user">
-										<i class="fa fa-user" aria-hidden="true"></i>
-									</div>
-									<form action="#" method="post">
-										<input type="text" class="post-input" name="postComment" placeholder="Write a reply">
-										<input type="submit" value="Reply" class="my-btn">
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane" id="reviews">
+					<div class="tab-pane active" id="reviews">
 						<div class="comment-post">
 							<div class="post-items">
 								<div class="img-user">
@@ -217,11 +146,13 @@
 										<i class="fa fa-star" aria-hidden="true" data-id="5"></i>
 									</div>
 								</div>
-								<form action="#" method="post">
-									<input type="text" class="post-input" name="postComment" placeholder="Please describe the reason for your rating to help the author">
+								<form method="POST">
+									<input type="text" class="post-input" name="content" placeholder="Please describe the reason for your rating to help the author">
 									<input type="submit" value="Save Review" class="my-btn">
 								</form>
 							</div>
+						</div>
+						<div class="main-comments">
 						</div>
 					</div>
 				</div>

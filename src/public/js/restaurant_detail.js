@@ -10,7 +10,7 @@ const addTimeBtn = document.querySelector('.add-time-btn');
 const slAll = document.querySelector('#select-all');
 const selectTimeFrom = document.querySelector('.select-time-from');
 const selectTimeTo = document.querySelector('.select-time-to');
-const selectCuisine = document.querySelector('.btn-cuisine');
+const selectCuisine = document.querySelector('#restaurant-changes .btn-cuisine');
 const selectTag = document.querySelector('.btn-tag');
 const selectMeal = document.querySelector('.btn-meal');
 const cuisineMeal = document.querySelector('.btn-cuisine');
@@ -151,10 +151,11 @@ function closeDropdown(menu, btn) {
 			removeAllDropdownItems(dropDownItems);
 			addActiveDropdownItem(e.currentTarget);
 			saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
-			saveCuisine(selectCuisine.innerText);
+			saveCuisine(cuisineMeal.innerText);
 			saveTag(selectTag.innerText);
 			saveSelectMeal(selectMeal.innerText);
 			saveSelectOffer(selectOffer.innerText);
+			saveSelectCuisine(selectCuisine.innerText);
 		};
 	});
 }
@@ -510,8 +511,8 @@ function renderRestaurantDetail(restaurant) {
 	// assign cuisine
 	selectCuisine.innerText = restaurant.cuisine;
 	activeDropdown(selectCuisine, restaurant.cuisine);
-	selectTag.innerText = restaurant.tag;
 	// assign tag
+	selectTag.innerText = restaurant.tag;
 	activeDropdown(selectTag, restaurant.tag);
 	// assign payment
 	payment.forEach(pay => {
@@ -522,7 +523,7 @@ function renderRestaurantDetail(restaurant) {
 	});
 	// assign value input hidden
 	saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
-	saveCuisine(selectCuisine.innerText);
+	saveCuisine(cuisineMeal.innerText);
 	saveTag(selectTag.innerText);
 	saveSelectMeal(selectMeal.innerText);
 	saveSelectCuisine(selectCuisine.innerText);

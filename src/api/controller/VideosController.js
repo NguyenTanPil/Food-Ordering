@@ -28,6 +28,11 @@ class VideosController {
 		const video = getVideoDetailView(req.params.slug);
 		const videoUser = await video;
 		res.json(videoUser);
+	}// [UPDATE] /user/api/videos-view/:slug
+	async updateVideoDetailView(req, res) {
+		Videos.updateOne({slug: req.params.slug}, req.body)
+			.then(() => console.log('Thanh cong'))
+			.catch(() => console.log('Khong thanh cong'))
 	}
 }
 

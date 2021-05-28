@@ -9,7 +9,7 @@ class OrderMealController {
 		const orderMeals = getOrderMeals(userId);
 		const orderMealsUser = await orderMeals;
 		res.json(orderMealsUser);
-	}
+	} 
 	// [PATCH] /user/api/order-meals/:slug
 	async updateOrderMeals(req, res) {
 		OrderMeals.updateOne({ _id: req.params.slug }, req.body)

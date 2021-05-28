@@ -1,12 +1,14 @@
 
 const express = require('express');
 const router = express.Router();
+
 const orderMeals = require('../api/controller/OrderMealsController.js');
 const meals = require('../api/controller/MealsController.js');
 const restaurants = require('../api/controller/RestaurantsController.js');
 const restaurant = require('../api/controller/RestaurantController.js');
 const videos = require('../api/controller/VideosController.js');
 const user = require('../api/controller/UserController.js');
+const comments = require('../api/controller/CommetMealController.js');
 
 // user
 router.get('/user-detail', user.fetchUser);
@@ -35,7 +37,12 @@ router.get('/restaurant-detail/:slug', restaurant.fetchRestaurant);
 // video of user 
 router.get('/videos', videos.fetchVideos);
 router.get('/videos/:slug', videos.fetchVideoDetail);
+// video of view
 router.get('/videos-view', videos.fetchVideosView);
 router.get('/videos-view/:slug', videos.fetchVideoDetailView);
+router.patch('/videos-view/:slug', videos.updateVideoDetailView);
+// post comment
+router.post('/recipes/:slug', comments.postComment); 
+router.get('/recipes/:slug/comments', comments.fetchComments); 
 
 module.exports = router;

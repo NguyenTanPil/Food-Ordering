@@ -1,17 +1,9 @@
 // slider
 const navImg = document.querySelector('.nav-img');
-const share = document.querySelector('.share');
-const btnShare = share.querySelector('.btn-share');
 const quantity =  document.querySelector('.quantity');
 const priceEl =  document.querySelector('.price-meal');
 const totalPrice =  document.querySelector('.total-price span');
 
-// btn share
-// btn socilas
-btnShare.onclick = (e) => {
-	e.stopPropagation();
-	share.classList.toggle('active');
-}
 // quantity 
 chooseQuantity(quantity);
 
@@ -20,6 +12,7 @@ const currentLink = window.location.href;
 const currMeal = currentLink.slice(currentLink.lastIndexOf('/') + 1);
 // const mealsUrl = '/user/api/meals';
 const restaurantUrl = `/user/api/restaurant-detail/${getRestaurantLink(currentLink)}`;
+console.log(restaurantUrl);
 const mealDetailUrl = `/user/api/meals/${currMeal}`;
 const userUrl = '/user/api/user-detail';
 start();

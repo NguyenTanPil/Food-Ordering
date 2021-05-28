@@ -1,45 +1,10 @@
+let starsAvg = 0;
 // btn socilas
 const share = document.querySelector('.share');
 const btnShare = share.querySelector('.btn-share');
 btnShare.onclick = (e) => {
 	e.stopPropagation();
 	share.classList.toggle('active');
-}
-// all tab
-const navtabAll = document.querySelector('.all-tab');
-const listNavLink = navtabAll.querySelectorAll('a');
-const tabPane = document.querySelectorAll('.tab-pane');
-removeDefault();
-// nav tab
-navtabAll.onclick = (e) => {
-	removeAllTab();
-	removeAllTabPane();
-	addActive(e);
-}
-// remove default a link
-function removeDefault() {
-	listNavLink.forEach(link => {
-		link.onclick = (e) => e.preventDefault();
-	});
-}
-// remove bnt tab
-function removeAllTab() {
-	listNavLink.forEach(nav => { 
-		nav.parentElement.classList.remove('active');
-	});
-}
-// remove all tabpane
-function removeAllTabPane() {
-	tabPane.forEach(tab => {
-		tab.classList.remove('active');
-	});
-}
-// add active
-function addActive(e) {
-	const currentTab = e.target.parentElement;
-	const showTab = document.getElementById(currentTab.dataset.id);
-	showTab.classList.add('active');
-	currentTab.classList.add('active');
 }
 // set width caption 
 function setSizeCaption() {
@@ -61,29 +26,35 @@ window.onload = () => {
 	document.querySelector('.loading').style.display = 'none';
 	setSizeCaption();
 }
+
 // count star
 function countStar(parent, numberStar) {
-	const stars = parent.querySelectorAll('.rating i');
+	const stars = parent.querySelector('.rating');
 	let n = parseFloat(numberStar);
-	let star = '';
-	stars.forEach((item, index) => {
-		if(index + 1 <= n) {
-			star = 'star';
-		} else if(index + 1 > n && index < n) {
-			star = 'star-half-o';
+	let star;
+	const container = [];
+	for(let index = 1; index <= 5; index++) {
+		if(index <= n) {
+			star = 'fa-star';
+		} else if(index > n && index < n) {
+			star = 'fa-star-half-o';
 		} else {
-			star = 'star-o';
+			star = 'fa-star-o';
 		}
-		item.classList.add(`fa-${star}`);
-	});
+		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
+	}
+	container.push(`<span>${n}.0</span>`);
+	stars.innerHTML = container.join('');
 }
 // your rating
 const slRating = document.querySelector('.select-rating .rating');
 const starSelect = slRating.querySelectorAll('i');
 slRating.onclick = (e) => {
 	const numberStar = e.target.dataset.id;
+	stars = numberStar;
 	yourRating(numberStar);
 }
+
 function yourRating(numberStar) {
 	starSelect.forEach((star, index) => {
 		if(index < numberStar) {
@@ -97,6 +68,7 @@ function yourRating(numberStar) {
 // fetch api 
 const currLink = window.location.href;
 const recipeUrl = `/user/api//videos-view/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
+const commentUrl = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}/comments`;
 const mealsUrl =  `/user/api/meals-view`;
 let userUrl;
 
@@ -105,6 +77,18 @@ start();
 function start() {
 	getRecipe(recipeUrl, renderRecipe);
 	getMeals(mealsUrl, renderMeals);
+	getCommentsMeal(commentUrl, renderCommentsMeal);
+}
+
+// update stars
+function updateStars(url, starsAvg) {
+	fetch(url, {
+		method: 'PATCH',
+		headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({stars: starsAvg}),
+	});
 }
 
 // user
@@ -138,12 +122,64 @@ function renderRecipe(recipe) {
 	const video = document.querySelector('.video iframe');
 	const title = document.querySelector('.title-share h4');
 	const about = document.querySelector('.about-recipe p');
+	const starsRecipe = document.querySelector('.my-rating span');
 
 	const link = recipe.link.slice(recipe.link.lastIndexOf('/') + 1);
 	video.src = `https://www.youtube.com/embed/${link}`;
+	starsRecipe.innerText = `${recipe.stars}.0`;
 	title.innerText =  recipe.title;
 	about.innerText = recipe.description;
+	countStar(starsRecipe.parentElement.parentElement, recipe.stars);
 	getUser(userUrl, renderUser);
+}
+
+// comments 
+function getCommentsMeal(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderCommentsMeal(comments) {
+	const mainComments = document.querySelector('.main-comments');
+	mainComments.innerHTML = '';
+	comments.forEach(comment => {
+		starsAvg += comment.stars;
+		mainComments.appendChild(componentCommentMeal(comment));
+	});
+	starsAvg = Math.floor(starsAvg / comments.length);
+}
+function componentCommentMeal(comment) {
+	const dateNow = Date.now();
+	const dateCmt = new Date(comment.createdAt).getTime();
+	const hours = Math.floor(((dateNow - dateCmt) / (1000 * 60 * 60)) % 24);
+	const div = document.createElement('div');
+	div.className = 'comment';
+	div.innerHTML =  `
+			<div class="user-comment">
+				<a href="/user-profile-view">
+					<img src="${comment.avartar}" alt="user comment">
+				<div class="name-rating">
+					<a href="/user-profile-view">
+					<h4 class="name">${comment.userName}</h4>
+				</a>
+				<div class="rating">
+				</div>
+				</div>	
+			</div>
+			<div class="reply-time">
+				<p>
+					<i class="fa fa-clock-o" aria-hidden="true"></i>
+					${hours} hours ago
+				</p>
+			</div>
+			<div class="desciption-comment">
+				<p>${comment.content}</p>
+			</div>
+	`;
+	countStar(div, comment.stars);
+	return div;
 }
 
 // meals recommend
@@ -188,133 +224,37 @@ function componentMeal(meal) {
 	`;
 }
 
-//comments
-const listCmts = [
-	{
-		id: 1,
-		img: '1',
-		name: 'Jassica William',
-		time: '12',
-		content: 'Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.'
-	},
-	{
-		id: 2,
-		img: '2',
-		name: 'Jass Singh',
-		time: '13',
-		content: 'Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.'
-	},
-	{
-		id: 3,
-		img: '3',
-		name: 'Johnson Smith',
-		time: '14',
-		content: 'Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.'
-	},
-	{
-		id: 4,
-		img: '4',
-		name: 'Joy Cutler',
-		time: '15',
-		content: 'Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.'
+// comment
+const formComment = document.querySelector('.comment-post form');
+const inputComment = formComment.querySelector('input');
+formComment.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const url = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
+	const data = {
+		content: inputComment.value,
+		mealSlug: currLink.slice(currLink.lastIndexOf('/') + 1),
+		stars: stars,
 	}
-];
-const comments = document.querySelector('#comments');
-listCmts.forEach((cmt) => {
-	const div = document.createElement('div');
-	div.className = 'main-comments';
-	div.innerHTML = `
-		<div class="comment">
-			<div class="user-comment">
-				<a href="/user-profile-view">
-					<img src="/images/user-${cmt.img}.png" alt="user comment">
-				</a>
-				<a href="/user-profile-view">
-					<h4 class="name">${cmt.name}</h4>
-				</a>
-			</div>
-			<div class="reply-time">
-				<a href="#">Reply</a>
-				<p>
-					<i class="fa fa-clock-o" aria-hidden="true"></i>
-					${cmt.time} hours ago
-				</p>
-			</div>
-			<div class="desciption-comment">
-				<p>${cmt.content}</p>
-			</div>
-		</div>
-	`;
-	comments.appendChild(div); 
+	if(document.cookie == '') {
+		window.location.replace('/user/login');
+		return;
+	}
+	if(inputComment.value == '') {
+		return;
+	}
+	fetch(url, {
+		method: 'POST',
+		headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+	})
+	inputComment.value = '';
+	getCommentsMeal(commentUrl, renderCommentsMeal);
+	updateStars(recipeUrl, starsAvg);
+	const starsRecipe = document.querySelector('.my-rating span');
+	starsRecipe.innerText = `${starsAvg}.0`;
+	countStar(starsRecipe.parentElement.parentElement, starsAvg);
 });
-// reviews 
-const listReviews = [
-	{
-		id: 1,
-		img: '5',
-		name: 'Joy Cutler',
-		time: '12',
-		stars: '4.5',
-		content: 'Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.'
-	},
-	{
-		id: 2,
-		img: '4',
-		name: 'Jass Singh',
-		time: '12',
-		stars: '4.0',
-		content: 'Morbi hendrerit ipsum vel feugiat maximus. Duis posuere justo neque, sit amet efficitur quam aliquam non. Integer gravida ex quis lacinia consectetur.'
-	}
-];
-const reviews = document.querySelector('#reviews');
-listReviews.forEach(review => {
-	const div = document.createElement('div');
-	div.className = 'main-comments';
-	div.innerHTML = `
-		<div class="comment">
-			<div class="user-comment">
-				<a href="/user-profile-view">
-					<img src="/images/user-${review.img}.png" alt="user comment">
-				<div class="name-rating">
-					<a href="/user-profile-view">
-					<h4 class="name">${review.name}</h4>
-				</a>
-				<div class="rating">
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star-o" aria-hidden="true"></i>
-					<span>${review.stars}</span>
-				</div>
-				</div>	
-										</div>
-			<div class="reply-time">
-				<p>
-					<i class="fa fa-clock-o" aria-hidden="true"></i>
-					${review.time} hours ago
-				</p>
-			</div>
-			<div class="desciption-comment">
-				<p>${review.content}</p>
-			</div>
-		</div>
-	`;
-	countStar(div, review.stars);
-	reviews.appendChild(div);
-});
-// see more and see less
-const see = document.querySelector('.see');
-const seeMore = document.querySelector('.more');
-const seeLess = document.querySelector('.dots');
-see.onclick = () => {
-	if(see.innerText == 'See more') {
-		seeMore.style.display = 'inline';
-		seeLess.style.display = 'none';
-		see.innerText = 'See less';
-	} else {
-		seeMore.style.display = 'none';
-		seeLess.style.display = 'inline';
-		see.innerText = 'See more';
-	}
-};
+
+
