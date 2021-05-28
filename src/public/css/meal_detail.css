@@ -456,6 +456,20 @@
   border-radius: 3rem;
   margin-left: 0.25rem; }
 
+.restaurant-detail-view .my-rating {
+  margin-bottom: 1.25rem; }
+
+.restaurant-detail-view .my-rating h4 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600; }
+
+.restaurant-detail-view .my-rating .rating i {
+  font-size: 1.25rem; }
+
+.restaurant-detail-view .my-rating span {
+  font-size: 0.875rem; }
+
 /*meal detail*/
 .meal-detail .name-meal {
   margin-bottom: 2.5rem; }

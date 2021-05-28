@@ -37,6 +37,12 @@ class MealController {
 		const mealsUser = await meals;
 		res.json(mealsUser);
 	}
+	// [UPDATE] /user/api/meals-view/:slug
+	async updateMealDetailView(req, res) {
+		Meals.updateOne({slug: req.params.slug}, req.body)
+			.then(() => console.log('Thanh cong'))
+			.catch(() => console.log('Khong thanh cong'))
+	}
 }
 
 // function

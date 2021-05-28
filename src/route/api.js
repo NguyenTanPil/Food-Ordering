@@ -25,6 +25,7 @@ router.get('/meals/:slug', meals.fetchMealDetail);
 router.get('/meals-view', meals.fetchMealsView);
 router.get('/meals/meal-detail/:slug', meals.fetchMealDetailView);
 router.get('/restaurants/:slug/meals-view', meals.fetchMealsByRest);
+router.patch('/meals/meal-detail/:slug', meals.updateMealDetailView);
 
 // restaurant of user
 router.get('/restaurants', restaurants.fetchRestaurants);

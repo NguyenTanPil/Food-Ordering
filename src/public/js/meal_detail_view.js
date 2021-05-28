@@ -41,21 +41,24 @@ function showImgItem(img) {
 function setHeightNav(img, imgPattern) {
 	img.style.height = `${imgPattern}px`;
 }
-// count star
+// count star 
 function countStar(parent, numberStar) {
-	const stars = parent.querySelectorAll('.rating i');
+	const stars = parent.querySelector('.rating');
 	let n = parseFloat(numberStar);
-	let star = '';
-	stars.forEach((item, index) => {
-		if(index + 1 <= n) {
-			star = 'star';
-		} else if(index + 1 > n && index < n) {
-			star = 'star-half-o';
+	let star;
+	const container = [];
+	for(let index = 1; index <= 5; index++) {
+		if(index <= n) {
+			star = 'fa-star';
+		} else if(index > n && index < n) {
+			star = 'fa-star-half-o';
 		} else {
-			star = 'star-o';
+			star = 'fa-star-o';
 		}
-		item.classList.add(`fa-${star}`);
-	});
+		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
+	}
+	container.push(`<span>${n}.0</span>`);
+	stars.innerHTML = container.join('');
 }
 // your rating
 function yourRating(numberStar) {
@@ -214,6 +217,9 @@ function renderMealDetail(mealDetail) {
 	getRestaurantDetail(restaurantUrl, renderRestaurantDetail);
 	// quantity 
 	chooseQuantity(quantity);
+	const starsMeal = document.querySelector('.meal-detail .my-rating span');
+	starsMeal.innerText = `${mealDetail.stars}.0`;
+	countStar(starsMeal.parentElement.parentElement, mealDetail.stars);
 }
 
 // restaurant detail
@@ -302,9 +308,10 @@ formComment.addEventListener('submit', (e) => {
 	})
 	inputComment.value = '';
 	getCommentsMeal(commentUrl, renderCommentsMeal);
-	const starsRecipe = document.querySelector('.right-side-btns .rating span');
-	starsRecipe.innerText = `${starsAvg}.0`;
-	countStar(starsRecipe.parentElement.parentElement, starsAvg);
+	updateStars(mealDetailUrl, starsAvg);
+	const starsMeal = document.querySelector('.my-rating span');
+	starsMeal.innerText = `${starsAvg}.0`;
+	countStar(starsMeal.parentElement.parentElement, starsAvg);
 });
 
 // count star
@@ -343,4 +350,16 @@ function yourRating(numberStar) {
 			star.style.color = 'rgb(0 0 0 / 55%)';
 		}
 	}); 
+}
+
+// update stars
+function updateStars(url, starsAvg) {
+	console.log(starsAvg)
+	fetch(url, {
+		method: 'PATCH',
+		headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({stars: starsAvg}),
+	});
 }
