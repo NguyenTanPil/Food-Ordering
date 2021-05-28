@@ -46,12 +46,12 @@ function getRestaurant(url, callback) {
 function renderProducts(meal, restaurant) {
 	const foods = document.querySelector('.foods-online');
 	const div =  document.createElement('div');
-	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3 meal-item';
+	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3 meal-item'; 
 	div.innerHTML = `
 			<div class="card">
 				<div class="card-img-top">
 					<img src="${meal.photos[0]}" alt="meal">
-					<a href="#" class="theme"></a>
+					<a class="theme"></a>
 				</div>
 				<div class="content">
 					<div class="top-text">
@@ -82,14 +82,9 @@ function renderProducts(meal, restaurant) {
 							Delivery Time : 30 Min
 						</div>
 						<div class="feed-back">
-							<div class="stars">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
+							<div class="stars rating">
 							</div>
-							<span>4.5</span>
+							<span>${meal.stars}.0</span>
 							<div class="commnents">
 								<a href="#">
 									<i class="fa fa-comment" aria-hidden="true"></i>
@@ -101,6 +96,7 @@ function renderProducts(meal, restaurant) {
 				</div>
 			</div>
 	`;
+	countStar(div, meal.stars);
 	foods.appendChild(div);
 }
 
@@ -421,6 +417,26 @@ function componentFavoriteRecipe(recipe) {
 			</a>
 		</div>
 	`;
+}
+
+// count stars
+function countStar(parent, numberStar) {
+
+	const stars = parent.querySelector('.rating');
+	let n = parseFloat(numberStar);
+	let star;
+	const container = [];
+	for(let index = 1; index <= 5; index++) {
+		if(index <= n) {
+			star = 'fa-star';
+		} else if(index > n && index < n) {
+			star = 'fa-star-half-o';
+		} else {
+			star = 'fa-star-o';
+		}
+		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
+	}
+	stars.innerHTML = container.join('');
 }
 
 // places starts 

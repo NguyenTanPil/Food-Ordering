@@ -51,17 +51,17 @@ function getMeals(url, callback) {
 }
 
 async function renderMeals(meals) {
-	const foodsContainer = [], locationContainer = [];
+	const  locationContainer = [];
 	const foods = document.querySelector('.list-foods .row');
 	const locations = document.querySelector('.locations .filter-checkbox');
+	foods.innerHTML = '';
 	for(let i = 0; i < meals.length; i++) {
 		const urlRestaurant = `/user/api/restaurants-view/${meals[i].slugRestaurant}`;
 		const res = await fetch(urlRestaurant);
 		const restaurant = await res.json();
 		renderLocations(meals[i], locations);
-		foodsContainer.push(renderProducts(meals[i], restaurant));
+		renderProducts(meals[i], restaurant);
 	}
-	foods.innerHTML = foodsContainer.join('');
 	checkStates();
 	checkAllLocations();
 	findMealsByUrl();
@@ -84,13 +84,15 @@ function renderLocations(meal, locations) {
 }
 
 function renderProducts(meal, restaurant) {
-	return `
-		<div class="col col-12 col-md-6 col-lg-4 meal-item">
+	const foods = document.querySelector('.list-foods .row');
+	const div =  document.createElement('div');
+	div.className = 'col col-12 col-md-6 col-lg-4 meal-item'; 
+	div.innerHTML = `
 			<div class="card">
-			<input type="hidden" value="${meal.location} ${meal.selectMeal} ${meal.cuisineMeal} ${meal.offerMeal} ${meal.slugRestaurant}">
+			<input type="hidden" value="${meal.location} ${meal.selectMeal} ${meal.cuisineMeal} ${meal.offerMeal} ${meal.slugRestaurant} ${meal.stars}.0">
 				<div class="card-img-top">
 					<img src="${meal.photos[0]}" alt="meal">
-					<a href="/views/meals/${meal.slug}" class="theme"></a>
+					<a class="theme"></a>
 				</div>
 				<div class="content">
 					<div class="top-text">
@@ -121,14 +123,9 @@ function renderProducts(meal, restaurant) {
 							Delivery Time : 30 Min
 						</div>
 						<div class="feed-back">
-							<div class="stars">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
+							<div class="stars rating">
 							</div>
-							<span>4.5</span>
+							<span>${meal.stars}.0</span>
 							<div class="commnents">
 								<a href="#">
 									<i class="fa fa-comment" aria-hidden="true"></i>
@@ -139,8 +136,9 @@ function renderProducts(meal, restaurant) {
 					</div>
 				</div>
 			</div>
-		</div>
 	`;
+	countStar(div, meal.stars);
+	foods.appendChild(div);
 }
 
 function filterMeals(btns, list) {
@@ -148,7 +146,7 @@ function filterMeals(btns, list) {
 	const btnsCategorie = document.querySelectorAll('.categories input[type="checkbox"]');
 	const btnsCuisine = document.querySelectorAll('.cuisines input[type="checkbox"]');
 	const btnsOffer = document.querySelectorAll('.offers input[type="checkbox"]');
-	const btnsRating = document.querySelectorAll('.rating input[type="checkbox"]');
+	const btnsRating = document.querySelectorAll('.accordion.rating input[type="checkbox"]');
 	const filters = {
 		locations: getCheckedCheckboxes(btnsLocation),
 		categories: getCheckedCheckboxes(btnsCategorie),
@@ -209,7 +207,7 @@ function filterResults(filters) {
 			if(!isShowing) {
 				hiddenEl.push(meal);
 			}
-		}
+		} 
 		if(filters.cuisines.length > 0) {
 			let isShowing = filters.cuisines.some(cuisine => {
 				return meal.value.indexOf(cuisine) >= 0;
@@ -227,6 +225,7 @@ function filterResults(filters) {
 			}
 		}
 		if(filters.ratings.length > 0) {
+
 			let isShowing = filters.ratings.some(rating => {
 				return meal.value.indexOf(rating) >= 0;
 			});
@@ -281,7 +280,7 @@ function findMealsByUrl() {
 		inputLocation.checked = true;
 		inputLocation.parentElement.querySelector('.state').classList.add('active');
 		filterMeals();
-	} else if(categorieFind) {
+	} else if(categorieFind[0] != null) {
 		const inputCategorie = document.querySelector('input[value="' + categorieFind +'"]');
 		inputCategorie.checked = true;
 		inputCategorie.parentElement.querySelector('.state').classList.add('active');
@@ -295,4 +294,24 @@ function formatStringCapitalize(string) {
 	string = string.toLowerCase();
 	const array = string.split(' ');
 	return array.map(item => item[0].toUpperCase() + item.substring(1)).join(' ');
+}
+
+// count stars
+function countStar(parent, numberStar) {
+
+	const stars = parent.querySelector('.rating');
+	let n = parseFloat(numberStar);
+	let star;
+	const container = [];
+	for(let index = 1; index <= 5; index++) {
+		if(index <= n) {
+			star = 'fa-star';
+		} else if(index > n && index < n) {
+			star = 'fa-star-half-o';
+		} else {
+			star = 'fa-star-o';
+		}
+		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
+	}
+	stars.innerHTML = container.join('');
 }
