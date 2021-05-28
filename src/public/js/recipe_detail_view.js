@@ -256,5 +256,3 @@ formComment.addEventListener('submit', (e) => {
 	starsRecipe.innerText = `${starsAvg}.0`;
 	countStar(starsRecipe.parentElement.parentElement, starsAvg);
 });
-
-
