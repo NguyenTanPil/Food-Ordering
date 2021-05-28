@@ -25,24 +25,27 @@ function getVideosView(url, callback) {
 }
 
 function renderVideosView(videos) {
-	const main =  document.querySelector('.main-video .video');
+	
 	const recommend = document.querySelector('.recomended .container .content');
 	const recent = document.querySelector('.update .container .content');
-	const container = [];
-
+	recommend.innerHTML = '';
+	recent.innerHTML = '';
 	videos.forEach(video => {
 		arrCheckFind.push(video.slug);
-		container.push(componentRecommendVideos(video));
+		recommend.appendChild(componentRecommendVideos(video));
+		recent.appendChild(componentRecommendVideos(video));
 	})
 
-	main.innerHTML = componentMainVideo(videos[0]);
-	recommend.innerHTML = container.join('');
-	recent.innerHTML = container.join('');
+	componentMainVideo(videos[0]);
 }
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 function componentMainVideo(video) {
 	const date = new Date(video.createdAt);
-	return `
+	const main =  document.querySelector('.main-video .col-lg-9');
+	main.innerHTML = '';
+	const div = document.createElement('div');
+	div.className = 'video';
+	div.innerHTML = `
 		<div class="my-bg-gradient"></div>
 			<img src="${video.thumbnail}" alt="main-video">
 			<div class="top-items">
@@ -66,12 +69,6 @@ function componentMainVideo(video) {
 					</a>
 					<div class="bottom-star">
 						<div class="rating">
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star-half-o" aria-hidden="true"></i>
-							<span>4.5</span>
 						</div>
 						<div class="published">
 							<p><span>Published</span> ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}</p>
@@ -87,12 +84,15 @@ function componentMainVideo(video) {
 				</a>
 			</div>
 	`;
+	countStar(div, video.stars);
+	main.appendChild(div);
 }
 
 function componentRecommendVideos(video) {
 	const date =  new Date(video.createdAt);
-	return `
-		<div class="col col-12 col-md-6 col-lg-4 col-xl-3">
+	const div = document.createElement('div');
+	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
+	div.innerHTML = `
 			<div class="recipe-video">
 				<div class="top">
 					<div class="my-bg-gradient"></div>
@@ -130,12 +130,6 @@ function componentRecommendVideos(video) {
 					</div>
 					<div class="rating-cmt">
 						<div class="rating">
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<span>5.0</span>
 						</div>
 						<div class="comment">
 							<a href="#">
@@ -146,8 +140,9 @@ function componentRecommendVideos(video) {
 					</div>
 				</div>
 			</div>
-		</div>
 	`;
+	countStar(div, video.stars);
+	return div;
 }
 // recipes starts
 const listRecipes = [
@@ -306,4 +301,25 @@ formSearchRecipe.onsubmit = async (e) => {
 	} else {
 		return;
 	}
+}
+
+// count stars
+function countStar(parent, numberStar) {
+
+	const stars = parent.querySelector('.rating');
+	let n = parseFloat(numberStar);
+	let star;
+	const container = [];
+	for(let index = 1; index <= 5; index++) {
+		if(index <= n) {
+			star = 'fa-star';
+		} else if(index > n && index < n) {
+			star = 'fa-star-half-o';
+		} else {
+			star = 'fa-star-o';
+		}
+		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
+	}
+	container.push(`<span>${numberStar}.0</span>`);
+	stars.innerHTML = container.join('');
 }

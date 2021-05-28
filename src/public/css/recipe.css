@@ -199,7 +199,8 @@
   margin-bottom: 0; }
 
 .main-video .rating i {
-  color: #ffa803; }
+  color: #ffa803;
+  margin-right: 0.375rem; }
 
 .main-video .rating span {
   padding: 0.2rem 0.5rem;

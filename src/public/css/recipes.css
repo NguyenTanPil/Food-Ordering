@@ -198,8 +198,12 @@
 .main-video .bottom-items p {
   margin-bottom: 0; }
 
+.main-video .rating {
+  font-size: 1.2rem; }
+
 .main-video .rating i {
-  color: #ffa803; }
+  color: #ffa803;
+  margin-right: 0.375rem; }
 
 .main-video .rating span {
   padding: 0.2rem 0.5rem;
@@ -394,7 +398,8 @@
 .recomended .rating-cmt .rating i,
 .update .rating-cmt .rating i {
   color: #ffa803;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  margin-right: 0.25rem; }
 
 .recomended .rating,
 .update .rating {
