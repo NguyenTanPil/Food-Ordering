@@ -38,10 +38,14 @@ class MealController {
 		res.json(mealsUser);
 	}
 	// [UPDATE] /user/api/meals-view/:slug
-	async updateMealDetailView(req, res) {
+	async updateMealDetailView(req, res, next) {
 		Meals.updateOne({slug: req.params.slug}, req.body)
-			.then(() => console.log('Thanh cong'))
-			.catch(() => console.log('Khong thanh cong'))
+			.then((data) => {
+				if(!data) {
+					return res.status(404).end();
+				} return res.status(200).json(data);
+			})
+			.catch(error => next(error));
 	}
 }
 

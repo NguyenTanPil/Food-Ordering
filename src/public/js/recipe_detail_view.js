@@ -1,4 +1,5 @@
 let starsAvg = 0;
+const dateNow = Date.now();
 // btn socilas
 const share = document.querySelector('.share');
 const btnShare = share.querySelector('.btn-share');
@@ -123,12 +124,16 @@ function renderRecipe(recipe) {
 	const title = document.querySelector('.title-share h4');
 	const about = document.querySelector('.about-recipe p');
 	const starsRecipe = document.querySelector('.my-rating span');
+	const publicDay = document.querySelector('.published-time span');
 
 	const link = recipe.link.slice(recipe.link.lastIndexOf('/') + 1);
 	video.src = `https://www.youtube.com/embed/${link}`;
 	starsRecipe.innerText = `${recipe.stars}.0`;
 	title.innerText =  recipe.title;
 	about.innerText = recipe.description;
+	const datePost = new Date(recipe.createdAt).getTime();
+	const days = Math.floor(((dateNow - datePost) / (1000 * 60 * 60 * 60)) % 24);
+	publicDay.innerText = `Published ${days} days ago`;
 	countStar(starsRecipe.parentElement.parentElement, recipe.stars);
 	getUser(userUrl, renderUser);
 }
@@ -143,15 +148,16 @@ function getCommentsMeal(url, callback) {
 
 function renderCommentsMeal(comments) {
 	const mainComments = document.querySelector('.main-comments');
+	const reviewRecipeDetail = document.querySelector('.like-comment-view .comments span');
 	mainComments.innerHTML = '';
 	comments.forEach(comment => {
 		starsAvg += comment.stars;
 		mainComments.appendChild(componentCommentMeal(comment));
 	});
 	starsAvg = Math.floor(starsAvg / comments.length);
+	reviewRecipeDetail.innerText = comments.length;
 }
 function componentCommentMeal(comment) {
-	const dateNow = Date.now();
 	const dateCmt = new Date(comment.createdAt).getTime();
 	const hours = Math.floor(((dateNow - dateCmt) / (1000 * 60 * 60)) % 24);
 	const div = document.createElement('div');
@@ -192,36 +198,31 @@ function getMeals(url, callback) {
 
 function renderMeals(meals) {
 	const recommendMeals = document.querySelector('.recommended-meal');
-	const container = [];
+	recommendMeals.innerHTML = '';
 	meals.forEach(meal => {
-		container.push(componentMeal(meal));
+		recommendMeals.appendChild(componentMeal(meal));
 	});
-	recommendMeals.innerHTML =  container.join('');
 }
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 function componentMeal(meal) {
 	const date = new Date(meal.createdAt);
-	return `
-		<div class="recommended-meal-item">
+	const div = document.createElement('div');
+	div.className = 'recommended-meal-item';
+	div.innerHTML = `
 			<img src="${meal.photos[0]}" alt="meal item">
 			<div class="caption">
-				<a href="/recipe/recipe-details">
+				<a href="/views/meals/${meal.slug}">
 					<h4>
 						${meal.name}
 					</h4>
 				</a>
 				<p><span class="published-span">Published</span> ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}</p>
 				<div class="rating">
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star-o" aria-hidden="true"></i>
-					<span>4.0</span>
 				</div>
 			</div>
-		</div>
 	`;
+	countStar(div, meal.stars);
+	return div;
 }
 
 // comment

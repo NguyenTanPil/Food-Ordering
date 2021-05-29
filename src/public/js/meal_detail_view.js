@@ -1,4 +1,4 @@
-let starsAvg = 0, stars = 0;
+let starsAvg = 0, stars = 0, reviewsMeal = 0;
 // slider
 const navImg = document.querySelector('.nav-img');
 const quantity =  document.querySelector('.quantity');
@@ -116,6 +116,7 @@ function renderCommentsMeal(comments) {
 		mainComments.appendChild(componentCommentMeal(comment));
 	});
 	starsAvg = Math.floor(starsAvg / comments.length);
+	reviewsMeal = comments.length;
 }
 function componentCommentMeal(comment) {
 	const dateNow = Date.now();
@@ -305,10 +306,10 @@ formComment.addEventListener('submit', (e) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data),
-	})
+	});
 	inputComment.value = '';
 	getCommentsMeal(commentUrl, renderCommentsMeal);
-	updateStars(mealDetailUrl, starsAvg);
+	updateStars(mealDetailUrl, starsAvg); 
 	const starsMeal = document.querySelector('.my-rating span');
 	starsMeal.innerText = `${starsAvg}.0`;
 	countStar(starsMeal.parentElement.parentElement, starsAvg);
@@ -354,12 +355,11 @@ function yourRating(numberStar) {
 
 // update stars
 function updateStars(url, starsAvg) {
-	console.log(starsAvg)
 	fetch(url, {
 		method: 'PATCH',
 		headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({stars: starsAvg}),
+    body: JSON.stringify({stars: starsAvg, reviews: reviewsMeal}),
 	});
 }

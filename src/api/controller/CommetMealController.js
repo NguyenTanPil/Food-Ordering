@@ -13,7 +13,13 @@ class CommentMealController {
 		formData.userName = user.name;
 		formData.avartar = user.avartar;
 		const commentMeal = new CommentMeal(formData);
-		commentMeal.save();
+		commentMeal.save()
+			.then((data) => {
+				if(!data) {
+					return res.status(404).end();
+				} res.status(200).json(data);
+			})
+			.catch(error => next(error));
 	}
 	// [GET] /views/recipes/:slug/comment
 	async fetchComments(req, res, next) {

@@ -11,10 +11,14 @@ class OrderMealController {
 		res.json(orderMealsUser);
 	} 
 	// [PATCH] /user/api/order-meals/:slug
-	async updateOrderMeals(req, res) {
+	async updateOrderMeals(req, res, next) {
 		OrderMeals.updateOne({ _id: req.params.slug }, req.body)
-			.then(() => console.log('cap nhat thanh cong'))
-			.catch(() => console.log('Khong thanh cong roi'));
+			.then((data) => {
+				if(!data) {
+					return res.status(404).end();
+				} return res.status(200).json(data);
+			})
+			.catch(error => next(error));
 	}
 	// [DELETE] /user/api/order-meals/:slug
 	async deleteOrderMeals(req, res) {

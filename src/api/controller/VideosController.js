@@ -32,8 +32,12 @@ class VideosController {
 	// [UPDATE] /user/api/videos-view/:slug
 	async updateVideoDetailView(req, res) {
 		Videos.updateOne({slug: req.params.slug}, req.body)
-			.then(() => console.log('Thanh cong'))
-			.catch(() => console.log('Khong thanh cong'))
+			.then((data) => {
+				if(!data) {
+					return res.status(404).end();
+				} res.status(200).json(data);
+			})
+			.catch(error => next(error));
 	}
 }
 

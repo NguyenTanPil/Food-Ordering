@@ -18,7 +18,8 @@ const Meal = new Schema({
 	userId: { type: String },
 	slugRestaurant: { type: String },
 	complelted: { type: Boolean },
-	stars: { type: Number },
+	stars: { type: Number, default: 0 },
+	reviews: { type: Number, default: 0 },
 	slug: { type: String, slug: "name", unique: true },
 }, {
 	timestamps: true,
