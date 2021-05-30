@@ -16,8 +16,9 @@ router.get('/user-detail/:slug', user.fetchUserView);
 
 // order meals of user
 router.delete('/order-meals/:slug', orderMeals.deleteOrderMeals);
-router.patch('/order-meals/:slug', orderMeals.updateOrderMeals);
-router.get('/order-meals', orderMeals.fetchOrderMeals);
+router.patch('/restaurant/order-meals/:slug', orderMeals.updateOrderMeals); 
+router.get('/:slug/order-meals', orderMeals.fetchOrderMeals);
+router.get('/order-meals', orderMeals.fetchAllOrderMeals);
 
 // meals of user
 router.get('/meals', meals.fetchMeals);
@@ -27,7 +28,7 @@ router.get('/meals/meal-detail/:slug', meals.fetchMealDetailView);
 router.get('/restaurants/:slug/meals-view', meals.fetchMealsByRest);
 router.patch('/meals/meal-detail/:slug', meals.updateMealDetailView);
 
-// restaurant of user
+// restaurant of user 
 router.get('/restaurants', restaurants.fetchRestaurants);
 router.get('/restaurants-view', restaurants.fetchRestaurantsView);
 router.get('/restaurants-view/:slug', restaurants.fetchRestaurantView);

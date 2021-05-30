@@ -24,7 +24,7 @@
 <!-- title bar ends -->
 <!-- add restaurant starts -->
 <section class="add-restaurant">
-	<form action="/user/create-restaurant" method="POST">
+	<form action="/user/restaurant/create-restaurant" method="POST">
 		<div class="container">
 			<div class="row">
 				<div class="col col-lg-6 col-md-8 col-12">
@@ -36,11 +36,36 @@
 						<h4>Basic Info</h4>
 						<div class="form-group">
 							<label for="name-restaurant">Restaurant Name *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
 							<input class="input-group" id="name-restaurant" type="text" name="name" placeholder="Enter your restaurant name">
+							<div class="nofitication">
+								<span></span>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="search-city">City *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
 							<input class="input-group" id="search-city" type="search" name="city" placeholder="Search city">
+							<div class="nofitication">
+								<span></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="stars">Stars *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
+							<input class="input-group" id="stars" type="number" min="0" max="5" name="stars" placeholder="Enter Your Stars">
+							<div class="nofitication">
+								<span></span>
+							</div>
 						</div>
 						<div class="form-group">
 							<div class="checkboxTitle">
@@ -66,19 +91,47 @@
 						<h4>Contact info</h4>
 						<div class="form-group">
 							<label for="email">Email Address *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
 							<input class="input-group" id="email" type="email" name="email" placeholder="Enter your email">
+							<div class="nofitication">
+								<span></span>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="phoneNumber">Phone Number *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
 							<input class="input-group" id="phoneNumber" type="tel" name="phoneNumber" placeholder="Owner / Manager Phone Number">
+							<div class="nofitication">
+								<span></span>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="phoneRestaurant">Restaurant Phone Number *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
 							<input class="input-group" type="tel" name="phoneRestaurant" id="phoneRestaurant" placeholder="Restaurant Phone Number">
+							<div class="nofitication">
+								<span></span>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="websiteRestaurant">Restaurant Website *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
 							<input class="input-group" type="tel" name="website" id="websiteRestaurant" placeholder="Restaurant Wedsite">
+							<div class="nofitication">
+								<span></span>
+							</div>
 						</div>
 						<div class="form-group">
 							<div class="checkboxTitle">
@@ -219,7 +272,14 @@
 						<h4>Location</h4>
 						<div class="form-group">
 							<label for="address-restaurant">Enter Address *</label>
+							<div class="icon-check">
+								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+							</div>
 							<input class="input-group" type="search" name="address" id="address-restaurant" placeholder="Enter Your Address Restaurant">
+							<div class="nofitication">
+								<span></span>
+							</div>
 							<label class="icon-search" for="address-restaurant">
 								<i class="fa fa-search" aria-hidden="true"></i>
 							</label>

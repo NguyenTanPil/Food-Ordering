@@ -58,8 +58,9 @@ clearAllPhotos.onclick = () => {
 // fetch api
 const currentLink = window.location.href;
 const currRest = currentLink.slice(currentLink.lastIndexOf('/') + 1);
-const mealsUrl = '/user/api/meals';
-const orderMealsUrl = '/user/api/order-meals';
+const mealsUrl = `/user/api/restaurants/${currRest}/meals-view`;
+const orderMealsUrl = `/user/api/${currRest}/order-meals`;
+const updateMealUrl = `/user/api/restaurant/order-meals`
 const restaurantsUrl = `/user/api/restaurant-detail/${currRest}`;
 const videosUrl = '/user/api/videos';
 const userUrl = '/user/api/user-detail';
@@ -641,7 +642,7 @@ function acceptOrder(id) {
 	  	completed: true
 	  }),
 	};
-	fetch(`${orderMealsUrl}/${id}`, options)
+	fetch(`${updateMealUrl}/${id}`, options)
 		.then(response =>  response.json())
 		.catch(err => console.log(err));
 	getMealsRequest(orderMealsUrl, renderMealsRequest);
@@ -701,3 +702,84 @@ function renderUser(user) {
 	aboutEmail.innerText = user.email;
 	aboutDescription.innerText = user.description;
 }
+
+// succes function
+function isSuccess(formGroup) {
+	formGroup.classList.remove('error');
+	formGroup.classList.add('success');
+	const nofitication = formGroup.querySelector('.nofitication');
+	nofitication.style.height = '0';
+	return true;
+}
+// succes error
+function isError(formGroup, nofi) {
+	formGroup.classList.remove('success');
+	formGroup.classList.add('error');
+	const nofitication = formGroup.querySelector('.nofitication');
+	const span = nofitication.querySelector('span');
+	span.innerText = nofi;
+	nofitication.style.height = `${span.getBoundingClientRect().height + 12}px`;
+	return false;
+}
+// check empty
+const isRequired = (value) => (value === '' ? false : true);
+// check empty
+function checkRequired(elem, field) {
+	let valid = false;
+	let parent = elem.parentElement;
+	const val = elem.value;
+	if(!isRequired(val)) {
+		valid = isError(parent, `${field} is can\'t blank`);
+	} else {		
+		valid = isSuccess(parent);
+	}
+	return valid; 
+}
+// form valid
+const form =  document.querySelector('.modal-content form');
+const name = form.querySelector('input[name="name"]'); 
+const price = form.querySelector('input[name="price"]'); 
+const description = form.querySelector('textarea');
+const files = form.querySelector('input[name="photos"]');
+
+form.addEventListener('submit', (e) => {
+	const validName = checkRequired(name, 'Name');
+	const validDescription = checkRequired(description, 'Description');
+	const validPrice = checkRequired(price, 'Price');
+	const validPhotos = checkRequired(files, 'Photos');
+	let valid = validName && validPrice && validDescription && validPhotos;
+	if(!valid) {
+		e.preventDefault();
+	}
+});
+
+// debounce
+const debounce = (func, delay = 1000) => {
+	let timeoutId;
+	return (...agrs) => {
+		// Cancel the previous timer
+		if(timeoutId) {
+			clearTimeout(timeoutId);
+		}
+		// set up new timer
+		timeoutId = setTimeout(() => {
+			func.apply(null, agrs);
+		}, delay);
+	};
+};
+form.addEventListener('input', debounce(function(e) { 
+	switch (e.target.id) {
+		case 'name-meal':
+			checkRequired(name, 'Name');
+			break;
+		case 'description-meal':
+			checkRequired(description, 'Description');
+			break;
+		case 'price-meal':
+			checkRequired(price, 'Price');
+			break;
+		case 'upload-photos':
+			checkRequired(files, 'Photos');
+			break;
+	};
+}));

@@ -17,7 +17,6 @@ const listTimes = document.querySelector('.list-times');
 const addTimeBtn = document.querySelector('.add-time-btn');
 const slAll = document.querySelector('#select-all');
 const checkbox = document.querySelectorAll('.information .radio-item');
-const form =  document.querySelector('form');
 
 // dropdown select time
 selectTimeFrom.onclick =  () => {
@@ -96,10 +95,6 @@ saveHours(selectTimeFrom.innerText, selectTimeTo.innerText);
 saveCuisine(selectCuisines.innerText);
 saveTag(selectTags.innerText);
 
-// form submit
-form.submit = () => {
-
-}
 
 // function 
 function removeAllActiveMenuItem(menu) {
@@ -190,3 +185,105 @@ function saveTag(tag) {
 	const inputTag = document.querySelector('.input-hidden-tag');
 	inputTag.value = tag;
 }
+
+// form valid
+// succes function
+function isSuccess(formGroup) {
+	formGroup.classList.remove('error');
+	formGroup.classList.add('success');
+	const nofitication = formGroup.querySelector('.nofitication');
+	nofitication.style.height = '0';
+	return true;
+}
+// succes error
+function isError(formGroup, nofi) {
+	formGroup.classList.remove('success');
+	formGroup.classList.add('error');
+	const nofitication = formGroup.querySelector('.nofitication');
+	const span = formGroup.querySelector('span');
+	span.innerText = nofi;
+	nofitication.style.height = `${span.getBoundingClientRect().height + 12}px`;
+	return false;
+}
+// check empty
+const isRequired = (value) => (value === '' ? false : true);
+// check empty
+function checkRequired(elem, field) {
+	let valid = false;
+	const parent = elem.parentElement;
+	const val = elem.value;
+	if(!isRequired(val)) {
+		valid = isError(parent, `${field} is can\'t blank`);
+	} else {		
+		valid = isSuccess(parent);
+	}
+	return valid; 
+}
+// debounce
+const debounce = (func, delay = 1000) => {
+	let timeoutId;
+	return (...agrs) => {
+		// Cancel the previous timer
+		if(timeoutId) {
+			clearTimeout(timeoutId);
+		}
+		// set up new timer
+		timeoutId = setTimeout(() => {
+			func.apply(null, agrs);
+		}, delay);
+	};
+};
+// form valid
+const form =  document.querySelector('.add-restaurant form');
+const name = form.querySelector('input[name="name"]'); 
+const stars = form.querySelector('input[name="stars"]');
+const city = form.querySelector('input[name="city"]');
+const email = form.querySelector('input[name="email"]');
+const phoneNumber = form.querySelector('input[name="phoneNumber"]');
+const phoneRestaurant = form.querySelector('input[name="phoneRestaurant"]');
+const website = form.querySelector('input[name="website"]');
+const address = form.querySelector('input[name="address"]');
+
+form.addEventListener('submit', e => {
+	const validName = checkRequired(name, 'Name');
+	const validCity = checkRequired(city, 'City');
+	const validStars = checkRequired(stars, 'Stars');
+	const validEmail = checkRequired(email, 'Email');
+	const validPhoneNumber = checkRequired(phoneNumber, 'Phone Number');
+	const validPhoneRest = checkRequired(phoneRestaurant, 'Phone Restaurant');
+	const validWebsite = checkRequired(website, 'Website');
+	const validAddress = checkRequired(address, 'Address');
+	let valid = validName && validCity && validStars && validEmail && validPhoneNumber && validPhoneRest && validWebsite && validAddress;
+	if(!valid) {
+		e.preventDefault();
+	}
+});
+
+form.addEventListener('input', debounce(function(e) {
+	switch (e.target.id) {
+		case 'name-restaurant':
+			checkRequired(name, 'Name');
+			break;
+		case 'search-city':
+			checkRequired(city, 'City');
+			break;
+		case 'stars':
+			checkRequired(stars, 'Stars');
+			break;
+		case 'email':
+			checkRequired(email, 'Email');
+			break;
+		case 'phoneNumber':
+			checkRequired(phoneNumber, 'Phone Number');
+			break;
+		case 'phoneRestaurant':
+			checkRequired(phoneRestaurant, 'Phone Restaurant');
+			break;
+		case 'websiteRestaurant':
+			checkRequired(website, 'Website');
+			break;
+		case 'address-restaurant':
+			checkRequired(address, 'Address');
+			break;
+	};
+}));

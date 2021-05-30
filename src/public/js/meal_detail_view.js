@@ -1,5 +1,5 @@
 let starsAvg = 0, stars = 0, reviewsMeal = 0;
-// slider
+// slider 
 const navImg = document.querySelector('.nav-img');
 const quantity =  document.querySelector('.quantity');
 const priceEl =  document.querySelector('.price-meal');
@@ -237,12 +237,18 @@ function renderRestaurantDetail(restaurant) {
 	const location = document.querySelector('.info-restaurant .name-location span');
 	const position = document.querySelector('.user-details .name-location p');
 	const sellerRest = document.querySelector('input[name="sellerRest"]');
+	const slugRestaurant = document.querySelector('input[name="slugRestaurant"]');
+	const ratingRest = document.querySelector('.info-restaurant .right-side-btns');
+	const numberPhoneRest = document.querySelector('.right-side-btns a');
 
 	logo.src = restaurant.logo;
 	name.innerText = restaurant.name;
 	location.innerText = restaurant.city;
 	position.innerText = restaurant.position;
 	sellerRest.value =  restaurant.name;
+	slugRestaurant.value = restaurant.slug;
+	countStar(ratingRest, restaurant.stars);
+	numberPhoneRest.href = `tel:${restaurant.phoneRestaurant}`;
 }
 
 // user detail
@@ -277,10 +283,11 @@ function renderUser(user) {
 	const userNameInput = document.querySelector('input[name="userName"]');
 	const userIdInput = document.querySelector('input[name="userId"]');
 	const locationInput = document.querySelector('input[name="location"]');
-
-	userNameInput.value = user.name;
-	userIdInput.value = user.userId;
-	locationInput.value = user.location;
+	if(document.cookie) {
+		userNameInput.value = user.name;
+		userIdInput.value = user.userId;
+		locationInput.value = user.location;
+	}
 }
 // comment
 const formComment = document.querySelector('.comment-post form');

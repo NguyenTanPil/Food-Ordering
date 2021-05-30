@@ -14,7 +14,7 @@
 							<a href="/">Home</a>
 						</div>
 						<div class="breadcrumb-item">
-							<a href="/partner">Partners</a>
+							<a href="/views/partner">Partners</a>
 						</div>
 						<div class="breadcrumb-item active">Restaurant Detail View
 						</div>
@@ -39,12 +39,12 @@
 				<div class="profile-own">
 					<div class="user-details">
 						<div class="user-img">
-							<a href="/user-profile-view">
+							<a href="/user">
 								<img alt="own">
 							</a>
 						</div>
 						<div class="name-location">
-							<a href="/user-profile-view">
+							<a href="/user">
 								<h4></h4>
 							</a>
 							<p></p>
@@ -61,7 +61,7 @@
 							<i class="fa fa-phone" aria-hidden="true"></i>
 							Call
 						</a>
-						<a href="#" class="my-btn">
+						<a href="/views/all-meals" class="my-btn">
 							Order Now
 						</a>
 					</div>
@@ -69,12 +69,12 @@
 				<div class="info-restaurant">
 					<div class="restaurant-details">
 						<div class="restaurant-img">
-							<a href="/user-profile-view">
+							<a href="#" style="pointer-events: none;">
 								<img alt="own">
 							</a>
 						</div>
 						<div class="name-location">
-							<a href="/user-profile-view">
+							<a>
 								<h4></h4>
 							</a>
 							<p>
@@ -84,24 +84,17 @@
 						</div>
 					</div>
 					<div class="right-side-btns">
-						<div class="become-partners">
+						{{!-- <div class="become-partners">
 							<a href="#" class="my-btn">Partner</a>
-						</div>
+						</div> --}}
 						<div class="rating">
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<span>4.0 / 5.0</span>
 						</div>
 					</div>
 				</div>
 				<div class="published">
 					<div class="published-left">
+						<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
 						<span>
-							<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-							Member since August 2021
 						</span>
 					</div>
 					<div class="published-right">
@@ -244,7 +237,7 @@
 								<p>on all orders get the code : 156CD85</p>
 							</div>
 							<div class="offer-order">
-								<a href="#" class="my-btn">Order Now</a>
+								<a href="/views/all-meals" class="my-btn">Order Now</a>
 							</div>
 						</div>
 					</div>
@@ -367,12 +360,13 @@
 										<i class="fa fa-star" aria-hidden="true" data-id="5"></i>
 									</div>
 								</div>
-								<form action="#" method="post">
-									<input type="text" class="post-input" name="postComment" placeholder="Please describe the reason for your rating to help the author">
+								<form method="POST">
+									<input type="text" class="post-input" name="content" placeholder="Please describe the reason for your rating to help the author">
 									<input type="submit" value="Save Review" class="my-btn">
 								</form>
 							</div>
 						</div>
+						<div class="main-comments"></div>
 					</div>
 					<div class="tab-pane" id="book-a-table">
 						<div class="restaurant-detail-bg">
@@ -466,11 +460,6 @@
 					<div class="popular-restaurants">
 						<h4>Popular Restaurents </h4>
 					<ul class="list-pop-res"></ul>
-				</div>
-				<div class="google-ads">
-					<a href="#">
-						<img src="/images/google-ad.jpg" alt="google ads">
-					</a>
 				</div>
 			</div>
 		</div>

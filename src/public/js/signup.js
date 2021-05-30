@@ -4,7 +4,7 @@ checkboxAgree.onclick = () => {
 	agree.classList.toggle('active');
 }
 // Form validation
-const form = document.querySelector('.form form');
+const form = document.querySelector('.form form'); 
 const name = document.getElementById('full-name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -66,7 +66,7 @@ const checkEmail = () => {
 	} else {		
 		valid = isSuccess(parent);
 	}
-	return valid;
+	return valid; 
 };
 
 // check password
@@ -122,6 +122,7 @@ const debounce = (func, delay = 1000) => {
 		}, delay);
 	};
 };
+
 form.addEventListener('input', debounce(function(e) {
 	switch (e.target.id) {
 		case 'full-name':

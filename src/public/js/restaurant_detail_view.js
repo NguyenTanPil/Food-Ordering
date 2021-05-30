@@ -1,3 +1,6 @@
+const dateNow = Date.now();
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let stars = 0;
 // slider
 function slider() {
 	const navImg = document.querySelector('.nav-img');
@@ -70,18 +73,24 @@ iconTab.forEach(icon => {
 });
 
 // fetch api
-const currentLink = window.location.href;
-const currRest = currentLink.slice(currentLink.lastIndexOf('/') + 1);
+const currLink = window.location.href;
+const currRest = currLink.slice(currLink.lastIndexOf('/') + 1);
 // lay thong tin nha hang
 const restaurantUrl = `/user/api/restaurants-view/${currRest}`;
+// lay thong tin cac nha hang
+const restaurantsUrl = '/user/api/restaurants-view';
 // lay thong tin nguoi dung hien tai
 const userUrl = '/user/api/user-detail';
 // lay thong tin chu nha hang 
 let mealsUrl, sellerUrl;
-start();
+// lay thong tin reivews
+const commentUrl = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}/comments`;
+start(); 
 
 function start() {
 	getRestaurant(restaurantUrl, renderRestaurantDetail);
+	getRestaurantsPop(restaurantsUrl, renderRestaurantsPop);
+	getCommentsMeal(commentUrl, renderCommentsMeal);
 }
 // restaurant
 function getRestaurant(url, callback) {
@@ -92,9 +101,9 @@ function getRestaurant(url, callback) {
 }
 
 function renderRestaurantDetail(restaurant) {
+	const date = new Date(restaurant.createdAt);
 	sellerUrl = `/user/api/user-detail/${restaurant.userId}`;
 	mealsUrl = `/user/api/restaurants/${restaurant.slug}/meals-view`;
-	
 	const mainImg = document.querySelector('.main-img');
 	const mainMenu = document.querySelector('.restaurant-menu-card .nav-tab');
 	const navMenu = document.querySelector('.restaurant-menu-card .tab-content-small');
@@ -106,6 +115,9 @@ function renderRestaurantDetail(restaurant) {
 	const logo = document.querySelector('.restaurant-img img');
 	const gallery = document.querySelector('.gallery');
 	const numberGallery = document.querySelector('.number-gallery');
+	const ratingRest = document.querySelector('.info-restaurant .right-side-btns');
+	const numberPhoneRest = document.querySelector('.right-side-btns a');
+	const publishDate =  document.querySelector('.published-left span');
 
 	restaurant.photos.forEach((photo, index) => {
 		let main, nav, photos;
@@ -135,7 +147,13 @@ function renderRestaurantDetail(restaurant) {
 		navContainer.push(nav);
 		galleryContainer.push(photos);
 	});
-
+	// phone restaurant
+	numberPhoneRest.href = `tel:${restaurant.phoneRestaurant}`;
+	// Published
+	publishDate.innerText = `Member since ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+	// stars restaurant
+	countStar(ratingRest, restaurant.stars);
+	// menu
 	restaurant.menu.forEach((menu, index) => {
 		let nav, main;
 		if(index == 0) {
@@ -239,35 +257,30 @@ function renderMealsOfRestaurant(orderMeals) {
 	const cafe = document.querySelector('#cafe .row');
 	const delivery = document.querySelector('#delivery .row');
 
-	let getBreakfast = [];
-	let getLunch = [];
-	let getDinner = [];
-	let getCafe = [];
-	let getDelivery = [];
+	breakfast.innerHTML = '';
+	lunch.innerHTML = '';
+	dinner.innerHTML = '';
+	cafe.innerHTML = '';
+	delivery.innerHTML = '';
 	orderMeals.forEach(meal => {
 		if(meal.selectMeal.toLowerCase() == 'breakfast') {
-			getBreakfast.push(componentMeal(meal));
+			breakfast.appendChild(componentMeal(meal));
 		} else if(meal.selectMeal.toLowerCase() == 'lunch') {
-			getLunch.push(componentMeal(meal));
+			lunch.appendChild(componentMeal(meal));
 		} else if(meal.selectMeal.toLowerCase() == 'dinner') {
-			getDinner.push(componentMeal(meal));
+			dinner.appendChild(componentMeal(meal));
 		} else if(meal.selectMeal.toLowerCase() == 'cafe') {
-			getCafe.push(componentMeal(meal));
+			cafe.appendChild(componentMeal(meal));
 		} else {
-			getDelivery.push(componentMeal(meal));
+			delivery.appendChild(componentMeal(meal));
 		}
 	});
-	
-	breakfast.innerHTML = getBreakfast.join('');
-	lunch.innerHTML = getLunch.join('');
-	dinner.innerHTML = getDinner.join('');
-	cafe.innerHTML = getCafe.join('');
-	delivery.innerHTML = getDelivery.join('');
 }
 
 function componentMeal(meal) {
-	return `
-		<div class="col col-12 col-md-6">
+	const div = document.createElement('div');
+	div.className = 'col col-12 col-md-6';
+	div.innerHTML = `
 			<div class="meals">
 				<img src="${meal.photos[0]}" alt="meal order">
 				<div class="capiton-meals">
@@ -275,19 +288,122 @@ function componentMeal(meal) {
 						<h3>${meal.name}</h3>
 					</a>
 					<div class="rating">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
-						<span>4.5</span>
 					</div>
 					<p class="price">$${meal.price}.00</p>
 				</div>
 			</div>
+	`;
+	countStar(div, meal.stars);
+	return div;
+}
+// pop restaurants
+function getRestaurantsPop(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(error => console.log(error));
+}
+
+function renderRestaurantsPop(restaurants) {
+	const listPopRest = document.querySelector('.list-pop-res');
+	restaurants.forEach(restaurant => {
+		listPopRest.appendChild(componentRestaurantPop(restaurant));
+	});
+}
+
+function componentRestaurantPop(restaurant) {
+	const li = document.createElement('li');
+	li.innerHTML = `
+		<a href="/views/restaurants/${restaurant.slug}">
+			<img src="${restaurant.logo}" alt="popular">
+		</a>
+		<div class="caption">
+			<a href="/views/restaurants/${restaurant.slug}">
+				<h4>${restaurant.name}</h4>
+			</a>
+			<p>${restaurant.city}</p>
+				<div class="rating">
+				</div>
 		</div>
 	`;
+	countStar(li, restaurant.stars);
+	return li;
 }
+
+// comments 
+function getCommentsMeal(url, callback) {
+	fetch(url)
+		.then(response => response.json())
+		.then(callback)
+		.catch(err => console.log(err));
+}
+
+function renderCommentsMeal(comments) {
+	const mainComments = document.querySelector('.main-comments');
+	mainComments.innerHTML = '';
+	comments.forEach(comment => {
+		mainComments.appendChild(componentCommentMeal(comment));
+	});
+}
+
+function componentCommentMeal(comment) {
+	const dateCmt = new Date(comment.createdAt).getTime();
+	const hours = Math.floor(((dateNow - dateCmt) / (1000 * 60 * 60)) % 24);
+	const div = document.createElement('div');
+	div.className = 'comment';
+	div.innerHTML =  `
+			<div class="user-comment">
+				<a href="/user-profile-view">
+					<img src="${comment.avartar}" alt="user comment">
+				<div class="name-rating">
+					<a href="/user-profile-view">
+					<h4 class="name">${comment.userName}</h4>
+				</a>
+				<div class="rating">
+				</div>
+				</div>	
+			</div>
+			<div class="reply-time">
+				<p>
+					<i class="fa fa-clock-o" aria-hidden="true"></i>
+					${hours} hours ago
+				</p>
+			</div>
+			<div class="desciption-comment">
+				<p>${comment.content}</p>
+			</div>
+	`;
+	countStar(div, comment.stars);
+	return div;
+}
+
+const formComment = document.querySelector('.comment-post form');
+const inputComment = formComment.querySelector('input');
+formComment.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const url = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
+	const data = {
+		content: inputComment.value,
+		mealSlug: currLink.slice(currLink.lastIndexOf('/') + 1),
+		stars: stars,
+	}
+	if(document.cookie == '') {
+		window.location.replace('/user/login');
+		return;
+	}
+	if(inputComment.value == '') {
+		return;
+	}
+	fetch(url, {
+		method: 'POST',
+		headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+	})
+	inputComment.value = '';
+	getCommentsMeal(commentUrl, renderCommentsMeal);
+});
 
 // remove default a link
 function removeDefault() {
@@ -379,31 +495,35 @@ function removeAllActiveMenuItem(menu) {
 	menu.forEach(item => {
 		item.classList.remove('active');
 	});
-}
+} 
 function addActiveMenuItem(item) {
 	item.classList.add('active');
 }
-// count star
+// count stars
 function countStar(parent, numberStar) {
-	const stars = parent.querySelectorAll('.rating i');
+
+	const stars = parent.querySelector('.rating');
 	let n = parseFloat(numberStar);
-	let star = '';
-	stars.forEach((item, index) => {
-		if(index + 1 <= n) {
-			star = 'star';
-		} else if(index + 1 > n && index < n) {
-			star = 'star-half-o';
+	let star;
+	const container = [];
+	for(let index = 1; index <= 5; index++) {
+		if(index <= n) {
+			star = 'fa-star';
+		} else if(index > n && index < n) {
+			star = 'fa-star-half-o';
 		} else {
-			star = 'star-o';
+			star = 'fa-star-o';
 		}
-		item.classList.add(`fa-${star}`);
-	});
+		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
+	}container.push(`<span>${numberStar}.0</span>`);
+	stars.innerHTML = container.join('');
 }
 // your rating
 const slRating = document.querySelector('.select-rating .rating');
 const starSelect = slRating.querySelectorAll('i');
 slRating.onclick = (e) => {
 	const numberStar = e.target.dataset.id;
+	stars = numberStar;
 	yourRating(numberStar);
 }
 function yourRating(numberStar) {
@@ -415,396 +535,3 @@ function yourRating(numberStar) {
 		}
 	}); 
 }
-// all meals 
-const listBreakfastMeals = [
-	{
-		id: 1,
-		img: 'breakfast-meal-1.jfif',
-		title: 'Sunny side egg in Toast',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'breakfast-meal-2.jfif',
-		title: 'Waffle pancake',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'breakfast-meal-3.jfif',
-		title: 'Toasted wheat bread',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'breakfast-meal-4.jfif',
-		title: 'Brawn and white pastry',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'breakfast-meal-5.jfif',
-		title: 'Boiled eggs and toast',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'breakfast-meal-6.jfif',
-		title: 'Pancake with blueberry',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'breakfast-meal-7.jfif',
-		title: 'Assorted variant',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'breakfast-meal-8.jfif',
-		title: 'Sliced bread',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const listLunchMeals = [
-	{
-		id: 1,
-		img: 'lunch-meal-1.jfif',
-		title: 'Meat and vegetable salad',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'lunch-meal-2.jfif',
-		title: 'Cooked food',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'lunch-meal-3.jfif',
-		title: 'Chicken bites',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'lunch-meal-4.jfif',
-		title: 'Egg and cooked rice',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'lunch-meal-5.jfif',
-		title: 'Meat with sauce',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'lunch-meal-6.jfif',
-		title: 'Assorted variant',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'lunch-meal-7.jfif',
-		title: 'Vagetable salad',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'lunch-meal-8.jfif',
-		title: 'Green salad',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const listDinnerMeals = [
-	{
-		id: 1,
-		img: 'dinner-meal-1.jfif',
-		title: 'Egg and cook rice',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'dinner-meal-2.jfif',
-		title: 'Cooked chicken',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'dinner-meal-3.jfif',
-		title: 'Beef stir-fried',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'dinner-meal-4.jfif',
-		title: 'Bites beef',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'dinner-meal-5.jfif',
-		title: 'Italian Pasta Full Plate',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'dinner-meal-6.jfif',
-		title: 'Humburger',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'dinner-meal-7.jfif',
-		title: 'Fired meat with vegetable',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'dinner-meal-8.jfif',
-		title: 'Full food',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const listCafes = [
-	{
-		id: 1,
-		img: 'cafe-1.jfif',
-		title: 'Coffee latte',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'cafe-2.jfif',
-		title: 'Black coffee',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'cafe-3.jfif',
-		title: 'Cold brew coffee',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'cafe-4.jfif',
-		title: 'Irish coffee',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'cafe-5.jfif',
-		title: 'Latte macchiato',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'cafe-6.jfif',
-		title: 'Ristretto',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'cafe-7.jfif',
-		title: 'Espresso lungo',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'cafe-8.jfif',
-		title: 'Affogato',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const listDeliveryMeals = [
-	{
-		id: 1,
-		img: 'delivery-1.jfif',
-		title: 'Fried fries',
-		stars: '4.0',
-		price: '5'
-	},
-	{
-		id: 2,
-		img: 'delivery-2.jfif',
-		title: 'Slice cucumber and carots',
-		stars: '4.5',
-		price: '6'
-	},
-	{
-		id: 3,
-		img: 'delivery-3.jfif',
-		title: 'Sushi',
-		stars: '2.5',
-		price: '7'
-	},
-	{
-		id: 4,
-		img: 'delivery-4.jfif',
-		title: 'Cooked mussels',
-		stars: '2.0',
-		price: '8'
-	},
-	{
-		id: 5,
-		img: 'delivery-5.jfif',
-		title: 'Pasta dish',
-		stars: '5.0',
-		price: '9'
-	},
-	{
-		id: 6,
-		img: 'delivery-6.jfif',
-		title: 'Vagetable with yellow sauce',
-		stars: '3.5',
-		price: '24'
-	},
-	{
-		id: 7,
-		img: 'delivery-7.jfif',
-		title: 'Green and brawn vegetable',
-		stars: '3.0',
-		price: '13'
-	},
-	{
-		id: 8,
-		img: 'delivery-8.jfif',
-		title: 'Green and white labeled pack',
-		stars: '4.5',
-		price: '11'
-	}
-];
-const breakfastMeals = document.querySelector('#breakfast .row');
-createOrderOnlineMeals(breakfastMeals, listBreakfastMeals);
-const lunchMeals = document.querySelector('#lunch .row');
-createOrderOnlineMeals(lunchMeals, listLunchMeals);
-const dinnerMeals = document.querySelector('#dinner .row');
-createOrderOnlineMeals(dinnerMeals, listDinnerMeals);
-const cafes = document.querySelector('#cafe .row');
-createOrderOnlineMeals(cafes, listCafes);
-const delilveryMeals = document.querySelector('#delivery .row');
-createOrderOnlineMeals(delilveryMeals, listDeliveryMeals);
-function createOrderOnlineMeals(typeMeal, listMeals) {
-	listMeals.forEach(meal => {
-		const div = document.createElement('div');
-		div.className = 'col col-12 col-md-6';
-		div.innerHTML = `
-			<div class="meals">
-				<img src="/images/${meal.img}" alt="meal order">
-				<div class="capiton-meals">
-					<a href="/meal-detail">
-						<h3>${meal.title}</h3>
-					</a>
-					<div class="rating">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
-						<span>${meal.stars}</span>
-					</div>
-					<p class="price">$${meal.price}.00</p>
-				</div>
-			</div>
-		`;
-		countStar(div, meal.stars);
-		typeMeal.appendChild(div);
-	});
-}
-// list popular starts
-const listPopular = [
-	{
-		id: 1,
-		img: '1',
-		name: 'Pane & Vino',
-		country: 'Rome, Italy',
-		star: '5.0'
-	},
-	{
-		id: 2,
-		img: '2',
-		name: 'Spice Symphony',
-		country: 'United States',
-		star: '4.0'
-	},
-	{
-		id: 3,
-		img: '3',
-		name: 'Westwood Carvery',
-		country: 'Sydney Australia',
-		star: '3.0'
-	},
-	{
-		id: 4,
-		img: '4',
-		name: 'Hot Chilli Restaurant',
-		country: 'United States',
-		star: '2.0'
-	},
-	{
-		id: 5,
-		img: '5',
-		name: 'Barbecue Restaurant',
-		country: 'New York',
-		star: '1.0'
-	},
-	
-];
-const popular = document.querySelector('.list-pop-res');
-listPopular.forEach((pop) => {
-	const li = document.createElement('li');
-	li.innerHTML = `
-		<a href="/partner/restaurant-detail-view">
-			<img src="/images/partner-${pop.img}.jpg" alt="popular">
-		</a>
-		<div class="caption">
-			<a href="/partner/restaurant-detail-view">
-				<h4>${pop.name}</h4>
-			</a>
-			<p>${pop.country}</p>
-				<div class="rating">
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<i class="fa fa-star" aria-hidden="true"></i>
-					<span>${pop.star}</span>
-				</div>
-		</div>
-	`;
-	countStar(li, pop.star);
-	popular.appendChild(li);
-});
-// list popular ends

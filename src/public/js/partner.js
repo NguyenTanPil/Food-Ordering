@@ -49,22 +49,25 @@ function renderRestaurants(restaurants) {
 	const listRest = document.querySelector('.list-partners');
 	const listRestPops = document.querySelector('.list-pop-res');
 	const locations = document.querySelector('.locations .filter-checkbox');
-	const container = [], locationContainer = [], containerRestPop = [];
+	const locationContainer = [], containerRestPop = [];
+
+	// reset
+	listRest.innerHTML = '';
+	listRestPops.innerHTML = '';
 
 	restaurants.forEach(restaurant => {
-		container.push(componentRestaurant(restaurant));
-		containerRestPop.push(componentRestPop(restaurant));
+		listRest.appendChild(componentRestaurant(restaurant));
+		listRestPops.appendChild(componentRestPop(restaurant));
 		renderLocations(restaurant, locations);
 	});
-	listRest.innerHTML = container.join('');
-	listRestPops.innerHTML = containerRestPop.join('');
 	checkStates();
 	checkAllLocations();
 }
 
 function componentRestaurant(restaurant) {
-	return `
-		<div class="parners-section">
+	const div = document.createElement('div');
+	div.className = 'parners-section';
+	div.innerHTML = `
 		<input type="hidden" value="${restaurant.city} ${restaurant.tag} ${restaurant.cuisine}">
 			<div class="partners-bar">
 				<div class="partners-top">
@@ -99,14 +102,8 @@ function componentRestaurant(restaurant) {
 							<li>Cuisines: ${restaurant.cuisine}</li>
 							<li>Featured: Treading</li>
 							<li>Discount: 10% of on all orders</li>
-							<li>Reviews:
-								<div class="stars">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<span>4.5</span>
+							<li>Reviews: 
+								<div class="stars rating">
 								</div>
 							</li>
 						</ul>
@@ -139,13 +136,15 @@ function componentRestaurant(restaurant) {
 					</ul>
 				</div>
 			</div>
-		</div>
 	`;
+	countStar(div, restaurant.stars);
+	onlineOrOffline(div, restaurant.open);
+	return div;
 }
 
 function componentRestPop(restaurant) {
-	return `
-		<li>
+	const li = document.createElement('li');
+	li.innerHTML = `
 			<a href="/views/restaurants/${restaurant.slug}">
 				<img src="${restaurant.logo}" alt="popular">
 			</a>
@@ -154,24 +153,19 @@ function componentRestPop(restaurant) {
 					<h4>${restaurant.name}</h4>
 				</a>
 				<p>${restaurant.city}</p>
-					<div class="stars">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<span>5.0</span>
+					<div class="stars rating">
 					</div>
 			</div>
-		</li>
 	`;
+	countStar(li, restaurant.stars);
+	return li;
 }
 
 let index = 2;
 const listLocations = [];
 function renderLocations(restaurant, locations) {
-	if(listLocations.indexOf(restaurant.location) < 0) {
-		listLocations.push(restaurant.location);
+	if(listLocations.indexOf(restaurant.city) < 0) {
+		listLocations.push(restaurant.city);
 		const div = document.createElement('div');
 		div.className = 'check-item';
 		div.innerHTML = `
@@ -262,13 +256,13 @@ function filterResults(filters) {
 		}
 	});
 	restaurantItems.forEach(restaurant => {
-		restaurant.parentElement.parentElement.style.display = 'block';
+		restaurant.parentElement.style.display = 'block';
 	});
 	if(hiddenEl.length <= 0) {
 		return;
 	}
 	hiddenEl.forEach(el => {
-		el.parentElement.parentElement.style.display = 'none';
+		el.parentElement.style.display = 'none';
 	});
 }
 
@@ -300,29 +294,31 @@ function checkAllLocations() {
 	})
 }
 
-// count star
 function countStar(parent, numberStar) {
-	const stars = parent.querySelectorAll('.stars i');
+	const stars = parent.querySelector('.rating');
 	let n = parseFloat(numberStar);
-	let star = '';
-	stars.forEach((item, index) => {
-		if(index + 1 <= n) {
-			star = 'star';
-		} else if(index + 1 > n && index < n) {
-			star = 'star-half-o';
+	let star;
+	const container = [];
+	for(let index = 1; index <= 5; index++) {
+		if(index <= n) {
+			star = 'fa-star';
+		} else if(index > n && index < n) {
+			star = 'fa-star-half-o';
 		} else {
-			star = 'star-o';
+			star = 'fa-star-o';
 		}
-		item.classList.add(`fa-${star}`);
-	});
+		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
+	}
+	container.push(`<span>${numberStar}.0</span>`);
+	stars.innerHTML = container.join('');
 }
-// function onlineOrOffline(parent, state) {
-// 	const i = parent.querySelector('.on-off');
-// 	const orderNow = parent.querySelector('.links .order-now a');
-// 	if(state) {
-// 		i.style.color = 'orange';
-// 	} else {
-// 		i.style.color = 'grey';
-// 		orderNow.classList.add('not-active');
-// 	}
-// }
+function onlineOrOffline(parent, state) {
+	const i = parent.querySelector('.on-off');
+	const orderNow = parent.querySelector('.links .order-now a');
+	if(state == 'already') {
+		i.style.color = 'orange';
+	} else {
+		i.style.color = 'grey';
+		orderNow.classList.add('not-active');
+	}
+}

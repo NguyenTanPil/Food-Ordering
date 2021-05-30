@@ -17,14 +17,20 @@ class RestaurantController {
 		}
 	}
 	// [POST] /user/restaurant/create-restaurant
-	create_restaurant(req, res) {
+	create_restaurant(req, res, next) {
 		const formData = req.body;
 		const userId = req.cookies['userId'];
 		formData.userId = userId;
-		res.json(formData);
 		const restaurant = new Restaurant(formData);
-		restaurant.save();
-		res.redirect('/partner/restaurant-detail-view');
+		restaurant.save()
+			.then((data) => {
+				if(!data) {
+					return res.status(404).end();
+				} else {
+					return res.status(200).redirect('/user');
+				}
+			})
+			.catch(err => next(err));
 	}
 	// [GET] /user/restaurant/:slug
 	async restaurant_detail(req, res, next) {
@@ -43,7 +49,7 @@ class RestaurantController {
 	// [PUT] /user/restaurant/update-restaurant
 	async update_restaurant(req, res, next) {
 		const userId = req.cookies['userId'];
-		const restaurant = await getRestaurantDetails(userId);
+		const restaurant = await getRestaurantDetails(userId, req.params.slug);
 		const restaurantUser =  await restaurant;
 		let formData = req.body;
 		const files = req.files;
@@ -70,9 +76,15 @@ class RestaurantController {
 				formData.public_id_photos[i] = uploadPhotos.public_id;
 			}
 		}
-		Restaurant.updateOne({ userId: userId }, formData)
-			.then(() => res.redirect('/user/restaurant/restaurant-detail'))
-			.catch(next(err));
+		Restaurant.updateOne({ slug: req.params.slug }, formData)
+			.then((data) => {
+				if(!data) {
+					return res.status(404).end();
+				} else {
+					return res.status(200).redirect(`/user/restaurant/${req.params.slug}`);
+				}
+			})
+			.catch(err => next(err));
 	}
 	// [POST] /user/restaurant/create-meal
 	async create_meal(req, res, next) {
@@ -89,8 +101,15 @@ class RestaurantController {
 				});
 		}
 		const meal = new Meal(formData);
-		meal.save();
-		res.redirect(`/user/restaurant/${formData.slugRestaurant}`);
+		meal.save()
+		.then((data) => {
+				if(!data) {
+					return res.status(404).end();
+				} else {
+					return res.status(200).redirect(`/user/restaurant/${formData.slugRestaurant}`);
+				}
+			})
+			.catch(err => next(err));
 	}
 }
 

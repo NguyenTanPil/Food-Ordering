@@ -68,11 +68,10 @@ function yourRating(numberStar) {
 
 // fetch api 
 const currLink = window.location.href;
-const recipeUrl = `/user/api//videos-view/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
+const recipeUrl = `/user/api/videos-view/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
 const commentUrl = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}/comments`;
 const mealsUrl =  `/user/api/meals-view`;
 let userUrl;
-
 start();
 
 function start() {

@@ -68,6 +68,59 @@
   font-size: 1.5rem;
   color: var(--clr-black); }
 
+.add-restaurant .form-group .icon-check {
+  position: absolute;
+  right: 1rem;
+  top: 0.938rem; }
+
+.add-restaurant .icon-check i {
+  transition: var(--transition);
+  display: none; }
+
+.add-restaurant .success .first-icon {
+  display: block;
+  color: #61d97c; }
+
+.add-restaurant .error .last-icon {
+  display: block;
+  color: #df4655; }
+
+.add-restaurant .form-group input {
+  padding: 0.875rem 1rem 0.87rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--clr-border); }
+
+.add-restaurant .form-group .nofitication {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition); }
+
+.add-restaurant .form-group span {
+  color: #df4655;
+  font-size: 0.813rem;
+  margin-top: 0.75rem;
+  display: block; }
+
+.add-restaurant .error {
+  margin-bottom: 1rem;
+  transition: var(--transition); }
+
+.add-restaurant .success input {
+  box-shadow: 0 0 0.25rem 0.13rem #61d97c; }
+
+.add-restaurant .error input {
+  box-shadow: 0 0 0.15rem 0.13rem #df4655; }
+
+.add-restaurant .form-group input:focus {
+  border-color: var(--clr-orange); }
+
+.add-restaurant .success input:focus {
+  border-color: #61d97c; }
+
+.add-restaurant .error input:focus {
+  border-color: #df4655; }
+
 .add-restaurant .information {
   padding-top: 1rem; }
 

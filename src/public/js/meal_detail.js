@@ -179,12 +179,14 @@ function renderRestaurantDetail(restaurant) {
 	const location = document.querySelector('.info-restaurant .name-location span');
 	const position = document.querySelector('.user-details .name-location p');
 	const sellerRest = document.querySelector('input[name="sellerRest"]');
+	const slugRestaurant = document.querySelector('input[name="slugRestaurant"]');
 
 	logo.src = restaurant.logo;
 	name.innerText = restaurant.name;
 	location.innerText = restaurant.city;
 	position.innerText = restaurant.position;
 	sellerRest.value =  restaurant.name;
+	slugRestaurant.value = restaurant.slug;
 }
 
 // user detail

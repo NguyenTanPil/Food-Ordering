@@ -31,7 +31,7 @@
 					<div class="background-login"></div>
 					<div class="content">
 						<div class="form">
-							<form action="/user/login-process" method="post">
+							<form action="/user/login-process" method="POST">
 								<div class="logo-form">
 									<a href="index.html">
 										<img src="/images/logo.svg" alt="logo">
@@ -55,10 +55,24 @@
 									<span>Or</span>
 								</div>
 								<div class="form-group">
+									<div class="icon-check">
+										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+									</div>
 									<input type="text" name="email" id="email-phoneNumber" placeholder="Enter Your Email">
-								</div>
+									<div class="nofitication">
+										<span></span>
+									</div>
+								</div> 
 								<div class="form-group">
+									<div class="icon-check">
+										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+									</div>
 									<input type="password" name="password" id="password" placeholder="Enter Your Password">
+									<div class="nofitication">
+										<span></span>
+									</div>
 								</div>
 								<button type="submit" class="my-btn">
 								Login

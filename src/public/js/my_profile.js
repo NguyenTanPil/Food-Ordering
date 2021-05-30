@@ -167,7 +167,7 @@ function componentVideo(video) {
 	return `
 		<div class="gallery-item">
 			<img src="${video.thumbnail}" alt="img item">
-			<a href="/user/recipe/${video.slug}">
+			<a href="/views/recipes/${video.slug}">
 				<i class="fa fa-play-circle" aria-hidden="true"></i>
 			</a>
 		</div>

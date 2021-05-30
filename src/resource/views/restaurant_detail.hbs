@@ -89,9 +89,6 @@
 						<div class="nav-item" data-id="orders-history">
 							<a href="#">Request History</a>
 						</div>
-						<div class="nav-item" data-id="my-videos">
-							<a href="#">My Videos</a>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -547,13 +544,27 @@
 												<div class="col col-12 col-lg-6">
 													<div class="form-group">
 														<label for="name-meal">Meal Name *</label>
+														<div class="icon-check">
+															<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+															<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+														</div>
 														<input type="text" class="field-input" id="name-meal" name="name" placeholder="Enter Meal Name">
+														<div class="nofitication">
+															<span></span>
+														</div>
 													</div>
 												</div>
 												<div class="col col-12 col-lg-6">
 													<div class="form-group">
 														<label for="price-meal">Price *</label>
+														<div class="icon-check">
+															<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+															<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+														</div>
 														<input type="number" class="field-input" id="price-meal" name="price" placeholder="Enter Price" min="0">
+														<div class="nofitication">
+															<span></span>
+														</div>
 													</div>
 												</div>
 												<div class="col col-12 col-lg-6">
@@ -614,11 +625,17 @@
 														<label for="description-meal">
 														Discription *</label>
 														<textarea class="field-input" id="description-meal" name="desciption" placeholder="Enter Description" style="min-height: 6.25rem; min-width:100%; max-width:100%;"></textarea>
+														<div class="nofitication">
+															<span></span>
+														</div>
 													</div>
 												</div>
 												<div class="col col-12 col-sm-6">
 													<div class="form-group">
-														<input type="file" class="field-input file-input add-photos-meal" name="photos" multiple>
+														<input type="file" class="field-input file-input add-photos-meal" id="upload-photos" name="photos" multiple>
+														<div class="nofitication">
+															<span></span>
+														</div>
 														<div class="overlay-input field-input">
 															<i class="fa fa-picture-o" aria-hidden="true"></i>
 															Add Photos
@@ -1030,21 +1047,6 @@
 								</div>
 								<div class="table-body">
 								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane">
-						<div id="my-videos">
-							<div class="my-videos-heading">
-								<h4>Videos</h4>
-							</div>
-							<div class="gallery">
-								{{!-- <div class="gallery-item">
-									<img src="{{ this.thumbnail }}" alt="img item">
-									<a href="/recipe/recipe-details">
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</a>
-								</div> --}}
 							</div>
 						</div>
 					</div>

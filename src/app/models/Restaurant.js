@@ -4,14 +4,17 @@ const Schema = mongoose.Schema;
 const slug = require('mongoose-slug-generator');
 
 mongoose.plugin(slug);
+const defaultLogo = 'https://res.cloudinary.com/food-odering/image/upload/v1621168920/restaurants/ivmrfwer2hs21ogfuu51.jpg';
+const defaultPublicIdLogo = 'restaurants/ivmrfwer2hs21ogfuu51';
 
 const Restaurant = new Schema({
-	logo: { type: String },
+	logo: { type: String, default: defaultLogo },
 	photos: { type: [String] },
-	public_id_logo: { type: String },
+	public_id_logo: { type: String, default: defaultPublicIdLogo },
 	public_id_photos: { type: [String] },
 	name: { type: String },
 	city: { type: String },
+	stars: { type: Number },
 	position: { type: String },
 	email: { type: String },
 	phoneNumber: { type: String },
@@ -29,7 +32,7 @@ const Restaurant = new Schema({
 	tag: { type: String },
 	payment: { type: String },
 	userId: { type: String },
-	slugRestaurant: { type: String, slug: "name", unique: true },
+	slug: { type: String, slug: "name", unique: true },
 }, {
 	timestamps: true,
 });

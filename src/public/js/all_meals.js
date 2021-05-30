@@ -129,7 +129,7 @@ function renderProducts(meal, restaurant) {
 							<div class="commnents">
 								<a href="#">
 									<i class="fa fa-comment" aria-hidden="true"></i>
-									05
+									${meal.reviews}
 								</a>
 							</div>
 						</div>

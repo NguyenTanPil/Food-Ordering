@@ -315,9 +315,8 @@
   border: 1px solid var(--clr-border);
   margin-top: 1.75rem; }
 
-.restaurant-detail-view .tab-content h4 {
-  padding: 1rem 1.25rem 1rem;
-  font-size: 1.25rem; }
+.restaurant-detail-view .restaurant-detail-bg h4 {
+  padding: 1rem 1.25rem 1rem; }
 
 .restaurant-detail-view #overview .restaurant-detail-bg p {
   color: var(--clr-text);
@@ -342,14 +341,19 @@
   line-height: 1.75rem;
   color: var(--clr-black);
   font-weight: 400;
-  display: block; }
+  display: block;
+  text-transform: capitalize; }
 
 .restaurant-detail-view .view-detail li span {
   display: none; }
 
 .restaurant-detail-view .view-detail-info li {
   color: var(--clr-text);
-  white-space: nowrap; }
+  white-space: nowrap;
+  text-transform: capitalize; }
+
+.restaurant-detail-view .view-detail-info li.rest-email {
+  text-transform: none; }
 
 .restaurant-detail-view .ads-offer {
   display: flex;
@@ -515,7 +519,8 @@
   color: var(--clr-orange); }
 
 .restaurant-detail-view .capiton-meals .rating i {
-  font-size: 1.25rem; }
+  font-size: 1.25rem;
+  margin-right: 0.25rem; }
 
 .restaurant-detail-view .capiton-meals .rating span {
   background-color: var(--clr-orange);
@@ -530,7 +535,8 @@
 
 /*review*/
 .restaurant-detail-view #reviews .comment-post {
-  margin-top: 1.875rem; }
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem; }
 
 .restaurant-detail-view #reviews .post-items {
   display: flex;
@@ -539,6 +545,66 @@
   align-items: center;
   width: 100%;
   flex-wrap: wrap; }
+
+.restaurant-detail-view .main-comments > div {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid var(--clr-border);
+  border-bottom-width: 0; }
+
+.restaurant-detail-view .main-comments > div:last-child {
+  border-bottom-width: 1px; }
+
+.restaurant-detail-view .main-comments .desciption-comment {
+  width: 100%; }
+
+.restaurant-detail-view .main-comments .user-comment {
+  display: flex;
+  align-items: center; }
+
+.restaurant-detail-view .user-comment img {
+  width: 3.125rem;
+  height: 3.125rem;
+  margin-right: 1.25rem;
+  object-fit: cover;
+  border-radius: 50%; }
+
+.restaurant-detail-view .user-comment h4 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--clr-black); }
+
+.restaurant-detail-view .main-comments .reply-time {
+  display: flex;
+  align-items: center; }
+
+.restaurant-detail-view .reply-time p {
+  color: var(--clr-text);
+  font-size: 0.875rem; }
+
+.restaurant-detail-view .desciption-comment {
+  margin-top: 0.75rem; }
+
+.restaurant-detail-view .desciption-comment p {
+  color: var(--clr-text);
+  font-size: 0.875rem;
+  line-height: 1.5rem; }
+
+.restaurant-detail-view .desciption-comment p a {
+  color: var(--clr-black);
+  font-size: 1rem; }
+
+.restaurant-detail-view .reply-comment .post-items {
+  padding: 0;
+  border-width: 0; }
+
+.restaurant-detail-view .reply-comment .img-user img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; }
 
 .restaurant-detail-view #reviews .img-user {
   height: 3.125rem;
@@ -824,10 +890,13 @@
   color: var(--clr-text);
   margin-bottom: 0.25rem; }
 
-.result-popular .caption i {
-  color: var(--clr-orange); }
+.result-popular .caption i,
+.user-comment .rating i {
+  color: var(--clr-orange);
+  margin-right: 0.25rem; }
 
-.result-popular .caption span {
+.result-popular .caption span,
+.user-comment .rating span {
   color: var(--clr-white);
   background-color: var(--clr-orange);
   padding: 0.25rem 0.5rem;
@@ -836,12 +905,8 @@
   margin-left: 0.5rem;
   display: none; }
 
-.result-popular .google-ads {
-  margin-top: 2rem;
-  margin-bottom: 5rem; }
-
-.result-popular .google-ads img {
-  width: 100%; }
+.user-comment .rating span {
+  display: inline-block; }
 
 /*result popular ends*/
 /*video detail recipes ends*/

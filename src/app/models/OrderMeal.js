@@ -10,6 +10,7 @@ const OrderMeal = new Schema({
 	name: { type: String},
 	mealId: { type: String},
 	sellerId: { type: String},
+	slugRestaurant: { type: String},
 	sellerRest: { type: String},
 	mealImg: { type: String},
 	price: { type: Number},
