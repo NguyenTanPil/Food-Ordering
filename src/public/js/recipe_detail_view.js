@@ -1,4 +1,4 @@
-let starsAvg = 0;
+let stars = 0;
 const dateNow = Date.now();
 // btn socilas
 const share = document.querySelector('.share');
@@ -34,10 +34,10 @@ function countStar(parent, numberStar) {
 	let n = parseFloat(numberStar);
 	let star;
 	const container = [];
-	for(let index = 1; index <= 5; index++) {
-		if(index <= n) {
+	for (let index = 1; index <= 5; index++) {
+		if (index <= n) {
 			star = 'fa-star';
-		} else if(index > n && index < n) {
+		} else if (index > n && index < n) {
 			star = 'fa-star-half-o';
 		} else {
 			star = 'fa-star-o';
@@ -58,19 +58,19 @@ slRating.onclick = (e) => {
 
 function yourRating(numberStar) {
 	starSelect.forEach((star, index) => {
-		if(index < numberStar) {
+		if (index < numberStar) {
 			star.style.color = 'orange';
 		} else {
 			star.style.color = 'rgb(0 0 0 / 55%)';
 		}
-	}); 
+	});
 }
 
 // fetch api 
 const currLink = window.location.href;
 const recipeUrl = `/user/api/videos-view/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
 const commentUrl = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}/comments`;
-const mealsUrl =  `/user/api/meals-view`;
+const mealsUrl = `/user/api/meals-view`;
 let userUrl;
 start();
 
@@ -85,9 +85,9 @@ function updateStars(url, starsAvg) {
 	fetch(url, {
 		method: 'PATCH',
 		headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({stars: starsAvg}),
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ stars: starsAvg }),
 	});
 }
 
@@ -104,7 +104,7 @@ function renderUser(user) {
 	const name = document.querySelector('.user-details .name-location h4');
 	const location = document.querySelector('.user-details .name-location .location');
 
-	avartar.src =  user.avartar;
+	avartar.src = user.avartar;
 	name.innerText = user.name;
 	location.innerText = user.location;
 }
@@ -118,17 +118,16 @@ function getRecipe(url, callback) {
 }
 
 function renderRecipe(recipe) {
-	userUrl =  `/user/api/user-detail/${recipe.userId}`;
+	userUrl = `/user/api/user-detail/${recipe.userId}`;
 	const video = document.querySelector('.video iframe');
 	const title = document.querySelector('.title-share h4');
 	const about = document.querySelector('.about-recipe p');
 	const starsRecipe = document.querySelector('.my-rating span');
 	const publicDay = document.querySelector('.published-time span');
-
 	const link = recipe.link.slice(recipe.link.lastIndexOf('/') + 1);
 	video.src = `https://www.youtube.com/embed/${link}`;
 	starsRecipe.innerText = `${recipe.stars}.0`;
-	title.innerText =  recipe.title;
+	title.innerText = recipe.title;
 	about.innerText = recipe.description;
 	const datePost = new Date(recipe.createdAt).getTime();
 	const days = Math.floor(((dateNow - datePost) / (1000 * 60 * 60 * 60)) % 24);
@@ -150,10 +149,8 @@ function renderCommentsMeal(comments) {
 	const reviewRecipeDetail = document.querySelector('.like-comment-view .comments span');
 	mainComments.innerHTML = '';
 	comments.forEach(comment => {
-		starsAvg += comment.stars;
 		mainComments.appendChild(componentCommentMeal(comment));
 	});
-	starsAvg = Math.floor(starsAvg / comments.length);
 	reviewRecipeDetail.innerText = comments.length;
 }
 function componentCommentMeal(comment) {
@@ -161,7 +158,7 @@ function componentCommentMeal(comment) {
 	const hours = Math.floor(((dateNow - dateCmt) / (1000 * 60 * 60)) % 24);
 	const div = document.createElement('div');
 	div.className = 'comment';
-	div.innerHTML =  `
+	div.innerHTML = `
 			<div class="user-comment">
 				<a href="/user-profile-view">
 					<img src="${comment.avartar}" alt="user comment">
@@ -227,7 +224,7 @@ function componentMeal(meal) {
 // comment
 const formComment = document.querySelector('.comment-post form');
 const inputComment = formComment.querySelector('input');
-formComment.addEventListener('submit', (e) => {
+formComment.addEventListener('submit', async (e) => {
 	e.preventDefault();
 	const url = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}`;
 	const data = {
@@ -235,22 +232,29 @@ formComment.addEventListener('submit', (e) => {
 		mealSlug: currLink.slice(currLink.lastIndexOf('/') + 1),
 		stars: stars,
 	}
-	if(document.cookie == '') {
+	if (document.cookie == '') {
 		window.location.replace('/user/login');
 		return;
 	}
-	if(inputComment.value == '') {
+	if (inputComment.value == '') {
 		return;
 	}
 	fetch(url, {
 		method: 'POST',
 		headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data),
 	})
 	inputComment.value = '';
-	getCommentsMeal(commentUrl, renderCommentsMeal);
+	const response = await fetch(commentUrl);
+	const comments = await response.json();
+	let starsAvg = 0;
+	comments.forEach(comment => {
+		starsAvg += comment.stars;
+	});
+	starsAvg = Math.floor(starsAvg / comments.length);
+	renderCommentsMeal(comments);
 	updateStars(recipeUrl, starsAvg);
 	const starsRecipe = document.querySelector('.my-rating span');
 	starsRecipe.innerText = `${starsAvg}.0`;

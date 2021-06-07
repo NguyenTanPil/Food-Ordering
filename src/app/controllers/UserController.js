@@ -14,7 +14,7 @@ class UserController {
 	signup(req, res, next) {
 		try {
 			res.render('signup', { layout: 'signup' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
@@ -33,7 +33,7 @@ class UserController {
 	login(req, res, next) {
 		try {
 			res.render('login', { layout: 'login' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
@@ -41,15 +41,15 @@ class UserController {
 	async login_process(req, res, next) {
 		const body = req.body;
 		let user = await User.findOne({ email: body.email });
-		if(user) {
+		if (user) {
 			const validPassword = await bcrypt.compare(body.password, user.password);
-			if(validPassword) {
+			if (validPassword) {
 				user = mongooseToOject(user);
 				res.cookie('userId', user._id, {
 					maxAge: 1000 * 60 * 60
 				});
 				const checkUser = await UserDetail.findOne({ userId: user._id });
-				if(!checkUser) {
+				if (!checkUser) {
 					body.userId = user._id;
 					body.name = user.name;
 					const userDetail = new UserDetail(body);
@@ -67,7 +67,7 @@ class UserController {
 	async my_profile(req, res, next) {
 		try {
 			res.render('my_profile', { layout: 'my_profile' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
@@ -75,41 +75,41 @@ class UserController {
 	async edit_profile(req, res, next) {
 		try {
 			res.render('edit_profile', { layout: 'edit_profile' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
 	// [PUT] /user/edit-profile-process
 	async edit_profile_process(req, res, next) {
 		const formData = req.body;
-		const userId =  req.cookies['userId'];
+		const userId = req.cookies['userId'];
 		formData.userId = req.cookies['userId'];
 		const user = await getUserDetail(userId);
-		if(req.files.avartar) {
+		if (req.files.avartar) {
 			const img1 = req.files['avartar'][0]['path'];
-			await cloudinary.uploader.upload( img1, {folder: 'user-details'})
+			await cloudinary.uploader.upload(img1, { folder: 'user-details' })
 				.then((avartar) => {
 					formData.avartar = avartar.secure_url;
 					formData.public_id_avartar = avartar.public_id;
 				})
 				.catch(next);
-			if(user.public_id_avartar) {
+			if (user.public_id_avartar) {
 				cloudinary.uploader.destroy(user.public_id_avartar);
 			}
-		} 
-		if(req.files.background) {
+		}
+		if (req.files.background) {
 			const img2 = req.files['background'][0]['path'];
-			await cloudinary.uploader.upload( img2, {folder: 'user-details'})
+			await cloudinary.uploader.upload(img2, { folder: 'user-details' })
 				.then((background) => {
 					formData.background = background.secure_url;
 					formData.public_id_background = background.public_id;
 				})
 				.catch(next);
-			if(user.public_id_background) {
+			if (user.public_id_background) {
 				cloudinary.uploader.destroy(user.public_id_background);
 			}
 		}
-		UserDetail.updateOne({ userId: userId}, formData)
+		UserDetail.updateOne({ userId: userId }, formData)
 			.then(() => res.redirect('/user/edit-profile'))
 			.catch(next);
 	}
@@ -121,7 +121,7 @@ class UserController {
 		const userObj = await getUser(userId);
 		// check password currently
 		const validPassword = await bcrypt.compare(formData['old-password'], userObj.password);
-		if(validPassword) {
+		if (validPassword) {
 			// encode new password
 			const salt = await bcrypt.genSalt(10);
 			formData['new-password'] = await bcrypt.hash(formData['new-password'], salt);
@@ -141,7 +141,7 @@ class UserController {
 		const userObj = await getUser(userId);
 		// check password currently
 		const validPassword = await bcrypt.compare(formData['delete-account'], userObj.password);
-		if(validPassword) {
+		if (validPassword) {
 			await UserDetail.deleteOne({ userId: userId });
 			await User.deleteOne({ _id: userId });
 			await res.clearCookie('userId');
@@ -154,12 +154,12 @@ class UserController {
 	upload_video(req, res, next) {
 		try {
 			res.render('upload_video', { layout: 'upload_video' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
 	// [POST] /user/create-video
-	async create_video(req, res) {
+	async create_video(req, res, next) {
 		const formData = req.body;
 		const userId = req.cookies['userId'];
 		const imgVideo = req.file.path;
@@ -170,8 +170,15 @@ class UserController {
 				formData.thumbnail = video.secure_url;
 			});
 		const video = new Video(formData);
-		video.save();
-		res.redirect('/recipe/recipe-details');
+		video.save()
+			.then((data) => {
+				if (!data) {
+					return res.status(404).end();
+				} else {
+					return res.status(200).redirect('/views/recipes');
+				}
+			})
+			.catch(error => next(error));
 	}
 }
 

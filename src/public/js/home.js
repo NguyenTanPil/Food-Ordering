@@ -1,6 +1,6 @@
 // fetch api
 const mealsUrl = '/user/api/meals-view';
-const restaurantsUrl =  '/user/api/restaurants-view';
+const restaurantsUrl = '/user/api/restaurants-view';
 start();
 
 function start() {
@@ -23,8 +23,8 @@ function renderMeals(meals, search) {
 	meals.forEach(meal => {
 		const urlRestaurant = `/user/api/restaurants-view/${meal.slugRestaurant}`;
 		getRestaurant(urlRestaurant, (restaurant) => {
-			if(search != '') {
-				if(meal.location.toLowerCase() == search.toLowerCase()) {
+			if (search != '') {
+				if (meal.location.toLowerCase() == search.toLowerCase()) {
 					renderProducts(meal, restaurant);
 				}
 			} else {
@@ -45,8 +45,8 @@ function getRestaurant(url, callback) {
 
 function renderProducts(meal, restaurant) {
 	const foods = document.querySelector('.foods-online');
-	const div =  document.createElement('div');
-	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3 meal-item'; 
+	const div = document.createElement('div');
+	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3 meal-item';
 	div.innerHTML = `
 			<div class="card">
 				<div class="card-img-top">
@@ -75,7 +75,7 @@ function renderProducts(meal, restaurant) {
 					<div class="bottom-text">
 						<div class="delivery">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							Delivery Free : Free
+							Delivery: Free
 						</div>
 						<div class="time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -86,7 +86,7 @@ function renderProducts(meal, restaurant) {
 							</div>
 							<span>${meal.stars}.0</span>
 							<div class="commnents">
-								<a href="#">
+								<a href="/views/meals/${meal.slug}">
 									<i class="fa fa-comment" aria-hidden="true"></i>
 									${meal.reviews}
 								</a>
@@ -113,7 +113,7 @@ function renderRestaurants(restaurants) {
 	restaurants.forEach(restaurant => {
 		container.push(componentRestaurantFeature(restaurant));
 	});
-	listFeatures.innerHTML =  container.join('');
+	listFeatures.innerHTML = container.join('');
 }
 
 function componentRestaurantFeature(restaurant) {
@@ -137,7 +137,7 @@ function componentRestaurantFeature(restaurant) {
 				</div>
 				<div class="col-12 col-md-4">
 					<div class="btn-item">
-						<a href="/views/restaurants/${restaurant.slug}" class="btn my-btn" role="button" data-bs-toggle="button">View Menu</a>
+						<a href="/views/restaurants/${restaurant.slug}" class="btn">View Menu</a>
 					</div>
 				</div>
 			</div>
@@ -160,7 +160,7 @@ function componentMealTreanding(meal) {
 			</div>
 			<div class="col-5 col-md-6">
 				<div class="btn-item">
-					<a href="/views/meals/${meal.slug}" class="my-btn" role="button" data-bs-toggle="button">View <span>Menu</span></a>
+					<a href="/views/meals/${meal.slug}" class="btn">View <span>Menu</span></a>
 				</div>
 			</div>
 		</div>
@@ -199,7 +199,7 @@ const listOrderOnlines = [
 		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-3_nqz5fr.svg',
 		name: 'Dinner'
 	},
-	{	
+	{
 		id: 4,
 		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033668/systems/meal-4_uk5wmz.svg',
 		name: 'Cafe\'s'
@@ -348,7 +348,7 @@ function renderBrowsePlaces() {
 	listBrowsePlaces.forEach(browse => {
 		containerBrowsePlace.push(componentBrowsePlace(browse));
 	});
-	browsePlace.innerHTML =  containerBrowsePlace.join('');
+	browsePlace.innerHTML = containerBrowsePlace.join('');
 }
 
 function componentBrowsePlace(place) {
@@ -374,7 +374,7 @@ function renderOrderOnlines() {
 	listOrderOnlines.forEach(order => {
 		containerQuickSearch.push(componentOrderOnline(order));
 	});
-	quickSearch.innerHTML =  containerQuickSearch.join('');
+	quickSearch.innerHTML = containerQuickSearch.join('');
 }
 
 function componentOrderOnline(order) {
@@ -400,7 +400,7 @@ function renderFavoriteRecipes() {
 	listFavoriteRecipes.forEach(recipe => {
 		container.push(componentFavoriteRecipe(recipe));
 	});
-	listRecipe.innerHTML =  container.join('');
+	listRecipe.innerHTML = container.join('');
 }
 
 function componentFavoriteRecipe(recipe) {
@@ -426,10 +426,10 @@ function countStar(parent, numberStar) {
 	let n = parseFloat(numberStar);
 	let star;
 	const container = [];
-	for(let index = 1; index <= 5; index++) {
-		if(index <= n) {
+	for (let index = 1; index <= 5; index++) {
+		if (index <= n) {
 			star = 'fa-star';
-		} else if(index > n && index < n) {
+		} else if (index > n && index < n) {
 			star = 'fa-star-half-o';
 		} else {
 			star = 'fa-star-o';
@@ -440,7 +440,7 @@ function countStar(parent, numberStar) {
 }
 
 // places starts 
-new Splide( '.browse-places .splide', {
+new Splide('.browse-places .splide', {
 	type: 'loop',
 	perPage: 6,
 	perMove: 1,
@@ -461,7 +461,7 @@ new Splide( '.browse-places .splide', {
 }).mount();
 // places ends
 // restaurants starts
-new Splide( '.restaurant .splide', {
+new Splide('.restaurant .splide', {
 	type: 'loop',
 	perPage: 5,
 	perMove: 1,
@@ -483,7 +483,7 @@ new Splide( '.restaurant .splide', {
 }).mount();
 // restaurants ends
 // quick searches starts
-new Splide( '.quick-searches .splide', {
+new Splide('.quick-searches .splide', {
 	type: 'loop',
 	perPage: 5,
 	perMove: 1,

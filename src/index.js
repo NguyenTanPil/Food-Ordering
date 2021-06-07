@@ -14,7 +14,7 @@ db.connect();
 app.use(express.static(path.join(__dirname, 'public')));
 // body
 app.use(express.urlencoded({
-	extended: true
+  extended: true
 }));
 app.use(cookieParser());
 app.use(express.json());
@@ -24,11 +24,11 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 // Template engine
 app.engine(
-    'hbs',
-    handlebars({
-        extname: '.hbs',
-        helpers: require('./helpers/handlebars.js')
-    }),
+  'hbs',
+  handlebars({
+    extname: '.hbs',
+    helpers: require('./helpers/handlebars.js')
+  }),
 );
 app.set('view engine', 'hbs'); // su dung file mat dinh la hbs
 app.set('views', path.join(__dirname, 'resource', 'views'));
@@ -38,13 +38,13 @@ route(app);
 
 // error
 app.use((req, res, next) => {
-	const err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 app.use((err, req, res, next) => {
-	res.status(err.status || 500);
-	res.redirect('/error');
+  res.status(err.status || 500);
+  res.redirect('/error');
 });
 
 app.listen(port, () => {

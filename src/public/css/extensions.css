@@ -7,7 +7,7 @@
   text-decoration: none;
   color: white;
   background: #ffa803;
-  padding: .65rem 1.5rem;
+  padding: 0.65rem 1.5rem;
   transition: all 0.3s ease;
   cursor: pointer;
   text-align: center;
@@ -28,7 +28,7 @@
     margin-bottom: 0.875rem;
     display: block;
     text-align: left; }
-  .form-container .form-group .field-input {
+  .form-container .form-group .form-input {
     width: 100%;
     outline: none;
     border: 1px solid var(--clr-border);

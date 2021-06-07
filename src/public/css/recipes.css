@@ -187,7 +187,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 0;
-  font-size: calc(1.275rem + .3vw); }
+  font-size: calc(1.275rem + .3vw);
+  text-transform: lowercase; }
+
+.main-video .video-title a h4::first-line {
+  text-transform: capitalize; }
 
 .main-video .bottom-items .bottom-star {
   display: flex;
@@ -366,10 +370,14 @@
   margin-bottom: 0.75rem;
   color: #000000;
   transition: all 0.2s linear;
-  text-transform: capitalize;
+  text-transform: lowercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+
+.recomended .video-title h3::first-line,
+.update .video-title h3::first-line {
+  text-transform: capitalize; }
 
 .recomended .video-title h3:hover,
 .update .video-title h3:hover {

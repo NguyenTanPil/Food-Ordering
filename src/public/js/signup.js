@@ -107,7 +107,7 @@ form.addEventListener('submit', (e) => {
 	if(!validation) {
 		e.preventDefault();
 	}
-});
+}); 
 // debounce
 const debounce = (func, delay = 1000) => {
 	let timeoutId;

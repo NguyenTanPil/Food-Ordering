@@ -43,6 +43,20 @@ const checkPassword = () => {
 	}
 	return valid;
 };
+// debounce
+const debounce = (func, delay = 1000) => {
+	let timeoutId;
+	return (...agrs) => {
+		// Cancel the previous timer
+		if(timeoutId) {
+			clearTimeout(timeoutId);
+		}
+		// set up new timer
+		timeoutId = setTimeout(() => {
+			func.apply(null, agrs);
+		}, delay);
+	};
+};
 // form valid
 const form = document.querySelector('.form');
 const email = form.querySelector('input[name="email"]'); 
@@ -55,4 +69,15 @@ form.addEventListener('submit', e => {
 	if(!valid) {
 		e.preventDefault();
 	}
-})
+});
+
+form.addEventListener('input', debounce(function(e) {
+	switch (e.target.id) {
+		case 'email-phoneNumber':
+			checkEmail();
+			break;
+		case 'password':
+			checkPassword();
+			break;
+	};
+}));

@@ -1,27 +1,27 @@
- 
+
 class SiteController {
 
 	// [GET] /home
 	index(req, res, next) {
 		try {
 			res.render('home');
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
-// [GET] /orders
+	// [GET] /orders
 	orders(req, res, next) {
 		try {
 			res.render('orders', { layout: 'orders' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
-// [GET] /about-us
+	// [GET] /about-us
 	about_us(req, res, next) {
 		try {
 			res.render('about_us', { layout: 'about_us' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
@@ -29,7 +29,7 @@ class SiteController {
 	partner_with_us(req, res, next) {
 		try {
 			res.render('partner_with_us', { layout: 'partner_with_us' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}
@@ -37,11 +37,11 @@ class SiteController {
 	error(req, res) {
 		res.render('error', { layout: 'error' });
 	}
-// [GET] /browse_place
+	// [GET] /browse_place
 	browse_place(req, res, next) {
 		try {
 			res.render('browse_place', { layout: 'browse_place' });
-		} catch(e) {
+		} catch (e) {
 			next(err);
 		}
 	}

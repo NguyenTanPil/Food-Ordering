@@ -161,7 +161,8 @@
   border-color: #df4655; }
 
 .login .form-group {
-  margin-bottom: 1.875rem; }
+  margin-bottom: 1.875rem;
+  position: relative; }
 
 .login .form-group input {
   padding: 0.875rem 1rem 0.87rem;

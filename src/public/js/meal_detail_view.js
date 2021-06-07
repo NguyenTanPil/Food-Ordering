@@ -1,9 +1,9 @@
-let starsAvg = 0, stars = 0, reviewsMeal = 0;
+let stars = 0;
 // slider 
 const navImg = document.querySelector('.nav-img');
-const quantity =  document.querySelector('.quantity');
-const priceEl =  document.querySelector('.price-meal');
-const totalPrice =  document.querySelector('.total-price span');
+const quantity = document.querySelector('.quantity');
+const priceEl = document.querySelector('.price-meal');
+const totalPrice = document.querySelector('.total-price span');
 
 // fetch api
 const currentLink = window.location.href;
@@ -47,10 +47,10 @@ function countStar(parent, numberStar) {
 	let n = parseFloat(numberStar);
 	let star;
 	const container = [];
-	for(let index = 1; index <= 5; index++) {
-		if(index <= n) {
+	for (let index = 1; index <= 5; index++) {
+		if (index <= n) {
 			star = 'fa-star';
-		} else if(index > n && index < n) {
+		} else if (index > n && index < n) {
 			star = 'fa-star-half-o';
 		} else {
 			star = 'fa-star-o';
@@ -63,12 +63,12 @@ function countStar(parent, numberStar) {
 // your rating
 function yourRating(numberStar) {
 	starSelect.forEach((star, index) => {
-		if(index < numberStar) {
+		if (index < numberStar) {
 			star.style.color = 'orange';
 		} else {
 			star.style.color = 'rgb(0 0 0 / 55%)';
 		}
-	}); 
+	});
 }
 // select quantity
 function chooseQuantity(quantity) {
@@ -77,9 +77,9 @@ function chooseQuantity(quantity) {
 	const inputQty = quantity.querySelector('input');
 	const priceMeal = priceEl.innerText;
 	const quantityInput = document.querySelector('.quantityInput');
-	const payment =  document.querySelector('.payment');
+	const payment = document.querySelector('.payment');
 	down.onclick = () => {
-		if(inputQty.value > 1) {
+		if (inputQty.value > 1) {
 			inputQty.value--;
 			totalPrice.innerText = parseInt(inputQty.value) * parseInt(priceMeal);
 			quantityInput.value = inputQty.value;
@@ -112,11 +112,8 @@ function renderCommentsMeal(comments) {
 	const mainComments = document.querySelector('.main-comments');
 	mainComments.innerHTML = '';
 	comments.forEach(comment => {
-		starsAvg += comment.stars;
 		mainComments.appendChild(componentCommentMeal(comment));
 	});
-	starsAvg = Math.floor(starsAvg / comments.length);
-	reviewsMeal = comments.length;
 }
 function componentCommentMeal(comment) {
 	const dateNow = Date.now();
@@ -124,7 +121,7 @@ function componentCommentMeal(comment) {
 	const hours = Math.floor(((dateNow - dateCmt) / (1000 * 60 * 60)) % 24);
 	const div = document.createElement('div');
 	div.className = 'comment';
-	div.innerHTML =  `
+	div.innerHTML = `
 			<div class="user-comment">
 				<a href="/user-profile-view">
 					<img src="${comment.avartar}" alt="user comment">
@@ -176,12 +173,12 @@ function renderMealDetail(mealDetail) {
 	const linkRestaurant = document.querySelector('.restaurant-details .name-location a');
 
 	nameMeal.innerText = mealDetail.name;
-	if(mealDetail.description) {
+	if (mealDetail.description) {
 		descriptionMeal.innerText = mealDetail.description;
 	} else {
 		descriptionMeal.innerText = 'No description';
 	}
-	
+
 	priceMeal.innerText = mealDetail.price;
 	totalMeal.innerText = mealDetail.price;
 	form.action = `/user/restaurant/${mealDetail.slugRestaurant}/meal/${mealDetail.slug}/order-meal`;
@@ -193,14 +190,14 @@ function renderMealDetail(mealDetail) {
 	linkRestaurant.href = `/views/restaurants/${mealDetail.slugRestaurant}`;
 
 	const renderMainImg = mealDetail.photos.map((img, index) => {
-		if(index == 0) {
+		if (index == 0) {
 			return `
 				<img class="active main-img-${index + 1}" src="${img}" alt="slider">
 			`;
 		} else {
 			return `
 				<img class="main-img-${index + 1}" src="${img}" alt="slider">
-			`; 
+			`;
 		}
 	});
 	mainImg.innerHTML = renderMainImg.join('');
@@ -210,7 +207,7 @@ function renderMealDetail(mealDetail) {
 			<div class="nav-img-item">
 				<img src="${img}" alt="img item" data-id="${index + 1}">
 			</div>
-		`; 
+		`;
 	});
 	navImg.innerHTML = renderNavImg.join('');
 	slider();
@@ -245,7 +242,7 @@ function renderRestaurantDetail(restaurant) {
 	name.innerText = restaurant.name;
 	location.innerText = restaurant.city;
 	position.innerText = restaurant.position;
-	sellerRest.value =  restaurant.name;
+	sellerRest.value = restaurant.name;
 	slugRestaurant.value = restaurant.slug;
 	countStar(ratingRest, restaurant.stars);
 	numberPhoneRest.href = `tel:${restaurant.phoneRestaurant}`;
@@ -283,7 +280,7 @@ function renderUser(user) {
 	const userNameInput = document.querySelector('input[name="userName"]');
 	const userIdInput = document.querySelector('input[name="userId"]');
 	const locationInput = document.querySelector('input[name="location"]');
-	if(document.cookie) {
+	if (document.cookie) {
 		userNameInput.value = user.name;
 		userIdInput.value = user.userId;
 		locationInput.value = user.location;
@@ -292,7 +289,7 @@ function renderUser(user) {
 // comment
 const formComment = document.querySelector('.comment-post form');
 const inputComment = formComment.querySelector('input');
-formComment.addEventListener('submit', (e) => {
+formComment.addEventListener('submit', async (e) => {
 	e.preventDefault();
 	const url = `/user/api/recipes/${currentLink.slice(currentLink.lastIndexOf('/') + 1)}`;
 	const data = {
@@ -300,23 +297,30 @@ formComment.addEventListener('submit', (e) => {
 		mealSlug: currentLink.slice(currentLink.lastIndexOf('/') + 1),
 		stars: stars,
 	}
-	if(document.cookie == '') {
+	if (document.cookie == '') {
 		window.location.replace('/user/login');
 		return;
 	}
-	if(inputComment.value == '') {
+	if (inputComment.value == '') {
 		return;
 	}
 	fetch(url, {
 		method: 'POST',
 		headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data),
 	});
 	inputComment.value = '';
-	getCommentsMeal(commentUrl, renderCommentsMeal);
-	updateStars(mealDetailUrl, starsAvg); 
+	const response = await fetch(commentUrl);
+	const comments = await response.json();
+	let starsAvg = 0;
+	comments.forEach(comment => {
+		starsAvg += comment.stars;
+	});
+	starsAvg = Math.floor(starsAvg / comments.length);
+	renderCommentsMeal(comments);
+	updateStars(mealDetailUrl, starsAvg, comments.length);
 	const starsMeal = document.querySelector('.my-rating span');
 	starsMeal.innerText = `${starsAvg}.0`;
 	countStar(starsMeal.parentElement.parentElement, starsAvg);
@@ -328,10 +332,10 @@ function countStar(parent, numberStar) {
 	let n = parseFloat(numberStar);
 	let star;
 	const container = [];
-	for(let index = 1; index <= 5; index++) {
-		if(index <= n) {
+	for (let index = 1; index <= 5; index++) {
+		if (index <= n) {
 			star = 'fa-star';
-		} else if(index > n && index < n) {
+		} else if (index > n && index < n) {
 			star = 'fa-star-half-o';
 		} else {
 			star = 'fa-star-o';
@@ -352,21 +356,21 @@ slRating.onclick = (e) => {
 
 function yourRating(numberStar) {
 	starSelect.forEach((star, index) => {
-		if(index < numberStar) {
+		if (index < numberStar) {
 			star.style.color = 'orange';
 		} else {
 			star.style.color = 'rgb(0 0 0 / 55%)';
 		}
-	}); 
+	});
 }
 
 // update stars
-function updateStars(url, starsAvg) {
+function updateStars(url, starsAvg, reviewsMeal) {
 	fetch(url, {
 		method: 'PATCH',
 		headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({stars: starsAvg, reviews: reviewsMeal}),
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ stars: starsAvg, reviews: reviewsMeal }),
 	});
 }
