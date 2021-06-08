@@ -1,6 +1,14 @@
 <!-- review starts -->
 <section class="block-review">
-	<div class="cover-banner"></div>
+	<div class="video-intro">
+		<video autoplay muted loop>
+			<source src="/images/video.mp4" type="video/mp4">
+		</video>
+		<button class="btn active" onclick="changeSound(this)">
+			<i class="fa fa-volume-up volume-up" aria-hidden="true"></i>
+			<i class="fa fa-volume-off volume-off" aria-hidden="true"></i>
+		</button>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col col-12 col-sm-7 col-lg-8">
@@ -32,31 +40,6 @@
 	</div>
 </section>
 <!-- review ends -->
-<!-- browse places starts -->
-<section class="browse-places">
-	<div class="container">
-		<div class="row">
-			<div class="col col-12">
-				<div class="browse-header">
-					<h6>Browse Places</h6>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col col-12">
-				<div class="list-places">
-					<div class="splide">
-						<div class="splide__track">
-							<ul class="splide__list">
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- browse places ends -->
 <!-- step working starts -->
 <section class="step-working">
 	<div class="container">
@@ -70,7 +53,8 @@
 						<h6 class="content-heading-item">
 							Choose Your Area Restaurant
 						</h6>
-						<p>Donec et tellus sed lorem condimentum maximus. Sed tempor, leo tempus condimentum.</p>
+						<p>Of all the restaurants available you will choose the one you like and view the information.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -83,7 +67,8 @@
 						<h6 class="content-heading-item">
 							Choose Food
 						</h6>
-						<p>Donec et tellus sed lorem condimentum maximus. Sed tempor, leo tempus condimentum.</p>
+						<p>There are many recommended foods you need to see the detailed information and choose the
+							right food.</p>
 					</div>
 				</div>
 			</div>
@@ -96,7 +81,8 @@
 						<h6 class="content-heading-item">
 							Delivery
 						</h6>
-						<p>Donec et tellus sed lorem condimentum maximus. Sed tempor, leo tempus condimentum.</p>
+						<p>After making the order and payment you just need to wait for the order and then enjoy the
+							food.</p>
 					</div>
 				</div>
 			</div>
@@ -104,56 +90,6 @@
 	</div>
 </section>
 <!-- step working ends -->
-<!-- list restaurants starts -->
-<section class="restaurant">
-	<div class="container">
-		<div class="row">
-			<div class="col col-12">
-				<div class="heading">
-					<h1> Discover New Restaurants & Book Now </h1>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col col-12">
-				<div class="list-restaurants">
-					<div class="splide">
-						<div class="splide__track">
-							<ul class="splide__list">
-								<li class="splide__slide">
-									<a href="#">
-										<img src="/images/rest-1.jpg" alt="">
-									</a>
-								</li>
-								<li class="splide__slide">
-									<a href="#">
-										<img src="/images/rest-2.jpg" alt="">
-									</a>
-								</li>
-								<li class="splide__slide">
-									<a href="#">
-										<img src="/images/rest-3.jpg" alt="">
-									</a>
-								</li>
-								<li class="splide__slide">
-									<a href="#">
-										<img src="/images/rest-4.jpg" alt="">
-									</a>
-								</li>
-								<li class="splide__slide">
-									<a href="#">
-										<img src="/images/rest-5.jpg" alt="">
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- list restaurants ends -->
 <!-- order food online starts -->
 <section class="order-online">
 	<div class="container">
@@ -164,11 +100,7 @@
 				</div>
 				<div class="your-location">
 					<p>
-						<span>
-							<i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 0.2rem;"></i>
-							New York
-						</span>
-						Change Location
+						Choose A Location
 					</p>
 				</div>
 				<div class="search-location col-12 col-md-6 col-lg-4">
@@ -303,41 +235,3 @@
 	</div>
 </section>
 <!-- explore recipes ends  -->
-<!-- pocket block preview starts -->
-<section class="pocket-block-preview">
-	<div class="container">
-		<div class="row">
-			<div class="col col-12 col-md-7 pocket-left">
-				<div class="heading">
-					<h2>Natto in Your Pocket</h2>
-				</div>
-				<div class="line">
-					<img src="/images/line.svg" alt="">
-				</div>
-				<p>We’ll send you a link, open it on your phone to download the app.</p>
-				<div class="search-form">
-					<form action="#" method="post" class="form-container">
-						<div class="form-group">
-							<input type="text" class="form-input" placeholder="Enter your email address">
-							<button class="btn" type="submit">Sent Link</button>
-						</div>
-					</form>
-				</div>
-				<div class="download-btns">
-					<a href="https://getpocket.com/">
-						<img src="/images/app-store.png" alt="">
-					</a>
-					<a href="https://getpocket.com/">
-						<img src="/images/play-store.png" alt="">
-					</a>
-				</div>
-			</div>
-			<div class="col col-md-5 pocket-right">
-				<div class="mobile-img d-flex justify-content-center">
-					<img src="/images/mobile.png" alt="">
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- pocket block preview ends -->

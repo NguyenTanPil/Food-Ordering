@@ -109,12 +109,13 @@ function getRestaurants(url, callback) {
 
 function renderRestaurants(restaurants) {
 	const listFeatures = document.querySelector('.list-features');
-	const container = [];
+	const container = [], containerRestList = [];
 	restaurants.forEach(restaurant => {
 		container.push(componentRestaurantFeature(restaurant));
 	});
 	listFeatures.innerHTML = container.join('');
 }
+
 
 function componentRestaurantFeature(restaurant) {
 	return `
@@ -338,35 +339,8 @@ const listFavoriteRecipes = [
 	},
 ];
 
-renderBrowsePlaces();
 renderOrderOnlines();
 renderFavoriteRecipes();
-
-function renderBrowsePlaces() {
-	const browsePlace = document.querySelector('.browse-places .splide__list');
-	const containerBrowsePlace = [];
-	listBrowsePlaces.forEach(browse => {
-		containerBrowsePlace.push(componentBrowsePlace(browse));
-	});
-	browsePlace.innerHTML = containerBrowsePlace.join('');
-}
-
-function componentBrowsePlace(place) {
-	return `
-		<li class="splide__slide">
-			<div class="places">
-				<a href="/views/all-meals">
-					<div class="places-icon">
-						<img src="${place.img}" class="d-block mx-auto" alt="places logo">
-					</div>
-					<div class="places-text">
-						${place.name}
-					</div>
-				</a>
-			</div>
-		</li>
-	`;
-}
 
 function renderOrderOnlines() {
 	const quickSearch = document.querySelector('.quick-searches .splide__list');
@@ -439,49 +413,17 @@ function countStar(parent, numberStar) {
 	stars.innerHTML = container.join('');
 }
 
-// places starts 
-new Splide('.browse-places .splide', {
-	type: 'loop',
-	perPage: 6,
-	perMove: 1,
-	pagination: false,
-	arrows: false,
-	autoplay: 'true',
-	breakpoints: {
-		576: {
-			perPage: 1,
-		},
-		768: {
-			perPage: 2,
-		},
-		1200: {
-			perPage: 4,
-		},
+// change sound
+function changeSound(btn) {
+	const video = document.querySelector('.video-intro video');
+	if (btn.classList.contains('active')) {
+		video.muted = false;
+	} else {
+		video.muted = true;
 	}
-}).mount();
+	btn.classList.toggle('active');
+}
 // places ends
-// restaurants starts
-new Splide('.restaurant .splide', {
-	type: 'loop',
-	perPage: 5,
-	perMove: 1,
-	pagination: false,
-	breakpoints: {
-		576: {
-			perPage: 1,
-		},
-		992: {
-			perPage: 2,
-		},
-		1200: {
-			perPage: 3,
-		},
-		1400: {
-			perPage: 4,
-		}
-	}
-}).mount();
-// restaurants ends
 // quick searches starts
 new Splide('.quick-searches .splide', {
 	type: 'loop',

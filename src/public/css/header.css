@@ -1,6 +1,7 @@
-.header {
-  background-image: url(../images/slide-2.jpg);
-  width: 100%;
-  height: 80vh;
-  background-position: center;
-  background-size: cover; }
+@keyframes rotate {
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg); } }
+
+.header .topbar {
+  height: 3rem;
+  background-color: #ffa803; }
