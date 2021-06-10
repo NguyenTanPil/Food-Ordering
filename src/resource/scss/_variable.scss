@@ -1,7 +1,5 @@
 $clr-orange: rgb(255, 168, 3);
 $clr-orange-hover: #e38802;
-$clr-green: rgb(148, 195, 71);
-$clr-green-hover: rgb(116, 195, 71);
 $clr-white: rgb(255, 255, 255);
 $clr-black: rgb(0, 0, 0);
 $clr-link-hover: rgba(0, 0, 0, 0.05);
@@ -17,6 +15,33 @@ $bg-title: rgb(243, 243, 243);
 }
 @keyframes rotate {
 	100% {
-    transform: rotate3d(0, 1, 0, 360deg);
+		transform: rotate3d(0, 1, 0, 360deg);
+	}
+}
+@keyframes rotateZ {
+	100% {
+		transform: rotate3d(0, 0, 1, 360deg);
+	}
+}
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(255, 168, 3, 0.8);
+	}
+	100% {
+		box-shadow: 0 0 0 1rem rgba(255, 168, 3, 0);
+	}
+}
+@keyframes showModal {
+	0% {
+		transform: scale(0.7);
+	}
+	45% {
+		transform: scale(1.05);
+	}
+	80% {
+		transform: scale(0.95);
+	}
+	100% {
+		transform: scale(1);
 	}
 }

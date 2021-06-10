@@ -83,7 +83,7 @@
 				height: 2.125rem;
 				width: 2.125rem;
 				&:hover {
-					animation: circular 0.7s linear forwards;
+					animation: rotate 0.7s linear forwards;
 				}
 			}
 		}
@@ -116,136 +116,6 @@
 		margin: 0 auto;
 		.form-group {
 			margin-bottom: 0;
-		}
-	}
-	.meal-item {
-		margin-top: 2rem;
-		padding: 0 1rem;
-	}
-	.card {
-		background-color: #fff;
-		background-clip: border-box;
-		border: 1px solid $clr-border;
-		border-radius: 0.25rem;
-		display: flex;
-		flex-direction: column;
-		min-width: 0;
-		position: relative;
-		word-wrap: break-word;
-		.card-img-top {
-			border-top-left-radius: calc(0.25rem - 1px);
-			border-top-right-radius: calc(0.25rem - 1px);
-			position: relative;
-			img {
-				display: block;
-				height: 12.75rem;
-				object-fit: cover;
-				width: 100%;
-			}
-			.theme {
-				height: 100%;
-				width: 100%;
-				background: linear-gradient(transparent, black 90%);
-				opacity: 0.5;
-				position: absolute;
-				top: 0;
-				left: 0;
-				&:hover {
-					opacity: 0;
-				}
-			}
-		}
-		.content {
-			position: relative;
-			.top-text {
-				display: flex;
-				justify-content: space-between;
-				padding: 0 1.5rem;
-				position: absolute;
-				top: -2rem;
-				width: 100%;
-				.text {
-					width: 50.2%;
-					h4 {
-						color: #fff;
-						font-size: 1.4rem;
-						overflow: hidden;
-						text-align: left;
-						text-overflow: ellipsis;
-						white-space: nowrap;
-						width: 100%;
-					}
-					.sub-heading {
-						padding-top: 0.1rem;
-						text-align: left;
-						h5 > a {
-							font-size: 1rem;
-						}
-					}
-				}
-				img {
-					border: 0.063rem solid $clr-border;
-					border-radius: 0.5rem;
-					margin-right: 0.5rem;
-					width: 4rem;
-				}
-				p {
-					align-self: flex-end;
-					color: orange;
-					font-size: 0.875rem;
-					font-weight: bold;
-					margin-bottom: 0.4rem;
-				}
-			}
-			.bottom-text {
-				align-items: flex-start;
-				color: rgba(0, 0, 0, 0.6);
-				display: flex;
-				flex-direction: column;
-				margin-top: 3rem;
-				padding: 0 1.5rem;
-				.delivery {
-					margin-top: 0.3rem;
-				}
-				.delivery i,
-				.time i {
-					width: 1rem;
-					margin-right: 0.125rem;
-				}
-				.feed-back {
-					align-items: center;
-					display: flex;
-					justify-content: space-between;
-					margin-bottom: 1rem;
-					padding-top: 0.6rem;
-					width: 100%;
-					span {
-						background: #ffa803;
-						border-radius: 42%;
-						color: #fff;
-						font-size: 0.75rem;
-						padding: 0.1rem 0.5rem;
-					}
-					.commnents a {
-						color: rgba(0, 0, 0, 0.6);
-						font-size: 0.875rem;
-						font-weight: bold;
-						&:hover {
-							color: $clr-orange;
-						}
-						i {
-							font-size: 1rem;
-							margin-right: 0.125rem;
-						}
-					}
-				}
-			}
-		}
-		.text-white {
-			color: $clr-white;
-		}
-		.text-dark {
-			color: $clr-black;
 		}
 	}
 	.meal-btn {
@@ -430,37 +300,6 @@
 		font-size: 1.5rem;
 		text-align: center;
 	}
-	.recipe-item {
-		margin-top: 2rem;
-		position: relative;
-		img {
-			width: 100%;
-		}
-		.overlay {
-			color: $clr-white;
-			background: rgba(0, 0, 0, 0.6);
-			opacity: 0.7;
-			padding: 6.25% 0;
-			position: absolute;
-			transform: translateY(-50%);
-			text-align: center;
-			top: 50%;
-			width: 100%;
-			z-index: 1;
-			h6 {
-				font-size: 1.125rem;
-			}
-			p {
-				font-size: 0.75rem;
-				margin-bottom: 0;
-			}
-		}
-		&:hover {
-			.overlay {
-				opacity: 0.9;
-			}
-		}
-	}
 	.recipe-btn {
 		margin-top: 4rem;
 		text-align: center;
@@ -551,26 +390,6 @@
 	.offer-banner .row,
 	.featured-restaurants .row-features {
 		padding: 0;
-	}
-	.order-online {
-		.card {
-			.content {
-				.top-text {
-					.sub-heading {
-						padding-top: 0.25rem;
-					}
-					h4 {
-						font-size: 1.125rem;
-					}
-					h5 > a {
-						font-size: 0.875rem;
-					}
-					p {
-						font-size: 0.875rem;
-					}
-				}
-			}
-		}
 	}
 	/*order online ends */
 	/*featured restaurants starts*/
