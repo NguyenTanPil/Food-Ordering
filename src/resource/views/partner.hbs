@@ -27,30 +27,23 @@
 	<div class="container">
 		<div class="row">
 			<div class="col col-12 col-md-5 col-lg-3">
-				<div class="filters partner-bottom">
+				<div class="filters">
 					<div class="filter-heading">
 						<h3>Filters</h3>
 					</div>
 					<div class="accordion locations">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
-							loacation
+								loacation
 							</button>
 							<div class="container-collapse">
 								<div class="collapse">
-									<div class="search-location">
-										<form action="#">
-											<input type="text" class="search-input" name="location" placeholder="Search your area">
-											<div class="icon-btn">
-												<i class="fa fa-crosshairs" aria-hidden="true"></i>
-											</div>
-										</form>
-									</div>
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk1">
-											<div class="state">
-												<label for="chk1">All</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk1">
+											<div class="state-check">
+												<label for="chk1" class="filter-check-label">All</label>
 											</div>
 										</div>
 									</div>
@@ -61,39 +54,45 @@
 					<div class="accordion categories">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
-							categories
+								categories
 							</button>
 							<div class="container-collapse">
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk13" value="Breakfast">
-											<div class="state">
-												<label for="chk13">Breakfast</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk13" value="Breakfast">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk13">Breakfast</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk14" value="Lunch">
-											<div class="state">
-												<label for="chk14">Lunch</label>
+											<input class="filter-check-input" class="filter-check-input"
+												onchange="filters();" type="checkbox" name="cb" id="chk14"
+												value="Lunch">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk14">Lunch</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk15" value="Dinner">
-											<div class="state">
-												<label for="chk15">Dinner</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk15" value="Dinner">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk15">Dinner</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk16" value="Cafe">
-											<div class="state">
-												<label for="chk16">Cafe's</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk16" value="Cafe">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk16">Cafe's</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk17" value="Delivery">
-											<div class="state">
-												<label for="chk17">Delivery</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk17" value="Delivery">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk17">Delivery</label>
 											</div>
 										</div>
 									</div>
@@ -104,57 +103,65 @@
 					<div class="accordion cuisines">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
-							Cuisine
+								Cuisine
 							</button>
 							<div class="container-collapse">
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk18" value="Cakes & Desserts">
-											<div class="state">
-												<label for="chk18">Cakes & Desserts</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk18" value="Cakes & Desserts">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk18">Cakes & Desserts</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk19" value="Pizza">
-											<div class="state">
-												<label for="chk19">Pizza</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk19" value="Pizza">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk19">Pizza</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk20" value="Drinks & Beer">
-											<div class="state">
-												<label for="chk20">Drinks & Beer</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk20" value="Drinks & Beer">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk20">Drinks & Beer</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk21" value="Shusi">
-											<div class="state">
-												<label for="chk21">Shusi</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk21" value="Shusi">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk21">Shusi</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk22" value="Fast Food">
-											<div class="state">
-												<label for="chk22">Fast Food</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk22" value="Fast Food">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk22">Fast Food</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk23" value="Shawarma">
-											<div class="state">
-												<label for="chk23">Shawarma</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk23" value="Shawarma">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk23">Shawarma</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk24" value="Fish">
-											<div class="state">
-												<label for="chk24">Fish</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk24" value="Fish">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk24">Fish</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk25" value="Cheese Tika">
-											<div class="state">
-												<label for="chk25">Cheese Tika</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk25" value="Cheese Tika">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk25">Cheese Tika</label>
 											</div>
 										</div>
 									</div>
@@ -165,57 +172,65 @@
 					<div class="accordion offers">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
-							Restaurants offers
+								Restaurants offers
 							</button>
 							<div class="container-collapse">
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk39" value="10%">
-											<div class="state">
-												<label for="chk39">10% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk39" value="10%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk39">10% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk40" value="20%">
-											<div class="state">
-												<label for="chk40">20% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk40" value="20%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk40">20% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk41" value="30%">
-											<div class="state">
-												<label for="chk41">30% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk41" value="30%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk41">30% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk42" value="40%">
-											<div class="state">
-												<label for="chk42">40% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk42" value="40%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk42">40% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk43" value="50%">
-											<div class="state">
-												<label for="chk43">50% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk43" value="50%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk43">50% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk44" value="60%">
-											<div class="state">
-												<label for="chk44">60% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk44" value="60%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk44">60% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk45" value="70%">
-											<div class="state">
-												<label for="chk45">70% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk45" value="70%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk45">70% off</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input onchange="filterMeals();" type="checkbox" name="cb" id="chk46" value="80%">
-											<div class="state">
-												<label for="chk46">80% off</label>
+											<input class="filter-check-input" onchange="filters();" type="checkbox"
+												name="cb" id="chk46" value="80%">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk46">80% off</label>
 											</div>
 										</div>
 									</div>
@@ -226,15 +241,16 @@
 					<div class="accordion rating">
 						<div class="accordion-item">
 							<button class="filters-dropdown">
-							Rating
+								Rating
 							</button>
 							<div class="container-collapse">
 								<div class="collapse">
 									<div class="filter-checkbox">
 										<div class="check-item">
-											<input type="checkbox" name="rb" id="rb1">
-											<div class="state">
-												<label for="chk47">
+											<input onchange="filters()" class="filter-check-input" type="checkbox"
+												name="rb" id="chk47" value="5.0">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk47">
 													<i class="fa fa-star" aria-hidden="true"></i>
 													<i class="fa fa-star" aria-hidden="true"></i>
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -244,9 +260,10 @@
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="rb" id="rb2">
-											<div class="state">
-												<label for="chk48">
+											<input onchange="filters()" class="filter-check-input" type="checkbox"
+												name="rb" id="chk48" value="4.0">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk48">
 													<i class="fa fa-star" aria-hidden="true"></i>
 													<i class="fa fa-star" aria-hidden="true"></i>
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -255,9 +272,10 @@
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="rb" id="rb3">
-											<div class="state">
-												<label for="chk49">
+											<input onchange="filters()" class="filter-check-input" type="checkbox"
+												name="rb" id="chk49" value="3.0">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk49">
 													<i class="fa fa-star" aria-hidden="true"></i>
 													<i class="fa fa-star" aria-hidden="true"></i>
 													<i class="fa fa-star" aria-hidden="true"></i>
@@ -265,18 +283,20 @@
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="rb" id="rb4">
-											<div class="state">
-												<label for="chk50">
+											<input onchange="filters()" class="filter-check-input" type="checkbox"
+												name="rb" id="chk50" value="2.0">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk50">
 													<i class="fa fa-star" aria-hidden="true"></i>
 													<i class="fa fa-star" aria-hidden="true"></i>
 												</label>
 											</div>
 										</div>
 										<div class="check-item">
-											<input type="checkbox" name="rb" id="rb5">
-											<div class="state">
-												<label for="chk51">
+											<input onchange="filters()" class="filter-check-input" type="checkbox"
+												name="rb" id="chk51" value="1.0">
+											<div class="state-check">
+												<label class="filter-check-label" for="chk51">
 													<i class="fa fa-star" aria-hidden="true"></i>
 												</label>
 											</div>
