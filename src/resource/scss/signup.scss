@@ -1,10 +1,10 @@
-@import '_variable';
+@import "_variable";
+// pattern
 %form-body {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	display: flex;
 }
-@mixin background-form($url) {
-	background-image: url($url);
+%background-form {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -15,32 +15,126 @@
 	display: flex;
 	justify-content: center;
 }
-/*form signup starts*/
-.signup {
+// general styles
+.signup,
+.login {
 	padding: 5rem 0;
-}
-.signup {
 	.row {
 		@extend %row;
 	}
-	 .signup-container {
+	.background-form {
+		@extend %background-form;
+	}
+	.content {
+		width: 100%;
+		.form-container {
+			padding: 0 1.75rem;
+		}
+		.logo-form {
+			text-align: center;
+			padding: 3rem 0 1rem;
+			width: 100%;
+			img {
+				width: 6.5rem;
+			}
+		}
+		.last-form-group {
+			margin-bottom: 0;
+		}
+		.form-control {
+			border-radius: 0;
+		}
+		.btn {
+			border-radius: 0;
+			width: 100%;
+		}
+	}
+}
+/*form login starts*/
+.login {
+	.login-container {
 		@extend %form-body;
-		.background-signup {
-			@include background-form('../images/signup.jpg');
+		.background-form {
+			background-image: url("../images/login.jpg");
 		}
 		.content {
-			width: 100%;
-			.form-container {
-				padding: 0 1.75rem;
-			}
-			.logo-form {
+			.facebook-btn,
+			.google-btn {
 				text-align: center;
-				padding: 3rem 0 1rem;
-				width: 100%;
-				img {
-					width: 6.5rem;
+			}
+			.facebook-btn {
+				@include transition();
+				background-color: rgb(59, 89, 152);
+				margin-bottom: 1.25rem;
+				&:hover {
+					background-color: rgb(47, 72, 125);
 				}
 			}
+			.google-btn {
+				@include transition;
+				background-color: rgb(243, 67, 53);
+				&:hover {
+					background-color: rgb(219, 56, 42);
+				}
+			}
+			.social-btns-login {
+				a {
+					color: $clr-white;
+					display: block;
+					font-size: 0.875rem;
+					padding: 0.875rem 0;
+				}
+				i {
+					font-weight: bold;
+					margin-right: 0.5rem;
+				}
+			}
+			.or {
+				text-align: center;
+				padding: 1.5rem 0;
+				span {
+					color: $clr-text;
+					font-size: 0.875rem;
+				}
+			}
+			.forgot-password-not-acccout {
+				color: $clr-text;
+				font-size: 0.875rem;
+				padding: 1.75rem 2.75rem;
+				text-align: center;
+				> a {
+					color: $clr-text;
+				}
+				p {
+					margin-top: 1.25rem;
+					a {
+						color: $clr-orange;
+						margin-left: 0.25rem;
+					}
+				}
+			}
+		}
+		.have-accout {
+			color: $clr-text;
+			font-size: 0.875rem;
+			text-align: center;
+			padding: 1.75rem 2.75rem;
+			a {
+				color: $clr-orange;
+				margin-left: 0.25rem;
+			}
+		}
+	}
+}
+/*form login ends*/
+// form signup starts
+.signup {
+	.signup-container {
+		@extend %form-body;
+		.background-form {
+			background-image: url("../images/login.jpg");
+		}
+		.content {
 			.heading {
 				font-size: 1.25rem;
 				padding-bottom: 2rem;
@@ -48,16 +142,6 @@
 				h3 {
 					font-weight: 550;
 				}
-			}
-			.last-form-group {
-				margin-bottom: 0;
-			}
-			.form-control {
-				border-radius: 0;
-			}
-			.btn {
-				border-radius: 0;
-				width: 100%;
 			}
 			.agree {
 				font-size: 0.875rem;
@@ -82,59 +166,50 @@
 		}
 	}
 }
-/*form signup ends*/
+// form signup ends
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-	
 }
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
-	/*form signup starts*/
+	.login,
 	.signup {
-		.signup-container {
-			.background-signup {
-				width: 50%;
-				display: block;
-			}
-			.content {
-				width: 50%;
-			}
+		.background-form {
+			width: 50%;
+			display: block;
+		}
+		.content {
+			width: 50%;
 		}
 	}
-	/*form signup ends*/
 }
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
-	/*form signup starts*/
+	.login,
 	.signup {
-		.signup-container {
-			.background-signup {
-				width: 55%;
-			}
-			.content {
-				width: 45%;
-			}
+		.background-form {
+			width: 55%;
+			display: block;
+		}
+		.content {
+			width: 45%;
 		}
 	}
-	/*form signup ends*/
 }
 /*// X-Large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-
 }
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
-	/*form signup starts*/
+	.login,
 	.signup {
-		.signup-container {
-			.background-signup {
-				width: 60%;
-			}
-			.content {
-				width: 40%;
-			}
+		.background-form {
+			width: 60%;
+			display: block;
+		}
+		.content {
+			width: 40%;
 		}
 	}
-	/*form signup ends*/
 }
