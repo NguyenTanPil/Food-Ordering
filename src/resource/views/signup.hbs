@@ -28,10 +28,10 @@
 		<div class="row">
 			<div class="col col-12 col-lg-10">
 				<div class="signup-container">
-					<div class="background-signup"></div>
+					<div class="background-form"></div>
 					<div class="content">
 						<div class="form-container">
-							<form action="/user/create-user" method="POST">
+							<form id="form-signup" action="/user/create-user" method="POST">
 								<div class="logo-form">
 									<a href="/">
 										<img src="/images/logo.png" alt="logo">
@@ -45,8 +45,9 @@
 										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 									</div>
-									<input class="form-control" type="text" name="name" id="full-name"
-										placeholder="Enter Your Full Name" autocomplete="off">
+									<input class="form-control" rules="isRequired|isBetween:4:20" type="text"
+										name="name" id="full-name" placeholder="Enter Your Full Name"
+										autocomplete="off">
 									<div class="nofitication">
 										<span></span>
 									</div>
@@ -56,8 +57,8 @@
 										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 									</div>
-									<input class="form-control" type="email" name="email" id="email"
-										placeholder="Enter Your Email" autocomplete="off">
+									<input class="form-control" rules="isRequired|isEmail" type="email" name="email"
+										id="email" placeholder="Enter Your Email" autocomplete="off">
 									<div class="nofitication">
 										<span></span>
 									</div>
@@ -67,8 +68,9 @@
 										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 									</div>
-									<input class="form-control" type="password" name="password" id="password"
-										placeholder="Enter Your Password">
+									<input class="form-control" rules="isRequired|isPassword" type="password"
+										name="password" id="password" placeholder="Enter Your Password"
+										autocomplete="on">
 									<div class="nofitication">
 										<span></span>
 									</div>
@@ -78,8 +80,9 @@
 										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 									</div>
-									<input class="form-control" type="password" name="repeat-password"
-										id="repeat-password" placeholder="Repeat Password">
+									<input class="form-control" rules="isRequired|isMatch" type="password"
+										name="repeat-password" id="repeat-password" placeholder="Repeat Password"
+										autocomplete="on">
 									<div class="nofitication">
 										<span></span>
 									</div>

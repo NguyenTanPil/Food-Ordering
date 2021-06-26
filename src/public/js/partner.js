@@ -1,32 +1,6 @@
 // all partner starts
-function checkStates() {
-	const checkbox = document.querySelectorAll('.all-partners .check-item');
-	checkbox.forEach((item) => {
-		const input = item.querySelector('input');
-		const state = item.querySelector('.state');
-		input.addEventListener('click', (e) => {
-			state.classList.toggle('active');
-			});
-	});
-}
-
 const accordions = document.querySelectorAll('.all-partners .accordion');
-accordions.forEach((accordion) => {
-	const btnFilter = accordion.querySelector('.filters-dropdown');
-	const containerCollapse = accordion.querySelector('.container-collapse');
-	const collapse = accordion.querySelector('.collapse');
-	btnFilter.addEventListener('click', (e) => {
-		const collapseHeight = collapse.getBoundingClientRect().height;
-		const collapseContainerHeight = containerCollapse.getBoundingClientRect().height;
-		if(collapseContainerHeight == 0) {
-			containerCollapse.style.height = `${collapseHeight}px`;
-			btnFilter.style.paddingBottom = '0';
-		} else {
-			containerCollapse.style.height = `0`;
-			btnFilter.style.paddingBottom = '1rem';
-		}
-	});
-});
+setHeightAccordionItem(accordions);
 // all partner ends
 
 // fetch api
@@ -49,7 +23,6 @@ function renderRestaurants(restaurants) {
 	const listRest = document.querySelector('.list-partners');
 	const listRestPops = document.querySelector('.list-pop-res');
 	const locations = document.querySelector('.locations .filter-checkbox');
-	const locationContainer = [], containerRestPop = [];
 
 	// reset
 	listRest.innerHTML = '';
@@ -60,15 +33,15 @@ function renderRestaurants(restaurants) {
 		listRestPops.appendChild(componentRestPop(restaurant));
 		renderLocations(restaurant, locations);
 	});
-	checkStates();
-	checkAllLocations();
+	const filters = document.querySelectorAll('.filter-checkbox');
+	filterCheckboxes(filters);
 }
 
 function componentRestaurant(restaurant) {
 	const div = document.createElement('div');
-	div.className = 'parners-section';
+	div.className = 'partners-section';
 	div.innerHTML = `
-		<input type="hidden" value="${restaurant.city} ${restaurant.tag} ${restaurant.cuisine}">
+		<input type="hidden" value="${restaurant.city} ${restaurant.tag} ${restaurant.cuisine} ${restaurant.stars}.0">
 			<div class="partners-bar">
 				<div class="partners-top">
 					<a href="/views/restaurants/${restaurant.slug}">
@@ -83,8 +56,8 @@ function componentRestaurant(restaurant) {
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 							${restaurant.address}
 						</div>
-						<div class="btn">
-							<button>Partner</button>
+						<div class="btns">
+							<button class="btn">Partner</button>
 							<p>${restaurant.tag}</p>
 						</div>
 					</div>
@@ -122,13 +95,13 @@ function componentRestaurant(restaurant) {
 							</a>
 						</li>
 						<li class="order-now">
-							<a href="views/restaurants/${restaurant.slug}">
+							<a href="/views/restaurants/${restaurant.slug}">
 								<i class="fa fa-cart-plus" aria-hidden="true"></i>
 								Order now
 							</a>
 						</li>
 						<li>
-							<a href="views/restaurants/${restaurant.slug}">
+							<a href="/views/restaurants/${restaurant.slug}">
 								<i class="fa fa-book" aria-hidden="true"></i>
 								View menu
 							</a>
@@ -164,158 +137,24 @@ function componentRestPop(restaurant) {
 let index = 2;
 const listLocations = [];
 function renderLocations(restaurant, locations) {
-	if(listLocations.indexOf(restaurant.city) < 0) {
+	if (listLocations.indexOf(restaurant.city) < 0) {
 		listLocations.push(restaurant.city);
 		const div = document.createElement('div');
 		div.className = 'check-item';
 		div.innerHTML = `
-			<input class="location" onchange="filterMeals();" type="checkbox" name="cb" id="chk${index++}" value="${restaurant.city}">
-			<div class="state">
-				<label for="chk${index}">${restaurant.city}</label>
+			<input class="filter-check-input location" onchange="filters();" type="checkbox" name="cb" id="chk${index}" value="${restaurant.city}">
+			<div class="state-check">
+				<label class="filter-check-label" for="chk${index++}">${restaurant.city}</label>
 			</div>
 		`;
 		locations.appendChild(div);
 	}
 }
 
-// filter
-function filterMeals(btns, list) {
-	const btnsLocation = document.querySelectorAll('.locations input[type="checkbox"]');
-	const btnsCategorie = document.querySelectorAll('.categories input[type="checkbox"]');
-	const btnsCuisine = document.querySelectorAll('.cuisines input[type="checkbox"]');
-	const btnsOffer = document.querySelectorAll('.offers input[type="checkbox"]');
-	const btnsRating = document.querySelectorAll('.rating input[type="checkbox"]');
-	const filters = {
-		locations: getCheckedCheckboxes(btnsLocation),
-		categories: getCheckedCheckboxes(btnsCategorie),
-		cuisines: getCheckedCheckboxes(btnsCuisine),
-		offers: getCheckedCheckboxes(btnsOffer),
-		ratings: getCheckedCheckboxes(btnsRating),
-	};
-	filterResults(filters);
-}
-
-function getCheckedCheckboxes(checkboxes) {
-	const listChecked = [];
-	if(checkboxes && checkboxes.length > 0) {
-		checkboxes.forEach(cb => {
-			if(cb.checked) {
-				listChecked.push(cb.value);
-			}
-		});
-	}
-	return listChecked;
-}
-
-function filterResults(filters) {
-	let restaurantItems = document.querySelectorAll('.parners-section input');
-	const hiddenEl = [];
-	if(!restaurantItems || restaurantItems.length <= 0) {
-		return;
-	}
-	restaurantItems.forEach(restaurant => {
-		if(filters.locations.length > 0) {
-			let isShowing = filters.locations.some(location => {
-				return restaurant.value.indexOf(location) >= 0;
-			});
-			if(!isShowing) {
-				hiddenEl.push(restaurant);
-			}
-		}
-		if(filters.categories.length > 0) {
-			let isShowing = filters.categories.some(category => {
-				return restaurant.value.indexOf(category) >= 0;
-			});
-			if(!isShowing) {
-				hiddenEl.push(restaurant);
-			}
-		}
-		if(filters.cuisines.length > 0) {
-			let isShowing = filters.cuisines.some(cuisine => {
-				return restaurant.value.indexOf(cuisine) >= 0;
-			});
-			if(!isShowing) {
-				hiddenEl.push(restaurant);
-			}
-		}
-		if(filters.offers.length > 0) {
-			let isShowing = filters.offers.some(offer => {
-				return restaurant.value.indexOf(offer) >= 0;
-			});
-			if(!isShowing) {
-				hiddenEl.push(restaurant);
-			}
-		}
-		if(filters.ratings.length > 0) {
-			let isShowing = filters.ratings.some(rating => {
-				return restaurant.value.indexOf(rating) >= 0;
-			});
-			if(!isShowing) {
-				hiddenEl.push(restaurant);
-			}
-		}
-	});
-	restaurantItems.forEach(restaurant => {
-		restaurant.parentElement.style.display = 'block';
-	});
-	if(hiddenEl.length <= 0) {
-		return;
-	}
-	hiddenEl.forEach(el => {
-		el.parentElement.style.display = 'none';
-	});
-}
-
-function checkAllLocations() {
-	const all = document.querySelector('#chk1');
-	const locations = document.querySelectorAll('.locations .location');
-	all.onclick = () => {
-		if(all.checked) {
-			locations.forEach(location => {
-				location.checked = true;
-				location.nextElementSibling.classList.add('active');
-			});
-		}
-		else {
-			locations.forEach(location => {
-				location.checked = false;
-				location.nextElementSibling.classList.remove('active');
-			});
-		}
-	}
-	locations.forEach(location => {
-		location.onclick = () => {
-			if(location.checked == false) {
-				all.checked = false;
-				all.nextElementSibling.classList.remove('active');
-				return;
-			}
-		}
-	})
-}
-
-function countStar(parent, numberStar) {
-	const stars = parent.querySelector('.rating');
-	let n = parseFloat(numberStar);
-	let star;
-	const container = [];
-	for(let index = 1; index <= 5; index++) {
-		if(index <= n) {
-			star = 'fa-star';
-		} else if(index > n && index < n) {
-			star = 'fa-star-half-o';
-		} else {
-			star = 'fa-star-o';
-		}
-		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
-	}
-	container.push(`<span>${numberStar}.0</span>`);
-	stars.innerHTML = container.join('');
-}
 function onlineOrOffline(parent, state) {
 	const i = parent.querySelector('.on-off');
 	const orderNow = parent.querySelector('.links .order-now a');
-	if(state == 'already') {
+	if (state == 'already') {
 		i.style.color = 'orange';
 	} else {
 		i.style.color = 'grey';

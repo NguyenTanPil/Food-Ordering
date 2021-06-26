@@ -1,13 +1,3 @@
-// loading page
-window.onload = function() {
-	document.querySelector('.loading').style.display = 'none';
-	let imgRecipes = document.querySelector('.img-recipes');
-	let overlays = document.querySelectorAll('.overlay');
-	overlays.forEach((overlay) => {
-		overlay.style.width = `${imgRecipes.offsetWidth}px`;
-	});
-}
-
 // fetch api
 const videoUrl = '/user/api/videos-view';
 let arrCheckFind = [];
@@ -16,7 +6,7 @@ start();
 function start() {
 	getVideosView(videoUrl, renderVideosView);
 }
- 
+
 function getVideosView(url, callback) {
 	fetch(url)
 		.then(response => response.json())
@@ -25,7 +15,6 @@ function getVideosView(url, callback) {
 }
 
 function renderVideosView(videos) {
-	
 	const recommend = document.querySelector('.recomended .container .content');
 	const recent = document.querySelector('.update .container .content');
 	recommend.innerHTML = '';
@@ -41,7 +30,7 @@ function renderVideosView(videos) {
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 function componentMainVideo(video) {
 	const date = new Date(video.createdAt);
-	const main =  document.querySelector('.main-video .col-lg-9');
+	const main = document.querySelector('.main-video .col-lg-9');
 	main.innerHTML = '';
 	const div = document.createElement('div');
 	div.className = 'video';
@@ -89,7 +78,7 @@ function componentMainVideo(video) {
 }
 
 function componentRecommendVideos(video) {
-	const date =  new Date(video.createdAt);
+	const date = new Date(video.createdAt);
 	const div = document.createElement('div');
 	div.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
 	div.innerHTML = `
@@ -122,7 +111,7 @@ function componentRecommendVideos(video) {
 				<div class="desciption">
 					<div class="video-title">
 						<a href="/views/recipes/${video.slug}">
-							<h3>${video.title}</h3>
+							<h4>${video.title}</h4>
 						</a>
 					</div>
 					<div class="published">
@@ -132,7 +121,7 @@ function componentRecommendVideos(video) {
 						<div class="rating">
 						</div>
 						<div class="comment">
-							<a href="#">
+							<a href="/views/recipes/${video.slug}">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 								<span>03</span>
 							</a>
@@ -255,8 +244,9 @@ listUsd.forEach((item) => {
 	sugges.appendChild(div);
 });
 // video main ends
+
 // splide starts
-new Splide( '.category-recipes .splide', {
+new Splide('.category-recipes .splide', {
 	type: 'loop',
 	perPage: 3,
 	perMove: 1,
@@ -280,14 +270,6 @@ new Splide( '.category-recipes .splide', {
 		}
 	}
 }).mount();
-// set size of image
-window.addEventListener('resize', () => {
-	let imgRecipes = document.querySelector('.img-recipes');
-	let overlays = document.querySelectorAll('.overlay');
-	overlays.forEach((overlay) => {
-		overlay.style.width = `${imgRecipes.offsetWidth}px`;
-	});
-});
 
 // search
 const formSearchRecipe = document.querySelector('.search-recipe');
@@ -296,7 +278,7 @@ formSearchRecipe.onsubmit = async (e) => {
 	let valueSearch = inputSearchRecipe.value;
 	valueSearch = valueSearch.toLowerCase().replaceAll(' ', '-');
 	const status = arrCheckFind.some(recipe => recipe == valueSearch);
-	if(status) {
+	if (status) {
 		formSearchRecipe.action = `/views/recipes/${valueSearch}`;
 	} else {
 		return;
@@ -305,15 +287,14 @@ formSearchRecipe.onsubmit = async (e) => {
 
 // count stars
 function countStar(parent, numberStar) {
-
 	const stars = parent.querySelector('.rating');
 	let n = parseFloat(numberStar);
 	let star;
 	const container = [];
-	for(let index = 1; index <= 5; index++) {
-		if(index <= n) {
+	for (let index = 1; index <= 5; index++) {
+		if (index <= n) {
 			star = 'fa-star';
-		} else if(index > n && index < n) {
+		} else if (index > n && index < n) {
 			star = 'fa-star-half-o';
 		} else {
 			star = 'fa-star-o';

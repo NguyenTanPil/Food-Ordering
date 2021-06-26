@@ -85,7 +85,7 @@ const userUrl = '/user/api/user-detail';
 let mealsUrl, sellerUrl;
 // lay thong tin reivews
 const commentUrl = `/user/api/recipes/${currLink.slice(currLink.lastIndexOf('/') + 1)}/comments`;
-start(); 
+start();
 
 function start() {
 	getRestaurant(restaurantUrl, renderRestaurantDetail);
@@ -117,11 +117,11 @@ function renderRestaurantDetail(restaurant) {
 	const numberGallery = document.querySelector('.number-gallery');
 	const ratingRest = document.querySelector('.info-restaurant .right-side-btns');
 	const numberPhoneRest = document.querySelector('.right-side-btns a');
-	const publishDate =  document.querySelector('.published-left span');
+	const publishDate = document.querySelector('.published-left span');
 
 	restaurant.photos.forEach((photo, index) => {
 		let main, nav, photos;
-		if(index == 0) {
+		if (index == 0) {
 			main = `
 				<img class="active main-img-${index + 1}" src="${photo}" alt="slider">
 			`;
@@ -154,44 +154,44 @@ function renderRestaurantDetail(restaurant) {
 	// stars restaurant
 	countStar(ratingRest, restaurant.stars);
 	// menu
-	restaurant.menu.forEach((menu, index) => {
-		let nav, main;
-		if(index == 0) {
-			nav = `
-				<div class="tab-pane-small active" id="top-img">
-					<img src="${menu}" alt="main img menu">
-				</div>
-			`;
-			main = `
-			<div class="nav-item-small" data-id="top-img">
-				<img src="${menu}" alt="menu img">
-			</div>
-		`;
-		} else {
-			nav = `
-				<div class="tab-pane-small" id="bottom-img">
-					<img src="${menu}" alt="main img menu">
-				</div>
-			`;
-			main = `
-			<div class="nav-item-small" data-id="bottom-img">
-				<img src="${menu}" alt="menu img">
-			</div>
-		`;
-		}
-		mainMenuContainer.push(main);
-		navMenuContainer.push(nav);
-	});
+	// restaurant.menu.forEach((menu, index) => {
+	// 	let nav, main;
+	// 	if(index == 0) {
+	// 		nav = `
+	// 			<div class="tab-pane-small active" id="top-img">
+	// 				<img src="${menu}" alt="main img menu">
+	// 			</div>
+	// 		`;
+	// 		main = `
+	// 		<div class="nav-item-small" data-id="top-img">
+	// 			<img src="${menu}" alt="menu img">
+	// 		</div>
+	// 	`;
+	// 	} else {
+	// 		nav = `
+	// 			<div class="tab-pane-small" id="bottom-img">
+	// 				<img src="${menu}" alt="main img menu">
+	// 			</div>
+	// 		`;
+	// 		main = `
+	// 		<div class="nav-item-small" data-id="bottom-img">
+	// 			<img src="${menu}" alt="menu img">
+	// 		</div>
+	// 	`;
+	// 	}
+	// 	mainMenuContainer.push(main);
+	// 	navMenuContainer.push(nav);
+	// });
 	mainImg.innerHTML = mainContainer.join('');
 	navImg.innerHTML = navContainer.join('');
 	mainMenu.innerHTML = mainMenuContainer.join('');
 	navMenu.innerHTML = navMenuContainer.join('');
 	gallery.innerHTML = galleryContainer.join('');
-	numberGallery.innerText = `${restaurant.photos.length} photos`; 
+	numberGallery.innerText = `${restaurant.photos.length} photos`;
 	position.innerText = restaurant.position;
 	name.innerText = restaurant.name;
 	locationDet.innerText = restaurant.address;
-	logo.src =  restaurant.logo;
+	logo.src = restaurant.logo;
 
 	// about restaurant
 	const nameRest = document.querySelector('.rest-name');
@@ -263,13 +263,13 @@ function renderMealsOfRestaurant(orderMeals) {
 	cafe.innerHTML = '';
 	delivery.innerHTML = '';
 	orderMeals.forEach(meal => {
-		if(meal.selectMeal.toLowerCase() == 'breakfast') {
+		if (meal.selectMeal.toLowerCase() == 'breakfast') {
 			breakfast.appendChild(componentMeal(meal));
-		} else if(meal.selectMeal.toLowerCase() == 'lunch') {
+		} else if (meal.selectMeal.toLowerCase() == 'lunch') {
 			lunch.appendChild(componentMeal(meal));
-		} else if(meal.selectMeal.toLowerCase() == 'dinner') {
+		} else if (meal.selectMeal.toLowerCase() == 'dinner') {
 			dinner.appendChild(componentMeal(meal));
-		} else if(meal.selectMeal.toLowerCase() == 'cafe') {
+		} else if (meal.selectMeal.toLowerCase() == 'cafe') {
 			cafe.appendChild(componentMeal(meal));
 		} else {
 			delivery.appendChild(componentMeal(meal));
@@ -351,7 +351,7 @@ function componentCommentMeal(comment) {
 	const hours = Math.floor(((dateNow - dateCmt) / (1000 * 60 * 60)) % 24);
 	const div = document.createElement('div');
 	div.className = 'comment';
-	div.innerHTML =  `
+	div.innerHTML = `
 			<div class="user-comment">
 				<a href="/user-profile-view">
 					<img src="${comment.avartar}" alt="user comment">
@@ -387,19 +387,19 @@ formComment.addEventListener('submit', (e) => {
 		mealSlug: currLink.slice(currLink.lastIndexOf('/') + 1),
 		stars: stars,
 	}
-	if(document.cookie == '') {
+	if (document.cookie == '') {
 		window.location.replace('/user/login');
 		return;
 	}
-	if(inputComment.value == '') {
+	if (inputComment.value == '') {
 		return;
 	}
 	fetch(url, {
 		method: 'POST',
 		headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data),
 	})
 	inputComment.value = '';
 	getCommentsMeal(commentUrl, renderCommentsMeal);
@@ -413,7 +413,7 @@ function removeDefault() {
 }
 // remove bnt tab link
 function removeAllTab() {
-	listNavLink.forEach(nav => { 
+	listNavLink.forEach(nav => {
 		nav.parentElement.classList.remove('active');
 	});
 }
@@ -444,7 +444,7 @@ function addActiveSmall(e) {
 }
 // remove bnt tab order
 function removeAllTabOrder() {
-	iconTab.forEach(nav => { 
+	iconTab.forEach(nav => {
 		nav.classList.remove('active');
 	});
 }
@@ -495,7 +495,7 @@ function removeAllActiveMenuItem(menu) {
 	menu.forEach(item => {
 		item.classList.remove('active');
 	});
-} 
+}
 function addActiveMenuItem(item) {
 	item.classList.add('active');
 }
@@ -506,16 +506,16 @@ function countStar(parent, numberStar) {
 	let n = parseFloat(numberStar);
 	let star;
 	const container = [];
-	for(let index = 1; index <= 5; index++) {
-		if(index <= n) {
+	for (let index = 1; index <= 5; index++) {
+		if (index <= n) {
 			star = 'fa-star';
-		} else if(index > n && index < n) {
+		} else if (index > n && index < n) {
 			star = 'fa-star-half-o';
 		} else {
 			star = 'fa-star-o';
 		}
 		container.push(`<i class="fa ${star}" aria-hidden="true"></i>`);
-	}container.push(`<span>${numberStar}.0</span>`);
+	} container.push(`<span>${numberStar}.0</span>`);
 	stars.innerHTML = container.join('');
 }
 // your rating
@@ -528,10 +528,10 @@ slRating.onclick = (e) => {
 }
 function yourRating(numberStar) {
 	starSelect.forEach((star, index) => {
-		if(index < numberStar) {
+		if (index < numberStar) {
 			star.style.color = 'orange';
 		} else {
 			star.style.color = 'rgb(0 0 0 / 55%)';
 		}
-	}); 
+	});
 }

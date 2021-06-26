@@ -170,11 +170,10 @@ function componentMealTreanding(meal) {
 }
 
 // form search
-const formSeach = document.querySelector('.form-search');
+const formSeach = document.querySelector('.order-online .form-container');
 formSeach.addEventListener('submit', (e) => {
 	e.preventDefault();
-	const searchLocaton = document.querySelector('.form-search button');
-	const input = document.querySelector('.form-search input').value;
+	const input = formSeach.querySelector('input').value;
 	const foodsOnline = document.querySelector('.foods-online');
 	// reset
 	foodsOnline.innerHTML = '';
@@ -187,116 +186,53 @@ formSeach.addEventListener('submit', (e) => {
 const listOrderOnlines = [
 	{
 		id: 1,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-1_trkary.svg',
+		img: '/images/breakfast.svg',
 		name: 'Breakfast'
 	},
 	{
 		id: 2,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-2_gpch3l.svg',
+		img: '/images/lunch.svg',
 		name: 'Lunch'
 	},
 	{
 		id: 3,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-3_nqz5fr.svg',
+		img: '/images/dinner.svg',
 		name: 'Dinner'
 	},
 	{
 		id: 4,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033668/systems/meal-4_uk5wmz.svg',
+		img: '/images/cafe.svg',
 		name: 'Cafe\'s'
 	},
 	{
 		id: 5,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-5_bvrvio.svg',
+		img: '/images/delivery.svg',
 		name: 'Delivery'
 	},
 	{
 		id: 6,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-1_trkary.svg',
+		img: '/images/breakfast.svg',
 		name: 'Breakfast'
 	},
 	{
 		id: 7,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033667/systems/meal-2_gpch3l.svg',
+		img: '/images/lunch.svg',
 		name: 'Lunch'
 	},
 	{
 		id: 8,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-3_nqz5fr.svg',
+		img: '/images/dinner.svg',
 		name: 'Dinner'
 	},
 	{
 		id: 9,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033668/systems/meal-4_uk5wmz.svg',
+		img: '/images/cafe.svg',
 		name: 'Cafe\''
 	},
 	{
 		id: 10,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622033666/systems/meal-5_bvrvio.svg',
+		img: '/images/delivery.svg',
 		name: 'Delivery'
-	},
-];
-
-const listBrowsePlaces = [
-	{
-		id: 1,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/01_tpiobv.svg',
-		name: 'Near by'
-	},
-	{
-		id: 2,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/02_ovhaiy.svg',
-		name: 'Cafes & More'
-	},
-	{
-		id: 3,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/03_m4r91u.svg',
-		name: 'Drinks & Nightkise'
-	},
-	{
-		id: 4,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034344/systems/04_kykevg.svg',
-		name: 'Desserts & Bakes'
-	},
-	{
-		id: 5,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034346/systems/05_kpqafx.svg',
-		name: 'Upcoming Events'
-	},
-	{
-		id: 6,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034345/systems/06_edughw.svg',
-		name: 'Newly Opened'
-	},
-	{
-		id: 7,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/01_tpiobv.svg',
-		name: 'Near by'
-	},
-	{
-		id: 8,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/02_ovhaiy.svg',
-		name: 'Cafes & More'
-	},
-	{
-		id: 9,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034347/systems/03_m4r91u.svg',
-		name: 'Drinks & Nightkise'
-	},
-	{
-		id: 10,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034344/systems/04_kykevg.svg',
-		name: 'Desserts & Bakes'
-	},
-	{
-		id: 11,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034346/systems/05_kpqafx.svg',
-		name: 'Upcoming Events'
-	},
-	{
-		id: 12,
-		img: 'https://res.cloudinary.com/food-odering/image/upload/v1622034345/systems/06_edughw.svg',
-		name: 'Newly Opened'
 	},
 ];
 

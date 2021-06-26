@@ -31,7 +31,7 @@
 					<div class="background-form"></div>
 					<div class="content">
 						<div class="form-container">
-							<form action="/user/login-process" method="POST">
+							<form id="form-login" action="/user/login-process" method="POST">
 								<div class="logo-form">
 									<a href="index.html">
 										<img src="/images/logo.png" alt="logo">
@@ -59,8 +59,8 @@
 										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 									</div>
-									<input class="form-control" type="text" name="email" id="email-phoneNumber"
-										placeholder="Enter Your Email">
+									<input class="form-control" rules="isRequired|isEmail" type="text" name="email"
+										id="email-phoneNumber" placeholder="Enter Your Email">
 									<div class="nofitication">
 										<span></span>
 									</div>
@@ -70,8 +70,9 @@
 										<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 										<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 									</div>
-									<input class="form-control" type="password" name="password" id="password"
-										placeholder="Enter Your Password">
+									<input class="form-control" rules="isRequired|isPassword" type="password"
+										name="password" id="password" placeholder="Enter Your Password"
+										autocomplete="on">
 									<div class="nofitication">
 										<span></span>
 									</div>
