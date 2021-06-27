@@ -1,6 +1,17 @@
 
 function Validator(formSelector) {
 
+    // get form group
+    function getParentElement(element, selector) {
+        let input = element;
+        while (input.parentElement) {
+            if (input.parentElement.classList.contains(selector)) {
+                return input.parentElement;
+            }
+            input = input.parentElement;
+        }
+    }
+
     // get rules of form
     const formRules = {};
 
@@ -75,7 +86,7 @@ function Validator(formSelector) {
                 return errorsMessages;
             });
 
-            const formGroup = e.currentTarget.parentElement;
+            const formGroup = getParentElement(e.currentTarget, 'form-group');
             if (errorsMessages) {
                 isError(formGroup, errorsMessages);
             } else {
@@ -86,7 +97,7 @@ function Validator(formSelector) {
 
         // function handle validate on input
         function handleValidateOnInput(e) {
-            const formGroup = e.currentTarget.parentElement;
+            const formGroup = getParentElement(e.currentTarget, 'form-group');
             isInput(formGroup);
         }
 
@@ -114,9 +125,17 @@ function Validator(formSelector) {
             // remove success and add error class
             formGroup.classList.remove('success');
             formGroup.classList.add('error');
-            // show message
+            // set top of icon check
+            const iconCheck = formGroup.querySelector('.icon-check');
+            if (iconCheck) {
+                const label = formGroup.querySelector('.form-group-label');
+                const heightLabel = label ? label.getBoundingClientRect().height : 0;
+                iconCheck.style.top = `${23 + heightLabel}px`;
+            }
+
+            // set hieght of nofitication message
             const nofitication = formGroup.querySelector('.nofitication');
-            const span = formGroup.querySelector('span');
+            const span = nofitication.querySelector('span');
             span.innerText = nofi;
             nofitication.style.height = `${span.getBoundingClientRect().height + 12}px`;
             return false;
@@ -125,7 +144,7 @@ function Validator(formSelector) {
         // handling submit form
         formElement.onsubmit = (e) => {
             let isValid = true;
-
+            e.preventDefault();
             for (let input of inputs) {
                 if (!handleValidateOnBlur({ currentTarget: input })) {
                     isValid = false;
