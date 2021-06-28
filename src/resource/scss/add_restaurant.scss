@@ -1,425 +1,139 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import 'variable';
-*::selection {
-	background: rgba(255,255,255,.3);
-	color: black;
-}
-/*title bar starts*/
-.title-bar {
-	background-color: rgb(243, 243, 243);
-}
-.title-bar .left-title-text,
-.title-bar .right-title-text {
-	display: flex;
-	justify-content: center;
-}
-.title-bar .left-title-text {
-	padding: 1rem 0.16rem 0.5rem 1rem;
-}
-.title-bar .right-title-text {
-	padding: .5rem 0.16rem 1rem 1rem;
-}
-.title-bar .right-title-text a {
-	color: black;
-}
-.title-bar .left-title-text h3 {
-	margin: 0;
-	font-size: 1.5rem;
-	font-weight: bold;
-	font-family: 'Roboto', sans-serif;
-}
-.title-bar .breadcrumb {
-	display: flex;
-	align-items: center;
-	height: 2rem;
-}
-.breadcrumb-item.active {
-	color: var(--clr-orange);
-}
-.title-bar .breadcrumb-item+.breadcrumb-item::before {
-  padding-left: .5rem;
-  padding-right: .5rem;
-  color: #6c757d;
-  content: '/';
-}
-/*title bar ends*/
+@import "variable";
 /*add restaurant starts*/
-/*left*/
 .add-restaurant {
 	margin-top: 5rem;
-}
-.add-restaurant .heading {
-	display: flex;
-	align-items: center;
-	margin-bottom: 1.5rem;
-}
-.add-restaurant .heading img {
-	width: 1.5rem;
-	height: 1.5rem;
-	object-fit: cover;
-	display: block;
-	margin-right: 1rem;
-}
-.add-restaurant .heading h1 {
-	font-weight: 600;
-	font-size: 1.5rem;
-	color: var(--clr-black);
-}
-.add-restaurant .form-group .icon-check {
-	position: absolute;
-	right: 1rem;
-	top: 0.938rem;
-}
-.add-restaurant .icon-check i {
-	transition: var(--transition);
-	display: none;
-}
-.add-restaurant .success .first-icon {
-	display: block;
-	color: rgb(97, 217, 124);
-}
-.add-restaurant .error .last-icon {
-	display: block;
-	color: rgb(223, 70, 85);
-}
-.add-restaurant .form-group input {
-	padding: 0.875rem 1rem 0.87rem;
-	width: 100%;
-	outline: none;
-	border: 1px solid var(--clr-border);
-}
-.add-restaurant .form-group .nofitication {
-	height: 0;
-	overflow: hidden;
-	transition: var(--transition);
-}
-.add-restaurant .form-group span {
-	color: rgb(223, 70, 85);
-	font-size: 0.813rem;
-	margin-top: 0.75rem;
-	display: block;
-}
-.add-restaurant .error {
-	margin-bottom: 1rem;
-	transition: var(--transition);
-}
-.add-restaurant .success input {
-	box-shadow: 0 0 0.25rem 0.13rem rgb(97, 217, 124);
-}
-.add-restaurant .error input {
-	box-shadow: 0 0 0.15rem 0.13rem rgb(223, 70, 85);
-}
-.add-restaurant .form-group input:focus {
-	border-color: var(--clr-orange);
-}
-.add-restaurant .success input:focus {
-	border-color: rgb(97, 217, 124);
-}
-.add-restaurant .error input:focus {
-	border-color: rgb(223, 70, 85);
-}
-.add-restaurant .information {
-	padding-top: 1rem;
-}
-.add-restaurant .information h4 {
-	padding-bottom: 1.25rem;
-	font-size: 1.125rem;
-	font-weight: 600;
-}
-.add-restaurant .information .form-group {
-	margin-bottom: 1.625rem;
-	display: flex;
-	flex-wrap: wrap;
-	position: relative;
-}
-.add-restaurant .form-group label,
-.add-restaurant .form-group .checkboxTitle {
-	margin-bottom: 0.875rem;
-	font-size: 0.875rem;
-	font-weight: 400;
-	color: var(--clr-black);
-	display: block;
-	width: 100%;
-}
-.add-restaurant .form-group .input-group {
-	width: 100%;
-	padding: 0.75rem 1.25rem;
-	color: var(--clr-text);
-	border: 1px solid var(--clr-border);
-	transition: var(--transition);
-	border-radius: 0.188rem;
-}
-.add-restaurant .form-group .input-group::placeholder {
-	font-size: 0.75rem;
-	color: var(--clr-text);
-}
-.add-restaurant .filter-radio {
-	display: flex;
-	flex-wrap: wrap;
-}
-.add-restaurant .filter-radio .radio-item {
-	display: flex;
-	align-items: center;
-	margin-right: 1.75rem;
-	margin-bottom: 0.5rem;
-	min-width: 3.125rem;
-	position: relative;
-}
-.add-restaurant .radio-item input {
-	position: absolute;
-	opacity: 0;
-}
-.add-restaurant .radio-item label {
-	margin-bottom: 0;
-	color: var(--clr-text);
-	font-size: 0.875rem;
-	margin-left: 0.5rem;
-	line-height: 0.75rem;
-	font-weight: 400;
-	cursor: pointer;
-	display: inline-block;
-	text-indent: 1rem;
-}
-.add-restaurant .radio-item label:before,
-.add-restaurant .radio-item label:after {
-	content: '';
-  width: 0.875rem;
-  height: 0.875rem;
-  display: block;
-  box-sizing: border-box;
-  z-index: 0;
-  position: absolute;
-  left: 0;
-  border: 2px solid var(--clr-border);
-  border-radius: 20%;
-  top: calc((67% - (100% - 1rem)) - 8%);
-  transition: all 0.5s ease;
-  background-color: transparent;
-}
-.add-restaurant .radio-item label:after {
-	transform: scale(0);
-}
-.add-restaurant .state.active label:before {
-	border-color: $clr-orange;
-	animation: pulse 1s;
-}
-.add-restaurant .state.active label:after {
-	background-color: $clr-orange;
-  transform: scale(0.4);
-}
-.add-restaurant .state.active label {
-	color: $clr-orange;
-}
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 168, 3, 0.8); 
-  }
-  100% {
-    box-shadow: 0 0 0 1rem rgba(255, 168, 3, 0); 
-  } 
-}
-.add-restaurant .form-group .row {
-	margin: 0 -1.5rem;
-}
-.form-group {
-	.checkbox-title {
-		margin-bottom: 0.875rem;
-		font-size: 0.875rem;
-		font-weight: 500;
-		width: 100%;
-	}
-	button {
-		color: $clr-black;
-		font-size: 0.813rem;
-		background-color: transparent;
-		padding: 0.75rem 1rem 0.75rem 1.25rem;
-		padding-right: 1.5rem;
-		min-height: 2.5rem;
-		border-radius: 0.25rem;
-		outline: none;
-		width: 90%;
-		border: 1px solid $clr-border;
-		cursor: pointer;
-		text-align: left;
-	}
-	i {
-		position: absolute;
-		color: $clr-text;
-		right: 30%;
-		top: calc(3rem - 2px);
-		z-index: -1;
-	}
-	.dropdown-menu {
-		border: 1px solid $clr-border;
-		width: 90%;
-		display: none;
-		@include transition();
-		max-height: 16.2rem;
-		overflow: auto;
-		position: absolute;
-		z-index: 999;
-		top: 5.25rem;
-		background-color: $clr-white;
-	}
-	.dropdown-menu.active {
-		display: block;
-	}
-	.select-item {
-		text-align: center;
-		color: $clr-text;
-		font-size: 0.813rem;
-		font-weight: 400;
-		padding: 0.75rem 1rem 0.75rem 1.313rem;
-		width: 100%;
-		cursor: pointer;
-		@include transition();
-		text-align: left;
-	}
-	.select-item.active {
-		background-color: $clr-border;
-	}
-	.select-item:hover {
-		background-color: rgba(0, 0, 0, 0.05);
-		padding-left: 1.75rem;
-	}
-}
-.add-time-btn {
-	margin-bottom: 1.625rem;
-	padding: 0.75rem 1.25rem;
-  font-size: 0.813rem;
-}
-.information .container .row {
-	padding: 0;
-}
-.list-times {
-	font-size: 0.938rem;
-	color: $clr-text;
-	font-weight: 400;
-	line-height: 1.5rem;
-	.time-item {
+	.heading {
+		align-items: center;
 		display: flex;
-		margin-bottom: 0.25rem;
-	}
-	.day {
-		color: $clr-black;
-		text-transform: capitalize;
-		min-width: 4.875rem;
-		margin-right: 1.5rem;
-	}
-	.open-close {
-		font-size: 0.875rem;
-		margin-right: 1.75rem;
-	}
-	.remove-add-time {
-		outline: none;
-		background-color: transparent;
-		border: 0;
-		@icnlude transition();
-		cursor: pointer;
-		i {
-			color: $clr-text;
-			font-size: 1rem;
+		margin-bottom: 1.5rem;
+		img {
+			display: block;
+			height: 1.5rem;
+			object-fit: cover;
+			margin-right: 1rem;
+			width: 1.5rem;
+		}
+		h1 {
+			color: $clr-black;
+			font-weight: 600;
+			font-size: 1.5rem;
 		}
 	}
-	.remove-add-time:hover {
-		i {
-			color: $clr-orange;
+	.form-container {
+		.container > .row {
+			justify-content: space-between;
+		}
+		.form-group {
+			.form-group-label {
+				font-size: 0.875rem;
+			}
 		}
 	}
-}
-.add-restaurant .form-group {
-	.icon-search {
-		position: absolute;
-		right: 1rem;
-		z-index: 1;
-		width: auto;
-		margin-top: 0.25rem;
-		cursor: pointer;
-		@include transition();
+	.information {
+		padding-top: 1rem;
+		.row {
+			padding: 0;
+		}
+		h4 {
+			font-weight: 600;
+			font-size: 1.125rem;
+			padding-bottom: 1.25rem;
+		}
+		.select-time-from,
+		.select-time-to {
+			text-indent: 1rem;
+		}
+		.from-time,
+		.to-time {
+			.dropdown-menu-item {
+				text-indent: 1rem;
+			}
+		}
 	}
-	.icon-search:hover i {
-		color: $clr-orange;
-	}
-}
-.form-group {
-	.select-cuisines,
-	.select-tags {
-		width: 100%;
-	}
-	.select-cuisines + i,
-	.select-tags + i {
-		right: 5%;
-	}
-	.option-cuisines,
-	.option-tags {
-		width: 100%;
-	}
-}
-.sb-add-restaurant {
-	margin-bottom: 5rem;
-	.my-btn {
-		font-size: 1rem;
-		padding: 1rem 1.5rem;
-	}
-}
-.how-it-work {
-	margin-top: 3rem;
-	img {
-		height: 2.5rem;
-	}
-	img:hover {
-		animation: rotate 1s;
-		@include transition();
-	}
-	h4 {
-		padding-top: 1.625rem;
-		padding-bottom: 0.625rem;
-		font-size: 1.125rem;
-		line-height: 1.5rem;
-		font-weight: 500;
-		color: $clr-black;
-	}
-	p {
+	.list-times {
 		color: $clr-text;
 		font-size: 0.938rem;
 		font-weight: 400;
 		line-height: 1.5rem;
-		letter-spacing: 1px;
+		.time-item {
+			display: flex;
+			margin-bottom: 0.25rem;
+		}
+		.day {
+			color: $clr-black;
+			text-transform: capitalize;
+			margin-right: 1.5rem;
+			min-width: 4.875rem;
+		}
+		.open-close {
+			font-size: 0.875rem;
+			margin-right: 1.75rem;
+		}
+		.remove-time-btn {
+			border: 0;
+			background-color: transparent;
+			cursor: pointer;
+			outline: none;
+			i {
+				@include transition();
+				color: $clr-text;
+				font-size: 1rem;
+			}
+		}
+		.remove-time-btn:hover {
+			i {
+				color: $clr-orange;
+			}
+		}
+	}
+	.sb-add-restaurant {
+		margin-bottom: 5rem;
+	}
+	.how-it-work {
+		margin-top: 3rem;
+		img {
+			height: 2.5rem;
+		}
+		img:hover {
+			@include transition();
+			animation: rotate 1s;
+		}
+		h4 {
+			color: $clr-black;
+			font-size: 1.125rem;
+			font-weight: 500;
+			line-height: 1.5rem;
+			padding-bottom: 0.625rem;
+			padding-top: 1.625rem;
+		}
+		p {
+			color: $clr-text;
+			font-size: 0.938rem;
+			font-weight: 400;
+			letter-spacing: 1px;
+			line-height: 1.5rem;
+		}
 	}
 }
 /*add restaurant ends*/
 /*---------------------------------------------------------------------------------*/
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-	
 }
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
-	/*title bar starts*/
-	.title-bar .left-title-text,
-	.title-bar .right-title-text {
-		padding: 1.5rem 0.16rem 1.5rem 0;
+	.add-restaurant {
+		#add-time-btn {
+			margin-top: 1.6rem;
+		}
 	}
-	.title-bar .left-title-text {
-		justify-content: flex-start;
-	}
-	.title-bar .right-title-text {
-		justify-content: flex-end;
-	}
-	/*title bar ends*/
 }
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
-	
 }
 /*// X-Large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-
 }
 /*// XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) {
-	/*how to orders ends */
-	.container .row {
-		padding: 0 2rem;
-	}
 }

@@ -24,64 +24,68 @@
 <!-- title bar ends -->
 <!-- add restaurant starts -->
 <section class="add-restaurant">
-	<form action="/user/restaurant/create-restaurant" method="POST">
+	<form class="form-container" action="/user/restaurant/create-restaurant" method="POST">
 		<div class="container">
 			<div class="row">
 				<div class="col col-lg-6 col-md-8 col-12">
 					<div class="heading">
-						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620997069/systems/partner_with_us-1_gqsvx2.svg" alt>
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620997069/systems/partner_with_us-1_gqsvx2.svg"
+							alt>
 						<h1>Add restaurant</h1>
 					</div>
 					<div class="information">
 						<h4>Basic Info</h4>
 						<div class="form-group">
-							<label for="name-restaurant">Restaurant Name *</label>
+							<label class="form-group-label" for="name-restaurant">Restaurant Name *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" id="name-restaurant" type="text" name="name" placeholder="Enter your restaurant name">
+							<input class="form-control" rules="isRequired" id="name-restaurant" type="text" name="name"
+								placeholder="Enter your restaurant name">
 							<div class="nofitication">
 								<span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="search-city">City *</label>
+							<label class="form-group-label" for="search-city">City *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" id="search-city" type="search" name="city" placeholder="Search city">
+							<input class="form-control" rules="isRequired" id="search-city" type="search" name="city"
+								placeholder="Search city">
 							<div class="nofitication">
 								<span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="stars">Stars *</label>
+							<label class="form-group-label" for="stars">Stars *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" id="stars" type="number" min="0" max="5" name="stars" placeholder="Enter Your Stars">
+							<input class="form-control" rules="isRequired" id="stars" type="number" min="0" max="5"
+								name="stars" placeholder="Enter Your Stars">
 							<div class="nofitication">
 								<span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="checkboxTitle">
-								Are you the Owner or Manager of the Place?
-							</div>
-							<div class="filter-radio">
-								<div class="radio-item">
-									<input type="radio" id="owner" name="position" value="owner" checked>
-									<div class="state active">
-										<label for="owner">I am a Owner</label>
+							<label class="form-group-label">Are you the Owner or Manager of the Place?</label>
+							<div class="form-container-check">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="owner" name="position"
+										value="owner" checked>
+									<div class="state-check active">
+										<label class="form-check-label" for="owner">I am a Owner</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="radio" id="manager" name="position" value="manager">
-									<div class="state">
-										<label for="manager">I’m the manager</label>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="manager" name="position"
+										value="manager">
+									<div class="state-check">
+										<label class="form-check-label" for="manager">I’m the manager</label>
 									</div>
 								</div>
 							</div>
@@ -90,122 +94,131 @@
 					<div class="information">
 						<h4>Contact info</h4>
 						<div class="form-group">
-							<label for="email">Email Address *</label>
+							<label class="form-group-label" for="email">Email Address *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" id="email" type="email" name="email" placeholder="Enter your email">
+							<input class="form-control" rules="isRequired" id="email" type="email" name="email"
+								placeholder="Enter your email">
 							<div class="nofitication">
 								<span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="phoneNumber">Phone Number *</label>
+							<label class="form-group-label" for="phoneNumber">Phone Number *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" id="phoneNumber" type="tel" name="phoneNumber" placeholder="Owner / Manager Phone Number">
+							<input class="form-control" rules="isRequired" id="phoneNumber" type="tel"
+								name="phoneNumber" placeholder="Owner / Manager Phone Number">
 							<div class="nofitication">
 								<span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="phoneRestaurant">Restaurant Phone Number *</label>
+							<label class="form-group-label"="phoneRestaurant">Restaurant Phone Number *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" type="tel" name="phoneRestaurant" id="phoneRestaurant" placeholder="Restaurant Phone Number">
+							<input class="form-control" rules="isRequired" type="tel" name="phoneRestaurant"
+								id="phoneRestaurant" placeholder="Restaurant Phone Number">
 							<div class="nofitication">
 								<span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="websiteRestaurant">Restaurant Website *</label>
+							<label class="form-group-label" for="websiteRestaurant">Restaurant Website *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" type="tel" name="website" id="websiteRestaurant" placeholder="Restaurant Wedsite">
+							<input class="form-control" rules="isRequired" type="tel" name="website"
+								id="websiteRestaurant" placeholder="Restaurant Wedsite">
 							<div class="nofitication">
 								<span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="checkboxTitle">
-								Open Status?
-							</div>
-							<div class="filter-radio">
-								<div class="radio-item">
-									<input type="radio" id="already" name="open" value="already" checked>
-									<div class="state active">
-										<label for="already">This place already open</label>
+							<label class="form-group-label">Open Status?</label>
+							<div class="form-container-check">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="already" name="open"
+										value="already" checked>
+									<div class="state-check active">
+										<label class="form-check-label" for="already">This place already open</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="radio" id="soon" name="open" value="soon">
-									<div class="state">
-										<label for="soon">This place is opening soon</label>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="soon" name="open" value="soon">
+									<div class="state-check">
+										<label class="form-check-label" for="soon">This place is opening soon</label>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="information">
+					<div class="information" id="add-times">
 						<h4>Timing</h4>
 						<div class="form-group">
-							<div class="checkboxTitle">
-								Add time *
-							</div>
-							<div class="filter-radio">
-								<div class="radio-item">
-									<input type="checkbox" id="monday" name="days[]" value="monday" checked>
-									<div class="state active">
-										<label for="monday">Mon</label>
+							<label class="form-group-label">Add time *</label>
+							<div class="form-container-check">
+								<div class="form-check">
+									<input class="form-check-input" onchange="checkStateDay(this.checked);"
+										type="checkbox" id="monday" name="days[]" value="monday" checked>
+									<div class="state-check active">
+										<label class="form-check-label" for="monday">Mon</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="tuesday" name="days[]" value="tuesday">
-									<div class="state">
-										<label for="tuesday">Tue</label>
+								<div class="form-check">
+									<input class="form-check-input" onchange="checkStateDay(this.checked);"
+										type="checkbox" id="tuesday" name="days[]" value="tuesday">
+									<div class="state-check">
+										<label class="form-check-label" for="tuesday">Tue</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="webnesday" name="days[]" value="webnesday">
-									<div class="state">
-										<label for="webnesday">Web</label>
+								<div class="form-check">
+									<input class="form-check-input" onchange="checkStateDay(this.checked);"
+										type="checkbox" id="webnesday" name="days[]" value="webnesday">
+									<div class="state-check">
+										<label class="form-check-label" for="webnesday">Web</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="thursday" name="days[]" value="thursday">
-									<div class="state">
-										<label for="thursday">Thu</label>
+								<div class="form-check">
+									<input class="form-check-input" onchange="checkStateDay(this.checked);"
+										type="checkbox" id="thursday" name="days[]" value="thursday">
+									<div class="state-check">
+										<label class="form-check-label" for="thursday">Thu</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="friday" name="days[]" value="friday">
-									<div class="state">
-										<label for="friday">Fri</label>
+								<div class="form-check">
+									<input class="form-check-input" onchange="checkStateDay(this.checked);"
+										type="checkbox" id="friday" name="days[]" value="friday">
+									<div class="state-check">
+										<label class="form-check-label" for="friday">Fri</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="saturday" name="days[]" value="saturday">
-									<div class="state">
-										<label for="saturday">Sat</label>
+								<div class="form-check">
+									<input class="form-check-input" onchange="checkStateDay(this.checked);"
+										type="checkbox" id="saturday" name="days[]" value="saturday">
+									<div class="state-check">
+										<label class="form-check-label" for="saturday">Sat</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="sunday" name="days[]" value="sunday">
-									<div class="state">
-										<label for="sunday">Sun</label>
+								<div class="form-check">
+									<input class="form-check-input" onchange="checkStateDay(this.checked);"
+										type="checkbox" id="sunday" name="days[]" value="sunday">
+									<div class="state-check">
+										<label class="form-check-label" for="sunday">Sun</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="select-all" value="select-all">
-									<div class="state">
-										<label for="select-all">All</label>
+								<div class="form-check">
+									<input class="form-check-input" onchange="selectAllDays(this);" type="checkbox"
+										id="select-all">
+									<div class="state-check">
+										<label class="form-check-label" for="select-all">All</label>
 									</div>
 								</div>
 								<input type="hidden" name="openHour" class="input-hidden-open">
@@ -215,53 +228,54 @@
 						<div class="container" style="padding-left: 0;">
 							<div class="row">
 								<div class="col col-6 col-sm-4">
-									<div class="form-group">
-										<div class="checkbox-title">From *</div>
-										<button type="button" class="select-time-from">
-										12.00 AM
+									<div class="form-group select-form" id="open-hour">
+										<label class="form-group-label">From *</label>
+										<button type="button" class="select-btn">
+											12.00 AM
 										</button>
-										<i class="fa fa-caret-down" aria-hidden="true"></i>
-										<div class="from-time dropdown-menu">
-											<div class="select-item active">12.00 AM</div>
-											<div class="select-item">01.00 AM</div>
-											<div class="select-item">02.00 AM</div>
-											<div class="select-item">03.00 AM</div>
-											<div class="select-item">04.00 AM</div>
-											<div class="select-item">05.00 AM</div>
-											<div class="select-item">06.00 AM</div>
-											<div class="select-item">07.00 AM</div>
-											<div class="select-item">08.00 AM</div>
-											<div class="select-item">09.00 AM</div>
-											<div class="select-item">10.00 AM</div>
-											<div class="select-item">11.00 AM</div>
+										<i class="fa fa-caret-down select-icon" aria-hidden="true"></i>
+										<div class="dropdown-menu">
+											<div class="dropdown-menu-item active">12.00 AM</div>
+											<div class="dropdown-menu-item">01.00 AM</div>
+											<div class="dropdown-menu-item">02.00 AM</div>
+											<div class="dropdown-menu-item">03.00 AM</div>
+											<div class="dropdown-menu-item">04.00 AM</div>
+											<div class="dropdown-menu-item">05.00 AM</div>
+											<div class="dropdown-menu-item">06.00 AM</div>
+											<div class="dropdown-menu-item">07.00 AM</div>
+											<div class="dropdown-menu-item">08.00 AM</div>
+											<div class="dropdown-menu-item">09.00 AM</div>
+											<div class="dropdown-menu-item">10.00 AM</div>
+											<div class="dropdown-menu-item">11.00 AM</div>
 										</div>
 									</div>
 								</div>
 								<div class="col col-6 col-sm-4">
-									<div class="form-group">
-										<div class="checkbox-title">To *</div>
-										<button type="button" class="select-time-to">
-										12.00 PM
+									<div class="form-group select-form" id="close-hour">
+										<label class="form-group-label">To *</label>
+										<button type="button" class="select-btn">
+											12.00 PM
 										</button>
-										<i class="fa fa-caret-down" aria-hidden="true"></i>
-										<div class="to-time dropdown-menu">
-											<div class="select-item active">12.00 PM</div>
-											<div class="select-item">01.00 PM</div>
-											<div class="select-item">02.00 PM</div>
-											<div class="select-item">03.00 PM</div>
-											<div class="select-item">04.00 PM</div>
-											<div class="select-item">05.00 PM</div>
-											<div class="select-item">06.00 PM</div>
-											<div class="select-item">07.00 PM</div>
-											<div class="select-item">08.00 PM</div>
-											<div class="select-item">09.00 PM</div>
-											<div class="select-item">10.00 PM</div>
-											<div class="select-item">11.00 PM</div>
+										<i class="fa fa-caret-down select-icon" aria-hidden="true"></i>
+										<div class="dropdown-menu">
+											<div class="dropdown-menu-item active">12.00 PM</div>
+											<div class="dropdown-menu-item">01.00 PM</div>
+											<div class="dropdown-menu-item">02.00 PM</div>
+											<div class="dropdown-menu-item">03.00 PM</div>
+											<div class="dropdown-menu-item">04.00 PM</div>
+											<div class="dropdown-menu-item">05.00 PM</div>
+											<div class="dropdown-menu-item">06.00 PM</div>
+											<div class="dropdown-menu-item">07.00 PM</div>
+											<div class="dropdown-menu-item">08.00 PM</div>
+											<div class="dropdown-menu-item">09.00 PM</div>
+											<div class="dropdown-menu-item">10.00 PM</div>
+											<div class="dropdown-menu-item">11.00 PM</div>
 										</div>
 									</div>
 								</div>
-								<div class="col col-12 col-sm-4" style="align-self: flex-end;">
-									<button type="button" class="my-btn add-time-btn">Add Time</button>
+								<div class="col col-12 col-sm-4">
+									<button type="button" class="btn" id="add-time-btn">Add
+										Time</button>
 								</div>
 							</div>
 						</div>
@@ -271,145 +285,145 @@
 					<div class="information">
 						<h4>Location</h4>
 						<div class="form-group">
-							<label for="address-restaurant">Enter Address *</label>
+							<label class="form-group-label" for="address-restaurant">Enter Address *</label>
 							<div class="icon-check">
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="input-group" type="search" name="address" id="address-restaurant" placeholder="Enter Your Address Restaurant">
+							<input class="form-control" rules="isRequired" type="search" name="address"
+								id="address-restaurant" placeholder="Enter Your Address Restaurant">
 							<div class="nofitication">
 								<span></span>
 							</div>
-							<label class="icon-search" for="address-restaurant">
-								<i class="fa fa-search" aria-hidden="true"></i>
-							</label>
 						</div>
 					</div>
 					<div class="information">
 						<h4>Characteristics</h4>
 						<div class="form-group">
-							<div class="checkboxTitle">
-								Services *
-							</div>
-							<div class="filter-radio">
-								<div class="radio-item">
-									<input type="checkbox" id="breakfast" name="services[]" value="breakfast" checked>
-									<div class="state active">
-										<label for="breakfast">Breakfast</label>
+							<label class="form-group-label">Services *</label>
+							<div class="form-container-check">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="breakfast" name="services[]"
+										value="breakfast" checked>
+									<div class="state-check active">
+										<label class="form-check-label" for="breakfast">Breakfast</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="lunch" name="services[]" value="lunch">
-									<div class="state">
-										<label for="lunch">Lunch</label>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="lunch" name="services[]"
+										value="lunch">
+									<div class="state-check">
+										<label class="form-check-label" for="lunch">Lunch</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="dinner" name="services[]" value="dinner">
-									<div class="state">
-										<label for="dinner">Dinner</label>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="dinner" name="services[]"
+										value="dinner">
+									<div class="state-check">
+										<label class="form-check-label" for="dinner">Dinner</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="checkbox" id="cafe" name="services[]" value="cafe">
-									<div class="state">
-										<label for="cafe">Cafe's</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="checkboxTitle">
-								Alcohol *
-							</div>
-							<div class="filter-radio">
-								<div class="radio-item">
-									<input type="radio" id="serve" name="alcohol" value="serve" checked>
-									<div class="state active">
-										<label for="serve">Serve</label>
-									</div>
-								</div>
-								<div class="radio-item">
-									<input type="radio" id="not-serve" name="alcohol" value="not-serve">
-									<div class="state">
-										<label for="not-serve">Not Serve</label>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="cafe" name="services[]"
+										value="cafe">
+									<div class="state-check">
+										<label class="form-check-label" for="cafe">Cafe's</label>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="checkboxTitle">
-								Seating *
-							</div>
-							<div class="filter-radio">
-								<div class="radio-item">
-									<input type="radio" id="available" name="seating" value="available" checked>
-									<div class="state active">
-										<label for="available">Available</label>
+							<label class="form-group-label">Alcohol *</label>
+							<div class="form-container-check">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="serve" name="alcohol" value="serve"
+										checked>
+									<div class="state-check active">
+										<label class="form-check-label" for="serve">Serve</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="radio" id="not-vailable" name="seating" value="not-vailable">
-									<div class="state">
-										<label for="not-vailable">Not Available</label>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="not-serve" name="alcohol"
+										value="not-serve">
+									<div class="state-check">
+										<label class="form-check-label" for="not-serve">Not Serve</label>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="checkbox-title">Cuisines *</div>
+							<label class="form-group-label">Seating *</label>
+							<div class="form-container-check">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="available" name="seating"
+										value="available" checked>
+									<div class="state-check active">
+										<label class="form-check-label" for="available">Available</label>
+									</div>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="not-vailable" name="seating"
+										value="not-vailable">
+									<div class="state-check">
+										<label class="form-check-label" for="not-vailable">Not Available</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group select-form">
 							<input type="hidden" name="cuisine" class="input-hidden-cuisine">
-							<button type="button" class="select-cuisines">
-							Pizza
+							<label class="form-group-label">Cuisines *</label>
+							<button type="button" class="select-btn cuisines">
+								Pizza
 							</button>
-							<i class="fa fa-caret-down" aria-hidden="true"></i>
+							<i class="fa fa-caret-down select-icon" aria-hidden="true"></i>
 							<div class="option-cuisines dropdown-menu">
-								<div class="select-item active">Pizza</div>
-								<div class="select-item">Cakes & Desserts</div>
-								<div class="select-item">Sushi</div>
-								<div class="select-item">Fast Food</div>
-								<div class="select-item">Fish</div>
-								<div class="select-item">Luch</div>
-								<div class="select-item">Coffee Cafe's</div>
-								<div class="select-item">Cheses Tika</div>
-								<div class="select-item">Samosa and Pakodas</div>
-								<div class="select-item">Drinks & Beer</div>
+								<div class="dropdown-menu-item active">Pizza</div>
+								<div class="dropdown-menu-item">Cakes & Desserts</div>
+								<div class="dropdown-menu-item">Sushi</div>
+								<div class="dropdown-menu-item">Fast Food</div>
+								<div class="dropdown-menu-item">Fish</div>
+								<div class="dropdown-menu-item">Luch</div>
+								<div class="dropdown-menu-item">Coffee Cafe's</div>
+								<div class="dropdown-menu-item">Cheses Tika</div>
+								<div class="dropdown-menu-item">Samosa and Pakodas</div>
+								<div class="dropdown-menu-item">Drinks & Beer</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="checkbox-title">Tags *</div>
+						<div class="form-group select-form">
 							<input type="hidden" name="tag" class="input-hidden-tag">
-							<button type="button" class="select-tags">
-							Breakfast
+							<label class="form-group-label">Tags *</label>
+							<button type="button" class="select-btn select-tags">
+								Breakfast
 							</button>
-							<i class="fa fa-caret-down" aria-hidden="true"></i>
+							<i class="fa fa-caret-down select-icon" aria-hidden="true"></i>
 							<div class="option-tags dropdown-menu">
-								<div class="select-item active">Breakfast</div>
-								<div class="select-item">Lunch</div>
-								<div class="select-item">Dinner</div>
-								<div class="select-item">Fast Food</div>
-								<div class="select-item">Non Veg</div>
-								<div class="select-item">Beer Bar</div>
+								<div class="dropdown-menu-item active">Breakfast</div>
+								<div class="dropdown-menu-item">Lunch</div>
+								<div class="dropdown-menu-item">Dinner</div>
+								<div class="dropdown-menu-item">Fast Food</div>
+								<div class="dropdown-menu-item">Non Veg</div>
+								<div class="dropdown-menu-item">Beer Bar</div>
 							</div>
 						</div>
 					</div>
 					<div class="information">
 						<h4>Payment</h4>
 						<div class="form-group">
-							<div class="checkboxTitle">
-								Payment method *
-							</div>
-							<div class="filter-radio">
-								<div class="radio-item">
-									<input type="radio" id="cash-only" name="payment" value="cash-only" checked>
-									<div class="state active">
-										<label for="cash-only">Cash Only</label>
+							<label class="form-group-label">Payment method *</label>
+							<div class="form-container-check">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="cash-only" name="payment"
+										value="cash-only" checked>
+									<div class="state-check active">
+										<label class="form-check-label" for="cash-only">Cash Only</label>
 									</div>
 								</div>
-								<div class="radio-item">
-									<input type="radio" id="cash-or-cards" name="payment" value="cash-or-cards">
-									<div class="state">
-										<label for="cash-or-cards">Cash/cards</label>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="cash-or-cards" name="payment"
+										value="cash-or-cards">
+									<div class="state-check">
+										<label class="form-check-label" for="cash-or-cards">Cash/cards</label>
 									</div>
 								</div>
 							</div>
@@ -417,29 +431,36 @@
 					</div>
 					<div class="information">
 						<div class="sb-add-restaurant">
-							<button type="submit" class="my-btn">Add Restaurant</button>
+							<button type="submit" class="btn btn-large">Add Restaurant</button>
 						</div>
 					</div>
 				</div>
 				<div class="col col-lg-5 col-md-4 col-12">
 					<div class="heading">
-						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620997069/systems/partner_with_us-2_taubqq.svg" alt>
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620997069/systems/partner_with_us-2_taubqq.svg"
+							alt>
 						<h1>How It Works</h1>
 					</div>
 					<div class="how-it-work">
-						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-1_yc7lwv.svg" alt="">
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-1_yc7lwv.svg"
+							alt="">
 						<h4>Fill Form</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis volutpat. Donec venenatis</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis
+							volutpat. Donec venenatis</p>
 					</div>
 					<div class="how-it-work">
-						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-2_f7nh7p.svg" alt="">
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-2_f7nh7p.svg"
+							alt="">
 						<h4>Send Information</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis volutpat. Donec venenatis</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis
+							volutpat. Donec venenatis</p>
 					</div>
 					<div class="how-it-work" style="margin-bottom: 5rem;">
-						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-3_qttlw6.svg" alt="">
+						<img src="https://res.cloudinary.com/food-odering/image/upload/v1620996152/systems/icon-3_qttlw6.svg"
+							alt="">
 						<h4>Verified Listing & Start Working With Natto</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis volutpat. Donec venenatis</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet leo id enim mollis
+							volutpat. Donec venenatis</p>
 					</div>
 				</div>
 			</div>

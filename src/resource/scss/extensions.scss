@@ -131,6 +131,7 @@ input::placeholder {
 			@include transition();
 			&:focus {
 				border-color: $clr-orange;
+				box-shadow: 0 0 0 0.063rem $clr-orange;
 			}
 		}
 		.icon-check {
@@ -178,7 +179,8 @@ input::placeholder {
 				display: block;
 			}
 			input,
-			textarea {
+			textarea,
+			.box {
 				box-shadow: 0 0 0.25rem 0.13rem $clr-success;
 				&:focus {
 					border-color: $clr-success;
@@ -237,6 +239,8 @@ input::placeholder {
 			background-color: $clr-white;
 			border: 1px solid $clr-border;
 			display: none;
+			max-height: 14.25rem;
+			overflow: auto;
 			position: absolute;
 			top: 4.125rem;
 			width: 100%;
