@@ -1,11 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Caveat|Open+Sans|Roboto&display=swap";
 @import "variable";
-* {
-	box-sizing: border-box;
-}
-body {
-	font-family: roboto, sans-serif;
-}
 a {
 	text-decoration: none;
 }
@@ -272,6 +265,9 @@ input::placeholder {
 	}
 	.search-form {
 		display: flex;
+		.form-control {
+			width: auto;
+		}
 		.search-form-item:first-child {
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
@@ -661,7 +657,7 @@ input::placeholder {
 		font-weight: bold;
 	}
 	p {
-		font-size: 0.875rem;
+		font-size: 1rem;
 		padding-top: 1.25rem;
 	}
 	.view-restaurants {
