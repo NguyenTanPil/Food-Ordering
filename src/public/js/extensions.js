@@ -256,3 +256,8 @@ function countStar(parent, numberStar) {
     container.push(`<span>${numberStar}.0</span>`);
     stars.innerHTML = container.join('');
 }
+
+// save input hidden
+function saveInputHidden(element, input) {
+    input.value = element.innerText.trim();
+}

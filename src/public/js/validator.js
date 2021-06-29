@@ -26,6 +26,12 @@ function Validator(formSelector) {
         isPassword(field, password) {
             return (/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/.test(password)) ? '' : `${field} has eight characters or longer. And it must contain 1 lowercase character, 1 uppercase character, 1 number, and at least one special character in this set (!@#$%^&*)`;
         },
+        isUrl(field, link) {
+            return (/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(link)) ? '' : `${field} is not valid`;
+        },
+        isPhoneNumber(field, phone) {
+            return (/^0[0-9]{9,10}$/.test(phone)) ? '' : `Phone number is not valid`;
+        },
         isBetween(min, max) {
             return (field, value) => {
                 return value.length < min || length > max ? `${field} must be between ${min} and ${max} characters` : '';
@@ -92,6 +98,14 @@ function Validator(formSelector) {
             } else {
                 isSuccess(formGroup);
             }
+            // handling if form group have label
+            const iconCheck = formGroup.querySelector('.icon-check');
+            if (iconCheck) {
+                const label = formGroup.querySelector('.form-group-label');
+                const heightLabel = label ? label.getBoundingClientRect().height + 8 : 0;
+                iconCheck.style.top = `${15 + heightLabel}px`;
+            }
+
             return !errorsMessages;
         }
 
@@ -125,13 +139,6 @@ function Validator(formSelector) {
             // remove success and add error class
             formGroup.classList.remove('success');
             formGroup.classList.add('error');
-            // set top of icon check
-            const iconCheck = formGroup.querySelector('.icon-check');
-            if (iconCheck) {
-                const label = formGroup.querySelector('.form-group-label');
-                const heightLabel = label ? label.getBoundingClientRect().height : 0;
-                iconCheck.style.top = `${23 + heightLabel}px`;
-            }
 
             // set hieght of nofitication message
             const nofitication = formGroup.querySelector('.nofitication');
@@ -144,7 +151,6 @@ function Validator(formSelector) {
         // handling submit form
         formElement.onsubmit = (e) => {
             let isValid = true;
-            e.preventDefault();
             for (let input of inputs) {
                 if (!handleValidateOnBlur({ currentTarget: input })) {
                     isValid = false;

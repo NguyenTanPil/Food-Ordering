@@ -24,7 +24,7 @@
 <!-- title bar ends -->
 <!-- add restaurant starts -->
 <section class="add-restaurant">
-	<form class="form-container" action="/user/restaurant/create-restaurant" method="POST">
+	<form class="form-container" id="form-add-restaurant" action="/user/restaurant/create-restaurant" method="POST">
 		<div class="container">
 			<div class="row">
 				<div class="col col-lg-6 col-md-8 col-12">
@@ -99,7 +99,7 @@
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="form-control" rules="isRequired" id="email" type="email" name="email"
+							<input class="form-control" rules="isRequired|isEmail" id="email" type="email" name="email"
 								placeholder="Enter your email">
 							<div class="nofitication">
 								<span></span>
@@ -111,7 +111,7 @@
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="form-control" rules="isRequired" id="phoneNumber" type="tel"
+							<input class="form-control" rules="isRequired|isPhoneNumber" id="phoneNumber" type="tel"
 								name="phoneNumber" placeholder="Owner / Manager Phone Number">
 							<div class="nofitication">
 								<span></span>
@@ -123,8 +123,8 @@
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="form-control" rules="isRequired" type="tel" name="phoneRestaurant"
-								id="phoneRestaurant" placeholder="Restaurant Phone Number">
+							<input class="form-control" rules="isRequired|isPhoneNumber" type="tel"
+								name="phoneRestaurant" id="phoneRestaurant" placeholder="Restaurant Phone Number">
 							<div class="nofitication">
 								<span></span>
 							</div>
@@ -135,7 +135,7 @@
 								<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
 								<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 							</div>
-							<input class="form-control" rules="isRequired" type="tel" name="website"
+							<input class="form-control" rules="isRequired|isUrl" type="tel" name="website"
 								id="websiteRestaurant" placeholder="Restaurant Wedsite">
 							<div class="nofitication">
 								<span></span>
@@ -221,8 +221,8 @@
 										<label class="form-check-label" for="select-all">All</label>
 									</div>
 								</div>
-								<input type="hidden" name="openHour" class="input-hidden-open">
-								<input type="hidden" name="closeHour" class="input-hidden-close">
+								<input type="hidden" name="openHour" id="input-hidden-open">
+								<input type="hidden" name="closeHour" id="input-hidden-close">
 							</div>
 						</div>
 						<div class="container" style="padding-left: 0;">
@@ -371,9 +371,9 @@
 							</div>
 						</div>
 						<div class="form-group select-form">
-							<input type="hidden" name="cuisine" class="input-hidden-cuisine">
+							<input type="hidden" name="cuisine" id="input-hidden-cuisines">
 							<label class="form-group-label">Cuisines *</label>
-							<button type="button" class="select-btn cuisines">
+							<button type="button" class="select-btn" id="cuisines">
 								Pizza
 							</button>
 							<i class="fa fa-caret-down select-icon" aria-hidden="true"></i>
@@ -391,9 +391,9 @@
 							</div>
 						</div>
 						<div class="form-group select-form">
-							<input type="hidden" name="tag" class="input-hidden-tag">
+							<input type="hidden" name="tag" id="input-hidden-tags">
 							<label class="form-group-label">Tags *</label>
-							<button type="button" class="select-btn select-tags">
+							<button type="button" class="select-btn" id="tags">
 								Breakfast
 							</button>
 							<i class="fa fa-caret-down select-icon" aria-hidden="true"></i>
