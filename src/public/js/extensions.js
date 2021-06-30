@@ -261,3 +261,55 @@ function countStar(parent, numberStar) {
 function saveInputHidden(element, input) {
     input.value = element.innerText.trim();
 }
+
+// nab tav
+const navTabs = Array.from(document.querySelectorAll('.nav-tab'));
+navTabs.forEach(navTab => {
+
+    const idNavContent = navTab.dataset.id;
+    const navContent = document.querySelector(idNavContent);
+    handleBtnNavTabClick(navTab, navContent);
+
+});
+
+// function handle change tab when click btn
+function handleBtnNavTabClick(navTab, navContent) {
+    const btns = Array.from(navTab.querySelectorAll('.nav-tab-btn'));
+
+    btns.forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+
+            // nav tab
+            removeActiveTabItem(navTab, '.nav-tab-btn');
+            activeTabItem(btn);
+
+            // tab content
+            const idTabPane = btn.dataset.id;
+            const tabPane = navContent.querySelector(idTabPane);
+            removeActiveTabItem(navContent, '.tab-pane');
+            activeTabItem(tabPane);
+        }
+    });
+}
+
+// function remove active nav items
+function removeActiveTabItem(navContainer, selector) {
+    const btn = navContainer.querySelector(selector + '.active');
+    btn.classList.remove('active');
+}
+
+// function active nav btn 
+function activeTabItem(element) {
+    element.classList.add('active');
+}
+
+// find parent element
+function findParentElement(element, selector) {
+    while (element.parentElement) {
+        if (element.parentElement.classList.contains(selector)) {
+            return element.parentElement
+        }
+        element = element.parentElement;
+    }
+}
