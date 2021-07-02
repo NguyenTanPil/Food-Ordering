@@ -1,12 +1,9 @@
 // side bar starts
-const navItem = document.querySelectorAll('.side-bar .nav-item a');
-const tabPane = document.querySelectorAll('.tab-content .tab-pane');
 const orderContainer = document.querySelector('#my-orders .table-body');
 const historyOrderContainer = document.querySelector('#orders-history .table-body');
 const restaurants = document.querySelector('.all-restaurants');
 const videos = document.querySelector('.gallery');
 
-showTabContent(navItem, tabPane);
 // fetch api
 const mealsUrl = '/user/api/order-meals';
 const restaurantsUrl = '/user/api/restaurants';
@@ -14,46 +11,19 @@ const videosUrl = '/user/api/videos';
 const userUrl = '/user/api/user-detail';
 start();
 
-// function
-function showTabContent(navItem, tabPane) {
-	navItem.forEach(nav => {
-		nav.onclick = (e) => {
-			e.preventDefault();
-			removeActiveNavTab(navItem);
-			removeActiveTabPane(tabPane);
-			const parentNav = e.currentTarget.parentElement;
-			const idTabPane = parentNav.dataset.id;
-			const showTabPane = document.querySelector('#' + idTabPane);
-			parentNav.classList.add('active');
-			showTabPane.parentElement.classList.add('active');
-		};
-	});
-}
-
-function removeActiveNavTab(navItem) {
-	navItem.forEach(nav => {
-		nav.parentElement.classList.remove('active');
-	});
-}
-
-function removeActiveTabPane(tabPane) {
-	tabPane.forEach(tab => {
-		tab.classList.remove('active');
-	});
-}
 // fetch api
 function deleteOrder(id) {
 	const options = {
 		method: 'PATCH',
 		headers: {
-	    'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify({
-	  	userDeleted: true
-	  }),
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			userDeleted: true
+		}),
 	};
 	fetch(`${mealsUrl}/${id}`, options)
-		.then(response =>  response.json())
+		.then(response => response.json())
 		.catch(err => console.log(err));
 	getOrderMeals(mealsUrl, renderOrderMeals);
 }
@@ -75,10 +45,10 @@ function getOrderMeals(url, callback) {
 function renderOrderMeals(orderMeals) {
 	let order = [], history = [];
 	orderMeals.forEach(meal => {
-		if(meal.completed == 'false') {
+		if (meal.completed == 'false') {
 			order.push(componentMeal(meal, 'tracing'));
-		} 
-		if(meal.completed == 'true' && meal.userDeleted == 'false') {
+		}
+		if (meal.completed == 'true' && meal.userDeleted == 'false') {
 			history.push(componentMeal(meal, 'finished'));
 		}
 	});
@@ -87,12 +57,10 @@ function renderOrderMeals(orderMeals) {
 }
 
 function componentMeal(meal, btn) {
-	let clickEvent = '';
-	let deleteOrder = '';
 	let actionBtn = '';
-	if(btn == 'finished') {
+	if (btn == 'finished') {
 		actionBtn = `
-			<button type="button" class="my-btn" onclick="deleteOrder('${meal._id}')">
+			<button type="button" class="btn" onclick="deleteOrder('${meal._id}')">
 				<i class="fa fa-trash" aria-hidden="true"></i>
 			</button>
 		`;
@@ -114,7 +82,7 @@ function componentMeal(meal, btn) {
 			</div>
 			<div class="td-content td-4">
 				<div class="action-btns">
-					<button type="button" class="my-btn ${btn}">${btn}
+					<button type="button" class="btn btn-${btn}">${btn}
 					</button>
 					${actionBtn}
 				</div>
@@ -181,22 +149,22 @@ function getUser(url, callback) {
 		.then(callback)
 		.catch(err => console.log(err));
 }
- 
+
 function renderUser(user) {
 	const background = document.querySelector('.profile-bg img');
 	const avartar = document.querySelector('.avt-name-local .avatar img');
 	const name = document.querySelector('.name-location .name');
 	const location = document.querySelector('.name-location .locationDet');
-	const nameAbout =  document.querySelector('.name-about');
-	const nameLocation =  document.querySelector('.about-location');
+	const nameAbout = document.querySelector('.name-about');
+	const nameLocation = document.querySelector('.about-location');
 	const phoneAbout = document.querySelector('.about-phone');
 	const emailAbout = document.querySelector('.about-email');
 	const descriptionAbout = document.querySelector('.about-description');
 
 	background.src = user.background;
 	avartar.src = user.avartar;
-	name.innerText =  user.name;
-	location.innerText =  user.location;
+	name.innerText = user.name;
+	location.innerText = user.location;
 	nameAbout.innerText = user.name;
 	nameLocation.innerText = user.location;
 	phoneAbout.innerText = user.phone;
