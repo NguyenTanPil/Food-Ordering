@@ -71,7 +71,11 @@ btnsOpenModal.forEach(btn => {
 });
 
 modals.forEach(modal => {
-    const btnClose = modal.querySelector('.btn-close-modal');
+    const iconClose = modal.querySelector('#close-modal-icon');
+    const btnClose = modal.querySelector('#close-modal-btn');
+    iconClose.onclick = () => {
+        modal.classList.remove('active');
+    };
     btnClose.onclick = () => {
         modal.classList.remove('active');
     };

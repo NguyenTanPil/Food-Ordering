@@ -61,165 +61,255 @@
 		<div class="row">
 			<div class="col col-12 col-md-4 col-lg-3">
 				<div class="side-bar">
-					<div class="nav-tab">
-						<div class="nav-item active" data-id="edit-profile">
-							<a href="#">Edit Profile</a>
+					<div class="nav-tab nav-tab-column" data-id="#tab-content-side-bar">
+						<div class="nav-item">
+							<button class="nav-tab-btn active" data-id="#edit-profile" type="button">Edit
+								Profile</button>
 						</div>
-						<div class="nav-item" data-id="change-password">
-							<a href="#">Change Password</a>
+						<div class="nav-item">
+							<button class="nav-tab-btn" type="button" data-id="#change-password">Change
+								Password</button>
 						</div>
-						<div class="nav-item" data-id="deactivate-account">
-							<a href="#">Deactivate Account</a>
+						<div class="nav-item">
+							<button class="nav-tab-btn" type="button" data-id="#deactivate-account">Deactivate
+								Account</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col col-12 col-md-8 col-lg-6">
-				<div class="tab-content">
-					<div class="tab-pane active">
-						<div id="edit-profile">
-							<div class="tab-pane-heading">
-								<h4>Edit Profile</h4>
-								<a href="/user">
-									<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
-								</a>
-							</div>
-							<div class="profile">
-								<form method="POST" action="/user/edit-profile-process?_method=PUT" enctype="multipart/form-data">
-									<div class="form-container">
-										<div class="edit-avartar">
-											<div class="avatar">
-												<label for="input-upload-avartar">Avatar</label>
-												<img alt="avartar">
-											</div>
-											<div class="upload-avartar">
-												<div class="form-group">
-													<label for="upload-avartar">Upload New Avatar *</label>
-													<div class="input-container">
-														<input class="input-upload-avartar" type="file" name="avartar" id="input-upload-avartar" placeholder="Enter your avatar">
-														<div class="copy-input">
-															<div class="browse-btn">
-																<button type="button" class="my-btn">Choose file</button>
-															</div>
-															<span class="info-btn">Upload a file</span>
-														</div>
-													</div>
+				<div class="nav-content" id="tab-content-side-bar">
+					<div class="tab-pane" id="edit-profile">
+						<div class="tab-pane-heading">
+							<h4>Edit Profile</h4>
+							<a href="/user">
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
+							</a>
+						</div>
+						<div class="profile">
+							<form id="form-edit-profile" method="POST" action="/user/edit-profile-process?_method=PUT"
+								enctype="multipart/form-data">
+								<div class="form-container">
+									<div class="edit-avartar">
+										<div class="avatar">
+											<label class="form-label-heading" for="input-upload-avartar">Avatar</label>
+											<img alt="avartar">
+										</div>
+										<div class="upload-avartar">
+											<div class="form-group overlay-file">
+												<label class="form-group-label" for="upload-avartar">Upload New Avatar
+													*</label>
+												<input class="form-control" rules="isRequired" type="file"
+													name="avartar" id="input-upload-avartar"
+													placeholder="Enter your avatar">
+												<div class="form-group search-form">
+													<button type="button"
+														class="btn btn-large btn-search search-form-item">Choose
+														file</button>
+													<div class="form-control search-form-item">Upload a file</div>
+												</div>
+												<div class="nofitication">
+													<span></span>
 												</div>
 											</div>
-										</div>
-										<div class="edit-background">
-											<div class="background">
-												<label for="input-upload-background">Background Image</label>
-												<img alt="background">
-											</div>
-											<div class="upload-avartar">
-												<div class="form-group">
-													<label for="upload-background">Upload Background Image *</label>
-													<div class="input-container">
-														<input class="input-upload-avartar" type="file" name="background" id="input-upload-background" placeholder="Enter your background">
-														<div class="copy-input">
-															<div class="browse-btn">
-																<button type="button" class="my-btn">Choose file</button>
-															</div>
-															<span class="info-btn">Upload a file</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group">
-											<label for="full-name">Full Name *</label>
-											<input class="field-input" type="text" name="name" id="full-name" placeholder="Nguyen Tan Pil">
-										</div>
-										<div class="form-group">
-											<label for="location-living">Where are you live? *</label>
-											<input class="field-input" type="search" name="location" id="location-living" placeholder="Can Tho">
-										</div>
-										<div class="form-group">
-											<label for="description-video">Description *</label>
-											<textarea class="textarea-form" name="description" id="description-video" placeholder="Enter your description"></textarea>
-										</div>
-										<div class="form-group">
-											<label for="email">Email *</label>
-											<input class="field-input" type="email" name="email" id="email" placeholder="pilnguyen@gmail.com">
-										</div>
-										<div class="form-group">
-											<label for="phone-number">Phone Number *</label>
-											<input class="field-input" type="tel" name="phone" id="phone-number" placeholder="+84 01234 567 789">
-										</div>
-										<div class="sends">
-											<input type="submit" class="my-btn" value="Upload Now">
 										</div>
 									</div>
-								</form>
-							</div>
+									<div class="edit-background">
+										<div class="background">
+											<label class="form-label-heading" for="input-upload-background">Background
+												Image</label>
+											<img alt="background">
+										</div>
+										<div class="upload-avartar">
+											<div class="form-group overlay-file">
+												<label class="form-group-label" for="upload-background">Upload
+													Background Image *</label>
+												<input class="form-control" rules="isRequired" type="file"
+													name="background" id="input-upload-background"
+													placeholder="Enter your background">
+												<div class="form-group search-form">
+													<button type="button"
+														class="btn btn-large btn-search search-form-item">Choose
+														file</button>
+													<div class="form-control search-form-item">Upload a file</div>
+												</div>
+												<div class="nofitication">
+													<span></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="form-group-label" for="full-name">Full Name *</label>
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+										</div>
+										<input class="form-control" rules="isRequired|isBetween:4:20" type="text"
+											name="name" id="full-name" placeholder="Nguyen Tan Pil">
+										<div class="nofitication">
+											<span></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="form-group-label" for="location-living">Where are you live?
+											*</label>
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+										</div>
+										<input class="form-control" rules="isRequired" type="search" name="location"
+											id="location-living" placeholder="Can Tho">
+										<div class="nofitication">
+											<span></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="form-group-label" for="description-video">Description *</label>
+										<textarea class="textarea-form form-control" rules="isRequired"
+											name="description" id="description-video"
+											placeholder="Enter your description"></textarea>
+										<div class="nofitication">
+											<span></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="form-group-label" for="email">Email *</label>
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+										</div>
+										<input class="form-control" rules="isRequired|isEmail" type="email" name="email"
+											id="email" placeholder="pilnguyen@gmail.com">
+										<div class="nofitication">
+											<span></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+										</div>
+										<label class="form-group-label" for="phone-number">Phone Number *</label>
+										<input class="form-control" rules="isRequired|isPhoneNumber" type="tel"
+											name="phone" id="phone-number" placeholder="+84 01234 567 789">
+										<div class="nofitication">
+											<span></span>
+										</div>
+									</div>
+									<div class="sends">
+										<input type="submit" class="btn btn-large" value="Upload Now">
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
-					<div class="tab-pane">
-						<div id="change-password">
-							<div class="tab-pane-heading">
-								<h4>Change Password</h4>
-								<a href="/user">
-									<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
-								</a>
-							</div>
-							<div class="profile">
-								<form method="POST" action="/user/change-password?_method=PUT">
-									<div class="form-container">
-										<div class="form-group">
-											<label for="old-password">Old Password *</label>
-											<input class="field-input" type="password" name="old-password" id="old-password" placeholder="Enter old password">
+					<div class="tab-pane" id="change-password">
+						<div class="tab-pane-heading">
+							<h4>Change Password</h4>
+							<a href="/user">
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
+							</a>
+						</div>
+						<div class="profile">
+							<form id="form-change-password" method="POST" action="/user/change-password?_method=PUT">
+								<div class="form-container">
+									<div class="form-group">
+										<label class="form-group-label" for="old-password">Old Password *</label>
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 										</div>
-										<div class="form-group">
-											<label for="new-password">New Password *</label>
-											<input class="field-input" type="password" name="new-password" id="new-password" placeholder="Enter new password">
-										</div>
-										<div class="form-group">
-											<label for="confirm-password">Confirm Password *</label>
-											<input class="field-input" type="password" name="confirm-password" id="confirm-password" placeholder="Enter confirm password">
-										</div>
-										<div class="sends">
-											<input type="submit" class="my-btn" value="Upload Now">
+										<input class="form-control" rules="isRequired|isPassword" type="password"
+											name="old-password" id="old-password" placeholder="Enter old password"
+											autocomplete>
+										<div class="nofitication">
+											<span></span>
 										</div>
 									</div>
-								</form>
-							</div>
+									<div class="form-group">
+										<label class="form-group-label" for="new-password">New Password *</label>
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+										</div>
+										<input class="form-control check-match-password" rules="isRequired|isPassword"
+											type="password" name="new-password" id="new-password"
+											placeholder="Enter new password" autocomplete>
+										<div class="nofitication">
+											<span></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="form-group-label" for="confirm-password">Confirm Password
+											*</label>
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
+										</div>
+										<input class="form-control" rules="isRequired|isMatch" type="password"
+											name="confirm-password" id="confirm-password"
+											placeholder="Enter confirm password" autocomplete>
+										<div class="nofitication">
+											<span></span>
+										</div>
+									</div>
+									<div class="sends">
+										<input type="submit" class="btn btn-large" value="Update Now">
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
-					<div class="tab-pane">
-						<div id="deactivate-account">
-							<div class="tab-pane-heading">
-								<h4>Deactivate Account</h4>
-								<a href="/user">
-									<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
-								</a>
-							</div>
-							<div class="profile">
-								<form method="POST" action="/user/delete-account?_method=DELETE">
-									<div class="form-container">
-										<div class="form-group">
-											<label for="delete-account">Your Password *</label>
-											<input class="field-input" type="password" name="delete-account" id="delete-account" placeholder="Enter your password">
+					<div class="tab-pane active" id="deactivate-account">
+						<div class="tab-pane-heading">
+							<h4>Deactivate Account</h4>
+							<a href="/user">
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Profile
+							</a>
+						</div>
+						<div class="profile">
+							<form id="form-deactivate-account" method="POST"
+								action="/user/delete-account?_method=DELETE">
+								<div class="form-container">
+									<div class="form-group">
+										<label class="form-group-label" for="delete-account">Your Password *</label>
+										<div class="icon-check">
+											<i class="fa fa-check-circle first-icon" aria-hidden="true"></i>
+											<i class="fa fa-exclamation-circle last-icon" aria-hidden="true"></i>
 										</div>
-										<div class="sends">
-											<input type="button" class="my-btn first-delelte" value="Upload Now">
+										<input class="form-control" rules="isRequired|isPassword" type="password"
+											name="delete-account" id="delete-account" placeholder="Enter your password"
+											autocomplete>
+										<div class="nofitication">
+											<span></span>
 										</div>
-										<div class="modal-confirm-remove-account">
-											<div class="message">
-												<div class="icon">
-													<i class="fa fa-times" aria-hidden="true"></i>
-												</div>
-												<h2>Are you sure?</h2>
-												<p>You won't be able to access this account</p>
-												<div class="btns-delete-account">
-													<button type="button" class="my-btn close-btn">Cancel</button>
-													<button type="submit" class="my-btn delete-btn">Delete</button>
-												</div>
+									</div>
+									<div class="sends">
+										<input type="button" class="btn btn-large btn-open-modal"
+											data-id="#confirm-delete-modal" value="Delete">
+									</div>
+									<div class="modal-container" id="confirm-delete-modal">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="title">
+													Are you sure?
+												</h5>
+												<button type="button" id="close-modal-icon" class="fa fa-times"
+													aria-hidden="true">
+												</button>
+											</div>
+											<div class="modal-body">
+												You won't be able to access this account!
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn" id="close-modal-btn">Cancel</button>
+												<button type="submit" class="btn" id="delete-btn">Delete</button>
 											</div>
 										</div>
 									</div>
-								</form>
-							</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -230,13 +320,15 @@
 						<h4>Natto Profile Link</h4>
 					</div>
 					<div class="link-detail">
-						<p>You can now register a short url to</p>
-						<p>your profile. e.g.</p>
-						<p>natto.com/username</p>
-						<form action="#">
+						<form class="form-container" action="#">
+							<p>You can now register a short url to</p>
+							<p>your profile. e.g.</p>
+							<p>natto.com/username</p>
 							<div class="form-group">
-								<label for="user-link">You can set your profile URL only once.</label>
-								<input type="text" class="field-input" name="user-link" id="user-link" placeholder="Natto.com/username">
+								<label class="form-group-label"="user-link">You can set your profile URL only
+									once.</label>
+								<input class="form-control" type="text" name="user-link" id="user-link"
+									placeholder="Natto.com/username">
 							</div>
 						</form>
 					</div>

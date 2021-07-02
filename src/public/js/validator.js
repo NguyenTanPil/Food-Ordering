@@ -38,7 +38,7 @@ function Validator(formSelector) {
             }
         },
         isMatch(field, value) {
-            const password = formElement.querySelector('#password');
+            const password = formElement.querySelector('.check-match-password');
             return password.value === value ? '' : 'Confirm password not match';
         }
     };
@@ -88,7 +88,7 @@ function Validator(formSelector) {
             let errorsMessages;
 
             rules.find((rule) => {
-                errorsMessages = rule(name, e.currentTarget.value);
+                errorsMessages = rule(name.replaceAll('-', ' '), e.currentTarget.value);
                 return errorsMessages;
             });
 

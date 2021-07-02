@@ -3,7 +3,6 @@
 const addTime = document.querySelector('#add-times');
 const addTimeBtn = addTime.querySelector('#add-time-btn');
 
-
 addTimeBtn.onclick = () => {
 	const days = addTime.querySelectorAll('[name="days[]"]');
 	const openHour = addTime.querySelector("#open-hour .select-btn");
