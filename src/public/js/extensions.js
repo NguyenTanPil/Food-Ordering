@@ -278,7 +278,12 @@ navTabs.forEach(navTab => {
 
 // function handle change tab when click btn
 function handleBtnNavTabClick(navTab, navContent) {
-    const btns = Array.from(navTab.querySelectorAll('.nav-tab-btn'));
+
+    // select direct child element
+    const navItems = Array.from(navTab.children);
+    let btns = navItems.map(btn => btn.querySelector('.nav-tab-btn'));
+    // remove elemet is null
+    btns = btns.filter(btn => btn != null);
 
     btns.forEach(btn => {
         btn.onclick = (e) => {
@@ -299,7 +304,13 @@ function handleBtnNavTabClick(navTab, navContent) {
 
 // function remove active nav items
 function removeActiveTabItem(navContainer, selector) {
-    const btn = navContainer.querySelector(selector + '.active');
+    let btn = navContainer.querySelector(selector + '.active');
+
+    // if nav content then git direct element
+    if (navContainer.classList.contains('nav-content')) {
+        const selectorNavContainer = `#${navContainer.id} > ${selector}.active`;
+        btn = navContainer.querySelector(selectorNavContainer);
+    }
     btn.classList.remove('active');
 }
 

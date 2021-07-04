@@ -188,13 +188,18 @@ input::placeholder {
 	.overlay-file {
 		> .form-control {
 			opacity: 0;
+			position: relative;
+			z-index: 2;
 		}
 		.form-group {
 			border-radius: 0.25rem;
 			margin-bottom: 0;
 			position: absolute;
 			top: 1.7rem;
-			z-index: -1;
+			z-index: 1;
+			&.none-label {
+				top: 0;
+			}
 		}
 	}
 	.form-container-check {
@@ -223,6 +228,12 @@ input::placeholder {
 			}
 		}
 	}
+	.textarea-form {
+		font-family: "Roboto", sans-serif;
+		max-width: 100%;
+		min-height: 6.25rem;
+		min-width: 100%;
+	}
 	.select-form {
 		.select-btn {
 			background-color: transparent;
@@ -233,16 +244,18 @@ input::placeholder {
 			font-size: 0.83rem;
 			font-weight: 400;
 			outline: none;
-			padding: 0.625rem 0.75rem;
+			padding: 0.825rem 1.5rem;
+			position: relative;
 			text-align: left;
 			width: 100%;
+			z-index: 2;
 		}
 		.select-icon {
 			color: $clr-text;
 			position: absolute;
 			right: 1rem;
-			top: 2.25rem;
-			z-index: -1;
+			top: 2.45rem;
+			z-index: 1;
 		}
 		.dropdown-menu {
 			background-color: $clr-white;
@@ -275,7 +288,7 @@ input::placeholder {
 		&.active {
 			.dropdown-menu {
 				display: block;
-				z-index: 1;
+				z-index: 3;
 			}
 		}
 	}
@@ -284,6 +297,10 @@ input::placeholder {
 		.form-control {
 			flex-grow: 1;
 			width: auto;
+		}
+		.search-form-item {
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 		.search-form-item:first-child {
 			border-top-right-radius: 0;
@@ -389,24 +406,29 @@ input::placeholder {
 .modal-container {
 	align-items: center;
 	background-color: rgba(0, 0, 0, 0.4);
+	bottom: 0;
+	box-sizing: border-box;
 	display: none;
-	height: 100vh;
+	min-height: 100%;
 	left: 0;
 	justify-content: center;
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: fixed;
+	right: 0;
 	transition: 0.2s ease-in-out;
 	top: 0;
-	width: 100vw;
+	width: 100%;
+	z-index: 1008;
 	.modal-content {
-		background-color: white;
+		background-color: $clr-white;
 		border: none;
 		border-radius: 0.25rem;
+		height: fit-content;
 		max-width: 100%;
 		padding: 1rem;
 		position: relative;
-		width: 60%;
+		width: 90%;
 		.modal-header {
 			display: flex;
 			justify-content: space-between;
@@ -737,7 +759,7 @@ input::placeholder {
 // nav tab
 .nav-tab {
 	display: flex;
-	flex-direction: row;
+	flex-wrap: wrap;
 	.nav-tab-btn {
 		@include transition();
 		background-color: $clr-white;
@@ -1201,6 +1223,14 @@ input::placeholder {
 	}
 	// recipe items end
 
+	// modal starts
+	.modal-container {
+		.modal-content {
+			width: 80%;
+		}
+	}
+	// modal ends
+
 	// timelines post starts
 	.timeline-posts {
 		.user-info {
@@ -1295,6 +1325,15 @@ input::placeholder {
 		}
 	}
 	// card ends
+
+	// modal starts
+	.modal-container {
+		.modal-content {
+			width: 70%;
+		}
+	}
+	// modal ends
+
 	// title bar starts
 	.title-bar {
 		.left-title-text,
@@ -1324,6 +1363,14 @@ input::placeholder {
 		}
 	}
 	// recipe items ends
+
+	// modal starts
+	.modal-container {
+		.modal-content {
+			width: 60%;
+		}
+	}
+	// modal ends
 
 	// over restaurants starts
 	.over-restaurants {

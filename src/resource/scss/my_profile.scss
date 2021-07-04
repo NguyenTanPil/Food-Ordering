@@ -1,109 +1,5 @@
 @import "variable";
 
-//my accout starts
-.profile-bg {
-	> img {
-		display: block;
-		object-fit: cover;
-		max-height: 25rem;
-		min-height: 7.5rem;
-		width: 100%;
-	}
-	.profile-top-details {
-		background-color: $bg-title;
-	}
-	.row {
-		align-items: center;
-		justify-content: space-between;
-	}
-	.avt-name-local {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		min-width: 15rem;
-		padding: 0 0.75rem;
-		position: relative;
-		.avatar {
-			position: absolute;
-			bottom: 0;
-			img {
-				clip-path: circle();
-				display: block;
-				height: 6rem;
-				width: 6rem;
-			}
-		}
-		.name-location {
-			margin-left: 7rem;
-			padding: 0.5rem 0;
-			h2 {
-				color: $clr-black;
-				cursor: pointer;
-				font-size: 1.25rem;
-				font-weight: 600;
-				line-height: 1.25rem;
-				margin-bottom: 0.5rem;
-			}
-			p {
-				color: $clr-text;
-				font-size: 0.75rem;
-				font-weight: 400;
-				span {
-					color: $clr-orange;
-					line-height: 1.5rem;
-					margin-right: 0.25rem;
-				}
-			}
-		}
-	}
-	.go-to-setting {
-		align-items: center;
-		display: flex;
-		height: 100%;
-		justify-content: flex-end;
-		margin-left: auto;
-		padding: 0.75rem 0.75rem;
-		.btn {
-			border-radius: 0;
-		}
-	}
-}
-//my accout ends
-
-// all profile details
-.all-profile-details {
-	margin-top: 4rem;
-	margin-bottom: 4rem;
-	.side-bar {
-		margin-bottom: 2rem;
-	}
-	.tab-pane {
-		> div {
-			h4 {
-				font-size: 1.25rem;
-				font-weight: 600;
-			}
-		}
-	}
-	#about,
-	#restaurants {
-		> div:first-child {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			a {
-				color: $clr-orange;
-				font-size: 1rem;
-				font-weight: 400;
-				line-height: 1.5rem;
-				i {
-					margin-right: 0.25rem;
-				}
-			}
-		}
-	}
-}
-
 //timeline
 #timeline {
 	.timeline-posts {
@@ -254,29 +150,33 @@
 }
 
 //my video
+.gallery {
+	border: 1px solid $clr-border;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -0.5rem;
+	padding-bottom: 1rem;
+	margin-top: 1.5rem;
+	padding: 1.25rem;
+	.gallery-item {
+		overflow: hidden;
+		padding: 0.5rem;
+		position: relative;
+		text-align: center;
+		width: calc(100% / 2);
+		img {
+			box-shadow: 0 0 0.25rem 0.125rem $clr-orange;
+			border-radius: 0.25rem;
+			display: block;
+			height: 7.125rem;
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+}
 #my-videos {
 	.gallery {
-		border: 1px solid $clr-border;
-		display: flex;
-		flex-wrap: wrap;
-		margin: 0 -0.5rem;
-		padding-bottom: 1rem;
-		margin-top: 1.5rem;
-		padding: 1.25rem;
 		.gallery-item {
-			overflow: hidden;
-			padding: 0.5rem;
-			position: relative;
-			text-align: center;
-			width: calc(100% / 2);
-			img {
-				box-shadow: 0 0 0.25rem 0.125rem $clr-orange;
-				border-radius: 0.25rem;
-				display: block;
-				height: 9.125rem;
-				object-fit: cover;
-				width: 100%;
-			}
 			a {
 				@include transition();
 				left: 50%;
@@ -397,26 +297,14 @@
 //---------------------------------------------------------------------------------
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-	//my account starts
-	.profile-bg {
-		.avt-name-local {
-			.avatar {
-				img {
-					height: 10rem;
-					width: 10rem;
-				}
-			}
-			.name-location {
-				margin-left: 11.5rem;
-				padding: 0.875rem 0;
+	// my videos starts
+	.gallery {
+		.gallery-item {
+			width: calc(100% / 3);
+			img {
+				height: 9.125rem;
 			}
 		}
-	}
-	//my account ends
-
-	// my videos starts
-	#my-videos .gallery .gallery-item {
-		width: calc(100% / 3);
 	}
 	// my videos ends
 
@@ -436,20 +324,6 @@
 }
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-	//my account starts
-	.profile-bg {
-		.avt-name-local {
-			.name-location {
-				h2 {
-					font-size: 1.375rem;
-				}
-				p {
-					font-size: 0.875rem;
-				}
-			}
-		}
-	}
-	//my account ends
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
@@ -472,29 +346,6 @@
 }
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-	//my account starts
-	.profile-bg {
-		.avt-name-local {
-			.avatar {
-				img {
-					height: 13.75rem;
-					width: 13.75rem;
-				}
-			}
-			.name-location {
-				margin-left: 15.75rem;
-				padding: 1.5rem 0;
-				h2 {
-					font-size: 1.5rem;
-				}
-				p {
-					padding-top: 0.5rem;
-				}
-			}
-		}
-	}
-	//my account ends
-
 	// list photos starts
 	.list-photos {
 		.pf-gallery {
